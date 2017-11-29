@@ -1,17 +1,23 @@
 ---
 layout: post
-title: HPC3 - Accessing system resources
+title: Kupe - getting access
 ---
 
-You will learn how to set your password initially and how to log in to Kupe. 
+You will learn how to set up your account on Kupe and how to log in onto the machine. 
 
-### Logging in for the first time
+### Setting up account on Kupe
 
-If you are logging in for the first time to Kupe, you will need to set up your password using [NeSI User Portal: https://projects.nesi.org.nz/ssp/](https://projects.nesi.org.nz/ssp/).
+If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to log in to NeSI user portal. This populates NeSI database with your basic account information which will be used to set up your account.
 
-1. Log in to the NeSI User Portal using your institutional credentials via Tuakiri.
-2. Click on "Account" link in the top-right corner.
-3. Set password for Kupe (HPC3).
+1. Access [My NeSI  Portal](https://my.nesi.org.nz) via your browser.
+2. Log in using your institutional credentials via Tuakiri. See example below for logging in with NIWA credentials.
+3. After successful login, you should see a screen similar to the one below.
+4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
+
+**Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your information on our database did not match your Tuakiri identity. Please see the bottom of the page for troubleshooting section and contact Aaron and Jun at aaron.hicks@nesi.org.nz and jun.huh@nesi.org.nz, and provide us with your name and e-mail address and we will fix your account.
+
+5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
+
 
 Connecting to the HPC requires two-factor authentication at all times, your password, and an additional factor. These additional factors can be:
 - A keycode provided by an external generator (e.g., via smartphone app)
@@ -26,9 +32,21 @@ You will need a terminal program to log into Kupe:
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app
 
-#### Logging in to the lander node
+Using a terminal program and SSH into lander.nesi.org.nz using the Kupe linux username displayed on the portal and the temporary password above. (Any Kupe node can be used with ssh for the password reset, but only the lander node is accessible to external users.)
+
+When you log in using your temporary password, the lander node will ask you to change your password immediately. Please follow the instruction on the shell.
+
+Important: Continue from here only if you are outside NIWA. If you are connecting from inside the NIWA network or have NIWA VPN, your account is all ready to go. You can connect directly to the login node at login.kupe.niwa.co.nz.
+
+#### Logging in from outside of NIWA computer network
 
 Note: You can skip this section if you log on from inside the NIWA network.
+
+Go back to My NeSI portal and click on Accounts or refresh the page and you will see a new option to ‘Link your mobile device’
+Clicking on link your mobile device will prepare your 2nd factor login so that you can log in to our lander node from outside of the NIWA network.
+
+Step 6) After clicking on ‘Link your mobile device’ you will be instructed to prepare your mobile device before proceeding.
+
 
 1. Open the terminal program on your local machine and connect using `ssh`:
 ```
