@@ -1,15 +1,12 @@
-### Logging in for the first time
+### Getting an account on NeSI
 
-If you are logging in for the first time onto HPC3, you will need to set up your password using [NeSI User Portal](https://my.nesi.org.nz/accounts).
+If you don't have an account, we will be able to create one for you but first we will ask you to provide us with some information.
 
-1. Log into the NeSi User Portal using your institutional credentials via Tuakiri.
-2. Select "My account" tab.
-3. Set password for Kupe (HPC3).
+1. Fill in the [Researcher's Profile form](https://www.nesi.org.nz/user/register)
+2. On the NeSI website select "Apply for access" and then "Proposal development"
+3. You will be asked to log in - you should be able to do so using Tuakiri.
+4. Fill in the form for "Proposal development" providing as much detail as you can. If you are unsure about some parts, don't worry - we will help you. Just fill in the sections.
 
-If you are connecting within the NIWA network, you will be able to access Kupe (HPC3) diretcly via SSH (see details below). However, if you are connecting to Kupe from outside of NIWA network (which will be the case for all non-NIWA users), you need to set up Google Authenticator which NeSI uses for the two-factor authentication system. You can do that via NeSI User Portal:
-
-4. Click "Link mobile device"
-5. This will open instructions for setting up Google Authenticator. Note that you will need to have a smartphone for this. If you do not have a smartphone, you can use [GAuth add-on](https://chrome.google.com/webstore/detail/ilgcnhelpchnceeipipijaljkblbcobl) for Chrome browser.
 
 ### Connecting via SSH
 
