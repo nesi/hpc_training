@@ -1,3 +1,5 @@
+Please note that these instructions are for NeSI Pan cluster.
+
 ### Getting an account on NeSI
 
 If you don't have an account, we will be able to create one for you but first we will ask you to provide us with some information.
