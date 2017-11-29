@@ -2,8 +2,15 @@
 ### Working with R packages
 Detailed NeSI [documentation on working with R packages](https://support.nesi.org.nz/hc/en-gb/articles/209338087-R#dealing-with-packages)
 
+Tom Kelly (The University of Otago PhD graduate) [developed a number of scripts and examples](https://github.com/TomKellyGenetics/install.nesi) on how to install R packages on NeSI.
+
 ### Working with Python packages
 Detailed NeSI [documentation on working with Python packages](https://support.nesi.org.nz/hc/en-gb/articles/207782537-Python#third-party-modules)
+
+
+### Example of installing a custom R package
+
+
 
 ```
 > install.packages("tidyverse")
