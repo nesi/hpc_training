@@ -101,13 +101,24 @@ module swap PrgEnv-cray PrgEnv-gnu
 ftn -Wall -O3 -o simpleMpi simpleMpi.f90
 ```
 
+#### Adding debug information
+
+To debug code you should add ```-g``` to the compiler options (all programming environments and compilers). This will add debug information to the executables and/or library you are building.  You can mix optimisation with ```-g```, i.e. ```-O2 -g```i although adding ```-O2``` might prevent you from diving into loops.
+
+
 #### Optimisation options
 
-Following are a few options that can potentially improve the speed of your executable:
+Following are a few options that can potentially improve the speed of your executablei (same options for ftn, CC and cc):
 
  * PrgEnv-gnu: ```-O3 -ffast-math -funroll-loops```
  * PrgEnv-cray: ```-O3 -hfp3```
  * PrgEnv-intel: ```-O3 -ipo```
+
+#### Vectorisation report options
+
+ * PrgEnv-gnu: ```-fopt-info-vec``` or ```-fopt-info-missed```
+ * PrgEnv-cray: ```-hlist=m```
+ * PrgEnv-intel: ```-opt-vec```
 
 To see the compiler options that are specific to a compiler, type
 ```
