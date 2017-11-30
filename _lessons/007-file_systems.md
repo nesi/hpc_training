@@ -1,32 +1,47 @@
 ---
 layout: post
-title: HPC3 File and directory structure, and their use
+title: Kupe file and directory structure, and their use
 ---
 
-You will learn where to run and where to store your data.
+## Kupe file and directory structure
 
-### NeSI and NIWA research users
+#### NeSI and NIWA research users
 
-It is important to use the file structure according to its purpose to get best performance while ensuring that important data are not lost. 
+Kupe provides users with the following filesystems
 
-| File Space | Backed Up | IO Bandwidth | Total Capacity        | Access   | Quota | Usage                                                    |
-|------------|:---------:|:------------:|:---------------------:|:--------:|:-----:|----------------------------------------------------------|
-| Home       | Yes       | Low          | Low (50 TB)           | Personal | Yes   | Documentation, source code packages, …                   |
-| Project    | Yes       | Low          | Medium (300 TB)       | Group    | Yes   | Analysis results, source code, file sharing, ...         |
-| Nobackup   | No        | High         | Large (2500 TB)       | Group    | Yes   | Raw model output - **old files may be "spring cleaned"** |
-| Nearline   | HSM<sup>*</sup> | Very Low     | Huge (600 TB + 30 PB) | Group    | Yes   | Staging file system for tape archival of research output, no direct access |
+| File Space | Backed Up | Maximum
+# 0
+ I/O Bandwidth(GB/s) | Total Capacity | Access | Quota | Usage |
+| --- | --- | --- | --- | --- | --- | --- |
+| /home | Y | 15 | 100 TB | Personal | Y | Source code, control data, documentation etc. |
+| /project | Y | 500 TB | Group | Y | Critical data (time enduring), Data collections, shared reference data, source code, shared data etc. |
+| /nobackup
+# 1
+ | N | 70 | 2500 TB | Group | Y | Where most output should be read / written – the highest performance filesystem. Actively managed to remove unused data. |
+| /nearline | HSM
+# 2
+ | 15 | 400 TB cache to ~50PB tape storage | N/A | Y | Data cache for HSM. Holds the records of all data written to tape via the librarian
+# 3
+ Service. |
 
-\* HSM is the Hierarchical Storage Manager that writes data to the tape archive
+# 0
+The total I/O bandwidth to disk is 70 GB/s, but this is spread across all five filesystems on the Kupe storage. However, the storage has been configured so as to provide the highest bandwidth to the nobackup filesystem. All user filesystems also include an additional SSD resource that can be used to optimise jobs that have random I/O access patterns.
 
-There may be a spring cleaning mechanism on the "Nobackup" file system that deletes old files when space runs low. This gives users the flexibility to quickly access large amounts of space when needed. Details of the "spring cleaning" mechanism, such as deletion criteria and warning messages for users are currently being discussed.
+# 1
+The &quot;nobackup&quot; filesystem is the scratch filesystem, and provides the highest performance and the largest space. This is where you should do most of your work. Similarly, big analysis jobs would run in this filesystem – perhaps following the recovery of large volumes of data from the nearline filesystem.  This space will be actively managed (by a process yet to be agreed, and advised). Files will routinely be deleted to maintain large amounts of free space needed to support the envisioned workflows. Critical, actively used data that you wish to retain should be stored in either the /project or /nearline filesystems
 
-### NIWA operational users
+# 2
+HSM means Hierarchical Storage Management. Large datasets not currently required should be moved to /nearline. Two copies of these datasets will be held, one in Auckland and one in Wellington.
 
-The file structure is completely separate to ensure performance and reliability, research users will not have access to it.
+# 3
+User&#39;s will employ a &quot;librarian&quot; service to query the data they have stored on /nearline, to &quot;put&quot; data into /nearline and to &quot;get&quot; data from /nearline. All FitzRoy HSM data will be available on Kupe once the librarian service is available. In the interim, if users need to recover FitzRoy nearline data, they should enter a support ticket.
+## NIWA Research and Operational users
 
-| File Space | Total Capacity |
-|------------|---------------:|
-| devel      | 50 TB          |
-| test       | 200 TB         |
-| archive    | 100 TB         |
-| oper       | 400 TB         |
+The following file systems used solely by NIWA:
+
+| File Space | Backed Up | Maximum I/O Bandwidth(GB/s) | Total Capacity(TB) | Access | Quota | Usage |
+| --- | --- | --- | --- | --- | --- | --- |
+| /devel | Y | 35 | 50 | Group | Y | Science development |
+| /test | Y | 400 | Group | Y | Parallel Testing of forecast system science |
+| /archive | Y | 20 | Group | Y | Rolling archive of forecast system outputs and restart files |
+| /oper | Y | 35 | 600 | Group | Y | Operational forecast system |
