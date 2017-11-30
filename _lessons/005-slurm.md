@@ -41,7 +41,7 @@ SLURM works like any other scheduler - you can submit jobs to a queue, and SLURM
 sbatch -A <project_code> -t 10 --wrap "echo hello world"
 sbatch --account <project_code> --time 10 --wrap "echo hello world"
 ```
-These two variants of the command are equivalent - SLURM offers short and long versions of many options (although there is no short form of `--warp`. The option `-t` or `--time` sets a limit on the total run time of the job allocation. Note that each partition on which the jobs are run has its own time limit. If the set time limit exceeds the limit for the partition, the job will become "PENDING" (for more information on job statuses, see below). The `--wrap` option means that the following string (in "") will be turned into a simple shell script by SLURM.
+These two variants of the command are equivalent - SLURM offers short and long versions of many options (although there is no short form of `--wrap`. The option `-t` or `--time` sets a limit on the total run time of the job allocation. Note that each partition on which the jobs are run has its own time limit. If the set time limit exceeds the limit for the partition, the job will become "PENDING" (for more information on job statuses, see below). The `--wrap` option means that the following string (in "") will be turned into a simple shell script by SLURM.
 
 You should now find an output file named `slurm-<job ID>.out` that contains stdout captured by SLURM, so it should have the phrase `hello world` in it.
 

@@ -81,6 +81,7 @@ Once you have landed on the lander node, type the following command to log in to
 The login node will ask you for a password. If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. Our platforms team is working on a fix, because the login node should not require your 2nd factor token.
 
 
+
 #### Shells
 
 Your login shell is ```bash```. Other shells (```ksh```, ```tcsh``` and ```csh```) are also installed and can be invoked.
@@ -93,3 +94,29 @@ If your account is not ready, you may see:
 
 If your project is not set up, you may see:
 ![logging-in](../assets/img/no_project.png)
+
+**Please do not create or modify any files or directories in your home directory or in any of the directories that were migrated from FitzRoy - synchronisation between FitzRoy and Kupe is still ongoing, and modified files on Kupe will be overwritten!**
+
+#### Copying files via the login node
+
+The lander node filestem is distinct from the Kupe filesystem, and so copying a file from your desktop to Kupe is by default a two-step process.  This inconvenience can be avoided by setting up an SSH config file such as:
+```
+Host kupe01
+   User your_username
+   Hostname kupe01
+   ProxyCommand ssh -W %h:%p lander.nesi.org.nz
+```
+With that configured, `ssh kupe01` should take you there directly, jumping across the lander node on the way.
+
+There is also the problem of having to use both authentication factors every time you use `scp`.  The following method allows passwordless `scp` while you have an `ssh` session open, but it does bring some complications and so is not reccomended unless you often use `scp`.  First create the directory `~/.ssh/sockets` on your machine, and then set up your `~/.ssh/config` with:
+```
+ControlPath ~/.ssh/sockets/%r@%h:%p
+Host kupe01
+   User your_username
+   Hostname kupe01
+   ProxyCommand ssh -W %h:%p lander.nesi.org.nz
+   ControlMaster auto
+   ControlPersist 1
+```
+
+For full details see https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Multiplexing
