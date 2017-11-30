@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Kupe Slurm Queues and Partitions
+title: Kupe Job Prioritisation
 ---
 
 
 ## Cray XC50
 
-The following Slurm queues are set up on Kupe
+The following Job Prioritisation is set up on Kupe
 
 | Queue | Job Limit| | User Limit ||
 | --- | --- | --- |---| ---|
