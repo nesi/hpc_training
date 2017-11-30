@@ -103,7 +103,7 @@ ftn -Wall -O3 -o simpleMpi simpleMpi.f90
 
 #### Optimisation options
 
-The following are a few options that can potentially improve the speed of your executable:
+Following are a few options that can potentially improve the speed of your executable:
 
  * PrgEnv-gnu: ```-O3 -ffast-math -funroll-loops```
  * PrgEnv-cray: ```-O3 -hfp3```
