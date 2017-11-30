@@ -12,7 +12,7 @@ Kupe provides users with the following filesystems
 | File Space | Backed Up | Maximum <sup>[0](#0)</sup> I/O Bandwidth(GB/s) | Total Capacity | Access | Quota | Usage |
 | --- | --- | --- | --- | --- | --- | --- |
 | /home | Y | 15 | 100 TB | Personal | Y | Source code, control data, documentation etc. |
-| /project | Y | 500 TB | Group | Y | Critical data (time enduring), Data collections, shared reference data, source code, shared data etc. |
+| /project | Y | 15 | 500 TB | Group | Y | Critical data (time enduring), Data collections, shared reference data, source code, shared data etc. |
 | /nobackup<sup>[1](#1)</sup>| N | 70 | 2500 TB | Group | Y | Where most output should be read / written – the highest performance filesystem. Actively managed to remove unused data. |
 | /nearline | HSM<sup>[2](#2)</sup> | 15 | 400 TB cache to ~50PB tape storage | N/A | Y | Data cache for HSM. Holds the records of all data written to tape via the librarian<sup>[3](#3)</sup> Service. |
 
@@ -34,6 +34,6 @@ The following file systems used solely by NIWA:
 | File Space | Backed Up | Maximum I/O Bandwidth(GB/s) | Total Capacity(TB) | Access | Quota | Usage |
 | --- | --- | --- | --- | --- | --- | --- |
 | /devel | Y | 35 | 50 | Group | Y | Science development |
-| /test | Y | 400 | Group | Y | Parallel Testing of forecast system science |
-| /archive | Y | 20 | Group | Y | Rolling archive of forecast system outputs and restart files |
+| /test | Y | 35 | 400 | Group | Y | Parallel Testing of forecast system science |
+| /archive | Y | 35 | 20 | Group | Y | Rolling archive of forecast system outputs and restart files |
 | /oper | Y | 35 | 600 | Group | Y | Operational forecast system |
