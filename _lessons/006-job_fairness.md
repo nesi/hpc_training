@@ -9,8 +9,8 @@ title: Kupe Slurm Queues and Partitions
 The following Slurm queues are set up on Kupe
 
 | Queue | Job Limit| | User Limit ||
-| --- | --- | --- |
-|| Node | Wall Time | Node | Job |
+| --- | --- | --- |---| ---|
+| | Node | Wall Time | Node | Job |
 | NeSI\_Merit\_research | 24 | 96:00 | 24 | 5 |
 | NeSI\_Subscription |  24 | 96:00 | 24 | 5 |
 | NeSI\_Post\_graduate |  24 | 96:00 | 24 | 5 |
