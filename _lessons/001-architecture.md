@@ -9,13 +9,13 @@ You will learn about Kupe's architecture and how it differs from FitzRoy in term
 
 NeSI has acquired three new supercomputing platforms:
 
-* Mahuika (HPC1). Capacity supercomputer Cray CS400
+* Mahuika (HPC1). Capacity High Performance Computer Cray CS400
 
-* Maui (HPC2). Capability supercomputer Cray XC50
+* Maui (HPC2). Capability Supercomputer Cray XC50
 
-* Kupe (HPC3). Smaller version of maui. Will serve as transition platform as we migrate users from FitzRoy to Maui and Mahuika. 
+* Kupe (HPC3). Smaller version of Maui. Will serve as transition platform as we migrate users from FitzRoy to Maui and Mahuika. 
 
-FitzRoy will be decommissioned in November 2017. Users are expected to switch over from FitzRoy to Kupe shortly before. (More information will be provided.)
+FitzRoy will be decommissioned in December 2017. Users are expected to switch over from FitzRoy to Kupe shortly before. (More information will be provided.)
 
 ## Kupe Architecture
 
