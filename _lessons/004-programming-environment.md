@@ -103,7 +103,7 @@ ftn -Wall -O3 -o simpleMpi simpleMpi.f90
 
 #### Adding debug information
 
-To debug code you should add ```-g``` to the compiler options (all programming environments and compilers). This will add debug information to the executables and/or library you are building.  You can mix optimisation with ```-g```, i.e. ```-O2 -g``` although adding ```-O2``` might prevent you from diving into loops.
+To debug code you should add ```-g``` to the compiler options (all programming environments and compilers). This will add debug information to the executables and/or library you are building.  You can mix optimisation with ```-g```, i.e. ```-O2 -g``` although adding ```-O2``` might prevent the debugger from diving into loops.
 
 
 #### Optimisation options
