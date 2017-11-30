@@ -9,32 +9,24 @@ title: Kupe file and directory structure, and their use
 
 Kupe provides users with the following filesystems
 
-| File Space | Backed Up | Maximum
-# 0
- I/O Bandwidth(GB/s) | Total Capacity | Access | Quota | Usage |
+| File Space | Backed Up | Maximum <sup>[0](#0)</sup> I/O Bandwidth(GB/s) | Total Capacity | Access | Quota | Usage |
 | --- | --- | --- | --- | --- | --- | --- |
 | /home | Y | 15 | 100 TB | Personal | Y | Source code, control data, documentation etc. |
 | /project | Y | 500 TB | Group | Y | Critical data (time enduring), Data collections, shared reference data, source code, shared data etc. |
-| /nobackup
-# 1
- | N | 70 | 2500 TB | Group | Y | Where most output should be read / written – the highest performance filesystem. Actively managed to remove unused data. |
-| /nearline | HSM
-# 2
- | 15 | 400 TB cache to ~50PB tape storage | N/A | Y | Data cache for HSM. Holds the records of all data written to tape via the librarian
-# 3
- Service. |
+| /nobackup<sup>[1](#1)</sup>| N | 70 | 2500 TB | Group | Y | Where most output should be read / written – the highest performance filesystem. Actively managed to remove unused data. |
+| /nearline | HSM<sup>[2](#2)</sup> | 15 | 400 TB cache to ~50PB tape storage | N/A | Y | Data cache for HSM. Holds the records of all data written to tape via the librarian<sup>[3](#3)</sup> Service. |
 
-# 0
-The total I/O bandwidth to disk is 70 GB/s, but this is spread across all five filesystems on the Kupe storage. However, the storage has been configured so as to provide the highest bandwidth to the nobackup filesystem. All user filesystems also include an additional SSD resource that can be used to optimise jobs that have random I/O access patterns.
+<a name="0">[0]The total I/O bandwidth to disk is 70 GB/s, but this is spread across all five filesystems on the Kupe storage. However, the storage has been configured so as to provide the highest bandwidth to the nobackup filesystem. All user filesystems also include an additional SSD resource that can be used to optimise jobs that have random I/O access patterns.</a>
 
-# 1
-The &quot;nobackup&quot; filesystem is the scratch filesystem, and provides the highest performance and the largest space. This is where you should do most of your work. Similarly, big analysis jobs would run in this filesystem – perhaps following the recovery of large volumes of data from the nearline filesystem.  This space will be actively managed (by a process yet to be agreed, and advised). Files will routinely be deleted to maintain large amounts of free space needed to support the envisioned workflows. Critical, actively used data that you wish to retain should be stored in either the /project or /nearline filesystems
+<a name="1"> [1]
+The &quot;nobackup&quot; filesystem is the scratch filesystem, and provides the highest performance and the largest space. This is where you should do most of your work. Similarly, big analysis jobs would run in this filesystem – perhaps following the recovery of large volumes of data from the nearline filesystem.  This space will be actively managed (by a process yet to be agreed, and advised). Files will routinely be deleted to maintain large amounts of free space needed to support the envisioned workflows. Critical, actively used data that you wish to retain should be stored in either the /project or /nearline filesystems. </a>
 
-# 2
-HSM means Hierarchical Storage Management. Large datasets not currently required should be moved to /nearline. Two copies of these datasets will be held, one in Auckland and one in Wellington.
+<a name="2">[2]
+HSM means Hierarchical Storage Management. Large datasets not currently required should be moved to /nearline. Two copies of these datasets will be held, one in Auckland and one in Wellington.</a>
 
-# 3
-User&#39;s will employ a &quot;librarian&quot; service to query the data they have stored on /nearline, to &quot;put&quot; data into /nearline and to &quot;get&quot; data from /nearline. All FitzRoy HSM data will be available on Kupe once the librarian service is available. In the interim, if users need to recover FitzRoy nearline data, they should enter a support ticket.
+<a name="3">[3]
+User&#39;s will employ a &quot;librarian&quot; service to query the data they have stored on /nearline, to &quot;put&quot; data into /nearline and to &quot;get&quot; data from /nearline. All FitzRoy HSM data will be available on Kupe once the librarian service is available. In the interim, if users need to recover FitzRoy nearline data, they should enter a support ticket.</a>
+
 ## NIWA Research and Operational users
 
 The following file systems used solely by NIWA:
