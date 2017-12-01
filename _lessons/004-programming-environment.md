@@ -226,4 +226,4 @@ This should result in the message `not a dynamic executable`. Static linking is 
 cc -o gsl_statistics_example gsl_statistics_example.c -lgsl -dynamic
 ldd gsl_statistics_example
 ```
-You should now see a number of libraries that are dynamically linked. Note that not all libraries are available as both static and dyamic libraries - in this case, the linker will simple use what it can get.
+You should now see a number of libraries that are dynamically linked. Note that not all libraries are available as both static and dynamic libraries - in this case, the linker will simple use what it can get.
