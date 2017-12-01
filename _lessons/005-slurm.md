@@ -23,10 +23,9 @@ Jobs in the Slurm queue have a priority which depends on several factors includi
 
 Slurm does not deliberately delay large jobs in favor of smaller low-priority jobs, but it does employ a backfill algorithm which searches the queue for jobs which are small enough that they can start and run to completion before the resources necessary to start any higher priority jobs are expected to become available. This increases overall utilization but changes the order of job starts from being strictly priority based to being a function of the workload and the job size.  With the backfill scheduler smaller jobs have a higher velocity through the queue than larger jobs, all other things being equal.
 
-Job size is multi-dimensional.  Four categories of job sizes may be considered,  based on
-
-Time: long or short and
-Resource request: narrow (1 or a few cores) or broad (many cores).
+Job size is multi-dimensional, based on
+ - Time: long or short and
+ - Resource request: narrow (1 or a few cores) or broad (many cores).
 
 ## Getting started
 
@@ -85,7 +84,7 @@ This command will create the MPI runtime environment need to run the parallel pr
 OMP_NUM_THREADS variable. By default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use --hint=nomultithread. For example:
 ```
 #SBATCH --nodes=1
-#SBATCH --cpus-per-threads=8
+#SBATCH --cpus-per-task=8
 #SBATCH --hint=nomultithread
 export OMP_NUM_THREADS=8
 srun <my_app>
