@@ -47,42 +47,32 @@ These two variants of the command are equivalent - Slurm offers short and long v
 
 You should now find an output file named `slurm-<job ID>.out` that contains stdout captured by Slurm, so it should have the phrase `hello world` in it.
 
-Here is another simple example. Build the Fortran MPI program in the `code/Fortran` directory first, if you haven't done so already:
+Here is another simple example. Consider a Slurm batch file named `run_simplempi.sl`:
 ```
-ftn -o simpleMpi simpleMpi.f90
+cat run_simplempi.sl
 ```
-Then change to the `code/SLURM` directory and have a look at the file `run_simplempif90.sl`:
+
 ```
-cat run_simplempif90.sl
-```
-Let's have a look at the directives:
-```
-#SBATCH --job-name=simplempif90
-#SBATCH --time=00:01:00
-```
-These two set a job name (for your reference) and the wallclock time, as in our previous example.
-```
-#SBATCH --nodes=1
-#SBATCH --ntasks=4
+#!/bin/bash
+#SBATCH --job-name=simplempi
+#SBATCH --time=00:02:00
+#SBATCH --nodes=3
+#SBATCH --partition=NeSI
 #SBATCH --cpus-per-task=1
+
+srun simpleMpiProgram
 ```
-The job will be run on a single node and with 4 MPI tasks. Each MPI task will run only on one thread.
-```
-#SBATCH --mem-per-cpu=1G
-```
-Each task may use up to 1GB of memory, otherwise it will be cancelled.
+
+This would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, with each MPI task having 1 CPU core.
+
+The srun command will create the MPI runtime environment need to run the parallel program.
 
 **Important note:** Unlike LoadLeveler, Slurm expects directives to come first in a submission script - don't insert any commands above the directives block.
-
-The program is then launched using the `srun` command:
-```
-srun ../Fortran/simpleMpi
-```
-This command will create the MPI runtime environment need to run the parallel program.
 
 **Important note:** For OpenMP jobs you will need to set --cpus-per-task to a value larger than 1 and explicitly set the
 OMP_NUM_THREADS variable. By default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use --hint=nomultithread. For example:
 ```
+#!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=8
 #SBATCH --hint=nomultithread
@@ -92,7 +82,7 @@ srun <my_app>
 
 Submit the job using
 ```
-sbatch run_simplempif90.sl
+sbatch run_simplempi.sl
 ```
 Output from `stdout` and `stderr` will be once again written into files `slurm-<job number>.out` and `slurm-<job number>.err`.
 
