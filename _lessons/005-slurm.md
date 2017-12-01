@@ -11,7 +11,9 @@ Slurm is a software used on the NeSI supercomputers for scheduling and managing 
 
 SLURM was an acronym for Simple Linux Utility for Resource Management
 
-Additional information can be found at: https://support.nesi.org.nz/hc/en-gb/articles/115000194910-Submitting-Slurm-Jobs-on-Pan
+Additional information can be found at: 
+ - https://slurm.schedmd.com/archive/slurm-17.02.9/
+ - https://support.nesi.org.nz/hc/en-gb/articles/115000194910-Submitting-Slurm-Jobs-on-Pan
 
 Adapted from Jordi Blasco's [Introduction to Slurm documentation](https://wiki.auckland.ac.nz/download/attachments/63145549/introduction-slurm.pdf?api=v2)
 
