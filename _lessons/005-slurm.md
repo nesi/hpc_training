@@ -17,34 +17,14 @@ Adapted from Jordi Blasco's [Introduction to Slurm documentation](https://wiki.a
 
 ## How Slurm works
 
-The scheduler is fundamentally first-in-first-out.
+Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
 
-* If the jobs are uniform size the velocity of the jobs through the queue is uniform
-* When jobs vary in size then the velocity of the jobs through the queue depends on the size of the jobs in the queue
-
-The Slurm scheduler employs backfill which searches the queue for jobs that can run to completion while the highest priority job waits for resource to become available.  This increases the utilization but moves the jobs from first-in-first-out to a function of the workload and the job size.  With the backfill scheduler smaller jobs have a higher velocity through the queue than larger jobs.
-
-Slurm does not delay large jobs in favor of smaller jobs.  Fairness means all jobs are treated the same.  Fairness is inversely proportional to the variance in the job velocity.
-
-Slurm favors utilization over fairness.
+Slurm does not deliberately delay large jobs in favor of smaller low-priority jobs, but it does employ a backfill algorithm which searches the queue for jobs which are small enough that they can start and run to completion before the resources necessary to start any higher priority jobs are expected to become available. This increases overall utilization but changes the order of job starts from being strictly priority based to being a function of the workload and the job size.  With the backfill scheduler smaller jobs have a higher velocity through the queue than larger jobs, all other things being equal.
 
 Job size is multi-dimensional.  Four categories of job sizes may be considered,  based on
 
 Time: long or short and
 Resource request: narrow (1 or a few cores) or broad (many cores).
-The four categories are Long Narrow (LN), Short Narrow (SN), Long Broad (LB) and Short Broad (SB).  The LB jobs have the nominal queue velocity closest to first-in-first-out.  The SN jobs have the highest queue velocity.
-
-The queue design uses limits to partition the system based on the classes of projects.  Within the class the priority is used to increase the velocity of jobs of similar size.
-
-## Features of Slurm
-
-- Full control over CPU and memory usage
-- Job array support
-- Integration with MPI
-- Supports interactive sessions
-- Debugger friendly
-- Environment privacy
-- Job profiling
 
 ## Getting started
 
@@ -52,11 +32,11 @@ To use the Slurm scheduler on Kupe, you will first need to load the `slurm` modu
 ```
 module load slurm
 ```
-You could add this line to your `.profile` if you don't want to load the module on every login.
+You could add this line to your `.profile` if you don't want to load the module on every login, though we do plan to remove the need to do this step at all.
 
 ## Submitting a job
 
-Slurm works like any other scheduler - you can submit jobs to a queue, and Slurm will run them for you when the resources that you requested become available. Jobs are usually defined using a job script, although you can also submit jobs without a script, directly from the command line:
+Slurm works like any other scheduler - you can submit jobs to the queue, and Slurm will run them for you when the resources that you requested become available. Jobs are usually defined using a job script, although you can also submit jobs without a script, directly from the command line:
 
 ```
 sbatch -A <project_code> -t 10 --wrap "echo hello world"
@@ -166,22 +146,19 @@ The "MaxRSS" column reports the memory used during the job and is useful when tr
 
 ### List of Slurm Commands
 
-Here is a list of commonly used Slurm commands:
+Here is a list of the most commonly used Slurm commands:
 
 - *sbatch* - submits a script job
 - *scancel* - cancels a running or pending job
 - *srun* - runs a command across nodes
-- sbcast Transfer file to a compute nodes allocated job
-- interactive - opens an interactive job session
-- sattach - connect stdin/out/err for an existing job or job step
-- squeue - displays the job queue
+- *squeue* - lists the job queue (ie: Pending) and running jobs.
+- *sacct* - lists job accounting information for running and completed jobs.
 
 ### Commonly used Slurm environment variables
 
 These environment variables can be used in Slurm submission scripts:
 
 - $SLURM_JOBID (job id)
-- $SLURM_JOB_NODELIST (nodes allocated for job)
 - $SLURM_NNODES (number of nodes)
 - $SLURM_SUBMIT_DIR (directory job was submitted from)
 - $SLURM_ARRAY_JOB_ID (job id for the array)
