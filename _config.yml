@@ -23,11 +23,19 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: nesi_nz
 #github_username:  nesi
 
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+header_pages:
+ - index.html
+ - about.md
+
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -41,8 +49,8 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-
-
+ # If you want to link only specific pages in your header, uncomment
+ # this and add the path to the pages in order as they should show up
 
 
 
