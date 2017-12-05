@@ -57,6 +57,7 @@ cat run_simplempi.sl
 #SBATCH --job-name=simplempi
 #SBATCH --time=00:02:00
 #SBATCH --nodes=3
+#SBATCH --account=niwa12345
 #SBATCH --partition=NeSI
 #SBATCH --cpus-per-task=1
 
@@ -65,11 +66,15 @@ srun simpleMpiProgram
 
 This would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, with each MPI task having 1 CPU core.
 
+The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it. 
+
+At present it is also necessary to specfiy which "partition" the job will run in.  For any project without the prefix "niwap" the correct partition will be "NeSI". This includes most projects with the prefix "niwa", which are NIWA-as-NeSI-collaborator projects.  We do hope that it will not be necessary to specify the partition in the long term, since it is determined by the account you specify anyway.
+
 The srun command will create the MPI runtime environment need to run the parallel program.
 
-**Important note:** Unlike LoadLeveler, Slurm expects directives to come first in a submission script - don't insert any commands above the directives block.
+Unlike LoadLeveler, Slurm expects directives to come first in a submission script - don't insert any commands above the directives block.
 
-**Important note:** For OpenMP jobs you will need to set --cpus-per-task to a value larger than 1 and explicitly set the
+For OpenMP jobs you will need to set --cpus-per-task to a value larger than 1 and explicitly set the
 OMP_NUM_THREADS variable. By default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use --hint=nomultithread. For example:
 ```
 #!/bin/bash
