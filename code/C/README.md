@@ -4,7 +4,7 @@ General instructions for Cray programming environment.
 
  1. Load/swap the programming environment of your choice, e..g. ```module swap PrgEnv-cray PrgEnv-intel```
 
- 2. Invoke the ```cc``` compiler wrapper
+ 2. Invoke the ```CC``` compiler wrapper
 
  3. Add add include directories (```-I ...```), library directories (```-L...```) and libraries (```-l...```) as required. 
 
@@ -13,7 +13,7 @@ General instructions for Cray programming environment.
 This example shows how to compile an MPI program, which prints "Hello world from processor X".
 
 ```
-cc -o simpleMpiC simpleMpi.c
+CC -o simpleMpiC simpleMpi.c
 ```
 
 
