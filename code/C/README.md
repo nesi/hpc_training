@@ -1,12 +1,18 @@
+---
+layout: page
+title: C code examples
+permalink: /c-code/
+---
+
 # How to compile C code in this directory
 
-General instructions for Cray programming environment. 
+General instructions for Cray programming environment.
 
  1. Load/swap the programming environment of your choice, e..g. ```module swap PrgEnv-cray PrgEnv-intel```
 
  2. Invoke the ```cc``` compiler wrapper
 
- 3. Add add include directories (```-I ...```), library directories (```-L...```) and libraries (```-l...```) as required. 
+ 3. Add add include directories (```-I ...```), library directories (```-L...```) and libraries (```-l...```) as required.
 
 ## SimpleMpi
 

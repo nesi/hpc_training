@@ -28,7 +28,7 @@ twitter_username: nesi_nz
 # this and add the path to the pages in order as they should show up
 header_pages:
       - about.md
-      - /_lessons/pan/001-architecture.md
+      - _lessons/pan/001-architecture.md
 
 # Build settings
 markdown: kramdown

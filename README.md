@@ -1,8 +1,14 @@
+---
+layout: page
+title: Summary
+permalink: /summary/
+---
+
 # Introduction to HPC using NeSI
 
 Training materials for a hands-on workshop on introduction to HPC using NeSI, including scripts for NeSI HPC training workshop. The materials are largely based on the content created by the University of Otago staff, New Zealand eScience Infrastructure staff and Centre for eResearh at the University of Auckland.
 
-If you missed the live training session on November 3 2017, you can find a recording at [https://drive.google.com/file/d/15uzVnhihycyC77wmCP0X1XBs-rv1Ogvc/view]. Note: this is an unedited recording - you can skip the first 23 minutes. 
+If you missed the live training session on November 3 2017, you can find a recording at [https://drive.google.com/file/d/15uzVnhihycyC77wmCP0X1XBs-rv1Ogvc/view]. Note: this is an unedited recording - you can skip the first 23 minutes.
 
 #### Contributors:
 
@@ -13,7 +19,7 @@ Murray Cadzow, Matthew Healey, Gene Soudlenkov, Sung Bae, Benjamin Roberts, Bart
 ## Learning objectives (what you will know after this workshop):
 
 * Learn how to log in on NeSI supercomputers and navigate your way through the environment set up on the login node.
-* Know how to transfer (small to medium-sized) data files and scripts to the cluster via: scp or MobaXterm. 
+* Know how to transfer (small to medium-sized) data files and scripts to the cluster via: scp or MobaXterm.
 * Be able to connect to one of the build/compute nodes.
 * Understand (roughly) the difference between *login*, *build*/*development* and *compute* nodes, and how to use them when working on NeSI (or other HPC) infrastructure.
 * Know and understand the default resources allocation (disk quota, use of scratch space, etc), and be aware of possible problems when exceeding the quota, leaving files in scratch space and so on.
@@ -30,7 +36,7 @@ Murray Cadzow, Matthew Healey, Gene Soudlenkov, Sung Bae, Benjamin Roberts, Bart
 
 (Possibly beyond the scope of the workshop due to time limitations but useful to achieve)
 * Know how to get installed software that is not currently available on the cluster
-* (Otago users) Know what the Otago High Capacity Storage (HCS) and high speed data transfer services are, and how to apply for access  
+* (Otago users) Know what the Otago High Capacity Storage (HCS) and high speed data transfer services are, and how to apply for access
 
 ## Resources
 
@@ -40,4 +46,3 @@ This training material has been developed based on a number of existing resource
 * [NeSI Support Pages](https://support.nesi.org.nz/hc/en-gb)
 * [Various sets of NeSI training materials](https://github.com/nesi/training)
 * [University of Otago Pan cluster instructions](https://rawgit.com/dannybaillie/NeSI/master/OtagoPanInstructions.html)
-
