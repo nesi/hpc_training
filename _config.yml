@@ -27,7 +27,8 @@ twitter_username: nesi_nz
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
 header_pages:
-  - 00-access.md
+      - about.md
+      - /_lessons/pan/001-architecture.md
 
 # Build settings
 markdown: kramdown
