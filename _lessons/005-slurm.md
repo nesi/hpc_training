@@ -28,8 +28,6 @@ module load slurm
 ```
 You could add this line to your `.profile` if you don't want to load the module on every login, though we do plan to remove the need to do this step at all.
 
-Kupe is equipped with "native Slurm", therefore without the Cray command *aprun*, which is replaced by the Slurm command `srun`. This makes using Slurm on Kupe very similar to any other Slurm instalation. `srun` similarly replaces *mpirun* and all other MPI launchers.
-
 ## Submitting a one-line job with `sbatch`
 
 Slurm works like any other scheduler - you can submit jobs to the queue, and Slurm will run them for you when the resources that you requested become available. Jobs are usually defined using a job script, although you can also submit jobs without a script, directly from the command line:
@@ -47,11 +45,11 @@ At present it is also necessary to specfiy which Slurm *partition* the job will 
 
 There is also a "Debug" partition and a "NeSI_Forage" partition available to NeSI projects.  Please check back here for documentation on these later.  Beware that at present jobs longer than 10 minutes submitted to Debug will submit OK but then never start, while jobs submitted to "NeSI_Forage" jobs may be terminated by Slurm so that other jobs can run.
 
-## Submitting a batch file with `sbatch`
+## Submitting a batch script with `sbatch`
 
 An appropriate Slurm job submission file for your parallel job is a shell script with a set of directives at the beginning. These directives are issued by starting a line with the string "#SBATCH". A suitable batch script is then submitted to the batch system using the `sbatch` command. 
 
-Consider a Slurm batch file named `run_simplempi.sl`:
+Consider a Slurm batch script named `run_simplempi.sl`:
 ```
 cat run_simplempi.sl
 ```
@@ -68,11 +66,22 @@ cat run_simplempi.sl
 srun simpleMpiProgram
 ```
 
-This would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, with each MPI task having 1 CPU core.
+This batch script would be submitted to the Slurm queue with:
+```
+sbatch run_simplempi.sl
+```
+
+That would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, with each MPI task having 1 CPU core.
 
 #SBATCH directives are exactly equivalent to providing the same options on the `sbatch` command line, but have the advantage of repeatablility and self-documentation, which are particularly useful if something goes wrong.  If both are provided then the command line option takes precedence. As a note for LoadLeveler users: Slurm expects directives to come first in a submission script, so don't insert any commands above the directives block.
 
-The `srun` command sets up the MPI runtime environment need to run the parallel program, launching it on multiple CPUs which can be on multiple different nodes.  On Kupe the default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurences of `srun` within the job.
+### Launching MPI job steps with `srun`
+
+The `srun` command in the script above sets up the MPI runtime environment need to run the parallel program, launching it on multiple CPUs which can be on multiple different nodes. `srun` should be used in place of any other MPI launcher such as *aprun* or *mpirun*.
+
+On Kupe the default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurences of `srun` within the job.
+
+### Launching OpenMP or Hybrid job steps with `srun`
 
 For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the
 `OMP_NUM_THREADS` variable. For example:
@@ -81,14 +90,11 @@ For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=8
 #SBATCH --hint=nomultithread
-export OMP_NUM_THREADS=8
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun <your_app>
 ```
 
-Submit the job using
-```
-sbatch run_simplempi.sl
-```
 ### `sbatch` customisation on Kupe
 
 On Kupe we have set the environment variable `SBATCH_EXPORT=none`.  This has the effect of telling `sbatch` to not copy the environment from where you submit the job, but rather start the job with a fresh copy of your login environment. This is required when submitting jobs from one operating system to another as users of the *kupe_mp* may do, but has the consequence that you must load any required environment module from inside the job script, and not just before you submit it.  As with the use of #SBATCH directives this makes the job more self-documenting and so helps us when something goes wrong and needs diagnosing, but if you wish for the convinience of one-line module-using jobs then you could unset SBATCH_EXPORT.
@@ -187,39 +193,6 @@ Job size is multi-dimensional, based on
  - Time: long or short and
  - Resource request: narrow (1 or a few cores) or broad (many cores).
 
-
-
-
-
-### More job examples
-
-Here are a few more examples for submitting jobs with Slurm.
-
-#### run_simple.sl
-
-This script runs the R script simple.R. Find the output in the slurm output file.
-
-```
-sbatch -A <project_code> run_simple.sl
-```
-
-#### run_print-args.sl
-
-This script demonstrates how to pass command line arguments from the Slurm job down to an R script. Find the output in the slurm output file.
-
-```
-sbatch -A <project_code> run_print-args.sl first second third
-```
-
-#### run_array-analysis
-
-Example of a job array. This script demonstrates how to run an analysis on different input datasets in parallel. Note that it is highly recommended to use the [Cylc workflow engine](https://cylc.github.io/cylc) if you need to run a job with complex task dependencies.
-
-```
-sbatch -A <project_code> run_array-analysis.sl
-sbatch --array=1 -A <project_code> run_array-analysis.sl something.txt
-sbatch --array=1-2 -A <project_code> run_array-analysis.sl
-```
 
 ### How to choose the right runtime environment
 
