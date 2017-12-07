@@ -194,7 +194,7 @@ Job size is multi-dimensional, based on
  - Resource request: narrow (1 or a few cores) or broad (many cores).
 
 
-### How to choose the right runtime environment
+### How to choose the right runtime environment (For NIWA users)
 
 Kupe consists of different runtime environments. Here is some guidance for choosing the best environment for your requirements.
 
