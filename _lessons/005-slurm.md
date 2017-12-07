@@ -3,31 +3,24 @@ layout: post
 title: HPC3 Slurm job scheduler
 ---
 
-You will learn how to submit jobs using the Slurm scheduler.
+This page was adapted from Jordi Blasco's [Introduction to Slurm documentation](https://wiki.auckland.ac.nz/download/attachments/63145549/introduction-slurm.pdf?api=v2) and Slurm documentation at [CSCS](https://user.cscs.ch)
 
-## What is Slurm?
-
-Slurm is a software used on the NeSI supercomputers for scheduling and managing job submission requests. A job is a script that tells the scheduler how much resources you will require to perform a given computational work. Slurm will then try to accommodate your request while maximising overall user experience.
-
-SLURM was an acronym for Simple Linux Utility for Resource Management
-
-Additional information can be found at: 
+Reference information about Slurm can be found at: 
+ - `man slurm`
  - https://slurm.schedmd.com/archive/slurm-17.02.9/
- - https://support.nesi.org.nz/hc/en-gb/articles/115000194910-Submitting-Slurm-Jobs-on-Pan
 
-Adapted from Jordi Blasco's [Introduction to Slurm documentation](https://wiki.auckland.ac.nz/download/attachments/63145549/introduction-slurm.pdf?api=v2)
+# Slurm
 
-## How Slurm works
+All NeSI systems use the Slurm batch scheduler for the submission, control and management of user jobs.
 
-Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
+Slurm provides a rich set of features for organizing your workload and an extensive array of tools for managing your resource usage, however in normal interaction with the batch system you only need to know four basic commands:
 
-Slurm does not deliberately delay large jobs in favor of smaller low-priority jobs, but it does employ a backfill algorithm which searches the queue for jobs which are small enough that they can start and run to completion before the resources necessary to start any higher priority jobs are expected to become available. This increases overall utilization but changes the order of job starts from being strictly priority based to being a function of the workload and the job size.  With the backfill scheduler smaller jobs have a higher velocity through the queue than larger jobs, all other things being equal.
+ - `sbatch` - submit a batch script
+ - `squeue` - check the status of jobs on the system
+ - `scancel` - delete one of your jobs from the queue
+ - `srun` - launch a process across multiple CPUs
 
-Job size is multi-dimensional, based on
- - Time: long or short and
- - Resource request: narrow (1 or a few cores) or broad (many cores).
-
-## Getting started
+## Getting started with Slurm on Kupe
 
 To use the Slurm scheduler on Kupe, you will first need to load the `slurm` module:
 ```
@@ -35,19 +28,30 @@ module load slurm
 ```
 You could add this line to your `.profile` if you don't want to load the module on every login, though we do plan to remove the need to do this step at all.
 
-## Submitting a job
+Kupe is equipped with "native Slurm", therefore without the Cray command *aprun*, which is replaced by the Slurm command `srun`. This makes using Slurm on Kupe very similar to any other Slurm instalation. `srun` similarly replaces *mpirun* and all other MPI launchers.
+
+## Submitting a one-line job with `sbatch`
 
 Slurm works like any other scheduler - you can submit jobs to the queue, and Slurm will run them for you when the resources that you requested become available. Jobs are usually defined using a job script, although you can also submit jobs without a script, directly from the command line:
 
 ```
-sbatch -A <project_code> -t 10 --wrap "echo hello world"
-sbatch --account <project_code> --time 10 --wrap "echo hello world"
+sbatch -A <project_code> -t 10 --wrap -p NeSI "echo hello world"
+sbatch --account <project_code> --time 10 --partition=NeSI --wrap "echo hello world"
 ```
-These two variants of the command are equivalent - Slurm offers short and long versions of many options (although there is no short form of `--wrap`. The option `-t` or `--time` sets a limit on the total run time of the job allocation. Note that each partition on which the jobs are run has its own time limit. If the set time limit exceeds the limit for the partition, the job will become "PENDING" (for more information on job statuses, see below). The `--wrap` option means that the following string (in "") will be turned into a simple shell script by Slurm.
 
-You should now find an output file named `slurm-<job ID>.out` that contains stdout captured by Slurm, so it should have the phrase `hello world` in it.
+These two variants of the command are equivalent - Slurm offers short and long versions of many options (although there is no short form of `--wrap`. The option `-t` or `--time` sets a limit on the total run time of the job allocation. 
 
-Here is another simple example. Consider a Slurm batch file named `run_simplempi.sl`:
+The Slurm *account* is just your NeSI project's code. If you only have one project then you don't need to specify it. 
+
+At present it is also necessary to specfiy which Slurm *partition* the job will run in.  For any project without the prefix "niwap" the correct partition will be "NeSI". This includes most projects with the prefix "niwa", which are NIWA-as-NeSI-collaborator projects.  We do hope that it will not be necessary to specify the partition in the long term, since it is determined by the account you specify anyway.
+
+There is also a "Debug" partition and a "NeSI_Forage" partition available to NeSI projects.  Please check back here for documentation on these later.  Beware that at present jobs longer than 10 minutes submitted to Debug will submit OK but then never start, while jobs submitted to "NeSI_Forage" jobs may be terminated by Slurm so that other jobs can run.
+
+## Submitting a batch file with `sbatch`
+
+An appropriate Slurm job submission file for your parallel job is a shell script with a set of directives at the beginning. These directives are issued by starting a line with the string "#SBATCH". A suitable batch script is then submitted to the batch system using the `sbatch` command. 
+
+Consider a Slurm batch file named `run_simplempi.sl`:
 ```
 cat run_simplempi.sl
 ```
@@ -66,46 +70,77 @@ srun simpleMpiProgram
 
 This would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, with each MPI task having 1 CPU core.
 
-The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it. 
+#SBATCH directives are exactly equivalent to providing the same options on the `sbatch` command line, but have the advantage of repeatablility and self-documentation, which are particularly useful if something goes wrong.  If both are provided then the command line option takes precedence. As a note for LoadLeveler users: Slurm expects directives to come first in a submission script, so don't insert any commands above the directives block.
 
-At present it is also necessary to specfiy which "partition" the job will run in.  For any project without the prefix "niwap" the correct partition will be "NeSI". This includes most projects with the prefix "niwa", which are NIWA-as-NeSI-collaborator projects.  We do hope that it will not be necessary to specify the partition in the long term, since it is determined by the account you specify anyway.
+The `srun` command sets up the MPI runtime environment need to run the parallel program, launching it on multiple CPUs which can be on multiple different nodes.  On Kupe the default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurences of `srun` within the job.
 
-The srun command will create the MPI runtime environment need to run the parallel program.
-
-Unlike LoadLeveler, Slurm expects directives to come first in a submission script - don't insert any commands above the directives block.
-
-For OpenMP jobs you will need to set --cpus-per-task to a value larger than 1 and explicitly set the
-OMP_NUM_THREADS variable. By default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use --hint=nomultithread. For example:
+For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the
+`OMP_NUM_THREADS` variable. For example:
 ```
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=8
 #SBATCH --hint=nomultithread
 export OMP_NUM_THREADS=8
-srun <my_app>
+srun <your_app>
 ```
 
 Submit the job using
 ```
 sbatch run_simplempi.sl
 ```
-Output from `stdout` and `stderr` will be once again written into files `slurm-<job number>.out` and `slurm-<job number>.err`.
+### `sbatch` customisation on Kupe
+
+On Kupe we have set the environment variable `SBATCH_EXPORT=none`.  This has the effect of telling `sbatch` to not copy the environment from where you submit the job, but rather start the job with a fresh copy of your login environment. This is required when submitting jobs from one operating system to another as users of the *kupe_mp* may do, but has the consequence that you must load any required environment module from inside the job script, and not just before you submit it.  As with the use of #SBATCH directives this makes the job more self-documenting and so helps us when something goes wrong and needs diagnosing, but if you wish for the convinience of one-line module-using jobs then you could unset SBATCH_EXPORT.
+
+
+### Commonly used Slurm environment variables
+
+These can be useful within Slurm job scripts:
+
+- $SLURM_JOBID (job id)
+- $SLURM_NNODES (number of nodes)
+- $SLURM_NTASKS (number of MPI tasks)
+- $SLURM_CPUS_PER_TASK (CPUs per MPI task)
+- $SLURM_SUBMIT_DIR (directory job was submitted from)
+- $SLURM_ARRAY_JOB_ID (job id for the array)
+- $SLURM_ARRAY_TASK_ID (job array index value)
+
+## Output
+The output of batch jobs is by default put into the file slurm-<SLURM_JOB_ID>.out where <SLURM_JOB_ID> is the Slurm batch job number of your job. The standard error will be put into a file called slurm-<SLURM_JOB_ID>.err: both files will be found in the directory from which you launched the job.
+
+Note that the output file is created as soon as your job starts running, and the output from your job is placed in this file as the job runs, so that you can monitor your job's progress. Slurm performs file buffering by default when writing on the output files, so the output of your job will not appear in the output files immediately. If you want to override this behaviour, you should pass the option -u or --unbuffered to the *srun* command: the output will then appear in the file as soon as it is produced.
+
+If you wish to change the default names of the output and error files, you can use the --output and --error directives in the batch script that you submit using the sbatch command, for example:
+
+```
+#SBATCH --output=hello_world_mpi.%j.o
+#SBATCH --error=hello_world_mpi.%j.e
+```
+
+## Checking the queue with `squeue`
 
 To check if your job is running, use the command
 ```
-squeue -j <job_list> -u <user_list>
-squeue --jobs=<job_list> --user=<user_list>
-```
-You can provide a list of job IDs and user names, which is useful when there are many jobs running. The output will look more or less like this:
-
-```
-   JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-61568899 merit_sho     wrap  apaw363 PD       0:00      1 (Resources)
-61568901 merit_sho     wrap  apaw363 PD       0:00      1 (Resources)
-61568970 merit_sho     wrap  apaw363 PD       0:00      1 (Resources)
+squeue -j <job_list> 
 ```
 
-The output shows the job state (column "ST") and various basic job specs, such as time spent running (column "TIME"), and the number of allocated nodes (column "NODES"). Additional job information can be provided, consult the `squeue` man page to find out more.
+or
+
+```
+squeue -u $USER
+```
+
+You can provide a list of job IDs or user names, which is useful when there are many jobs running. The output will look more or less like this:
+
+```
+   JOBID      NAME     USER ST       TIME  NODES NODELIST(REASON)
+61568899      wrap  apaw363 PD       0:00      1 (Resources)
+61568901      wrap  apaw363 PD       0:00      1 (Resources)
+61568970      wrap  apaw363 PD       0:00      1 (Resources)
+```
+
+The output shows the job state (column "ST") and various basic job specs, such as time spent running (column "TIME"), and the number of allocated nodes (column "NODES"). Additional job information can be provided, consult the *squeue* man page to find out more.
 
 Here is a list of the most important job states:
 
@@ -123,6 +158,8 @@ To cancel a job, use
 scancel <job id>
 ```
 
+## Checking completed jobs
+
 Another useful Slurm command is `sacct` which retrieves information about completed jobs. For example:
 
 ```
@@ -138,27 +175,21 @@ Will show us something like:
           batch 61568970.ba+           2017-09-22T08:05:28   00:00:00   00:00:00   00:00:00  00:00.071          1  COMPLETED        1Gc      1760K            compute-physics-001
 ```
 
-The "MaxRSS" column reports the memory used during the job and is useful when trying to determine a sensible amount of memory to request in the submission script.
 
-### List of Slurm Commands
 
-Here is a list of the most commonly used Slurm commands:
+## How Slurm prioritises jobs
 
-- *sbatch* - submits a script job
-- *scancel* - cancels a running or pending job
-- *srun* - runs a command across nodes
-- *squeue* - lists the job queue (ie: Pending) and running jobs.
-- *sacct* - lists job accounting information for running and completed jobs.
+Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
 
-### Commonly used Slurm environment variables
+Slurm does not deliberately delay large jobs in favor of smaller low-priority jobs, but it does employ a backfill algorithm which searches the queue for jobs which are small enough that they can start and run to completion before the resources necessary to start any higher priority jobs are expected to become available. This increases overall utilization but changes the order of job starts from being strictly priority based to being a function of the workload and the job size.  With the backfill scheduler smaller jobs have a higher velocity through the queue than larger jobs, all other things being equal.
 
-These environment variables can be used in Slurm submission scripts:
+Job size is multi-dimensional, based on
+ - Time: long or short and
+ - Resource request: narrow (1 or a few cores) or broad (many cores).
 
-- $SLURM_JOBID (job id)
-- $SLURM_NNODES (number of nodes)
-- $SLURM_SUBMIT_DIR (directory job was submitted from)
-- $SLURM_ARRAY_JOB_ID (job id for the array)
-- $SLURM_ARRAY_TASK_ID (job array index value)
+
+
+
 
 ### More job examples
 
