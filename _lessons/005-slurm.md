@@ -3,11 +3,7 @@ layout: post
 title: HPC3 Slurm job scheduler
 ---
 
-This page was adapted from Jordi Blasco's [Introduction to Slurm documentation](https://wiki.auckland.ac.nz/download/attachments/63145549/introduction-slurm.pdf?api=v2) and Slurm documentation at [CSCS](https://user.cscs.ch)
-
-Reference information about Slurm can be found at: 
- - `man slurm`
- - https://slurm.schedmd.com/archive/slurm-17.02.9/
+This page includes material from Jordi Blasco's [Introduction to Slurm documentation](https://wiki.auckland.ac.nz/download/attachments/63145549/introduction-slurm.pdf?api=v2) and the Slurm documentation at [CSCS](https://user.cscs.ch)
 
 # Slurm
 
@@ -19,6 +15,10 @@ Slurm provides a rich set of features for organizing your workload and an extens
  - `squeue` - check the status of jobs on the system
  - `scancel` - delete one of your jobs from the queue
  - `srun` - launch a process across multiple CPUs
+
+Reference information about Slurm can be found at: 
+ - `man slurm`
+ - https://slurm.schedmd.com/archive/slurm-17.02.9/
 
 ## Getting started with Slurm on Kupe
 
@@ -170,7 +170,7 @@ To cancel a job, use
 scancel <job id>
 ```
 
-## Checking completed jobs
+## Checking completed jobs with `sacct`
 
 Another useful Slurm command is `sacct` which retrieves information about completed jobs. For example:
 
