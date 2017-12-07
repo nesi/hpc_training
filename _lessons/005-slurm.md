@@ -180,6 +180,7 @@ Will show us something like:
 14309        problem.sh       NeSI  nesi99999         80  COMPLETED      0:0 
 14309.batch       batch             nesi99999         80  COMPLETED      0:0 
 14309.0         yourapp             nesi99999         80  COMPLETED      0:0
+```
 
 By default `sacct` will list all of your jobs which were (or are) running on the current day.  Each job will show as more than one line (unless `-X` is specified): an initial line for the job as a whole, and then an additional line for each job step, ie: the batch process which is your executing script, and then each of the `srun` commands it executes.
 
