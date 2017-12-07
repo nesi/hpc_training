@@ -41,9 +41,11 @@ These two variants of the command are equivalent - Slurm offers short and long v
 
 The Slurm *account* is just your NeSI project's code. If you only have one project then you don't need to specify it. 
 
+### Partitions
+
 At present it is also necessary to specfiy which Slurm *partition* the job will run in.  For any project without the prefix "niwap" the correct partition will be "NeSI". This includes most projects with the prefix "niwa", which are NIWA-as-NeSI-collaborator projects.  We do hope that it will not be necessary to specify the partition in the long term, since it is determined by the account you specify anyway.
 
-There is also a "Debug" partition and a "NeSI_Forage" partition available to NeSI projects.  Please check back here for documentation on these later.  Beware that at present jobs longer than 10 minutes submitted to Debug will submit OK but then never start, while jobs submitted to "NeSI_Forage" jobs may be terminated by Slurm so that other jobs can run.
+There is also a "Debug" partition and a "NeSI_Forage" partition available to NeSI projects.  Please check back here for documentation on these later.  Beware that at present jobs longer than 10 minutes submitted to Debug will submit OK but then never start, while jobs submitted to "NeSI_Forage" jobs may be terminated by Slurm so that other jobs can run.  Finally, there are partitions "NIWA_Research", "NIWA_Forage" and "Operations" which are not accessable by jobs which belong to NeSI projects.
 
 ## Submitting a batch script with `sbatch`
 
@@ -123,6 +125,10 @@ If you wish to change the default names of the output and error files, you can u
 #SBATCH --output=hello_world_mpi.%j.o
 #SBATCH --error=hello_world_mpi.%j.e
 ```
+
+## Calling `srun` directly
+
+`srun` is usually only used from within a job script.  In that environment it notices and uses the Slurm allocation created for its enclosing job.  When executed outside of any Slurm allocation `srun` behaves differently, submitting a request to the Slurm queue just like `sbatch` does.  Unlike `sbatch` though the launched process runs with its input and output attched to the terminal where it was launched, so using `srun` this way is not suitable for actual *batch* jobs. Also, `srun` is not affected by the SBATCH_EXPORT variable described above, so by default it *will* copy the current environment from where it is executed over to the process(es) it launches.  In general do not attempt to execute  batch files this way, as any included #SBATCH lines will have no effect.
 
 ## Checking the queue with `squeue`
 
@@ -209,7 +215,7 @@ Job size is multi-dimensional, based on
  - Resource request: narrow (1 or a few cores) or broad (many cores).
 
 
-### How to choose the right runtime environment (For NIWA users)
+## How to choose the right runtime environment (For NIWA users)
 
 Kupe consists of different runtime environments. Here is some guidance for choosing the best environment for your requirements.
 
