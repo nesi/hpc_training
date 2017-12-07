@@ -169,21 +169,35 @@ scancel <job id>
 Another useful Slurm command is `sacct` which retrieves information about completed jobs. For example:
 
 ```
-sacct -j 61568970
+sacct -j 14309
 ```
 
 Will show us something like:
 
 ```
-        JobName        JobID      User               Start    Elapsed     AveCPU     MinCPU   TotalCPU  AllocCPUS      State     ReqMem     MaxRSS                       NodeList
---------------- ------------ --------- ------------------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ------------------------------
-           wrap     61568970   apaw363 2017-09-22T08:05:28   00:00:00                        00:00.071          1  COMPLETED        1Gc                       compute-physics-001
-          batch 61568970.ba+           2017-09-22T08:05:28   00:00:00   00:00:00   00:00:00  00:00.071          1  COMPLETED        1Gc      1760K            compute-physics-001
+       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+14309        problem.sh       NeSI  nesi99999         80  COMPLETED      0:0 
+14309.batch       batch             nesi99999         80  COMPLETED      0:0 
+14309.0         yourapp             nesi99999         80  COMPLETED      0:0
+
+By default `sacct` will list all of your jobs which were (or are) running on the current day.  Each job will show as more than one line (unless `-X` is specified): an initial line for the job as a whole, and then an additional line for each job step, ie: the batch process which is your executing script, and then each of the `srun` commands it executes.
+
+By changing the displayed columns you can gain information about the CPU and memory utilisation of the job, for example
+
+```
+sacct -j 14309 --format=jobid,jobname,elapsed,avecpu,totalcpu,alloccpus,maxrss,state
 ```
 
+```
+      JobID    JobName    Elapsed     AveCPU   TotalCPU  AllocCPUS     MaxRSS      State 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- 
+14309        problem.sh   00:12:42             00:00.012         80             COMPLETED 
+14309.batch       batch   00:12:42   00:00:00  00:00.012         80      1488K  COMPLETED 
+14309.0         yourapp   00:12:41   00:12:03   16:00:03         80    478356K  COMPLETED
+```
 
-
-## How Slurm prioritises jobs
+## How Slurm schedules jobs
 
 Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
 
