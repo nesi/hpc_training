@@ -35,7 +35,7 @@ Kupe is equipped with "native Slurm", therefore without the Cray command *aprun*
 Slurm works like any other scheduler - you can submit jobs to the queue, and Slurm will run them for you when the resources that you requested become available. Jobs are usually defined using a job script, although you can also submit jobs without a script, directly from the command line:
 
 ```
-sbatch -A <project_code> -t 10 --wrap -p NeSI "echo hello world"
+sbatch -A <project_code> -t 10 -p NeSI --wrap  "echo hello world"
 sbatch --account <project_code> --time 10 --partition=NeSI --wrap "echo hello world"
 ```
 
