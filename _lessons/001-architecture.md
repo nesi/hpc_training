@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Overview of Kupe architecture
-permalink: /kupe/
+permalink: /lessons/kupe/
 ---
 
 You will learn about Kupe's architecture and how it differs from FitzRoy in terms of hardware.
