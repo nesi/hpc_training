@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  HPC3 Programming Environment
+title:  Kupe: Programming Environment
+permalink: /lessons/kupe-programming-environment/
 ---
 
-You will learn how to compile code on Kupe. 
+You will learn how to compile code on Kupe.
 
 ## Getting the code examples
 
@@ -74,7 +75,7 @@ to use the _Intel_ compilers, or
 ```
 module swap PrgEnv-cray PrgEnv-gnu
 ```
-to use the _GNU_ compilers. Note that several GNU compiler versions are currently installed (gcc/4.9.3, gcc/5.3.0, gcc/6.1.0 and gcc/7.1.0) - you 
+to use the _GNU_ compilers. Note that several GNU compiler versions are currently installed (gcc/4.9.3, gcc/5.3.0, gcc/6.1.0 and gcc/7.1.0) - you
 switch between the different version by swapping the appropriate modules, e.g.,
 
 ```
@@ -210,7 +211,7 @@ EasyBuild uses the following module naming conventions ("toolchain names"):
 3. You need to link against your own library
 
 In this case, you will need to specify the include or Fortran module files with the ```-I``` option. Use ```-L```
-to specify the location of the libraries and ```-l``` the name of the libraries. Libraries typically have the prefix ```lib``` and either ```.so``` or ```.a``` as suffix.  Do not include the lib prefix or the suffix when passing a library name to the ```-l``` option. For instance, library "A" might be called ```libA.a``` and to link against "A" you would use ```-lA```. 
+to specify the location of the libraries and ```-l``` the name of the libraries. Libraries typically have the prefix ```lib``` and either ```.so``` or ```.a``` as suffix.  Do not include the lib prefix or the suffix when passing a library name to the ```-l``` option. For instance, library "A" might be called ```libA.a``` and to link against "A" you would use ```-lA```.
 
 You can have multiple ```-L``` and ```-l``` options. When specifying libraries with ```-l```, the order matters. Symbols are resolved from left to right; that is if library "A" depends on "B" then "A" should precede "B" (```-lA -lB```). Library "A" depends on "B" if "A" calls functions or invokes symbols that are defined in "B".
 

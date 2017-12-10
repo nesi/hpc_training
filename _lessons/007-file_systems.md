@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Kupe file and directory structure, and their use
+title: Kupe: filesystems, and their use
+permalink: /lessons/kupe-filesystems/
 ---
 
 ## Kupe file and directory structure

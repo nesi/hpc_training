@@ -1,6 +1,7 @@
 ---
 layout: post
-title: HPC3 Available software
+title: Kupe: Available software
+permalink: /lessons/kupe-software-available/
 ---
 
 You will learn how to access the software stack with the module environment.
@@ -32,9 +33,9 @@ Although the software stacks are still being built, a preliminary version of the
 ```
 source /opt/niwa/share_prelim/niwa_modules.sh
 ```
-A list of available software can be obtained with the 
+A list of available software can be obtained with the
 ```
-module avail 
+module avail
 ```
 command. This will bring up software provided by Cray, and additional modules provided by NeSI or NIWA. You can also find out which variants of a particular module exist using
 ```
@@ -84,7 +85,7 @@ Scientific software and tools that are currently available on the XC50 include:
 | Module Name                               | Version(s)            | Built with compiler(s) | Notes                          |
 |-------------------------------------------|-----------------------|:----------------------:|:------------------------------:|
 | Anaconda2                                 | 4.2.0                 | ---                    |                                |
-| CDO                                       | 1.9.0                 | GNU                    |                                | 
+| CDO                                       | 1.9.0                 | GNU                    |                                |
 | Charm++                                   | 6.8.0                 | Intel, GNU             |                                |
 | cray-fftw                                 | 3.3.6.2               | Intel, Cray, GNU       | Provided by Cray               |
 | cray-hdf5                                 | 1.10.1.1              | Intel, Cray, GNU       | Provided by Cray               |
@@ -135,7 +136,7 @@ Scientific software and tools that are currently available on the CS500 include:
 | Module Name                               | Version(s)            | Built with compiler(s) | Notes                          |
 |-------------------------------------------|-----------------------|:----------------------:|:------------------------------:|
 | Anaconda2                                 | 4.2.0                 | ---                    |                                |
-| CDO                                       | 1.9.0                 | GNU                    |                                | 
+| CDO                                       | 1.9.0                 | GNU                    |                                |
 | Cylc                                      | 7.5.0                 | ---                    |                                |
 | FCM                                       | 2017.10.0             | ---                    |                                |
 | GDAL                                      | 2.2.1                 | GNU                    |                                |

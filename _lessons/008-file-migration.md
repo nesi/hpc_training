@@ -1,9 +1,10 @@
 ---
 layout: post
-title: HPC3 FitzRoy to Kupe migration
+title: FitzRoy to Kupe migration
+permalink: /lessons/kupe-migration/
 ---
 
-You will learn how to migrate from FitzRoy to Kupe. 
+You will learn how to migrate from FitzRoy to Kupe.
 
 ### Important information about use of the filesystems on Kupe.
 
@@ -21,7 +22,7 @@ This synchronization is occurring on a regular basis with the objective of ensur
 
 * This means that if you modify or create a file in any of the Kupe filesystems noted above, it will be removed at the next synchronization.
 
-Accordingly, we have created a new filesystem (`/nesi/transit`) on Kupe that is not synchronized with FitzRoy.  You can safely work in that filesystem without risk of loss of data. 
+Accordingly, we have created a new filesystem (`/nesi/transit`) on Kupe that is not synchronized with FitzRoy.  You can safely work in that filesystem without risk of loss of data.
 
 * So, after logging into Kupe you should `cd /transit/<user name>` and work there.
 

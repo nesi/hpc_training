@@ -28,7 +28,9 @@ twitter_username: nesi_nz
 # this and add the path to the pages in order as they should show up
 header_pages:
  - about.md
- - sections/novice.md
+ - sections/introduction.md
+ - sections/intermediate.md
+ - sections/advanced.md
 
 # Build settings
 markdown: kramdown

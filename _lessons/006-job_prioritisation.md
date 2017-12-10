@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Kupe Job Prioritisation
+title: Kupe: Job prioritisation
+permalink: /lessons/kupe-job-priotisation/
 ---
 
 

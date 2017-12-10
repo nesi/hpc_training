@@ -1,6 +1,7 @@
 ---
 layout: post
-title: HPC3 Slurm job scheduler
+title: Kupe: Slurm job scheduler
+permalink: /lessons/kupe-slurm/
 ---
 
 You will learn how to submit jobs using the Slurm scheduler.
@@ -11,7 +12,7 @@ Slurm is a software used on the NeSI supercomputers for scheduling and managing 
 
 SLURM was an acronym for Simple Linux Utility for Resource Management
 
-Additional information can be found at: 
+Additional information can be found at:
  - https://slurm.schedmd.com/archive/slurm-17.02.9/
  - https://support.nesi.org.nz/hc/en-gb/articles/115000194910-Submitting-Slurm-Jobs-on-Pan
 
@@ -66,7 +67,7 @@ srun simpleMpiProgram
 
 This would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, with each MPI task having 1 CPU core.
 
-The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it. 
+The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it.
 
 At present it is also necessary to specfiy which "partition" the job will run in.  For any project without the prefix "niwap" the correct partition will be "NeSI". This includes most projects with the prefix "niwa", which are NIWA-as-NeSI-collaborator projects.  We do hope that it will not be necessary to specify the partition in the long term, since it is determined by the account you specify anyway.
 

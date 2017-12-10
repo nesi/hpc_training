@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Kupe Multi-Purpose node Slurm Cluster Resources
+title: Kupe: Multi-Purpose node Slurm Cluster Resources
+permalink: /lessons/kupe-multi-node/
 ---
 
 ## Kupe Multi-Purpose node Slurm Cluster Resources

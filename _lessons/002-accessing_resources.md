@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Kupe - getting access
+title: Kupe: getting access
+permalink: /lessons/kupe-access/
 ---
 
 You will learn how to set up your account on Kupe and how to log in onto the machine.
@@ -96,4 +97,3 @@ If your project is not set up, you may see:
 ![logging-in](../assets/img/no_project.png)
 
 **Please do not create or modify any files or directories in your home directory or in any of the directories that were migrated from FitzRoy - synchronisation between FitzRoy and Kupe is still ongoing, and modified files on Kupe will be overwritten!**
-
