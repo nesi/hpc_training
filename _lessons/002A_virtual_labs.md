@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe: Virtual Lab Resources
+title: Kupe - Virtual Lab Resources
 permalink: /lessons/kupe-vl/
 ---
 

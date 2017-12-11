@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe: Available software
+title: Kupe - Available software
 permalink: /lessons/kupe-software-available/
 ---
 

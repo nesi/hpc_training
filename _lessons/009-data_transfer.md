@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe: Data storage and transfer
+title: Kupe - Data storage and transfer
 permalink: /lessons/kupe-data-transfer/
 ---
 

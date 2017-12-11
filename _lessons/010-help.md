@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe: Advanced training and getting help
+title: Kupe - Advanced training and getting help
 permalink: /lessons/kupe-help/
 ---
 

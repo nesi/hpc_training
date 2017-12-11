@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe: filesystems, and their use
+title: Kupe - filesystems, and their use
 permalink: /lessons/kupe-filesystems/
 ---
 
