@@ -31,6 +31,7 @@ header_pages:
  - sections/introduction.md
  - sections/intermediate.md
  - sections/advanced.md
+ - sections/faq.md
 
 # Build settings
 markdown: kramdown
