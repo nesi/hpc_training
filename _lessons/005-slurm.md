@@ -116,7 +116,7 @@ srun <your_app>
 
 ### `sbatch` customisation on Kupe
 
-On Kupe we have set the environment variable `SBATCH_EXPORT=none`.  This has the effect of telling `sbatch` to not copy the environment from where you submit the job, but rather start the job with a fresh copy of your login environment. This is required when submitting jobs from one operating system to another as users of the *kupe_mp* may do, but has the consequence that you must load any required environment module from inside the job script, and not just before you submit it.  As with the use of #SBATCH directives this makes the job more self-documenting and so helps us when something goes wrong and needs diagnosing, but if you wish for the convinience of one-line module-using jobs then you could unset SBATCH_EXPORT.
+On Kupe we have set the environment variable `SBATCH_EXPORT=NONE`.  This has the effect of telling `sbatch` to not copy the environment from where you submit the job, but rather start the job with a fresh copy of your login environment. This is required when submitting jobs from one operating system to another as users of the *kupe_mp* may do, but has the consequence that you must load any required environment module from inside the job script, and not just before you submit it.  As with the use of #SBATCH directives this makes the job more self-documenting and so helps us when something goes wrong and needs diagnosing, but if you wish for the convinience of one-line module-using jobs then you can do `export SBATCH_EXPORT=ALL`.
 
 
 ### Commonly used Slurm environment variables
