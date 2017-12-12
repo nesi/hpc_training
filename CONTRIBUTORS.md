@@ -4,8 +4,11 @@ Sung Bae <br/>
 Danny Baillie<br/>
 Jordi Blasco<br/>
 Murray Cadzow<br/>
+Fabrice Cantos<br />
 Martin Feller<br/>
 Matthew Healey <br/>
+Jose Higino <br/>
+Jun Huh<br/>
 Tom Kelly<br/>
 Mike Ladd<br/>
 Sina Masoud-Ansari<br/>
