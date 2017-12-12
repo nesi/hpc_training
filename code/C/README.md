@@ -2,6 +2,7 @@
 layout: page
 title: C code examples
 permalink: /c-code/
+chapter: code-samples
 ---
 
 # How to compile C code in this directory

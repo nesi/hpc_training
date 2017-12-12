@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Code samples
+title: Code 
 permalink: /sections/code-samples
 chapter: code-samples
 ---

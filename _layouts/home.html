@@ -4,19 +4,16 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Tutorials</h1>
+  <h2 class="page-heading">Using New Zealand eScience Infrastructure - documentation</h2>
 
   {{ content }}
-
+All tutorials:
   <ul class="post-list">
     {% for lesson in site.lessons %}
       <li>
-<!--        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        <span class="post-meta">{{ post.date | date: date_format }}</span> -->
-
-        <h2>
+        <h5>
           <a class="post-link" href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a>
-        </h2>
+        </h5>
       </li>
     {% endfor %}
   </ul>

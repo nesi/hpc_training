@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Frequently Asked Questions
+title: FAQ
 permalink: /sections/faq/
+chapter: faq
 ---
 
 **How many GPUs will be available?** <br/>
