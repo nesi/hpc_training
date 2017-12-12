@@ -44,6 +44,4 @@ Instructions on how to use [Globus Data Transfer Node (DTN)](../assets/resources
 
 There is a [Software Development Kit (SDK) in Python](http://globus-sdk-python.readthedocs.io/en/latest/) to work with the API.
 
-### Automatic transfer between HPC sites
-
-Automatic file space synchronisation between the Wellington and Auckland HPC sites using Spectrum Scale AFM (Active File Management) will make sure that user data will be accessible at both sites.
+**Please note**  Currently DTN is not yet connected to Kupe. If you have access to Fitzroy and wish to use Globus to transfer files, you can use SCP (via Fitzroy) to copy them to/from Kupe.
