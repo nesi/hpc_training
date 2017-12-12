@@ -2,6 +2,7 @@
 layout: post
 title: Pan - SLURM job scheduler
 permalink: /lessons/pan/job-scheduler/
+chapter: pan
 ---
 
 NeSI Documentation for running a job: https://support.nesi.org.nz/hc/en-gb/articles/115000194910-Submitting-Slurm-Jobs-on-Pan

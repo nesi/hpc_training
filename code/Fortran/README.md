@@ -1,12 +1,19 @@
+---
+layout: page
+title: FORTRAN code examples
+permalink: /lessons/fortran/
+chapter: code-samples
+---
+
 # How to compile Fortran code in this directory
 
-General instructions for Cray programming environment. 
+General instructions for Cray programming environment.
 
  1. Load/swap the programming environment of your choice, e..g. ```module swap PrgEnv-cray PrgEnv-intel```
 
  2. Invoke the ```ftn``` compiler wrapper
 
- 3. Add add include directories (```-I ...```), library directories (```-L...```) and libraries (```-l...```) as required. 
+ 3. Add add include directories (```-I ...```), library directories (```-L...```) and libraries (```-l...```) as required.
 
 ## SimpleMpi
 
@@ -19,7 +26,7 @@ ftn -o simpleMpiF90 simpleMpi.f90
 
 ## simple_xy_wr
 
-This example shows how to compile a program that links to the Cray netCDF library. 
+This example shows how to compile a program that links to the Cray netCDF library.
 
 ```
 module load cray-netcdf
@@ -34,4 +41,3 @@ This example shows how to compile a program that links to the Cray parallel netC
 module load cray-netcdf
 ftn -o simple_xy_par_wr simple_xy_par_wr.f90
 ```
-

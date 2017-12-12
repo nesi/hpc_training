@@ -2,6 +2,7 @@
 layout: post
 title: Pan - setting up
 permalink: /lessons/pan/setting-up/
+chapter: pan
 ---
 
 To be able to work on NeSI clusters, you will need to get an account first. Depending on the workshop set up that you will be attending, the organisers may be able to get you to use generic training accounts. **Warning:** these training accounts, and any data associated with them, will be deleted immediately after the workshop. If you wish to continue working on your research using NeSI, you will need to apply for an account.

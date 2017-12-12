@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pan - programming environment
-permalink: /lessons/pan/programming environment/
+permalink: /lessons/pan/programming-environment/
 chapter: pan
 ---
 

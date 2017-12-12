@@ -2,6 +2,7 @@
 layout: post
 title: Pan - working in HPC environment
 permalink: /lessons/pan/hpc-environment/
+chapter: pan
 ---
 
 NeSI clusters are a shared resource and hence there are certain rules as to what is available to each user by default. For small-scale projects the default amount of resources should be sufficient. If you need more compute power or disk allocation for your data, please contact support@nesi.org.nz.

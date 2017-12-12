@@ -1,3 +1,10 @@
+---
+layout: page
+title: SLURM examples
+permalink: /lessons/slurm-examples/
+chapter: code-samples
+---
+
 # How to submit, monitor and cancel Slurm jobs
 
 
@@ -10,4 +17,3 @@
  4. Monitor the jobs with the ```squeue``` command.
 
  5. If desired, cancel the jobs with ```scancel```
-

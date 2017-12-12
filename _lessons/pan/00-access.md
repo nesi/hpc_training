@@ -2,6 +2,7 @@
 layout: post
 title: Pan - getting access
 permalink: /lessons/pan/getting-access/
+chapter: pan
 ---
 
 Please note that these instructions are for NeSI Pan cluster.
