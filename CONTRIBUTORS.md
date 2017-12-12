@@ -1,17 +1,19 @@
 (In alphabetical oder. If you are contributing to the materials, please add your name to the list.
 
-Sung Bae
-Danny Baillie
-Jordi Blasco
-Murray Cadzow
-Martin Feller
-Matthew Healey 
-Tom Kelly
-Sina Masoud-Ansari
-Peter Maxwell
-Aleksandra Pawlik
-Alexander Pletzer
-Benjamin Roberts
-Chris Scott
-Gene Soudlenkov,
-Bart Verleye 
+Sung Bae <br/>
+Danny Baillie<br/>
+Jordi Blasco<br/>
+Murray Cadzow<br/>
+Martin Feller<br/>
+Matthew Healey <br/>
+Tom Kelly<br/>
+Mike Ladd<br/>
+Sina Masoud-Ansari<br/>
+Peter Maxwell<br/>
+Aleksandra Pawlik<br/>
+Alexander Pletzer<br/>
+Benjamin Roberts<br/>
+Chris Scott<br/>
+Gene Soudlenkov<br/>
+Michael Uddstrom<br/>
+Bart Verleye <br/>
