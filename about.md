@@ -4,33 +4,30 @@ title: About
 permalink: /about/
 ---
 
-# Introduction to HPC using NeSI
+## How to use New Zealand eScience Infrastructure
 
 This website includes training materials for a hands-on workshop on introduction to HPC using NeSI, intermediate and advanced HPC skills.
 
-The material is divided into different sections.
+The material is divided into different sections: <br/>
+* Introduction to HPC using NeSI
+* Intermediate HPC skills
+* Advanced HPC skills
+* Kupe cluster
+* Mahuika cluster
+* Maui cluster
+* Pan cluster (to be decomissioned in 2018)
 
-The HPC3/Kupe Section covers:
-1)    HPC3 - overall architecture
-
-2)    Programming environment
-
-3)    How to access the system resources
-
-4)    Differences between HPC3 and Dev System
-
-5)    File systems and their usage
-
-6)    Data transfer and access
-
-7)    Job scheduler
-
-8)    Where are my files – from FitzRoy (why are recent files created on FitzRoy not on HPC3)
-
-9)    Software available
-
-10)   Getting help and finding documentation
-
+The Kupe Section covers:<br/>
+1)    Architecture <br/>
+2)    Programming environment <br/>
+3)    How to access the system resources <br/>
+4)    Differences between HPC3 and Dev System <br/>
+5)    File systems and their usage <br/>
+6)    Data transfer and access <br/>
+7)    Job scheduler <br/>
+8)    Where are my files – from FitzRoy (why are recent files created on FitzRoy not on Kupe) <br/>
+9)    Software available <br/>
+10)   Getting help and finding documentation <br/>
 11)   Options for formal training later in the year (covering: Cray programming environment,  Allinea and more)
 
 
