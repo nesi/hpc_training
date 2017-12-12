@@ -45,4 +45,4 @@ Instructions on how to use [Globus Data Transfer Node (DTN)](../assets/resources
 
 There is a [Software Development Kit (SDK) in Python](http://globus-sdk-python.readthedocs.io/en/latest/) to work with the API.
 
-**Please note**  Currently DTN is not yet connected to Kupe. If you have access to Fitzroy and wish to use Globus to transfer files, you can use SCP (via Fitzroy) to copy them to/from Kupe.
+**Please note:**  Currently DTN is not yet connected to Kupe. If you have access to Fitzroy and wish to use Globus to transfer files, you can use SCP (via Fitzroy) to copy them to/from Kupe.
