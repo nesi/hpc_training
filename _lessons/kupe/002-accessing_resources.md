@@ -74,10 +74,10 @@ Log in to lander
 
 Now logging in to the lander node will prompt you for ‘First factor’ where you enter your newly set password, and ‘Second factor’ which is the 6 digit code displayed on your Google Authenticator app. The 6 digit code rotates every 30 seconds, and it can only be used once. This means that you can only log in to the lander node once every 30 seconds. Also the prompt says (optional), but it is not optional, and we are working to fix the message.
 
-Once you have landed on the lander node, type the following command to log in to the login node.
+Once you have landed on the lander node, type the following command to log in to the login node, using your username inplace of `<your_username>` bellow:
 
 ```
-   ​ssh -X login.kupe.niwa.co.nz
+   ​ssh -Y <your_username>@login.kupe.niwa.co.nz
 ```
 
 The login node will ask you for a password. If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. Our platforms team is working on a fix, because the login node should not require your 2nd factor token.
