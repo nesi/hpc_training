@@ -2,6 +2,7 @@
 layout: page
 title: Overview of Kupe architecture
 permalink: /lessons/kupe-architecture/
+chapter: kupe
 ---
 
 You will learn about Kupe's architecture and how it differs from FitzRoy in terms of hardware.

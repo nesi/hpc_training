@@ -2,6 +2,7 @@
 layout: post
 title: Kupe - Slurm job scheduler
 permalink: /lessons/kupe-slurm/
+chapter: kupe
 ---
 
 This page includes material from Jordi Blasco's [Introduction to Slurm documentation](https://wiki.auckland.ac.nz/download/attachments/63145549/introduction-slurm.pdf?api=v2) and the Slurm documentation at [CSCS](https://user.cscs.ch)

@@ -2,6 +2,7 @@
 layout: post
 title: Kupe - getting access
 permalink: /lessons/kupe-access/
+chapter: kupe
 ---
 
 You will learn how to set up your account on Kupe and how to log in onto the machine.

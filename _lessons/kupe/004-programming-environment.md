@@ -2,6 +2,7 @@
 layout: post
 title:  Kupe - Programming Environment
 permalink: /lessons/kupe-programming-environment/
+chapter: kupe
 ---
 
 You will learn how to compile code on Kupe.

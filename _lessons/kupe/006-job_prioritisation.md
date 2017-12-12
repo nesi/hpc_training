@@ -2,6 +2,7 @@
 layout: post
 title: Kupe - Job prioritisation
 permalink: /lessons/kupe-job-priotisation/
+chapter: kupe
 ---
 
 

@@ -2,6 +2,7 @@
 layout: post
 title: FitzRoy to Kupe migration
 permalink: /lessons/kupe-migration/
+chapter: kupe
 ---
 
 You will learn how to migrate from FitzRoy to Kupe.

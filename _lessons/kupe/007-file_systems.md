@@ -2,9 +2,10 @@
 layout: post
 title: Kupe - filesystems, and their use
 permalink: /lessons/kupe-filesystems/
+chapter: kupe
 ---
 
-## Kupe file and directory structure
+
 
 #### NeSI and NIWA research users
 

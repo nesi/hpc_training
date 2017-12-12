@@ -2,6 +2,7 @@
 layout: post
 title: Kupe - Advanced training and getting help
 permalink: /lessons/kupe-help/
+chapter: kupe
 ---
 
 Don't hesitate to contact us if you need support!
