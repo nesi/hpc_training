@@ -63,3 +63,6 @@ collections:
    lessons:
        output: true
        permalink: /:path/
+   code:
+       output: true
+       permalink: /:path/

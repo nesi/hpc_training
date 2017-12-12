@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C code examples
-permalink: /lessons/c-code/
+permalink: /code/c-code/
 chapter: code-samples
 ---
 

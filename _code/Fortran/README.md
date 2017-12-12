@@ -1,7 +1,7 @@
 ---
 layout: post
 title: FORTRAN code examples
-permalink: /lessons/fortran/
+permalink: /code/Fortran/
 chapter: code-samples
 ---
 

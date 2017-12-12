@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SLURM examples
-permalink: /lessons/slurm-examples/
+permalink: /code/slurm-examples/
 chapter: code-samples
 ---
 

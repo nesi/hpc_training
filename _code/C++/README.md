@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C++ code examples
-permalink: /lessons/cp-code/
+permalink: /code/cpp-code/
 chapter: code-samples
 ---
 

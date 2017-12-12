@@ -8,8 +8,8 @@ layout: default
 
 {{ content }}
 
-<ul class="post-list">
-    {% for lesson in site.lessons %}
+ <ul class="post-list">
+    {% for lesson in site.lessons  %}
       {% if lesson.chapter == page.chapter %}
       <li>
         <h4>
@@ -19,8 +19,20 @@ layout: default
    {% endif %}
     {% endfor %}
 
-  </ul>
+  </ul> 
 
+  <ul class="post-list">
+      {% for item in site.code  %}
+        {% if item.chapter == page.chapter %}
+        <li>
+          <h4>
+            <a class="post-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+          </h4>
+        </li>
+     {% endif %}
+      {% endfor %}
+
+    </ul>
 
 
 </div>
