@@ -1,4 +1,8 @@
-## Working within NeSI HPC environment
+---
+layout: post
+title: Pan - working in HPC environment
+permalink: /lessons/pan/hpc-environment/
+---
 
 NeSI clusters are a shared resource and hence there are certain rules as to what is available to each user by default. For small-scale projects the default amount of resources should be sufficient. If you need more compute power or disk allocation for your data, please contact support@nesi.org.nz.
 
@@ -63,7 +67,7 @@ To connect from the login node to a build node:
 ssh -YC  XXX
 ```
 
-The -Y option makes X forwarding. This mean that any GUI applications running on the cluster can have windows output on your screen. It should be enabled by default if you are connecting to HPC from Linux. If you are on a Mac, you may need to install an X server (for example, [XQuartz](http://xquartz.macosforge.org/landing/)) 
+The -Y option makes X forwarding. This mean that any GUI applications running on the cluster can have windows output on your screen. It should be enabled by default if you are connecting to HPC from Linux. If you are on a Mac, you may need to install an X server (for example, [XQuartz](http://xquartz.macosforge.org/landing/))
 
 * **Compute Node**
 
@@ -94,7 +98,7 @@ fs_my_quota_usage
 
 ### Available software
 
-You can use a variety of software already installed on the cluster. 
+You can use a variety of software already installed on the cluster.
 
 
 ### User Environment

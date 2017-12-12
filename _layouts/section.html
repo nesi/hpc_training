@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">{{ page.title }}</h1>
+
+  <h5>{{ content }}</h5>
+
+<ul class="post-list">
+    {% for lesson in site.lessons %}
+      {% if lesson.chapter == page.chapter %}
+      <li>
+
+
+        <h2>
+          <a class="post-link" href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a>
+        </h2>
+      </li>
+   {% endif %}
+    {% endfor %}
+
+  </ul>
+
+
+
+</div>

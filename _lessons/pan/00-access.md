@@ -1,3 +1,9 @@
+---
+layout: post
+title: Pan - getting access
+permalink: /lessons/pan/getting-access/
+---
+
 Please note that these instructions are for NeSI Pan cluster.
 
 ### Getting an account on NeSI
