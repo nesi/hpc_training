@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: C code examples
 permalink: /lessons/c-code/
 chapter: code-samples

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: SLURM examples
 permalink: /lessons/slurm-examples/
 chapter: code-samples

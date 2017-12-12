@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: FORTRAN code examples
 permalink: /lessons/fortran/
 chapter: code-samples
