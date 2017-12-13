@@ -6,7 +6,7 @@ chapter: faq
 ---
 
 **How many GPUs will be available?** <br/>
-HPC1 will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on HPC2 for visualisation and computational work. We may add more GPGPUs in the future, depending on demand.
+HPC1 will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on HPC2 for visualisation and computational work. We may add more GPGPUs in the future; depending on demand.
 
 **What is the max storage that can be requested per project?**<br/>
 Will likely depend on usage. How fast the disks fill out etc. Case-by-case basis based on users’ need. Some file spaces will have quotas (this will be covered in training), likely to have quotas on home directories but unlikely to have quota on scratch space. There is ~7 PB of high performance storage, and ~6 PB of nearline/offline archived storage, so a significant uplift from today - [more details.](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform)
