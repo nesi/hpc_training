@@ -9,19 +9,19 @@ NeSI clusters are a shared resource and hence there are certain rules as to what
 
 ### Quota
 
-On the NeSI supercomputers the basic quota rules are (in brief summary):
+On the NeSI Pan cluster the basic quota rules are (in brief summary):
 
 * Every file, directory or symbolic link takes up either 32 KB of disk space or its actual size (rounded up to the nearest 32K), whichever is bigger.
 
 * Every file, directory or symbolic link counts for one "inode".
 
-* Your home directory has a disk space allotment of XXX GB (though we can give more home directory space in exceptional circumstances).
+* Your home directory has a disk space allotment of 2 GB (though we can give more home directory space in exceptional circumstances).
 
-* Each project directory starts off with a space allotment of XXX GB and an inode allotment of 1,000,000 inodes, unless more space is requested (and agreed to by us) at the time the project is created.
+* Each project directory starts off with a space allotment of 30 GB and an inode allotment of 1,000,000 inodes, unless more space is requested (and agreed to by us) at the time the project is created.
 
 * An increase in disk quota or inode quota can be given either until a specific date (provided the project keeps going until that date), or until the end of the project. Especially in the latter case, we may have to reduce your disk quota if we face operational constraints.
 
-[See more details about the quota on NeSI](XXX)
+[More details about the quota on NeSI](https://support.nesi.org.nz/hc/en-gb#disk-space-allocations-quotas)
 
 To check your allocated disk space and file count quotas use:
 
@@ -44,7 +44,8 @@ A typical cluster consists of several "parts". To simplyfy things we will briefl
 - You submit the jobs from the login node
 
 
-IMPORTANT: **Login nodes should never be used to: build and test your code, store large data files, store data permanently/long-term**
+IMPORTANT:
+**Login nodes should never be used to: build and test your code, store large data files, store data permanently/long-term**
 
 What does that actually mean?
 
@@ -58,9 +59,7 @@ What does that actually mean?
 - Used for building (compiling) your code
 - Used for test runs for your code
 - [More details on building your code on the Pan cluster](https://wiki.auckland.ac.nz/display/CER/Developing+software)
-- NeSI's Cray has nodes:
-    -  XXX
-    -  XXX
+
 
 To connect from the login node to a build node:
 
@@ -99,23 +98,29 @@ fs_my_quota_usage
 
 ### Available software
 
-You can use a variety of software already installed on the cluster.
-
+You can use a variety of software already installed on the cluster. Pan cluster has approimately 400 packages installed so there is a good chance that what you need
+ to do your research is already available on our machine. If it isn't, we may be able to install it for you (subject to licensing and technical compatibility).
 
 ### User Environment
 LMOD is very useful to manage environment variables for each application and it is very easy to use. It loads the needed environment by a certain application and its dependencies automatically. The command line is fully compatible with the previous 'Environment Modules', and it provides simple short-cuts and advanced features.
 
-Syntax :```module [options] sub-command [args ...]```
+To load modules (i.e. to be able to use software packages installed on Pan), you need to use the command `module`
+
+The general syntax is:
+```module [options] sub-command [args ...]```
+
+For example, ``` module load R```
+
 #### Loading/Unloading sub-commands
-* load | add : load module(s)
-* swap | switch : swap a module for another
-* del | unload: Remove module(s), do not complain if not found
-* update: reload all currently loaded modules.
+* `load` or `add` : load module(s)
+* `swap` or `switch` : swap a module for another
+* `del` or `unload`: Remove module(s), do not complain if not found
+* `update`: reload all currently loaded modules.
 
 #### Listing / Searching sub-commands
-* list: List loaded modules
-* avail | av: List available modules
-* avail | av string: List available modules that contain "string".
+* `list`: List loaded modules
+* `avail` or `av`: List available modules
+* `avail string` | `av string`: List available modules that contain "string".
 * spider: List all possible modules
 * spider module" List all possible version of that module file
 * spider string: List all module that contain the "string".
@@ -125,4 +130,4 @@ Syntax :```module [options] sub-command [args ...]```
 * ml foo bar - means: module load foo bar
 * ml -foo -bar baz goo - means: module unload foo bar; module load baz goo;
 
-More information at http://www.tacc.utexas.edu/tacc-projects/lmod
+[More detailed information on LMOD](http://www.tacc.utexas.edu/tacc-projects/lmod)
