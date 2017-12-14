@@ -121,9 +121,9 @@ For example, ``` module load R```
 * `list`: List loaded modules
 * `avail` or `av`: List available modules
 * `avail string` | `av string`: List available modules that contain "string".
-* spider: List all possible modules
-* spider module" List all possible version of that module file
-* spider string: List all module that contain the "string".
+* `spider`: List all possible modules
+* `spider module` List all possible version of that module file
+* `spider string`: List all module that contain the "string".
 
 #### Short-cuts
 * ml - means: module list
