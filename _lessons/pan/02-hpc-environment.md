@@ -19,6 +19,8 @@ On the NeSI Pan cluster the basic quota rules are (in brief summary):
 
 * Each project directory starts off with a space allotment of 30 GB and an inode allotment of 1,000,000 inodes, unless more space is requested (and agreed to by us) at the time the project is created.
 
+[More details on home and project directories on Pan](https://support.nesi.org.nz/hc/en-gb/articles/207295930-Directories-Available-on-Pan)
+
 * An increase in disk quota or inode quota can be given either until a specific date (provided the project keeps going until that date), or until the end of the project. Especially in the latter case, we may have to reduce your disk quota if we face operational constraints.
 
 [More details about the quota on NeSI](https://support.nesi.org.nz/hc/en-gb#disk-space-allocations-quotas)

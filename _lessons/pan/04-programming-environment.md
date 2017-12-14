@@ -39,18 +39,7 @@ The list of compiler options differs for each programming environment. To type g
 ```
 man ftn
 ```
-To see the compiler options that are specific to a compiler, type
-```
-man crayftn
-```
-for instance.
 
-### Targeting a particular CPU
-
-When running on Skylake processors, be sure to load
-```
-module load craype-x86-skylake
-```
 
 ### Linking against an external library
 
