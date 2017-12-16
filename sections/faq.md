@@ -8,7 +8,7 @@ chapter: faq
 **How many GPUs will be available?** <br/>
 HPC1 will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on HPC2 for visualisation and computational work. The platform is designed to add more GPGPUs in the future, depending on demand.
 
-**What is the max storage that can be requested per project?**<br/>
+**What is the maximum storage that can be requested per project?**<br/>
 This will be determined on a case-by-case basis based on users’ need. The new platforms provide for significantly more storage (~7 PB of high performance storage, and ~6 PB of nearline/offline archive storage) than that available on the combined Pan and Fitzroy platforms. It is expected that the issues users experienced with managing limited quotas will be much less of an issue on the new platforms. Some file systems will have quotas (this will be covered in training) but it is unlikely to have quota on scratch space used for computation. [more details.](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform)
 
 **Will scp/Globus work with 2-factor authentication?**<br/>
@@ -38,15 +38,15 @@ Yes, everyone will need to use 2-factor authentication. There will be a web-base
 Globus requires two endpoints, e.g., at a university and on the NeSI HPC. You would need to contact IT support at your organisation if there is no Globus endpoint. Feel free to also contact us on support@nesi.org.nz and we can work directly with you to find a solution.
 
 **There are more machines and memory available on the new platform (e.g. compared with Pan), how many new users are expected? (i.e. how will this translate to job wait times? Will we expect improvements?)**<br />
-The new HPCs will come with a significant increase in capacity, and also additional gains in performance, so there will be little by way of queues, initially, even with new HPC users coming in.
+The new HPCs will come with a significant increase in capacity, and also additional gains in performance. We anticipate a significant reduction in queue wait times initially. Queue wait times will be impacted by both the number of new users on the system as well as by the rate at which current users submit jobs. The new platforms provide an excellent mechanism for researchers to scale up their reseearch. As a result, it is very difficuly to predict how the load (and therefore queuing times) will change once the new systems are in production.
 
-**Will all the data in a specified storage be backed up and what is the maximum size?**<br />
-This depends on the file space - some are always backed up (such as home directories), while others are never backed up (such as scratch space for runtime output). There will also be an archiving system. Size limits depend on file space, e.g., home directories should not contain very large files. Further details will be announced in user training sessions.
+**Will all the data in a specified file system be backed up?**<br />
+This depends on the file system - some file systems such as your home and project directories will be backed up, while others will never be backed up (such as scratch space for runtime output). There will also be an archiving system.
 
-**Will there be any time during the transition we will not be able to use either pan or HPC1?**<br />
+**Will there be any time during the transition we will not be able to use either Pan or HPC1?**<br />
 There will be an overlap period where both Pan and HPC1 run in parallel, so there will be no downtime where no jobs can run.
 
-**Also will we be able to access our project files during any transition? Is it best to make a back up of any data currently on Pan before some date?** <br/>
+**Will we be able to access our project files during any transition? Is it best to make a back up of any data currently on Pan before some date?** <br/>
 Yes, files will always be available. Backups are not necessary for the migration, but they are always a good idea.
 
 **New users: My university has institutional access, is my first step to apply for a project from NeSI and can I do that now before the HPCs are available?**<br />
