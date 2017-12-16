@@ -58,14 +58,14 @@ Scheduler configuration that will manage these resources is still being finalise
 **Currently users cannot check their current total core hour usage under each NeSI project. Will this be enabled for the new clusters?** <br/>
 We are currently developing an interface which will allow users to see where they are at against their allocation. We are aiming to have this available early next year.
 
-**Can we request standalone software like SMRTLink portal on HPC?**<br />
+**Can we request custom software on the new HPCs?**<br />
 We can help you with building and installing additional software on the HPC, please contact us on support@nesi.org.nz.
 
 **I spotted a mention of 500MB data storage in one of the slides - was this correct, or was it meant to be 500GB?** <br/>
 This might have been the Globus slide, where using Globus is recommended for transferring more than 500MB of data.
 
 **How much temporary (short term) storage can projects get?**<br />
-Projects should be able to scale up to large amounts of storage, in particular for short term storage. Please contact support@nesi.org.nz so that we can work with you to meet your requirements.
+Projects should be able to scale up to large amounts of storage, in particular for short periods of time. Please contact support@nesi.org.nz so that we can work with you to meet your requirements.
 
 **Where can I get a a copy of the slides as well as the recording of the webinar presenting new NeSI platforms?**<br/>
 * [You can view the webinar online.](https://youtu.be/ldv9Tpoz_78)
