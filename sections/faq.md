@@ -6,10 +6,10 @@ chapter: faq
 ---
 
 **How many GPUs will be available?** <br/>
-HPC1 will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on HPC2 for visualisation and computational work. We may add more GPGPUs in the future; depending on demand.
+HPC1 will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on HPC2 for visualisation and computational work. The platform is designed to add more GPGPUs in the future; depending on demand.
 
 **What is the max storage that can be requested per project?**<br/>
-Will likely depend on usage. How fast the disks fill out etc. Case-by-case basis based on users’ need. Some file spaces will have quotas (this will be covered in training), likely to have quotas on home directories but unlikely to have quota on scratch space. There is ~7 PB of high performance storage, and ~6 PB of nearline/offline archived storage, so a significant uplift from today - [more details.](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform)
+This will be determined on a case-by-case basis based on users’ need. The new platforms provide for significantly more storage (~7 PB of high performance storage, and ~6 PB of nearline/offline archive storage) than that available on the combined Pan and Fitzroy platforms. It is expected that the issues users experienced with managing limited quotas will be much less of an issue on the new platforms. Some file systems will have quotas (this will be covered in training) but it is unlikely to have quota on scratch space used for computation. [more details.](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform)
 
 **Will scp/Globus work with 2-factor authentication?**<br/>
 We’re working with the Globus team to ensure this will work -- globus has its own authentication so will likely not use 2-factor. SCP works as with SSH, so it will need 2-factor authentication. We are hoping to install a caching mechanism that will avoid the need to re-authenticate each individual session within a short time interval, similar to, e.g., “sudo” on Linux. Generally speaking, the need for transferring files should be minimal as we will be providing remote visualisation services and interactive virtual labs.
