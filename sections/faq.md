@@ -15,7 +15,7 @@ This will be determined on a case-by-case basis based on users’ need. The new 
 SCP works as with SSH, so it will need 2-factor authentication. We are hoping to install a caching mechanism that will avoid the need to re-authenticate each individual session within a short time interval, similar to, e.g., “sudo” on Linux. We’re working with the Globus team on authentication, but in the short term it is unlikely that 2-factor authentication will be required.
 
 **How will scripted machine to machine workflows work with 2-factor authentication?**<br />
-This will need to be discussed on a per-case basis. Please contact us if you need automated access to the HPC of some form.
+This will need to be discussed on a per-case basis. Please contact support@nesi.org.nz if you need automated access to the HPC in some form.
 
 **What is the expected migration time frame to the new platform from Pan?**<br/>
 Pan’s replacement (HPC1) will be in place approx March ‘18. Both Pan and HPC1 will run in parallel during migration and before Pan shuts down.
@@ -29,12 +29,12 @@ Please contact support@nesi.org.nz if you need migration support.
 Yes, you will be able to access online repositories, e.g., via “git clone”, “svn checkout”, or “conda install”.
 
 **Will new projects (e.g. start in Jan. 2018) be migrated earlier or should we allow for a disruption in transfer around March for these?**<br/>
-We are focused on smooth transitions for existing / in flight projects, so we will work with you when the time comes. The jobs cannot be live migrated, so migration will need to happen with a break between production runs. There will likely be a short freeze before this migration where new projects won’t be accepted - thinking about 3 to 4 weeks prior.
+We are focused on smooth transitions for existing / in flight projects, so we will work with you when the time comes. Jobs cannot be live migrated, so migration will need to happen with a break between production runs. There will likely be a short freeze before this migration where new projects won’t be accepted - thinking about 3 to 4 weeks prior.
 
 **Will everyone need to use 2-factor authentication?**<br/>
-Yes, everyone will need that. There will be a web-based interface for those who don’t have a smartphone.
+Yes, everyone will need to use 2-factor authentication. There will be a web-based interface for those who don’t have a smartphone.
 
-**Follow-up globus question: Will there be support for software and data migration from overseas server? (without the need of Gdrive in between).**<br />
+**Will there be support for data migration directly from external (including overseas) servers?**<br />
 Globus requires two endpoints, e.g., at a university and on the NeSI HPC. You would need to contact IT support at your organisation if there is no Globus endpoint. Feel free to also contact us on support@nesi.org.nz and we can work directly with you to find a solution.
 
 **There are more machines and memory available on the new platform (e.g. compared with Pan), how many new users are expected? (i.e. how will this translate to job wait times? Will we expect improvements?)**<br />
