@@ -47,9 +47,9 @@ This depends on the file system - some file systems such as your home and projec
 There will be an overlap period where both Pan and HPC1 run in parallel, so there will be no downtime where no jobs can run.
 
 **Will we be able to access our project files during any transition? Is it best to make a back up of any data currently on Pan before some date?** <br/>
-Yes, files will always be available. Backups are not necessary for the migration, but they are always a good idea.
+Yes, files will always be available. There will likely be a period where changing files will not be allowed in order to ensure files are transferred without corruption. Backups are not necessary for the migration, but they are always a good idea. 
 
-**New users: My university has institutional access, is my first step to apply for a project from NeSI and can I do that now before the HPCs are available?**<br />
+**My university has institutional access, is my first step to apply for a project from NeSI and can I do that now before the HPCs are available?**<br />
 Yes you can apply now for an allocation. It will be converted as we migrate to the new platform. The number of core hours will be reduced because of higher performance per core on HPC1/HPC2 compared to Pan/Fitzroy.
 
 **Will jobs requiring large memory be given priority to large memory machines over jobs that could run on smaller memory machines (or will there be a way to apply for this)?**<br />
@@ -65,7 +65,7 @@ We can help you with building and installing additional software on the HPC, ple
 This might have been the Globus slide, where using Globus is recommended for transferring more than 500MB of data.
 
 **How much temporary (short term) storage can projects get?**<br />
-Projects should be able to scale up to large amounts of storage. Please talk to us if you need a lot (e.g., hundreds of TB), so that we can work with you to meet your requirements.
+Projects should be able to scale up to large amounts of storage, in particular for short term storage. Please contact support@nesi.org.nz so that we can work with you to meet your requirements.
 
 **Where can I get a a copy of the slides as well as the recording of the webinar presenting new NeSI platforms?**<br/>
 * [You can view the webinar online.](https://youtu.be/ldv9Tpoz_78)
