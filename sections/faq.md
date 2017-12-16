@@ -61,9 +61,6 @@ We are currently developing an interface which will allow users to see where the
 **Can we request custom software on the new HPCs?**<br />
 We can help you with building and installing additional software on the HPC, please contact us on support@nesi.org.nz.
 
-**I spotted a mention of 500MB data storage in one of the slides - was this correct, or was it meant to be 500GB?** <br/>
-This might have been the Globus slide, where using Globus is recommended for transferring more than 500MB of data.
-
 **How much temporary (short term) storage can projects get?**<br />
 Projects should be able to scale up to large amounts of storage, in particular for short periods of time. Please contact support@nesi.org.nz so that we can work with you to meet your requirements.
 
