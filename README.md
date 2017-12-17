@@ -12,7 +12,7 @@ If you missed the live training session on November 3 2017, you can find a recor
 
 #### Contributors:
 
-Murray Cadzow, Matthew Healey, Gene Soudlenkov, Sung Bae, Benjamin Roberts, Bart Verleye, Jordi Blasco, Martin Feller, Peter Maxwell, Sina Masoud-Ansari, Danny Baillie, Tom Kelly, Alexander Pletzer, Chris Scott, Wolfgang Hayek, and Aleksandra Pawlik
+Murray Cadzow, Matthew Healey, Gene Soudlenkov, Sung Bae, Benjamin Roberts, Bart Verleye, Jordi Blasco, Martin Feller, Peter Maxwell, Sina Masoud-Ansari, Danny Baillie, Tom Kelly, Alexander Pletzer, Chris Scott, Wolfgang Hayek, Brian Corrie, and Aleksandra Pawlik
 (if you are contributing to the materials, please add your name to the list)
 
 
