@@ -64,7 +64,7 @@ Note:
 the same location should do for all hosts.
  * the root location for suite work and share directories can be configured
    separately with `root-dir{share}=*=/foo/bar` and
-   `root-dir{work}=*=foo/bar`.
+   `root-dir{work}=*=/foo/bar`.
  * these locations can also be configured per-suite in `rose-suite.conf` files
    (in which case omit the `[rose-suite-run]` section heading).
 
