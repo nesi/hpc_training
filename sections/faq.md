@@ -57,13 +57,13 @@ Yes, transfers from external collaborators will be supported. The recommended me
 # Data storage
 
 **What is the maximum storage that can be requested per project?**<br/>
-This will be determined on a case-by-case basis based on a project's need. The new platforms provide for significantly more storage (~7 PB of high performance storage, and ~6 PB of nearline/offline archive storage) than that available on the combined Pan and FitzRoy platforms. It is expected that the issues users experienced with managing limited quotas (in particular on Pan) will be much less of an issue on the new platforms. In particular, it will no longer be necessary to move data between the two system as was necessary with Pan/FitzRoy. Some file systems will have quotas (this will be covered in training) but there is unlikely to be a quota on the scratch (or /nobackup) space used for computation. [more details.](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform)
+This will be determined on a case-by-case basis based on a project's need. The new platforms provide for significantly more storage (~7 PB of high performance storage, and ~6 PB of nearline/offline storage) than that available on the combined Pan and FitzRoy platforms. It is expected that the issues users experienced with managing limited quotas (in particular on Pan) will be much less of an issue on the new platforms. In particular, it will no longer be necessary to move data between the two system as was necessary with Pan/FitzRoy. Some file systems will have quotas (this will be covered in training) but there is unlikely to be a quota on the scratch (or /nobackup) space used for computation. [more details.](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform)
 
 **How much temporary (short term) storage can projects get?**<br />
 Projects should be able to scale up to large amounts of storage, in particular for short periods of time. Please contact support@nesi.org.nz so that we can work with you to meet your requirements.
 
 **Will all the data in a specified file system be backed up?**<br />
-This depends on the file system - some file systems such as the /home and /project directories will be backed up, while others will not be backed up (such as the /nobackup file system for runtime output). There will also be an archiving system.
+This depends on the file system - some file systems such as the /home and /project directories will be backed up, while others will not be backed up (such as the /nobackup file system for runtime output). There will also be a hierarchical nearline storage system for storage of data that does not require high performance disk.
 
 # Managing allocations
 
