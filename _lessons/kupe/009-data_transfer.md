@@ -13,19 +13,19 @@ For small amounts of data, SSH based utilities such as SecureCopy (`scp`) can be
 
 The lander node filestem is distinct from the Kupe filesystem, and so copying a file from your desktop to Kupe is by default a two-step process.  If you are using an OpenSSH based ssh, which will be the case for most MacOSX and Linux users, then this inconvenience can be avoided by setting up an SSH config file such as:
 ```
-Host kupe01
+Host kupe
    User your_username
-   Hostname kupe01
+   Hostname login.kupe.niwa.co.nz
    ProxyCommand ssh -W %h:%p lander.nesi.org.nz
 ```
-With that file present at `~/.ssh/config`, the command `ssh kupe01` should take you there directly, jumping across the lander node on the way, and `scp` will do the same for your file transfers.
+With that file present at `~/.ssh/config`, the command `ssh kupe` should take you there directly, jumping across the lander node on the way, and `scp` will do the same for your file transfers.
 
 There is also the problem of having to repeatedly provide both authentication factors every time you use `scp`.  The following method allows passwordless `scp` while you have an `ssh` session open, but it does bring some complications and so is not recommended unless you often use `scp`.  First create the directory `~/.ssh/sockets` on your machine, and then set up your `~/.ssh/config` with:
 ```
 ControlPath ~/.ssh/sockets/%r@%h:%p
-Host kupe01
+Host kupe
    User your_username
-   Hostname kupe01
+   Hostname login.kupe.niwa.co.nz
    ProxyCommand ssh -W %h:%p lander.nesi.org.nz
    ControlMaster auto
    ControlPersist 1
