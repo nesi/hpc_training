@@ -7,14 +7,14 @@ chapter: faq
 
 # The new platforms
 
-**How big (CPUs, memory, storage) are these new HPCs?**<br />
+**How big (CPUs, memory, storage) are the new HPC platforms?**<br />
 They provide a significant increase in performance over the existing platforms. Please see the [new platform technical details](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform) for more information.
 
 **How many GPUs will be available?** <br/>
 HPC1 will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on HPC2 for visualisation and computational work. The platform is designed to add more GPGPUs in the future, depending on demand.
 
-**There are more machines and memory available on the new platform (e.g. compared with Pan), how many new users are expected? (i.e. how will this translate to job wait times? Will we expect improvements?)**<br />
-The new HPCs will come with a significant increase in capacity, and also additional gains in per processor performance. We anticipate a significant reduction in queue wait times initially. Queue wait times will be impacted by both the number of new users on the system as well as by the rate at which current users submit jobs. The new platforms provide an excellent mechanism for researchers to scale up their reseearch. As a result, it is very difficuly to predict how the load (and therefore queuing times) will change once the new systems are in production.
+**There are more nodes/cores and memory available on the new platform (e.g. compared with Pan), how many new users are expected? (i.e. how will this translate to job wait times? Will we expect improvements?)**<br />
+The new HPCs will come with a significant increase in capacity, and also additional gains in per processor performance. We anticipate a significant reduction in queue wait times initially. Queue wait times will be impacted by both the number of new users on the system as well as by the rate at which current users submit jobs. The new platforms provide an excellent mechanism for researchers to scale up their research, so we expect current users to use more resources. At the same time, we don't know how many new users the new platforms will attract. As a result, it is very difficult to predict how the load (and therefore queuing times) will evolve once the new systems are in production and users start to take advantage of the new capabilities.
 
 # Managing projects
 
