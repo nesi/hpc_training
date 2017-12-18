@@ -82,7 +82,18 @@ Once you have landed on the lander node, type the following command to log in to
 
 The login node will ask you for a password. If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. Our platforms team is working on a fix, because the login node should not require your 2nd factor token.
 
+#### Logging in from outside of NIWA computer network (advanced)
 
+On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe (you will probably still need to enter your password the same number of times as if you had SSH'd to lander first and then on to kupe).
+```
+Host kupe
+   User your_username
+   Hostname login.kupe.niwa.co.nz
+   ProxyCommand ssh -W %h:%p lander.nesi.org.nz
+   ForwardX11 Yes
+   ForwardX11Trusted Yes
+```
+The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the [data transfer](009-data_transfer.md) page).
 
 #### Shells
 
