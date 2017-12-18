@@ -90,8 +90,8 @@ Host kupe
    User your_username
    Hostname login.kupe.niwa.co.nz
    ProxyCommand ssh -W %h:%p lander.nesi.org.nz
-   ForwardX11 Yes
-   ForwardX11Trusted Yes
+   ForwardX11 yes
+   ForwardX11Trusted yes
 ```
 The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the [data transfer](009-data_transfer.md) page).
 
