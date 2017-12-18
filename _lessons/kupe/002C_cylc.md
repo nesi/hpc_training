@@ -44,6 +44,8 @@ for `cylc scan`:
 hosts = cylc01, cylc02, cylc03
 ```
 
+Note that it may be necessary to log on to the Cylc hosts (cylc01, cylc02, ...) once to add these host names and public key fingerprints to the "known_hosts" list in your ssh configuration.
+
 ## Configuring Suite Run Directory Locations
 
 Cylc stores all suite files under the standard root location
@@ -55,7 +57,8 @@ locations, e.g.:
 ```
 # $HOME/.metomi/rose.conf
 [rose-suite-run]
-root-dir=*=/nobackup/${USER}
+root-dir=*=/nesi/nobackup/${USER}
+hosts=cylc-vm
 scan-hosts=cylc-vm
 ```
 
