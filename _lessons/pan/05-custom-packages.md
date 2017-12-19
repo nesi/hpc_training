@@ -21,7 +21,7 @@ First, let's get onto a build node
 
 ```
 [apaw363@login-01 ~]$ ssh build-wm
-[apaw363@build-sb ~]$
+[apaw363@build-wm ~]$
 ```
 
 Now, let's see which R versions we have available:
