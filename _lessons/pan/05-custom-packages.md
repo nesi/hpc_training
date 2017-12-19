@@ -17,10 +17,10 @@ Detailed NeSI [documentation on working with Python packages](https://support.ne
 
 ### Example of installing a custom R package
 
-First, let's get onto the build node
+First, let's get onto a build node
 
 ```
-[apaw363@login-01 ~]$ ssh build-sb
+[apaw363@login-01 ~]$ ssh build-wm
 [apaw363@build-sb ~]$
 ```
 
