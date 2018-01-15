@@ -42,7 +42,7 @@ module load slurm
 ```
 You could add this line to your `.profile` if you don't want to load the module on every login, though we do plan to remove the need to do this step at all.
 
-## Submitting a one-line job with `sbatch`
+## Submitting a one-line job with sbatch
 
 Slurm works like any other scheduler - you can submit jobs to the queue, and Slurm will run them for you when the resources that you requested become available. Jobs are usually defined using a job script, although you can also submit jobs without a script, directly from the command line:
 
@@ -61,7 +61,7 @@ At present it is also necessary to specfiy which Slurm *partition* the job will 
 
 There is also a "Debug" partition and a "NeSI_Forage" partition available to NeSI projects.  Please check back here for documentation on these later.  Beware that at present jobs longer than 10 minutes submitted to Debug will submit OK but then never start, while jobs submitted to "NeSI_Forage" jobs may be terminated by Slurm so that other jobs can run.  Finally, there are partitions "NIWA_Research", "NIWA_Forage" and "Operations" which are not accessable by jobs which belong to NeSI projects.
 
-## Submitting a batch script with `sbatch`
+## Submitting a batch script with sbatch
 
 An appropriate Slurm job submission file for your parallel job is a shell script with a set of directives at the beginning. These directives are issued by starting a line with the string "#SBATCH". A suitable batch script is then submitted to the batch system using the `sbatch` command.
 
@@ -93,13 +93,13 @@ That would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, 
 
 The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it.
 
-### Launching MPI job steps with `srun`
+### Launching MPI job steps with srun
 
 The `srun` command in the script above sets up the MPI runtime environment need to run the parallel program, launching it on multiple CPUs which can be on multiple different nodes. `srun` should be used in place of any other MPI launcher such as *aprun* or *mpirun*.
 
 On Kupe the default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurences of `srun` within the job.
 
-### Launching OpenMP or Hybrid job steps with `srun`
+### Launching OpenMP or Hybrid job steps with srun
 
 For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the
 `OMP_NUM_THREADS` variable. For example:
@@ -113,7 +113,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun <your_app>
 ```
 
-### `sbatch` customisation on Kupe
+### sbatch customisation on Kupe
 
 On Kupe we have set the environment variable `SBATCH_EXPORT=NONE`.  This has the effect of telling `sbatch` to not copy the environment from where you submit the job, but rather start the job with a fresh copy of your login environment. This is required when submitting jobs from one operating system to another as users of the *kupe_mp* may do, but has the consequence that you must load any required environment module from inside the job script, and not just before you submit it.  As with the use of #SBATCH directives this makes the job more self-documenting and so helps us when something goes wrong and needs diagnosing, but if you wish for the convinience of one-line module-using jobs then you can do `export SBATCH_EXPORT=ALL`.
 
@@ -142,11 +142,11 @@ If you wish to change the default names of the output and error files, you can u
 #SBATCH --error=hello_world_mpi.%j.e
 ```
 
-## Calling `srun` directly
+## Calling srun directly
 
 `srun` is usually only used from within a job script.  In that environment it notices and uses the Slurm allocation created for its enclosing job.  When executed outside of any Slurm allocation `srun` behaves differently, submitting a request to the Slurm queue just like `sbatch` does.  Unlike `sbatch` though the launched process runs with its input and output attched to the terminal where it was launched, so using `srun` this way is not suitable for actual *batch* jobs. Also, `srun` is not affected by the SBATCH_EXPORT variable described above, so by default it *will* copy the current environment from where it is executed over to the process(es) it launches.  In general do not attempt to execute  batch files this way, as any included #SBATCH lines will have no effect.
 
-## Checking the queue with `squeue`
+## Checking the queue with squeue
 
 To check if your job is running, use the command
 ```
@@ -186,7 +186,7 @@ To cancel a job, use
 scancel <job id>
 ```
 
-## Checking completed jobs with `sacct`
+## Checking completed jobs with sacct
 
 Another useful Slurm command is `sacct` which retrieves information about completed jobs. For example:
 
