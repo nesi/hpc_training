@@ -91,11 +91,9 @@ That would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, 
 
 #SBATCH directives are exactly equivalent to providing the same options on the `sbatch` command line, but have the advantage of repeatablility and self-documentation, which are particularly useful if something goes wrong.  If both are provided then the command line option takes precedence. As a note for LoadLeveler users: Slurm expects directives to come first in a submission script, so don't insert any commands above the directives block.
 
-<<<<<<< HEAD
 The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it.
-=======
+
 ### Launching MPI job steps with `srun`
->>>>>>> 4fdd413327ef8ad55f082a48c0b2c58ccb1c120b
 
 The `srun` command in the script above sets up the MPI runtime environment need to run the parallel program, launching it on multiple CPUs which can be on multiple different nodes. `srun` should be used in place of any other MPI launcher such as *aprun* or *mpirun*.
 
