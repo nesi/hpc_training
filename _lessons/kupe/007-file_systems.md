@@ -14,9 +14,9 @@ Kupe provides users with the following filesystems
 | File Space | Backed Up | Maximum <sup>[0](#0)</sup> I/O Bandwidth(GB/s) | Total Capacity | Access | Quota | Usage |
 | --- | --- | --- | --- | --- | --- | --- |
 | /home | Y | 15 | 100 TB | Personal | Y | Source code, control data, documentation etc. |
-| /project | Y | 15 | 500 TB | Group | Y | Critical data (time enduring), Data collections, shared reference data, source code, shared data etc. |
-| /nobackup<sup>[1](#1)</sup>| N | 70 | 2500 TB | Group | Y | Where most output should be read / written – the highest performance filesystem. Actively managed to remove unused data. |
-| /nearline | HSM<sup>[2](#2)</sup> | 15 | 400 TB cache to ~50PB tape storage | N/A | Y | Data cache for HSM. Holds the records of all data written to tape via the librarian<sup>[3](#3)</sup> Service. |
+| /nesi/project | Y | 15 | 500 TB | Group | Y | Critical data (time enduring), Data collections, shared reference data, source code, shared data etc. |
+| /nesi/nobackup<sup>[1](#1)</sup>| N | 70 | 2500 TB | Group | Y | Where most output should be read / written – the highest performance filesystem. Actively managed to remove unused data. |
+| /nesi/nearline | HSM<sup>[2](#2)</sup> | 15 | 400 TB cache to ~50PB tape storage | N/A | Y | Data cache for HSM. Holds the records of all data written to tape via the librarian<sup>[3](#3)</sup> Service. |
 
 <sup><a name="0">[0]</sup>The total I/O bandwidth to disk is 70 GB/s, but this is spread across all five filesystems on the Kupe storage. However, the storage has been configured so as to provide the highest bandwidth to the nobackup filesystem. All user filesystems also include an additional SSD resource that can be used to optimise jobs that have random I/O access patterns.</a>
 
