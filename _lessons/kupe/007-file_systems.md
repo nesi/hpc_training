@@ -9,7 +9,7 @@ chapter: kupe
 
 #### NeSI and NIWA research users
 
-Kupe provides users with the following filesystems
+Kupe provides users with the following filesystems. *As of 19 Jan 2018 only /home and /nesi/nobackup are active.*
 
 | File Space | Backed Up | Maximum <sup>[0](#0)</sup> I/O Bandwidth(GB/s) | Total Capacity | Access | Quota | Usage |
 | --- | --- | --- | --- | --- | --- | --- |
