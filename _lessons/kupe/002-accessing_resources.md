@@ -84,7 +84,7 @@ The login node will ask you for a password. If you have your 2nd factor set, you
 
 #### Logging in from outside of NIWA computer network (advanced)
 
-On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe (you will probably still need to enter your password the same number of times as if you had SSH'd to lander first and then on to kupe).
+On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe. Since we are using SSH ProxyCommand to jump first to the lander node, you will need to enter your ‘First factor’ (password) and then your ‘Second factor’ (from Google Authenticator) on the first jump and then a combination of your ‘First factor’+‘Second factor’ on the second jump when prompted for a password. 
 ```
 Host kupe
    User your_username
@@ -92,6 +92,16 @@ Host kupe
    ProxyCommand ssh -W %h:%p lander.nesi.org.nz
    ForwardX11 yes
    ForwardX11Trusted yes
+   ServerAliveInterval 300
+   ServerAliveCountMax 2
+
+Host lander
+   User your_username
+   HostName lander.nesi.org.nz
+   ForwardX11 yes
+   ForwardX11Trusted yes
+   ServerAliveInterval 300
+   ServerAliveCountMax 2
 ```
 The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the [data transfer](009-data_transfer.md) page).
 
