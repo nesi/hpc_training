@@ -89,7 +89,7 @@ On most Linux and MacOS machines the login process can be simplified to just a s
 Host kupe
    User your_username
    Hostname login.kupe.niwa.co.nz
-   ProxyCommand ssh -W %h:%p lander.nesi.org.nz
+   ProxyCommand ssh -W %h:%p lander
    ForwardX11 yes
    ForwardX11Trusted yes
    ServerAliveInterval 300
