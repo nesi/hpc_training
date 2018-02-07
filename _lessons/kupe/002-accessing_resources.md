@@ -108,4 +108,3 @@ If your account is not ready, you may see:
 If your project is not set up, you may see:
 ![logging-in](../../assets/img/no_project.png)
 
-**Please do not create or modify any files or directories in your home directory or in any of the directories that were migrated from FitzRoy - synchronisation between FitzRoy and Kupe is still ongoing, and modified files on Kupe will be overwritten!**
