@@ -80,9 +80,9 @@ We can help you with building and installing additional software on the HPC, ple
 
 **Where can I get a copy of the slides and recording of the webinar presenting new NeSI platforms?**<br/>
 We have hosted two webinars on the new systems:
-October 2017 - Overview of the Systems
+<br>October 2017 - Overview of the Systems
 * [You can view the webinar online.](https://youtu.be/ldv9Tpoz_78)
 * [And the slides](https://docs.google.com/presentation/d/1hw0Rp60VAgJEYSaMHly1hN1u7DxV2YpsYznrHMIzRYI/edit?usp=sharing).
-February 2018 - User Q&A
-* [You can view the webinar online.] (https://www.youtube.com/watch?v=X-Vmu69yTo4&feature=youtu.be)
+<br><br>February 2018 - User Q&A
+* [You can view the webinar online.](https://www.youtube.com/watch?v=X-Vmu69yTo4&feature=youtu.be)
 * [And the slides](https://drive.google.com/file/d/1yBJ5aBJQj_7WUQeBbHSVfPkWcY-OYXoF/view)
