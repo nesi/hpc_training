@@ -7,7 +7,32 @@ chapter: kupe
 
 You will learn how to set up your account on Kupe and how to log in onto the machine.
 
-### Setting up account on Kupe
+### Requirements
+
+You will need a terminal program to log into Kupe:
+
+- Windows: MobaXterm, Windows 10 bash, Putty
+- MacOS X: Terminal app, iTerm2
+- Linux: Terminal app, xterm
+
+You will need an account, see instructions below.
+
+### Connecting to kupe
+
+For users outside of NIWA, connect to kupe by typing
+```
+ssh -Y <my_username>@lander.nesi.org.nz
+```
+inside your terminal program, and using your password and second factor to authenticate. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. See below on how to set up two factor authentication. 
+
+Once you're on the lander node or if connecting from inside NIWA or from NIWA's VPN, connect to kupe using
+```
+ssh -Y <my_username>@login.kupe.niwa.co.nz
+```
+then enter your password. **Note** If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. This may change in the future. 
+
+
+### Setting up an account on Kupe
 
 If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to log in to NeSI user portal. This populates NeSI database with your basic account information which will be used to set up your account.
 
@@ -34,23 +59,9 @@ Connecting to the HPC requires two-factor authentication at all times, your pass
 - Connecting from NIWA's physical network (at a NIWA branch)
 - Connecting through a NIWA VPN session
 
-### Logging in to Kupe
+#### Setting up access for connecting from outside of NIWA computer network
 
-You will need a terminal program to log into Kupe:
-
-- Windows: MobaXterm, Windows 10 bash, Putty
-- MacOS X: Terminal app, iTerm2
-- Linux: Terminal app
-
-Using a terminal program and SSH into lander.nesi.org.nz using the Kupe linux username displayed on the portal and the temporary password above. (Any Kupe node can be used with ssh for the password reset, but only the lander node is accessible to external users.)
-
-When you log in using your temporary password, the lander node will ask you to change your password immediately. Please follow the instruction on the shell.
-
-Important: Continue from here only if you are outside NIWA. If you are connecting from inside the NIWA network or have NIWA VPN, your account is all ready to go. You can connect directly to the login node at login.kupe.niwa.co.nz.
-
-#### Logging in from outside of NIWA computer network
-
-Note: You can skip this section if you log on from inside the NIWA network.
+Note: You can skip this section if you log on from inside the NIWA network or via NIWA's VPN.
 
 Go back to My NeSI portal and click on Accounts or refresh the page and you will see a new option to ‘Link your mobile device’
 ![logging-in](../../assets/img/link_device.png)
@@ -82,7 +93,7 @@ Once you have landed on the lander node, type the following command to log in to
 
 The login node will ask you for a password. If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. Our platforms team is working on a fix, because the login node should not require your 2nd factor token.
 
-#### Logging in from outside of NIWA computer network (advanced)
+#### Setting up access for connecting from outside of NIWA computer network (advanced)
 
 On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe. Since we are using SSH ProxyCommand to jump first to the lander node, you will need to enter your ‘First factor’ (password) and then your ‘Second factor’ (from Google Authenticator) on the first jump and then a combination of your ‘First factor’+‘Second factor’ on the second jump when prompted for a password. 
 ```
