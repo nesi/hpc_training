@@ -5,7 +5,7 @@ permalink: /lessons/kupe-access/
 chapter: kupe
 ---
 
-You will learn how to set up your account on Kupe and how to log in onto the machine.
+You will learn how to set up your account on Kupe and how to login to the machine.
 
 ### Requirements
 
@@ -17,7 +17,7 @@ You will need a terminal program to login to Kupe:
 
 In addition you will need:
 
- 1. an [account](#account)
+ 1. an [account](#account) on kupe
  2. [two factor authentication](#twofactor) set up if connecting from outside NIWA's network
 
 ### Connecting to kupe
@@ -66,11 +66,14 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 ![logging-in](../../assets/img/login_success.png)
 
 4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
-![logging-in](../../assets/img/temp_password.png)
+
 
 **Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your information on our database did not match your Tuakiri identity. Please see [troubleshooting](#trouble) section.
 
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
+![logging-in](../../assets/img/temp_password.png)
+
+6. During your first login with the temporary password you will be asked to change it.
 ![logging-in](../../assets/img/password_change.png)
 
 Connecting to the HPC requires two-factor authentication at all times, your password, and an additional factor. These additional factors can be:
@@ -86,7 +89,7 @@ Go back to My NeSI portal and click on Accounts or refresh the page and you will
 ![logging-in](../../assets/img/link_device.png)
 
 
-Clicking on link your mobile device will prepare your 2nd factor login so that you can log in to our lander node from outside of the NIWA network.
+Clicking on link your mobile device will prepare your 2nd factor login so that you can login to our lander node from outside of the NIWA network.
 
 After clicking on ‘Link your mobile device’ you will be instructed to prepare your mobile device before proceeding.
 ![logging-in](../../assets/img/prepare_device.png)
@@ -99,10 +102,7 @@ Click ‘Continue’ and scan your QR code
 
 Open your Google Authenticator app and click on the add button and select ‘Scan a barcode’. Point your camera at the QR code displayed on the screen and it will be added to your phone.
 
-Log in to lander
-![logging-in](../../assets/img/lander_login.png)
-
-Now logging in to the lander node will prompt you for ‘First factor’ where you enter your newly set password, and ‘Second factor’ which is the 6 digit code displayed on your Google Authenticator app. The 6 digit code rotates every 30 seconds, and it can only be used once. This means that you can only log in to the lander node once every 30 seconds. Also the prompt says (optional), but it is not optional, and we are working to fix the message.
+Now logging in to the lander node will prompt you for ‘First factor’ where you enter your newly set password, and ‘Second factor’ which is the 6 digit code displayed on your Google Authenticator app. The 6 digit code rotates every 30 seconds, and it can only be used once. This means that you can only login to the lander node once every 30 seconds. Also the prompt says (optional), but it is not optional, and we are working to fix the message.
 
 ### Setting up access for connecting from outside of NIWA computer network (advanced)
 
