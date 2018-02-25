@@ -15,7 +15,7 @@ You will need a terminal program to log into Kupe:
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
-You will need an [account](#Setting-up-an-account-on-Kupe). If connecting from outside NIWA's network, you will need two 
+You will need an [account](#account). If connecting from outside NIWA's network, you will need two 
 [factor authentication](#Setting-up-two-factor-authentication) set up.
 
 ### Connecting to kupe
@@ -33,7 +33,7 @@ ssh -Y <my_username>@login.kupe.niwa.co.nz
 then enter your password. **Note** If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. This may change in the future. 
 
 
-### Setting up an account on Kupe
+### <a name="account"></a> Setting up an account on Kupe
 
 If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to log in to NeSI user portal. This populates NeSI database with your basic account information which will be used to set up your account.
 
