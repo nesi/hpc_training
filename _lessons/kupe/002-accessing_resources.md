@@ -68,7 +68,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
 ![logging-in](../../assets/img/temp_password.png)
 
-**Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your information on our database did not match your Tuakiri identity. Please see the bottom of the page for troubleshooting section and contact Aaron and Jun at aaron.hicks@nesi.org.nz and jun.huh@nesi.org.nz, and provide us with your name and e-mail address and we will fix your account.
+**Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your information on our database did not match your Tuakiri identity. Please see [troubleshooting](#trouble) section.
 
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
 ![logging-in](../../assets/img/password_change.png)
