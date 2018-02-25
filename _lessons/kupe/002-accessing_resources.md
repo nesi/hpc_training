@@ -9,28 +9,40 @@ You will learn how to set up your account on Kupe and how to log in onto the mac
 
 ### Requirements
 
-You will need a terminal program to log into Kupe:
+You will need a terminal program to login to Kupe:
 
 - Windows: MobaXterm, Windows 10 bash, Putty
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
-You will need an [account](#account). If connecting from outside NIWA's network, you will need two 
-[factor authentication](#Setting-up-two-factor-authentication) set up.
+In addition you will need:
+
+ 1. an [account](#account)
+ 2. [two factor authentication](#twofactor) set up if connecting from outside NIWA's network
 
 ### Connecting to kupe
 
-For users outside of NIWA, connect to kupe by typing
+#### Users outside of NIWA
+
+Connect to kupe by typing
 ```
 ssh -Y <my_username>@lander.nesi.org.nz
 ```
-inside your terminal program, and using your password and second factor to authenticate. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. See below on how to set up two factor authentication. 
+inside your terminal program, and using your password and second factor to authenticate. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile.
 
-Once you're on the lander node or if connecting from inside NIWA or from NIWA's VPN, connect to kupe using
+Once you're on the lander node, connect to kupe's login using
 ```
 ssh -Y <my_username>@login.kupe.niwa.co.nz
 ```
-then enter your password. **Note** If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. This may change in the future. 
+using your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. (This may change in the future.)
+
+#### Users inside of NIWA's network
+
+You can connect directly to kupe's login node
+```
+ssh -Y <my_username>@login.kupe.niwa.co.nz
+```
+using your password. **Note: if you have two-factor a8uthentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
 
 
 ### <a name="account"></a> Setting up an account on Kupe
@@ -60,7 +72,7 @@ Connecting to the HPC requires two-factor authentication at all times, your pass
 - Connecting from NIWA's physical network (at a NIWA branch)
 - Connecting through a NIWA VPN session
 
-### Setting up two factor authentication
+### <a name="twofactor"></a> Setting up two factor authentication
 
 Note: You can skip this section if you log on from inside the NIWA network or via NIWA's VPN.
 
@@ -109,7 +121,7 @@ Host lander
 ```
 The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the [data transfer](009-data_transfer.md) page).
 
-### Troubleshooting
+### <a name="trouble"></a> Troubleshooting
 After you logged into the MyNeSI Portal, you may see one of the following screens. Please contact Aaron and Jun at aaron.hicks@nesi.org.nz and jun.huh@nesi.org.nz, and provide us with your name and e-mail address and we will fix your account. Also, let us know which of the following screen you see, and we will be able to address your issue quicker. Thank you.
 
 If your account is not ready, you may see:
