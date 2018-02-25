@@ -59,7 +59,7 @@ Connecting to the HPC requires two-factor authentication at all times, your pass
 - Connecting from NIWA's physical network (at a NIWA branch)
 - Connecting through a NIWA VPN session
 
-#### Setting up access for connecting from outside of NIWA computer network
+### Setting up two factor authentication for connecting from outside of NIWA computer network
 
 Note: You can skip this section if you log on from inside the NIWA network or via NIWA's VPN.
 
@@ -85,15 +85,7 @@ Log in to lander
 
 Now logging in to the lander node will prompt you for ‘First factor’ where you enter your newly set password, and ‘Second factor’ which is the 6 digit code displayed on your Google Authenticator app. The 6 digit code rotates every 30 seconds, and it can only be used once. This means that you can only log in to the lander node once every 30 seconds. Also the prompt says (optional), but it is not optional, and we are working to fix the message.
 
-Once you have landed on the lander node, type the following command to log in to the login node, using your username inplace of `<your_username>` bellow:
-
-```
-   ​ssh -Y <your_username>@login.kupe.niwa.co.nz
-```
-
-The login node will ask you for a password. If you have your 2nd factor set, you must type your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. Our platforms team is working on a fix, because the login node should not require your 2nd factor token.
-
-#### Setting up access for connecting from outside of NIWA computer network (advanced)
+### Setting up access for connecting from outside of NIWA computer network (advanced)
 
 On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe. Since we are using SSH ProxyCommand to jump first to the lander node, you will need to enter your ‘First factor’ (password) and then your ‘Second factor’ (from Google Authenticator) on the first jump and then a combination of your ‘First factor’+‘Second factor’ on the second jump when prompted for a password. 
 ```
@@ -116,11 +108,7 @@ Host lander
 ```
 The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the [data transfer](009-data_transfer.md) page).
 
-#### Shells
-
-Your login shell is ```bash```. Other shells (```ksh```, ```tcsh``` and ```csh```) are also installed and can be invoked.
-
-#### Troubleshooting
+### Troubleshooting
 After you logged into the MyNeSI Portal, you may see one of the following screens. Please contact Aaron and Jun at aaron.hicks@nesi.org.nz and jun.huh@nesi.org.nz, and provide us with your name and e-mail address and we will fix your account. Also, let us know which of the following screen you see, and we will be able to address your issue quicker. Thank you.
 
 If your account is not ready, you may see:
