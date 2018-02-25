@@ -38,7 +38,7 @@ Second Factor (optional):
 ```
 Enter the 6-digit code from the mobile device. To execute and compile code, you will as a second step connect to the login node
 ```
-ssh -Y login.kupe.niwa.co.nz
+ssh -Y login
 ```
 using your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile.
 
@@ -53,7 +53,7 @@ using your password. **Note: if you have two-factor a8uthentication set up then 
 
 ### <a name="account"></a> Setting up an account on Kupe
 
-If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to log in to NeSI user portal. This populates NeSI database with your basic account information which will be used to set up your account.
+If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to login to NeSI user portal. This populates NeSI database with your basic account information which will be used to set up your account.
 
 1. Access [My NeSI  Portal](https://my.nesi.org.nz) via your browser.
  ![logging-in](../../assets/img/portal_login.png)
