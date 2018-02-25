@@ -48,7 +48,7 @@ You can connect directly to kupe's login node
 ```
 ssh -Y <myusername>@login.kupe.niwa.co.nz
 ```
-using your password. **Note: if you have two-factor a8uthentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
+using your password. **Note: if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
 
 
 ### <a name="account"></a> Setting up an account on Kupe
