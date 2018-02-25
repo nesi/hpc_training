@@ -128,7 +128,8 @@ Host lander
 The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the [data transfer](009-data_transfer.md) page).
 
 ### <a name="trouble"></a> Troubleshooting
-After you logged into the MyNeSI Portal, you may see one of the following screens. Please contact Aaron and Jun at aaron.hicks@nesi.org.nz and jun.huh@nesi.org.nz, and provide us with your name and e-mail address and we will fix your account. Also, let us know which of the following screen you see, and we will be able to address your issue quicker. Thank you.
+
+Please contact support@nesi.org.nz if you have any problems or questions. Also, let us know which of the following screen you see as this will enable us to address your issue more quickly. Thank you.
 
 If your account is not ready, you may see:
 ![logging-in](../../assets/img/no_account.png)
