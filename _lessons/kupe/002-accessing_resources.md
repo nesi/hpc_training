@@ -15,7 +15,8 @@ You will need a terminal program to log into Kupe:
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
-You will need an account, see instructions below.
+You will need an [account](#Setting-up-an-account-on-Kupe). If connecting from outside NIWA's network, you will need two 
+[factor authentication](#Setting-up-two-factor-authentication) set up.
 
 ### Connecting to kupe
 
@@ -59,7 +60,7 @@ Connecting to the HPC requires two-factor authentication at all times, your pass
 - Connecting from NIWA's physical network (at a NIWA branch)
 - Connecting through a NIWA VPN session
 
-### Setting up two factor authentication for connecting from outside of NIWA computer network
+### Setting up two factor authentication
 
 Note: You can skip this section if you log on from inside the NIWA network or via NIWA's VPN.
 
