@@ -24,23 +24,29 @@ In addition you will need:
 
 #### Users outside of NIWA
 
-Connect to kupe by typing
+Connecting to kupe is a two step process. First, connect to kupe's lander node
 ```
-ssh -Y <my_username>@lander.nesi.org.nz
+ssh -Y <myusername>@lander.nesi.org.nz
 ```
-inside your terminal program, and using your password and second factor to authenticate. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile.
-
-Once you're on the lander node, connect to kupe's login using
+inside your terminal program, where ```<myusername>``` is your account user name. You will see the following prompt
 ```
-ssh -Y <my_username>@login.kupe.niwa.co.nz
+First Factor:
 ```
-using your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile. (This may change in the future.)
+Enter your password, followed by
+```
+Second Factor (optional):
+```
+Enter the 6-digit code from the mobile device. To execute and compile code, you will as a second step connect to the login node
+```
+ssh -Y login.kupe.niwa.co.nz
+```
+using your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile.
 
 #### Users inside of NIWA's network
 
 You can connect directly to kupe's login node
 ```
-ssh -Y <my_username>@login.kupe.niwa.co.nz
+ssh -Y <myusername>@login.kupe.niwa.co.nz
 ```
 using your password. **Note: if you have two-factor a8uthentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
 
