@@ -11,7 +11,7 @@ You will learn how to set up your account on Kupe and how to login to the machin
 
 You will need a terminal program to login to Kupe:
 
-- Windows: MobaXterm, Windows 10 bash, Putty
+- Windows: MobaXterm, Windows 10 bash, or Putty
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
@@ -85,16 +85,15 @@ Connecting to the HPC requires two-factor authentication at all times, your pass
 
 Note: You can skip this section if you log on from inside the NIWA network or via NIWA's VPN.
 
+Please make sure you have a mobile device with a working camera and then install Google Authenticator app (free). The next step can only be done once.
+
 Go back to My NeSI portal and click on Accounts or refresh the page and you will see a new option to ‘Link your mobile device’
 ![logging-in](../../assets/img/link_device.png)
 
 
-Clicking on link your mobile device will prepare your 2nd factor login so that you can login to our lander node from outside of the NIWA network.
-
-After clicking on ‘Link your mobile device’ you will be instructed to prepare your mobile device before proceeding.
+Clicking on `Link your mobile device' will prepare your 2nd factor login so that you can login to our lander node from outside of the NIWA network. After clicking on ‘Link your mobile device’ you will be instructed to prepare your mobile device before proceeding.
 ![logging-in](../../assets/img/prepare_device.png)
 
-Please make sure you have a mobile device with a working camera and then install Google Authenticator app (free). The next step can only be done once.
 
 Click ‘Continue’ and scan your QR code
 ![logging-in](../../assets/img/qr_code.png)
