@@ -105,7 +105,11 @@ ftn -Wall -O3 -o simpleMpi simpleMpi.f90
 
 #### Adding debug information
 
-To debug code you should add ```-g``` to the compiler options (all programming environments and compilers). This will add debug information to the executables and/or library you are building.  You can mix optimisation with ```-g```, i.e. ```-O2 -g``` although adding ```-O2``` might prevent the debugger from diving into loops.
+```Cray compiler```: basic debug information are added by default. Depending on the applied optimization (inlining, vectorization, etc.) the debug information can vary. You can select specific debugging options using one of ```-G{0,1,2,fast}```. Note, when specifying ```-g``` without any specific optimization option (-O2 is default), oprimizations are disabled. Otherwise -g is ignored. 
+
+```Gnu/Intel compiler```: you should add ```-g``` to the compiler options. This will add debug information to the executables and/or library you are building.  You can mix optimisation with ```-g```, i.e. ```-O2 -g``` although adding ```-O2``` might prevent the debugger from diving into loops. 
+
+Note: there are quite some more specific debugging options you can select. Please have a look into the compiler man pages (e.g. crayftn, gfortran, ifort). 
 
 
 #### Optimisation options

@@ -11,7 +11,7 @@ You will learn how to set up your account on Kupe and how to login to the machin
 
 You will need a terminal program to login to Kupe:
 
-- Windows: MobaXterm, Windows 10 bash, or Putty
+- Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [Putty](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
@@ -57,7 +57,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
 1. Access [My NeSI  Portal](https://my.nesi.org.nz) via your browser.
  ![logging-in](../../assets/img/portal_login.png)
-2. Log in using your institutional credentials via Tuakiri. See example below for logging in with NIWA credentals.
+2. Log in using your institutional credentials via Tuakiri. Persons who come from outside the Tuakiri federation will have to apply for a Tuakiri Virtual Home account by emailing support@nesi.org.nz and select the Tuakiri Virtual Home as their Home Organisation. See example below shows logging in with NIWA credentals and login screen, please select your own home organisation.
 ![logging-in](../../assets/img/tuakiri_credentials.png)
 
 ![logging-in](../../assets/img/niwa_turakiri.png)
@@ -68,12 +68,12 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
 
 
-**Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your information on our database did not match your Tuakiri identity. Please see [troubleshooting](#trouble) section.
+**Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your information on our database did not match your Tuakiri identity, or your account or project has not yet have been approved or activated.. Please see [troubleshooting](#trouble) section.
 
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
 ![logging-in](../../assets/img/temp_password.png)
 
-6. During your first login with the temporary password you will be asked to change it.
+6. During your first login with the temporary password you will be asked to change it. Once your password has changed, your connection will be terminated with `Permission denied (keyboard-interactive).`, this is normal until a second factor is set up.
 ![logging-in](../../assets/img/password_change.png)
 
 Connecting to the HPC requires two-factor authentication at all times, your password, and an additional factor. These additional factors can be:
@@ -85,7 +85,10 @@ Connecting to the HPC requires two-factor authentication at all times, your pass
 
 Note: You can skip this section if you log on from inside the NIWA network or via NIWA's VPN.
 
-Please make sure you have a mobile device with a working camera and then install Google Authenticator app (free). The next step can only be done once.
+Please make sure you have a mobile device with a working camera and then install Google Authenticator app (free). The next step can only be done once. 
+
+
+**WARNING:** The QR code shown in later steps is a one-time password and can not be regenerated or displayed again. If you do not capture the QR code, or lose the device storing the token, you will be unable to access your account and will need to contact support@nesi.org.nz to have your token deleted so another can be generated for your account.
 
 Go back to My NeSI portal and click on Accounts or refresh the page and you will see a new option to ‘Link your mobile device’
 ![logging-in](../../assets/img/link_device.png)
@@ -95,7 +98,7 @@ Clicking on `Link your mobile device' will prepare your 2nd factor login so that
 ![logging-in](../../assets/img/prepare_device.png)
 
 
-Click ‘Continue’ and scan your QR code
+Click ‘Continue’ and scan your QR code.
 ![logging-in](../../assets/img/qr_code.png)
 
 
