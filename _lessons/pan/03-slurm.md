@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - SLURM job scheduler
+title: SLURM job scheduler
 permalink: /lessons/pan/job-scheduler/
 chapter: pan
 ---

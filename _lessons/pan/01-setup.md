@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - setting up
+title: Setting up
 permalink: /lessons/pan/setting-up/
 chapter: pan
 ---

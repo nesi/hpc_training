@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Job prioritisation
+title: Job prioritisation
 permalink: /lessons/kupe-job-priotisation/
 chapter: kupe
 ---

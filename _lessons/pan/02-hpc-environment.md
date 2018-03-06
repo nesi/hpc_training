@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - working in HPC environment
+title: Working in HPC environment
 permalink: /lessons/pan/hpc-environment/
 chapter: pan
 ---

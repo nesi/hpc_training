@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Slurm job scheduler
+title: Slurm job scheduler
 permalink: /lessons/kupe-slurm/
 chapter: kupe
 ---

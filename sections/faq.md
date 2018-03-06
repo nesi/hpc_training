@@ -3,6 +3,7 @@ layout: page
 title: FAQ
 permalink: /sections/faq/
 chapter: faq
+order: 5
 ---
 
 # The new platforms
