@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Job prioritisation
+title: Job prioritisation
 permalink: /lessons/kupe-job-priotisation/
 chapter: kupe
 ---
@@ -42,7 +42,7 @@ Details coming soon.
 
 ## Queue limits on Kupe
 
-![alt-text](../kupe_fairshare.png "Kupe queue structure")
+![alt-text](../../assets/img/kupe_fairshare.png "Kupe queue structure")
 
 Queue limits reflect the NIWA-NeSI allocation and the Merit-Collaboration allocation within the NeSI allocation.  The base allocations are NIWA-Only 36 nodes, NeSI-Merit 27 nodes and NeSI Collaborator 41 nodes.  An option to allow “NeSI” jobs to spill over into NIWA owned capacity (and vice versa) in each class offers 9 nodes for foraging.  With the foraged nodes this brings the allocations to NIWA-only to 45 nodes and NeSI-Merit 31 nodes and NeSI Collaborator 46 nodes.   To access the foraged nodes a job indicates that it can be preempted by a forage policy.  Available policies include cancel, checkpoint and requeue.
 

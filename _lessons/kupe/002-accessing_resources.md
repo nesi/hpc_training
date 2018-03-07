@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - getting access
+title: Getting access
 permalink: /lessons/kupe-access/
 chapter: kupe
 ---

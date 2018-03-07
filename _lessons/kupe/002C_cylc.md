@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Running Cylc Suites
+title: Running Cylc Suites
 permalink: /lessons/kupe-vl/
 chapter: kupe
 ---

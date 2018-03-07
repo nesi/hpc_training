@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Kupe - Programming Environment
+title:  Programming Environment
 permalink: /lessons/kupe-programming-environment/
 chapter: kupe
 ---

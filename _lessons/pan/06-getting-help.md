@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - effectively getting help
+title: Effectively getting help
 permalink: /lessons/pan/getting-help/
 chapter: pan
 ---
