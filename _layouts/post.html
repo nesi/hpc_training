@@ -15,8 +15,10 @@ layout: default
       {% endif %}</p>
   </header>
 
+
   <div class="post-content" itemprop="articleBody">
-    {{ content | toc }}
+    {% include toc.html html=content h_max=3 %}
+    {{ content }}
   </div>
 
   {% if site.disqus.shortname %}

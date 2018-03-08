@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Overview of Kupe architecture
 permalink: /lessons/kupe-architecture/
 chapter: kupe
