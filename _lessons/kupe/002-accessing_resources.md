@@ -74,6 +74,11 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 ![logging-in](../../assets/img/temp_password.png)
 
 6. During your first login with the temporary password you will be asked to change it. Once your password has changed, your connection will be terminated with `Permission denied (keyboard-interactive).`, this is normal until a second factor is set up.
+
+**NOTE:** The NeSI password policy is:
+- 12 character minimum
+- minimum of 2 character types
+
 ![logging-in](../../assets/img/password_change.png)
 
 Connecting to the HPC requires two-factor authentication at all times, your password, and an additional factor. These additional factors can be:
