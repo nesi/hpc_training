@@ -18,7 +18,7 @@ If you want to want to contribute to the NeSI documentation and training materia
 2. Make your changes
    * Use a style consistent with the lesson you are editing and the guidelines here
    * Check the the content renders correctly when viewing the web version (for example, 
-     see [Building the web version locally](#bulding-the-web-version-locally))
+     see [Building the web version locally](#building-the-web-version-locally))
 3. Create a Pull Request into the gh-pages branch of the main repository
 4. Someone will review your Pull Request and may request additional changes before accepting
 
@@ -35,7 +35,7 @@ and the following guidelines:
 
 ## Building the web version locally
 
-Ruby and bundle are required.
+Ruby and bundler are required.
 
 In the main repo directory run:
 
