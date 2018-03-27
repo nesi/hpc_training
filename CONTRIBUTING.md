@@ -3,7 +3,7 @@
 ## Found a problem?
 
 If you find a problem with the training material we are happy to receive Pull Requests with fixes
-(see [How to make a contribution](#How to make a contribution)), otherwise let us know what the problem is:
+(see [How to make a contribution](#How-to-make-a-contribution)), otherwise let us know what the problem is:
 
 * [open an issue](https://github.com/nesi/hpc_training/issues)
 * email [training@nesi.org.nz](mailto:training@nesi.org.nz)
@@ -18,7 +18,7 @@ If you want to want to contribute to the NeSI documentation and training materia
 2. Make your changes
    * Use a style consistent with the lesson you are editing and the guidelines here
    * Check the the content renders correctly when viewing the web version (for example, 
-     see [Building the web version locally](#Bulding the web version locally))
+     see [Building the web version locally](#Bulding-the-web-version-locally))
 3. Create a Pull Request into the gh-pages branch of the main repository
 4. Someone will review your Pull Request and may request additional changes before accepting
 
