@@ -12,7 +12,7 @@ If you find a problem with the training material we are happy to receive Pull Re
 
 If you would like to contribute to the NeSI documentation and training material, you can do so in many ways:
 
-1. Create a branch for the changes you are going to make
+1. Create a branch for the changes you are going to make (```git checkout -b <my_branch>```)
    * If you have access, you can create the branch directly in the main repository
    * Otherwise, fork the repository and work in a branch within your fork
 2. Make your changes
@@ -32,6 +32,9 @@ and follow the guidelines:
   lesson metadata
 * Use level 2 headings (`##`) and lower (if required) to split the lesson into sections
 * Every lesson should start with an "Objectives" section that should lists the lesson's objectives
+* Follow Oxford spelling and punctuation
+* No person name should appear in the material. Blank out any personal information if you need to take a screenshot
+* No prompt symbol in verbatim code blocks, users should be able to copy paste the commands as they appear
 
 ## Building the web version locally
 
