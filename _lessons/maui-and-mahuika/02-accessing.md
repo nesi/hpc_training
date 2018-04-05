@@ -9,7 +9,7 @@ chapter: maui-and-mahuika
 
 You will learn:
 
-* how to setup two factor authentication
+* how to set up two factor authentication
 * how to login to the machines
 
 
