@@ -149,6 +149,9 @@ Open your Google Authenticator app and click on the add button and select ‘Sca
 
 Now logging in to the lander node will prompt you for ‘First factor’ where you enter your newly set password, and ‘Second factor’ which is the 6 digit code displayed on your Google Authenticator app. The 6 digit code rotates every 30 seconds, and it can only be used once. This means that you can only login to the lander node once every 30 seconds. Also the prompt says (optional), but it is not optional, and we are working to fix the message.
 
+
+**Note:** You need to part of an active project to login after you complete this step. If you beleive to be on an active project and you still are not able to log using your credentials, contact us via support@nesi.org.nz.
+
 ---
 
 ## Setting up access for connecting from outside of NIWA computer network (advanced)
