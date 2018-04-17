@@ -76,14 +76,14 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
 ![logging-in](../../assets/img/temp_password.png)
 
-6. During your first login with the temporary password you will be asked to change it. This is a **4-step** process, detailed bellow. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).`, this is normal until a second factor is set up.
+6. During your first login with the temporary password you will be asked to change it. This is a **4-step** process, detailed bellow. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`, this is normal until a second factor is set up.
 
       Resetting the temporary password **4-step** process:
    1. When you first issue the SSH command to login, a password will be asked (**this is the temporary password**)
    2. Immediately after entering the temporary password correctly, the system will report that the temporary password is expired and you will be asked to enter it again (_Current Password:_). **Enter the same temporary password again**
    3. Then, you will be asked for **your NEW password** (_New password:_)
    4. And finally you will be asked to **confirm your NEW password** (_Retype new password:_)
-   5. Upon sucessfull password change, you might be asked for entering a password again (but this will not work just yet), do Ctrl+C on this step or just press 'Enter' until `Permission denied (keyboard-interactive).` is displayed.
+   5. Upon sucessfull password change, your session will be either closed or you might be asked to enter a password again (but this will not work just yet). Upon this do Ctrl+C or just press 'Enter' until you get the `...denied (keyboard-interactive).` message.
    
    Example of the process:
    ```
@@ -105,7 +105,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    Retype new password: <NEW password>
    Password: <Enter or Ctrl+C>
    Password: <Enter or Ctrl+C>
-   Permission denied (keyboard-interactive).
+   Access/Permission denied (keyboard-interactive).
    [user@host ~]#
    ```
 
@@ -114,7 +114,8 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    **NOTE:** The NeSI password policy is:
    - 12 character minimum
    - minimum of 2 character types
-   
+
+
 7. You are now ready to move on to setting up two factor authentication
 
 ---
