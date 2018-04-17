@@ -31,7 +31,7 @@ The package will be installed under `$HOME/.local`.
 
 In R, type
 ```
-install.packages('foo', lib='$HOME/sofware/foo-2.1.0')
+install.packages('foo', lib='$HOME/software/foo-2.1.0')
 ```
 You can then access the installed package within R using
 ```
@@ -40,7 +40,7 @@ library('foo', lib.loc='$HOME/software/foo-2.1.0')
 
 ### How to build generic packages in your home directory
 
-Most packages involve a three step process. 
+Most packages involve a three step process. Here we cover autotools and CMake build systems.
 
  1. Get the package and unpack 
 
@@ -65,11 +65,13 @@ typically downloaded from the web. Your first step will likely be
  the build process. The most common way to configure is either
 
  ```
+ # to list the configuration options
+ ./configure --help
  ./configure --prefix=$HOME/software/foo-2.1.0 [other_options]
  ```
 or
  ```
- cmake -D CMAKE_INSTALL_PREFIX=$HOME/software/foo-2.1.0 .
+ cmake -D CMAKE_INSTALL_PREFIX=$HOME/software/foo-2.1.0 [other_options] .
  ```
  In the above cases, the installation directory was specified. Often, you will need to provide additional help to configure sucessfully, e.g. give paths to externally dependent libraries and headers. You might also have to provide the compiler and potentially other settings.
 
