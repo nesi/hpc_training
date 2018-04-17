@@ -13,9 +13,9 @@ You will learn:
 * how to install R packages in your home directory
 * some tips for building generic packages in your home directory
 
-To make things concrete we'll assume below that the software is called ```foo```, the 
-version you want to install is ```2.1.0``` and that the installation directory is 
-```$HOME/software/foo-2.1.0```.
+To make things concrete we'll assume below that the software is called `foo`, the 
+version you want to install is `2.1.0` and that the installation directory is 
+`$HOME/software/foo-2.1.0`.
 
 
 ### How to install Python packages with pip
@@ -24,7 +24,7 @@ At the UNIX command line prompt,
 ```
 pip install 'foo==2.1.0' --user
 ```
-The package will be installed under ```$HOME/.local```.
+The package will be installed under `$HOME/.local`.
 
 
 ### How to install an R package locally
@@ -44,7 +44,7 @@ Most packages involve a three step process.
 
  1. Get the package and unpack 
 
- The most common format for distributing a package is as a "tarball", ```foo-2.1.0.tar.gz```,
+ The most common format for distributing a package is as a "tarball", `foo-2.1.0.tar.gz`,
 typically downloaded from the web. Your first step will likely be 
  ```
  wget https://wonderful.software.com/foo-2.1.0.tar.gz
@@ -53,7 +53,7 @@ typically downloaded from the web. Your first step will likely be
  ```
  tar xf foo-2.1.0.tar.gz
  ```
- which will uncompress the file into a directory, perhaps called ```foo-2.1.0```. Enter the 
+ which will uncompress the file into a directory, perhaps called `foo-2.1.0`. Enter the 
  just created directory:
  ```
  cd foo-2.1.0
