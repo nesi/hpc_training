@@ -78,7 +78,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
 6. During your first login with the temporary password you will be asked to change it. This is a **4-step** process, detailed bellow. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).`, this is normal until a second factor is set up.
 
-      Reseting the temporary password **4-step** process:
+      Resetting the temporary password **4-step** process:
    1. When you first issue the SSH command to login, a password will be asked (**this is the temporary password**)
    2. Immediately after entering the temporary password correctly, the system will report that the temporary password is expired and you will be asked to enter it again (_Current Password:_). **Enter the same temporary password again**
    3. Then, you will be asked for **your NEW password** (_New password:_)
@@ -150,7 +150,7 @@ Open your Google Authenticator app and click on the add button and select ‘Sca
 Now logging in to the lander node will prompt you for ‘First factor’ where you enter your newly set password, and ‘Second factor’ which is the 6 digit code displayed on your Google Authenticator app. The 6 digit code rotates every 30 seconds, and it can only be used once. This means that you can only login to the lander node once every 30 seconds. Also the prompt says (optional), but it is not optional, and we are working to fix the message.
 
 
-**Note:** You need to part of an active project to login after you complete this step. If you beleive to be on an active project and you still are not able to log using your credentials, contact us via support@nesi.org.nz.
+**Note:** You need to part of an active project to login after you complete this step. If you believe to be on an active project and you still are not able to log using your credentials, contact us via support@nesi.org.nz.
 
 ---
 
