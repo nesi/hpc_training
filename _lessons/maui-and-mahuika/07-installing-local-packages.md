@@ -69,7 +69,7 @@ typically downloaded from the web. Your first step will likely be
  ```
 or
  ```
- cmake -D CMAKE_PREFIX_INSTALL=$HOME/software/foo-2.1.0
+ cmake -D CMAKE_PREFIX_INSTALL=$HOME/software/foo-2.1.0 .
  ```
  In the above cases, the installation directory was specified. Often, you will need to provide additional help to configure sucessfully, e.g. give paths to externally dependent libraries and headers. You might also have to provide the compiler and potentially other settings.
 
