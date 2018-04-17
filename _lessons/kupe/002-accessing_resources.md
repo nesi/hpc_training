@@ -21,6 +21,7 @@ You will need a terminal program to login to Kupe:
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
+---
 
 ## Connecting to kupe
 
@@ -52,6 +53,7 @@ ssh -Y <myusername>@login.kupe.niwa.co.nz
 ```
 using your password. **Note: if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
 
+---
 
 ## Setting up an account on Kupe
 
@@ -74,14 +76,48 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
 ![logging-in](../../assets/img/temp_password.png)
 
-6. During your first login with the temporary password you will be asked to change it. Once your password has changed, your connection will be terminated with `Permission denied (keyboard-interactive).`, this is normal until a second factor is set up.
+6. During your first login with the temporary password you will be asked to change it. This is a **4-step** process, detailed bellow. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).`, this is normal until a second factor is set up.
+
+      Resetting the temporary password **4-step** process:
+   1. When you first issue the SSH command to login, a password will be asked (**this is the temporary password**)
+   2. Immediately after entering the temporary password correctly, the system will report that the temporary password is expired and you will be asked to enter it again (_Current Password:_). **Enter the same temporary password again**
+   3. Then, you will be asked for **your NEW password** (_New password:_)
+   4. And finally you will be asked to **confirm your NEW password** (_Retype new password:_)
+   5. Upon sucessfull password change, you might be asked for entering a password again (but this will not work just yet), do Ctrl+C on this step or just press 'Enter' until `Permission denied (keyboard-interactive).` is displayed.
+   
+   Example of the process:
+   ```
+   [user@host ~]# ssh -Y <username>@lander.nesi.org.nz
+   New Zealand eScience Infrastructure (NeSI)HPC Lander node.
+
+   By using this computer system, you accept and agree to the NeSI Acceptable Use Policy.
+   To ensure compliance with legal requirements and to maintain cyber security standards, NeSI HPC systems are subject to ongoing monitoring, activity logging and auditing.
+   This monitoring and auditing service may be provided by third parties.
+   Such third parties can access information transmitted to, processed by and stored on NeSI’s HPC systems.
+
+   Documentation:
+   Support:
+
+   Password: <temporary password>
+   Password expired. Change your password now.
+   Current Password: <temporary password>
+   New password: <NEW password>
+   Retype new password: <NEW password>
+   Password: <Enter or Ctrl+C>
+   Password: <Enter or Ctrl+C>
+   Permission denied (keyboard-interactive).
+   [user@host ~]#
+   ```
+
+   If it happens that you entered more than 4 passwords, something wrong might have happened (wrong password entered, password minimal requirements not met, accidentally pressed enter or Ctrl+C). If this is the case, close that session and start over again.
 
    **NOTE:** The NeSI password policy is:
    - 12 character minimum
    - minimum of 2 character types
+   
+7. You are now ready to move on to setting up two factor authentication
 
-   ![logging-in](../../assets/img/password_change.png)
-
+---
 
 ## Setting up two factor authentication
 
@@ -113,6 +149,11 @@ Open your Google Authenticator app and click on the add button and select ‘Sca
 
 Now logging in to the lander node will prompt you for ‘First factor’ where you enter your newly set password, and ‘Second factor’ which is the 6 digit code displayed on your Google Authenticator app. The 6 digit code rotates every 30 seconds, and it can only be used once. This means that you can only login to the lander node once every 30 seconds. Also the prompt says (optional), but it is not optional, and we are working to fix the message.
 
+
+**Note:** You need to part of an active project to login after you complete this step. If you believe to be on an active project and you still are not able to log using your credentials, contact us via support@nesi.org.nz.
+
+---
+
 ## Setting up access for connecting from outside of NIWA computer network (advanced)
 
 On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe. Since we are using SSH ProxyCommand to jump first to the lander node, you will need to enter your ‘First factor’ (password) and then your ‘Second factor’ (from Google Authenticator) on the first jump and then a combination of your ‘First factor’+‘Second factor’ on the second jump when prompted for a password. 
@@ -135,6 +176,8 @@ Host lander
    ServerAliveCountMax 2
 ```
 The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the Data Transfer lesson).
+
+---
 
 ## Troubleshooting
 
