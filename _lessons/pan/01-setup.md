@@ -35,13 +35,13 @@ Last login: Thu Mar  9 15:38:43 2017 from it346501.uoa.auckland.ac.nz
 
 ### Working in Unix/Linux environment
 
-In order to use HPC resources (not only those provided by NeSI), you will almost always have to interact with it using command line. If you are not familar with it, have a look at these [Software Carpentry materials](http://swcarpentry.github.io/shell-novice/) which should help you get up to speed.
+In order to use HPC resources (not only those provided by NeSI), you will almost always have to interact with it using command line. If you are not familiar with it, have a look at these [Software Carpentry materials](http://swcarpentry.github.io/shell-novice/) which should help you get up to speed.
 
 ### Getting the training material
 
 During our workshop we will use some R scripts, some SLURM scripts and some sample data.
 
-Let's start first with downloading the workshop materials. You can download all materials from the [GitHub repository as a zip file](https://github.com/murraycadzow/hpc_training/archive/master.zip). Save this zip file on your laptop/deskop in a preferred location.
+Let's start first with downloading the workshop materials. You can download all materials from the [GitHub repository as a zip file](https://github.com/murraycadzow/hpc_training/archive/master.zip). Save this zip file on your laptop/desktop in a preferred location.
 
 Once you finished downloading, unzip the file. You will see three subfolders:
 * `data`
@@ -53,7 +53,7 @@ All SLURM scripts are found in code/SLURM/ and all R scripts are found in code/R
 
 Now we will transfer some of the files from these subfolders onto the cluster. We will show you two ways of doing it:
 
-**1)** If you are working on Windows using MobaXterm, [you can use the drang'n'drop user interface which MobaXterm offers](https://wiki.auckland.ac.nz/display/CER/FromZeroToHero)
+**1)** If you are working on Windows using MobaXterm, [you can use the drag'n'drop user interface which MobaXterm offers](https://wiki.auckland.ac.nz/display/CER/FromZeroToHero)
 **2)** You can use the command line built-in programme `scp` (*secure copy*). It should work on standard Mac and Linux operating systems (in the built-in terminal). It will also work in the MobaXTerm command line on Windows.
 
 To use `scp` to copy the file from your local machine type in the terminal on your local machine (so not on the cluster!):
@@ -69,7 +69,7 @@ To specify the ssh key, use:
 scp -i ~/.ssh/XXX_rsa_key <path_to_files> <your_username>@XXX.nesi.org.nz:<destination_path>
 ```
 
-You need to replace the <path_to_files> and <destination_path> with the correct path to your file and then to the desination on the cluster. So for example:
+You need to replace the <path_to_files> and <destination_path> with the correct path to your file and then to the destination on the cluster. So for example:
 
 ```
 scp data/inflammation-01.csv  apaw363@XXX.nesi.org.nz:/home/apaw363/
@@ -121,6 +121,6 @@ Example:
 rsync -e ssh -av your_username@login.uoa.nesi.org.nz:/home/your_username/folder Downloads/
 ```
 
-### Transfering large amount of data
+### Transferring large amount of data
 
 NeSI can provide support for transferring large amount of data (1 TB and more) via [Globus](https://www.globus.org/). If your organisation is a member of the Tuakiri Identification system, then the setup for this is fairly straightforward.

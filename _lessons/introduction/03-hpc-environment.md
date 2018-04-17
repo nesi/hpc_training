@@ -5,7 +5,7 @@ permalink: /lessons/introduction/hpc-environment/
 chapter: introduction
 ---
 
-# The material velow is just copied from Pan materials - needs work to adapt to new platforms
+# The material below is just copied from Pan materials - needs work to adapt to new platforms
 
 NeSI clusters are a shared resource and hence there are certain rules as to what is available to each user by default. For small-scale projects the default amount of resources should be sufficient. If you need more compute power or disk allocation for your data, please contact support@nesi.org.nz.
 
@@ -33,7 +33,7 @@ fs_my_quota_usage
 
 ### Login vs build vs compute nodes
 
-A typical cluster consists of several "parts". To simplyfy things we will briefly describe the three types of nodes that are usually available.
+A typical cluster consists of several "parts". To simplify things we will briefly describe the three types of nodes that are usually available.
  In order to efficiently use HPC resources for your research, you do not need to know a lot of detail about the HPC architecture but you need to have a basic understanding of what you can use each type of node for.
 
 * **Login Node**
@@ -50,7 +50,7 @@ IMPORTANT: **Login nodes should never be used to: build and test your code, stor
 
 What does that actually mean?
 
-* When on login node you should only submit jobs (aka run code) using the job scheduler. If you want to work intearactively (for example, running your code directly), you should do that drom the build node (see below).
+* When on login node you should only submit jobs (a.k.a. run code) using the job scheduler. If you want to work interactively (for example, running your code directly), you should do that from the build node (see below).
 * You should not try to edit large (probably more than 1GB) files when on the login node using standard editors (like Vim or Nano). If you need to preview a file, use `less` command.
 * You should not compress a large file with gzip.
 

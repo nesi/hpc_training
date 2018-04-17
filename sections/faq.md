@@ -53,7 +53,7 @@ SCP uses the same authentication as SSH, so it will need 2-factor authentication
 This will need to be discussed on a per-case basis. Please contact <a href="mailto:support@nesi.org.nz">support@nesi.org.nz</a> if you need automated access to the HPC in some form.
 
 **Will there be support for data transfer directly from external (including overseas) servers?**<br />
-Yes, transfers from external collaborators will be supported. The recommended mechanism for large data transfers is through Globus. Globus requires two endpoints, e.g., at a collaborator institution and on the NeSI HPC. You would need to contact IT support at your insitution if there is no Globus endpoint. Feel free to also contact us on <a href="mailto:support@nesi.org.nz">support@nesi.org.nz</a> and we can work directly with you to find a solution.
+Yes, transfers from external collaborators will be supported. The recommended mechanism for large data transfers is through Globus. Globus requires two endpoints, e.g., at a collaborator institution and on the NeSI HPC. You would need to contact IT support at your institution if there is no Globus endpoint. Feel free to also contact us on support@nesi.org.nz and we can work directly with you to find a solution.
 
 # Data storage
 

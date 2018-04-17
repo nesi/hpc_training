@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Programming environment
-permalink: /lessons/introdcution/programming-environment/
+permalink: /lessons/introduction/programming-environment/
 chapter: introduction
 ---
 
-# The material velow is just copied from Pan materials - needs work to adapt to new platforms
+# The material below is just copied from Pan materials - needs work to adapt to new platforms
 
 ## Compiling code on NeSI platforms
 

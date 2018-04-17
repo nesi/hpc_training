@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Working with custom packages
-permalink: /lessons/introductrion/custom-packages/
+permalink: /lessons/introduction/custom-packages/
 chapter: introduction
 ---
 
-# The material velow is just copied from Pan materials - needs work to adapt to new platforms
+# The material below is just copied from Pan materials - needs work to adapt to new platforms
 
 ### Working with R packages
 Detailed NeSI [documentation on working with R packages](https://support.nesi.org.nz/hc/en-gb/articles/209338087-R#dealing-with-packages)

@@ -15,7 +15,7 @@ The material is divided into different sections: <br/>
 * Kupe cluster
 * Mahuika cluster
 * Maui cluster
-* Pan cluster (to be decomissioned in 2018)
+* Pan cluster (to be decommissioned in 2018)
 
 The Kupe Section covers:<br/>
 1)    Architecture <br/>
@@ -46,8 +46,8 @@ Murray Cadzow, Matthew Healey, Gene Soudlenkov, Sung Bae, Benjamin Roberts,  Bar
 * Know and understand the default resources allocation (disk quota, use of scratch space, etc), and be aware of possible problems when exceeding the quota, leaving files in scratch space and so on.
 * Understand (roughly) what environment modules are. Be able to view currently loaded modules, list available modules and load the modules you want to use.
 * Know what a job scheduler is for and how to use it (modify a SLURM script, use SLURM commands in the command line mode).
-* Understand (roughly) what Message Passing Interface is for and become familar with its basic use.
-* Understand what queuing system is and become aware of the impact of submitting jobs to different typse of queues.
+* Understand (roughly) what Message Passing Interface is for and become familiar with its basic use.
+* Understand what queuing system is and become aware of the impact of submitting jobs to different types of queues.
 * Be able to submit a job - based on the provided example using R scripts.
 * Understand the advantages of using parallelism computational work, and deploy it in the case of embarrassingly parallel jobs (by modifying SLURM script). Possibly be able to evaluate if the problem is embarrassingly parallel.
 * Be able to monitor the job state and execution.
