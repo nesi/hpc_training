@@ -5,7 +5,7 @@ permalink: /lessons/introduction/getting-access/
 chapter: introduction
 ---
 
-# The material velow is just copied from Pan materials - needs work to adapt to new platforms
+# The material below is just copied from Pan materials - needs work to adapt to new platforms
 
 Please note that these instructions are for NeSI Pan cluster.
 
