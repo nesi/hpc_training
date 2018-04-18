@@ -82,7 +82,15 @@ In the rare case that you encounter problems with the Skylake target at build ti
 ```
 module load craype-broadwell
 ```
-Choosing the "Broadwell" target is also necessary if you want to build code using the older GCC compilers prior to GCC v6.1.0, which were released before Skylake became available.
+Choosing the "Broadwell" target is also necessary if you want to build code using the older GCC compilers prior to GCC v6.1.0, which were released before Skylake became available. If you see the error message
+```
+craype-x86-skylake requires cce/8.6 or later, intel/15.1 or later, or gcc/6.1 or later
+```
+when trying to swap to the ```PrgEnv-gnu``` environment, run
+```
+module swap craype-x86-skylake craype-broadwell
+```
+and try again.
 
 ### Using the compiler drivers
 
@@ -138,9 +146,10 @@ The following table provides a list of commonly used compiler options:
 | Group         | Cray | Intel | GNU | Notes   |
 |---------------|------|-------|-----|---------|
 | Debugging | ```-g``` or ```-G{0,1,2,fast}``` | ```-g``` | ```-g``` | Some compiler optimisations may be disabled |
-| Light Compiler Optimisation  | ```-O2``` | ```-O2``` | ```-O2``` | |
-| Agressive Compiler Optimisation  | ```-O3 -ipo``` | ```-O3 -hfp3``` | ```-O3 -ffast-math -funroll-loops``` | This may affect numerical accuracy |
-| OpenMP | ```-h omp``` (default) | ```-openmp``` | ```-fopenmp``` | |
+| Light compiler optimisation  | ```-O2``` | ```-O2``` | ```-O2``` | |
+| Agressive compiler optimisation  | ```-O3 -hfp3``` | ```-O3 -ipo``` | ```-O3 -ffast-math -funroll-loops``` | This may affect numerical accuracy |
+| Vectorisation reports | ```-hlist=m``` | ```-qopt-report``` | ```-fopt-info-vec``` or ```-fopt-info-missed``` | |
+| OpenMP | ```-homp``` (default) | ```-openmp``` | ```-fopenmp``` | |
 
 Additional compiler options are documented on the compiler man pages, which are accessible *after* loading the corresponding programming environment:
 ```
@@ -157,6 +166,11 @@ The man pages are often largely incomplete, further documentation can be found o
 ## Building code that depends on external libraries
 
 Building a program that depends on external libraries can be a complex process, often requiring some troubleshooting to succeed. The correct compiler and linker setup depends on whether the libraries have been provided by Cray, by NeSI/NIWA, or if you built them yourself.
+
+You can find out which libraries are available by running the command
+```
+module avail
+```
 
 ### Using libraries provided by Cray
 
@@ -219,6 +233,13 @@ in your build environment (useful when using complex build systems), or add the 
 cc -o gsl_statistics_example gsl_statistics_example.c -lgsl -dynamic
 ```
 Using the ```ldd``` tool, you should now see a number of libraries that are dynamically linked.
+
+You may occassionally see a warning message of the kind:
+```
+/opt/cray/pe/hdf5/1.10.1.1/INTEL/16.0/lib/libhdf5.a(H5PL.o): In function `H5PL_load':
+H5PL.c:(.text+0x612): warning: Using 'dlopen' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+```
+This simply means that the library must be accessible at runtime despite fully static linking; this can usually be ignored.
 
 ### Common linker problems
 
