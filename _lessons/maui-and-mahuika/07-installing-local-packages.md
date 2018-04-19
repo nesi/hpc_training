@@ -13,29 +13,47 @@ You will learn:
 * how to install R packages in your home directory
 * some tips for building generic packages in your home directory
 
-To make things concrete we'll assume below that the software is called `foo`, the 
-version you want to install is `2.1.0` and that the installation directory is 
-`$HOME/software/foo-2.1.0`.
-
 
 ### How to install Python packages with pip
 
-At the UNIX command line prompt,
+Make sure to load one of the Anaconda Python versions, e.g.
 ```
-pip install 'foo==2.1.0' --user
+module load Anaconda2/5.0.1-GCC-4.8.5
 ```
-The package will be installed under `$HOME/.local`.
+as this will provide you with loads of Python modules. You can check if a module is 
+available, for instance,
+```
+python -c "import pnumpy"
+```
+If you see an error such as `ImportError: No module named pnumpy` then the Python module is
+not available. Some Python modules may need a parallel envronment so be sure to also have 
+```
+module load mpich
+```
+loaded. To install `pnumpy` locally, type
+```
+pip install pnumpy --user
+```
+The package will then be installed under `$HOME/.local`. The command 
+```
+python -c "import pnumpy"
+```
+should now succeed (no error).
 
 
 ### How to install an R package locally
 
-In R, type
+Make sure to have R loaded, e.g.
 ```
-install.packages('foo', lib='$HOME/software/foo-2.1.0')
+module load R/3.3.3-GCC-4.8.5
 ```
-You can then access the installed package within R using
+Then in R, type
 ```
-library('foo', lib.loc='$HOME/software/foo-2.1.0')
+install.packages('abc')
+```
+to install package "abc". You can check that the package built correctly with
+```
+library('abc')
 ```
 
 ### How to build generic packages in your home directory
