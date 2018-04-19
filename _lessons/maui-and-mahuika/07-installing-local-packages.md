@@ -14,7 +14,7 @@ You will learn:
 * how to download, unpack, configure, build and install a C++ package
 
 
-### How to install Python packages with pip
+## How to install Python packages with pip
 
 Make sure to load one of the Anaconda Python versions, e.g.
 ```
@@ -44,7 +44,7 @@ pip install pnumpy --user
 The package will then be downloaded, built, including dependencies and installed under `$HOME/.local`. 
 
 
-### How to install an R package locally
+## How to install an R package locally
 
 Make sure to have R loaded, e.g.,
 ```
@@ -60,7 +60,7 @@ You can check that the package built correctly in R with
 > library('abc')
 ```
 
-### How to build generic packages in your home directory
+## How to build generic packages in your home directory
 
 Building Fortran, C and C++ packages typically involve a three step process.
 
