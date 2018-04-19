@@ -9,96 +9,93 @@ chapter: maui-and-mahuika
 
 You will learn:
 
-* how to install Python packages in your home directory
-* how to install R packages in your home directory
-* some tips for building generic packages in your home directory
+* how to install a Python packages in your home directory
+* how to install a R package in your home directory
+* how to download, unpack, configure, build and install a C++ package
 
 
 ### How to install Python packages with pip
 
 Make sure to load one of the Anaconda Python versions, e.g.
 ```
-module load Anaconda2/5.0.1-GCC-4.8.5
+module load Anaconda2
 ```
-as this will provide you with loads of Python modules. You can check if a module is 
-available, for instance,
+as this will provide you with many Python modules. You can check if a module is 
+already installed by typing, for instance,
 ```
 python -c "import pnumpy"
 ```
+where `pnumpy` is the name of the Python module. Beware that Python modules and 
+package names may be different.
+
 If you see an error such as `ImportError: No module named pnumpy` then the Python module is
-not available. Some Python modules may need a parallel envronment so be sure to also have 
+not available at which point you may want to proceed and install the package locally in 
+your home directory. 
+
+Be sure you have everything you need to build the package. Some packages may need a parallel 
+environment in which case you will need to load 
 ```
 module load mpich
 ```
-loaded. To install `pnumpy` locally, type
+on `mahuika`. To install `pnumpy` locally, type
 ```
 pip install pnumpy --user
 ```
-The package will then be installed under `$HOME/.local`. The command 
-```
-python -c "import pnumpy"
-```
-should now succeed (no error).
+The package will then be downloaded, built, including dependencies and installed under `$HOME/.local`. 
 
 
 ### How to install an R package locally
 
-Make sure to have R loaded, e.g.
+Make sure to have R loaded, e.g.,
 ```
-module load R/3.3.3-GCC-4.8.5
+module load R
 ```
 Then in R, type
 ```
-install.packages('abc')
+> install.packages('abc')
 ```
-to install package "abc". You can check that the package built correctly with
+to install package "abc". Answer the questions about the FTP mirror and confirm that you want to install locally. 
+You can check that the package built correctly in R with
 ```
-library('abc')
+> library('abc')
 ```
 
 ### How to build generic packages in your home directory
 
-Most packages involve a three step process. Here we cover autotools and CMake build systems.
+Building Fortran, C and C++ packages typically involve a three step process.
 
  1. Get the package and unpack 
 
- The most common format for distributing a package is as a "tarball", `foo-2.1.0.tar.gz`,
-typically downloaded from the web. Your first step will likely be 
+ The most common format for distributing a package is as a "tarball". Get the tarball,
  ```
- wget https://wonderful.software.com/foo-2.1.0.tar.gz
+ wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-cxx-4.2.tar.gz
  ```
- followed by
+ and unpack it
  ```
- tar xf foo-2.1.0.tar.gz
+ tar xf netcdf-cxx4-4.3.0.tar.gz
  ```
- which will uncompress the file into a directory, perhaps called `foo-2.1.0`. Enter the 
+ This will uncompress the file into a directory called `netcdf-cxx4-4.3.0`. Enter the 
  just created directory:
  ```
- cd foo-2.1.0
+ cd netcdf-cxx4-4.3.0
  ```
 
  2. Configure the package
 
  Most packages need to be configured before being built. Read the accompagnying README or INSTALL file as it will detail 
- the build process. The most common way to configure is either
+ this step. This package uses autotools,
 
  ```
  # to list the configuration options
  ./configure --help
- ./configure --prefix=$HOME/software/foo-2.1.0 [other_options]
+ ./configure --prefix=$HOME/software/netcdf-cxx4-4.3.0
  ```
-or
- ```
- cmake -D CMAKE_INSTALL_PREFIX=$HOME/software/foo-2.1.0 [other_options] .
- ```
- In the above cases, the installation directory was specified. Often, you will need to provide additional help to configure sucessfully, e.g. give paths to externally dependent libraries and headers. You might also have to provide the compiler and potentially other settings.
 
 
  3. Build the package and install
 
 Then do 
 ```
-make
-make install
+make && make install
 ```
-to build and install foo-2.1.0.
+to build and install.
