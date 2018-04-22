@@ -15,4 +15,4 @@ NIWA operations users:
 NeSI users:
 * Send an [email](mailto:support@nesi.org.nz) to the NeSI Team
 
-If you want to ask about training, please send us an [email](mailto:training@nesi.orb.nz).
+If you want to ask about training, please send us an [email](mailto:training@nesi.org.nz).
