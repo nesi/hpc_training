@@ -49,7 +49,7 @@ ssh -Y login.maui.nesi.org.nz
 
 No password should be required to access the login nodes from the lander node.
 
-## Bypassing the lander node (advanced)
+## Jumping across the lander node (advanced)
 
 On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to either the Maui or Mahuika login nodes. With the following lines in your `~/.ssh/config` file (replacing `myusername` with your username) you can run the command `ssh mahuika` on your machine and it will take you straight to Mahuika (`ssh maui` for Maui). 
 
