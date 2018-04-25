@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting up your account for Maui and Mahuika
+title: Setting up your account for Māui and Mahuika
 permalink: /lessons/maui-and-mahuika/setting-up-your-account
 chapter: maui-and-mahuika
 ---
@@ -9,7 +9,7 @@ chapter: maui-and-mahuika
 
 You will learn:
 
-* how to set up your account for Maui and Mahuika
+* how to set up your account for Māui and Mahuika
 * how to set up two factor authentication
 
 **Note:** if you already have access to Kupe then you do not need to do anything here.
@@ -22,9 +22,9 @@ You will need a terminal program to complete this process:
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
-## Setting up an account for Maui and Mahuika
+## Setting up an account for Māui and Mahuika
 
-If you are logging in for the first time to Maui or Mahuika, you will need to set up your account. First, you will need to login to the NeSI user portal. This populates NeSI's database with your basic account information, which will be used to set up your account.
+If you are logging in for the first time to Māui or Mahuika, you will need to set up your account. First, you will need to login to the NeSI user portal. This populates NeSI's database with your basic account information, which will be used to set up your account.
 
 1. Access [My NeSI Portal](https://my.nesi.org.nz) via your browser.
    ![logging-in](../../assets/img/portal_login.png)

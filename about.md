@@ -14,7 +14,7 @@ The material is divided into different sections: <br/>
 * Advanced HPC skills
 * Kupe cluster
 * Mahuika cluster
-* Maui cluster
+* Māui cluster
 * Pan cluster (to be decommissioned in 2018)
 
 The Kupe Section covers:<br/>

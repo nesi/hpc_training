@@ -12,7 +12,7 @@ order: 5
 They provide a significant increase in performance over the existing platforms. Please see the [new platform technical details](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform) for more information.
 
 **How many GPUs will be available?** <br/>
-Mahuika (HPC1) will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on Maui (HPC2) for visualisation and computational work. The platform is designed to add more GPGPUs in the future, depending on demand.
+Mahuika (HPC1) will have 8 GPGPUs (Nvidia P100) for general use. There will also be 8 GPGPUs (P100) on Māui (HPC2) for visualisation and computational work. The platform is designed to add more GPGPUs in the future, depending on demand.
 
 **There are more nodes/cores and memory available on the new platform (e.g. compared with Pan), how many new users are expected? (i.e. how will this translate to job wait times? Will we expect improvements?)**<br />
 The new HPCs will come with a significant increase in capacity, and also additional gains in per processor performance. We anticipate a significant reduction in queue wait times initially. Queue wait times will be impacted by both the number of new users on the system as well as by the rate at which current users submit jobs. The new platforms provide an excellent mechanism for researchers to scale up their research, so we expect current users to use more resources. At the same time, we don't know how many new users the new platforms will attract. As a result, it is very difficult to predict how the load (and therefore queuing times) will evolve once the new systems are in production and users start to take advantage of the new capabilities.
@@ -20,7 +20,7 @@ The new HPCs will come with a significant increase in capacity, and also additio
 # Managing projects
 
 **My university has institutional access, is my first step to apply for a project from NeSI and can I do that now before the HPCs are available?**<br />
-Yes you can apply now for an allocation. It will be converted as we migrate to the new platform. The number of core hours will be reduced because of higher performance per core on Mahuika/Maui compared to Pan/FitzRoy.
+Yes you can apply now for an allocation. It will be converted as we migrate to the new platform. The number of core hours will be reduced because of higher performance per core on Mahuika/Māui compared to Pan/FitzRoy.
 
 **Will new projects (e.g. start in Jan. 2018) be migrated earlier or should we allow for a disruption in transfer around March for these?**<br/>
 We are focused on smooth transitions for existing / in flight projects, so we will work with you when the time comes. Jobs cannot be live migrated, so migration will need to happen with a break between production runs. There will likely be a short freeze before this migration where new projects won’t be accepted - thinking about 3 to 4 weeks prior.

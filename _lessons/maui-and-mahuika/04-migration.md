@@ -11,7 +11,7 @@ You will learn:
 
 * where your migrated data will end up
 * where you should be working until the migration from Pan is complete
-* How Mahuika and Maui are different from Pan
+* How Mahuika and Māui are different from Pan
 
 
 **Content is currently under development. Check back soon.**
@@ -45,6 +45,6 @@ Differences from Pan
 
 * Mahuika has XXX "bigmem" nodes of XXX GB, and one "hugemem" node with 4 TB of memory, which has too be specifically requested by telling _sbatch_ `--partition=hugemem`. XXX ? XXX
 
-The other machine - Maui.
+The other machine - Māui.
 
-Mahuika shares its filesystem with the co-located Cray XC supercomputer Maui, so if your work is suitable for running on Maui (eg: large MPI jobs) and you are granted an allocation of Maui CPU time then you will be able to access your data in the same locations from either machine.
+Mahuika shares its filesystem with the co-located Cray XC supercomputer Māui, so if your work is suitable for running on Māui (eg: large MPI jobs) and you are granted an allocation of Māui CPU time then you will be able to access your data in the same locations from either machine.
