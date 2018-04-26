@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building code on Maui - the Cray XC Programming Environment
+title: Building code on Māui - the Cray XC Programming Environment
 permalink: /lessons/maui-and-mahuika/building-code-maui
 chapter: maui-and-mahuika
 ---
@@ -24,11 +24,11 @@ Building Fortran, C, or C++ code on the XC50 platform requires using the Cray pr
 
 * It is essential to use the Cray Programming Environment when you build code, otherwise it is very likely that problems at build time or run time appear
 * Never use ```module purge``` on the XC50 platform, this will render the programming environment unusable, and you will have to log out and log back in
-* Code that was built on the XC50 platform is unlikely to run on Maui's CS500 platform or on Mahuika's CS400 platform; please rebuild your code when you change platform
+* Code that was built on the XC50 platform is unlikely to run on Māui's CS500 platform or on Mahuika's CS400 platform; please rebuild your code when you change platform
 
 ### The build node
 
-Maui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be used for building code. Please do not build code on the compute nodes by submitting a build job through SLURM:
+Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be used for building code. Please do not build code on the compute nodes by submitting a build job through SLURM:
 
 * The compute nodes only run a thin operating system with very few command line utilities, it is thus likely that your build will fail
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
@@ -36,7 +36,7 @@ Maui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be u
 
 ### Choosing a programming environment
 
-The following programming environments are provided on Maui, named after the underlying compiler suite:
+The following programming environments are provided on Māui, named after the underlying compiler suite:
 
 1. ```PrgEnv-cray```
 2. ```PrgEnv-intel```
@@ -67,7 +67,7 @@ GCC v6.1.0 or later is required to build code that can make use of the Intel Sky
 
 ### Targetting a CPU
 
-Compiling a program translates source code into machine instructions. It is important to let the compiler know for which CPU ("target") the executable shall be build, to make best use of that CPU's capabilities. Maui uses Intel Skylake microprocessors on all XC50 build and compute nodes, which come with AVX-512 vector instructions, enabling better performance for some codes.
+Compiling a program translates source code into machine instructions. It is important to let the compiler know for which CPU ("target") the executable shall be build, to make best use of that CPU's capabilities. Māui uses Intel Skylake microprocessors on all XC50 build and compute nodes, which come with AVX-512 vector instructions, enabling better performance for some codes.
 
 CPU targets can be set by loading a module. By default, no target is set and the compilers will produce generic code that runs on many processors of the "x86-64" family. The program will thus not be able to benefit from capabilities such as AVX-512, and you will see the following warning message when you run a compiler:
 ```

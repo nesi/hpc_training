@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Connecting to Maui and Mahuika
+title: Connecting to Māui and Mahuika
 permalink: /lessons/maui-and-mahuika/connecting
 chapter: maui-and-mahuika
 ---
@@ -9,19 +9,19 @@ chapter: maui-and-mahuika
 
 You will learn:
 
-* how to login to Maui and Mahuika
+* how to login to Māui and Mahuika
 
 ## Requirements
 
-You will need a terminal program to login to Maui or Mahuika:
+You will need a terminal program to login to Māui or Mahuika:
 
 - Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [Putty](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
-## Connecting to Maui and Mahuika
+## Connecting to Māui and Mahuika
 
-Connecting to Maui or Mahuika is a two step process. First, connect to NeSI's lander node by typing:
+Connecting to Māui or Mahuika is a two step process. First, connect to NeSI's lander node by typing:
 ```
 ssh -Y <myusername>@lander.nesi.org.nz
 ```
@@ -35,14 +35,14 @@ Second Factor (optional):
 ```
 Enter the 6-digit code from the mobile device. 
 
-To compile code, submit jobs to the scheduler and access your data, you will need to connect to one of the Maui or Mahuika login nodes.
+To compile code, submit jobs to the scheduler and access your data, you will need to connect to one of the Māui or Mahuika login nodes.
 
 For Mahuika:
 ```
 ssh -Y login.mahuika.nesi.org.nz
 ```
 
-For Maui:
+For Māui:
 ```
 ssh -Y login.maui.nesi.org.nz
 ```
@@ -51,7 +51,7 @@ No password should be required to access the login nodes from the lander node.
 
 ## Jumping across the lander node (advanced)
 
-On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to either the Maui or Mahuika login nodes. With the following lines in your `~/.ssh/config` file (replacing `myusername` with your username) you can run the command `ssh mahuika` on your machine and it will take you straight to Mahuika (`ssh maui` for Maui). 
+On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to either the Māui or Mahuika login nodes. With the following lines in your `~/.ssh/config` file (replacing `myusername` with your username) you can run the command `ssh mahuika` on your machine and it will take you straight to Mahuika (`ssh maui` for Māui). 
 
 ```
 Host mahuika
