@@ -17,6 +17,15 @@ Mahuika (HPC1) will have 8 GPGPUs (Nvidia P100) for general use. There will also
 **There are more nodes/cores and memory available on the new platform (e.g. compared with Pan), how many new users are expected? (i.e. how will this translate to job wait times? Will we expect improvements?)**<br />
 The new HPCs will come with a significant increase in capacity, and also additional gains in per processor performance. We anticipate a significant reduction in queue wait times initially. Queue wait times will be impacted by both the number of new users on the system as well as by the rate at which current users submit jobs. The new platforms provide an excellent mechanism for researchers to scale up their research, so we expect current users to use more resources. At the same time, we don't know how many new users the new platforms will attract. As a result, it is very difficult to predict how the load (and therefore queuing times) will evolve once the new systems are in production and users start to take advantage of the new capabilities.
 
+**Are there any differences between Kupe and Maui? Is the training we had for Kupe still going
+to be valid for Maui or will there be differences?**<br>
+Kupe and Maui are expected to be almost identical from the user’s perspective (programming
+environment, software stack, filesystems, ...), with “almost” meaning that there may be small
+tweaks in, e.g., the software stack.
+
+**What role will OpenStack be taking in the new clusters?**<br />
+OpenStack is used to provision Virtual Labs, and we will provide Private Cloud services off Mahuika.
+
 # Managing projects
 
 **My university has institutional access, is my first step to apply for a project from NeSI and can I do that now before the HPCs are available?**<br />
@@ -80,10 +89,13 @@ We can help you with building and installing additional software on the HPC, ple
 # More information
 
 **Where can I get a copy of the slides and recording of the webinar presenting new NeSI platforms?**<br/>
-We have hosted two webinars on the new systems:
-<br>October 2017 - Overview of the Systems
+We have hosted three webinars on the new systems:
+<br><br>October 2017 - Overview of the Systems
 * [You can view the webinar online.](https://youtu.be/ldv9Tpoz_78)
 * [And the slides](https://docs.google.com/presentation/d/1hw0Rp60VAgJEYSaMHly1hN1u7DxV2YpsYznrHMIzRYI/edit?usp=sharing).
 <br><br>February 2018 - User Q&A
 * [You can view the webinar online.](https://www.youtube.com/watch?v=X-Vmu69yTo4&feature=youtu.be)
 * [And the slides](https://drive.google.com/file/d/1yBJ5aBJQj_7WUQeBbHSVfPkWcY-OYXoF/view)
+<br><br>April 2018 - User Q&A
+* [You can view the webinar online.](https://youtu.be/vrb2bvk4zK0)
+* [And the slides](https://drive.google.com/file/d/1YKHWsrNZ_TkdkcIvUmoePyzZJ7H69LDD/view?usp=sharing)
