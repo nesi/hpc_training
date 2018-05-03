@@ -12,7 +12,6 @@ You will learn:
 * how to transfer small amounts of data to and from the system
 * how to transfer large amounts of data
 * how to bypass the lander node when copying data
-* how to archive data
 
 
 **Content is currently under development. Check back soon.**

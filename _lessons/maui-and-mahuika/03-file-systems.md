@@ -12,6 +12,7 @@ You will learn:
 * what the different file systems are
 * what they should be used for
 * what the quotas are on the different file systems
+* how to archive your data
 
 
 **Content is currently under development. Check back soon.**

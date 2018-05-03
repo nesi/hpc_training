@@ -11,7 +11,7 @@ You will learn:
 
 * where your migrated data will end up
 * where you should be working until the migration from Pan is complete
-* How Mahuika and Māui are different from Pan
+* how Mahuika and Māui are different from Pan
 
 
 **Content is currently under development. Check back soon.**
