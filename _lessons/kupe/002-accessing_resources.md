@@ -22,39 +22,6 @@ You will need a terminal program to login to Kupe:
 - Linux: Terminal app, xterm
 
 ---
-
-## Connecting to kupe
-
-### Users outside of NIWA
-
-Connecting to kupe is a two step process. First, connect to kupe's lander node
-```
-ssh -Y <myusername>@lander.nesi.org.nz
-```
-inside your terminal program, where ```<myusername>``` is your account user name. You will see the following prompt
-```
-First Factor:
-```
-Enter your password, followed by
-```
-Second Factor (optional):
-```
-Enter the 6-digit code from the mobile device. To execute and compile code, you will as a second step connect to the login node
-```
-ssh -Y login
-```
-using your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile.
-
-### Users inside of NIWA's network
-
-You can connect directly to kupe's login node
-```
-ssh -Y <myusername>@login.kupe.niwa.co.nz
-```
-using your password. **Note: if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
-
----
-
 ## Setting up an account on Kupe
 
 If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to login to NeSI user portal. This populates NeSI database with your basic account information which will be used to set up your account.
@@ -177,6 +144,38 @@ Host lander
    ServerAliveCountMax 2
 ```
 The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the Data Transfer lesson).
+
+---
+
+## Connecting to kupe
+
+### Users outside of NIWA
+
+Connecting to kupe is a two step process. First, connect to kupe's lander node
+```
+ssh -Y <myusername>@lander.nesi.org.nz
+```
+inside your terminal program, where ```<myusername>``` is your account user name. You will see the following prompt
+```
+First Factor:
+```
+Enter your password, followed by
+```
+Second Factor (optional):
+```
+Enter the 6-digit code from the mobile device. To execute and compile code, you will as a second step connect to the login node
+```
+ssh -Y login
+```
+using your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile.
+
+### Users inside of NIWA's network
+
+You can connect directly to kupe's login node
+```
+ssh -Y <myusername>@login.kupe.niwa.co.nz
+```
+using your password. **Note: if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
 
 ---
 
