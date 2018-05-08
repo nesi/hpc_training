@@ -23,8 +23,28 @@ Kupe and Maui are expected to be almost identical from the user’s perspective 
 environment, software stack, filesystems, ...), with “almost” meaning that there may be small
 tweaks in, e.g., the software stack.
 
+**What are the pros and cons of different block sizes?**<br>
+Performance: Large block size will improve well-formed I/O, but random I/O performance may be worse. Also there are issues around metadata performance with different blocksizes - that are initially not entirely intuitive!
+
 **What role will OpenStack be taking in the new clusters?**<br />
 OpenStack is used to provision Virtual Labs, and we will provide Private Cloud services off Mahuika.
+
+**Virtual Labs - what will they look like, how will access work, and how available will they be?**<br>
+The VL service will take a short time to develop, but the aim will be to provide an environment in which you can do full analysis of data that you have created (or are available by other means) on the shared filesystems - without moving it back to your institution / laptop / server. Think of them as a “virtual workstation” with access to (many)PB of data, and domain specific software stacks (e.g. for genomics, geophysics, etc.) There will be a remote visualisation service that will make use of the P100 GPGPUs - look for  Nice DCV on the web. Access to Virtual Labs will likely be some form of resource management (such as a queuing system) in place.
+
+**I am interested in GPU capability and ability to run Google tensorflow.**<br>
+We will have Nvidia Tesla GPUs (Pascal generation) on Mahuika and Maui, both for general purpose computing, and visualisation. It should be possible to run Google tensorflow on the platform. Please contact us on support@nesi.org.nz for installing and setting up tensorflow.
+
+**GPGPU’s – how will they be set up (e.g. 4 nodes with 2 GPU’s)? Will there be a specific queue for GPU nodes?**<br>
+Mahuika will have a 2 GPU/node setup (so 4x2 GPUs is correct), Maui will have 1 GPU per node on its virtual labs and multi-purpose nodes. Decisions around scheduler setup for accessing GPU nodes have yet to be made and may depend on the system (Mahuika vs Maui).
+
+**How will access to commercial software licenses work?**<br>
+Largely the same as it does now, with NeSI generally not being the licensee. There are exceptions though (eg: Intel compilers, Alinea debugger). Different commercial software packages have different license constraints and so it is a case-by-case question in some respects. 
+
+**How are the new queues being sorted/proposed?**<br>
+We will make it explicit which function or feature of the platforms each queue supports, e.g. a debug queue. NeSI operates a fair share model, based on proportions of the infrastructure allocated to different allocation classes (Merit, Institutional (Subscriber, Collaborator), Proposal Development), with fair share balancing use across queues and allocation classes. We will make the queue status and wait times and other useful information explicit, to ensure you can gain insights into when your jobs might run.
+
+
 
 # Managing projects
 
@@ -37,7 +57,7 @@ We are focused on smooth transitions for existing / in flight projects, so we wi
 # Project and data migration
 
 **What is the expected migration time frame to the new platform from Pan?**<br/>
-Installation of Pan’s replacement (Mahuika) will begin in late February 2018. Both Pan and Mahuika will run in parallel during migration and before Pan shuts down in May 2018.
+Installation of Pan’s replacement (Mahuika) will begin in late February 2018. Both Pan and Mahuika will run in parallel during migration and before Pan shuts down in June 2018.
 FitzRoy was shut down on January 09, 2018 and all FitzRoy users have been migrated to Kupe.
 Please contact <a href="mailto:support@nesi.org.nz">support@nesi.org.nz</a> if you need migration support.
 
@@ -48,6 +68,9 @@ Yes, files will always be available. There will likely be a period where changin
 There will be an overlap period where both Pan and Mahuika run in parallel, so there will be no downtime where no jobs can run.
 
 # Accessing the platforms
+
+**Will the portal be available to the public, or just NESI members?**<br>
+Yes, both public and login areas (where e.g. PIs can see more detail about the way the resources in their project are being used). As examples of the sort of information we are aiming to provide, please check: NCI (http://nci.org.au/), Archer (http://www.archer.ac.uk/) CSCS (https://user.cscs.ch/ ) 
 
 **Will the login node have access to the Internet to retrieve source code from GitHub or packages from repos, such as bioconda?**<br />
 Yes, you will be able to access online repositories, e.g., via “git clone”, “svn checkout”, or “conda install”.
@@ -69,6 +92,15 @@ Yes, transfers from external collaborators will be supported. The recommended me
 **What is the maximum storage that can be requested per project?**<br/>
 This will be determined on a case-by-case basis based on a project's need. The new platforms provide for significantly more storage (~7 PB of high performance storage, and ~6 PB of nearline/offline storage) than that available on the combined Pan and FitzRoy platforms. It is expected that the issues users experienced with managing limited quotas (in particular on Pan) will be much less of an issue on the new platforms. In particular, it will no longer be necessary to move data between the two system as was necessary with Pan/FitzRoy. Some file systems will have quotas (this will be covered in training) but there is unlikely to be a quota on the scratch (or /nobackup) space used for computation. [more details.](https://www.nesi.org.nz/services/high-performance-computing/platforms/new-infrastructure-platform)
 
+**If we have large amounts of data to store (100 - 500 TB) next to compute, what are our options?**<br>
+On disk in the /nobackup filesystem: High performance storage is around 8.7 petabytes (not all of which is in the /nobackup filesystem!), nearline storage will be around 7 petabytes that will link to the tape/archive storage (offline storage) with a max potential of 60 Petabytes (although only around 6.5 petabytes available on tape at go live). This will be part of the Project Allocation process. If you want to use this for an extended period of time, you will likely need to move it off to /nearline when not in use.
+
+**If we want to shuttle 200 TB over and back (/nearline), will it take a while to do this?**<br>
+It should be quite fast - depends on whether it is still “on disk”, or needs to come back off tape - but even the later should be quite fast.
+
+**Will there be second and third tier options (ideally readily connected, but with with increased access times, incl data in-out to cluster, similar to eg glacier on AWS)?**<br>
+The system has an HSM that can be used to store data off high performance disk… you will use a “Librarian” service to move data to and from the HSM (/nearline filesystem).
+
 **How much temporary (short term) storage can projects get?**<br />
 Projects should be able to scale up to large amounts of storage, in particular for short periods of time. Please contact <a href="mailto:support@nesi.org.nz">support@nesi.org.nz</a> so that we can work with you to meet your requirements.
 
@@ -89,13 +121,13 @@ We can help you with building and installing additional software on the HPC, ple
 # More information
 
 **Where can I get a copy of the slides and recording of the webinar presenting new NeSI platforms?**<br/>
-We have hosted three webinars on the new systems:
-<br><br>October 2017 - Overview of the Systems
-* [You can view the webinar online.](https://youtu.be/ldv9Tpoz_78)
-* [And the slides](https://docs.google.com/presentation/d/1hw0Rp60VAgJEYSaMHly1hN1u7DxV2YpsYznrHMIzRYI/edit?usp=sharing).
-<br><br>February 2018 - User Q&A
-* [You can view the webinar online.](https://www.youtube.com/watch?v=X-Vmu69yTo4&feature=youtu.be)
-* [And the slides](https://drive.google.com/file/d/1yBJ5aBJQj_7WUQeBbHSVfPkWcY-OYXoF/view)
-<br><br>April 2018 - User Q&A
-* [You can view the webinar online.](https://youtu.be/vrb2bvk4zK0)
-* [And the slides](https://drive.google.com/file/d/1YKHWsrNZ_TkdkcIvUmoePyzZJ7H69LDD/view?usp=sharing)
+We have hosted three webinars on the new systems:<br>
+* October 2017 - Overview of the Systems
+  * [View the webinar recording](https://youtu.be/ldv9Tpoz_78)
+  * [Slides](https://docs.google.com/presentation/d/1hw0Rp60VAgJEYSaMHly1hN1u7DxV2YpsYznrHMIzRYI/edit?usp=sharing)
+* February 2018 - User Q&A
+  * [View the webinar recording](https://www.youtube.com/watch?v=X-Vmu69yTo4&feature=youtu.be)
+  * [Slides](https://drive.google.com/file/d/1yBJ5aBJQj_7WUQeBbHSVfPkWcY-OYXoF/view)
+* April 2018 - User Q&A
+  * [View the webinar recording](https://youtu.be/vrb2bvk4zK0)
+  * [Slides](https://drive.google.com/file/d/1YKHWsrNZ_TkdkcIvUmoePyzZJ7H69LDD/view?usp=sharing)
