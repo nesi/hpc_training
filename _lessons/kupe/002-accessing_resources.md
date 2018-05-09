@@ -20,7 +20,7 @@ You will need a terminal program to log in to Kupe:
 - Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
-- A Smartphone with the Google Authenticator app installed
+- A smartphone with the Google Authenticator app installed
 
 ---
 
