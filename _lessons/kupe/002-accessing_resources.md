@@ -35,7 +35,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
 3. After successful login, you should see a screen similar to the one below
-   **Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your account or project has not yet have been approved or activated, or your information on our database did not match your Tuakiri identity. If you have not yet applied for a project you can do so [here](https://web.ceres.auckland.ac.nz/portal/#/portal/welcome.html)
+   **Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your account or project has not yet have been approved or activated, or your information on our database did not match your Tuakiri identity. If you have not yet applied for a project you can do so [here](https://web.ceres.auckland.ac.nz/portal/#/portal/welcome.html). If you are already a member of an active project on Kupe, then please contact us at support@nesi.org.nz.
    ![logging-in](../../assets/img/login_success.png).
 
 4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
