@@ -46,7 +46,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 6. During your first login with the temporary password you will be asked to change it. This is a **6-step** process, detailed below. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`, this is normal until a second factor is set up.
 
       Resetting the temporary password **6-step** process:
-   1. Connect to the lander node using the command:```ssh -Y <myusername>@lander.nesi.org.nz``` where ```<myusername>``` is your account user name.  
+   1. Connect to the lander node using the command:```ssh -Y <myusername>@lander.nesi.org.nz``` where ```<myusername>``` is your account user name. **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue, you must select yes.
    2. When you first issue the SSH command to login, a password will be asked (**Enter the temporary password you were emailed**)
    3. Immediately after entering the temporary password correctly, the system will report that the temporary password is expired      and you will be met with the prompt (_Current Password:_). **Enter the same temporary password again**
    4. Then, you will be asked for **your NEW password** (_New password:_) **NOTE:** You new password must be at least 12 characters long with at least 2 character types.
