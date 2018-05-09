@@ -31,7 +31,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 1. Access the [My NeSI Portal](https://my.nesi.org.nz) via your browser.
    ![logging-in](../../assets/img/portal_login.png)
 
-2. Log in using your institutional credentials via Tuakiri. If your institution is not a member of the Tuakiri federation, you will have to request a Tuakiri Virtual Home account by emailing [support@nesi.org.nz](mailto:support@nesi.org.nz?subject="Tuakiri%20virtual%20home%20account%20request"). Once we have approved and created your Tuakiri Virtual Home account, please select the Tuakiri Virtual Home as your Home Organisation. See the example below, which shows the login process using a NIWA staff username and password. When logging in, please select your own home organisation.
+2. Log in using your institutional credentials via Tuakiri. If your institution is not a member of the Tuakiri federation, you will have to request a Tuakiri Virtual Home account by emailing [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Tuakiri%20virtual%20home%20account%20request). Once we have approved and created your Tuakiri Virtual Home account, please select the Tuakiri Virtual Home as your Home Organisation. See the example below, which shows the login process using a NIWA staff username and password. When logging in, please select your own home organisation.
    ![logging-in](../../assets/img/tuakiri_credentials.png)
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
@@ -111,7 +111,7 @@ Connecting to the HPC from outside the NIWA network requires two-factor authenti
 
 Before starting the two-factor authentication setup process, ensure that you have a smartphone with a working camera and install the free Google Authenticator app on your smartphone. The next step can only be done once. 
 
-**WARNING:** The QR code shown in later steps is a one-time password and can not be regenerated or displayed again. If you do not capture the QR code, or if you lose the device storing the token, you will be unable to access your account. If this happens, please contact [support@nesi.org.nz](mailto:support@nesi.org.nz?subject="Please%20reset%20my%202FA%20token"). After we validate your request, a member of the NeSI team will delete your authentication token so you can generate another for your account.
+**WARNING:** The QR code shown in later steps is a one-time password and can not be regenerated or displayed again. If you do not capture the QR code, or if you lose the device storing the token, you will be unable to access your account. If this happens, please contact [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20reset%20my%202FA%20token). After we validate your request, a member of the NeSI team will delete your authentication token so you can generate another for your account.
 
 Go back to [the My NeSI portal](https://my.nesi.org.nz) and click on Accounts or refresh the page. You should see a new option to 'Link your mobile device'
 ![logging-in](../../assets/img/link_device.png)
@@ -126,7 +126,7 @@ Open your Google Authenticator app and click on the add button and select 'Scan 
 
 Now logging in to the lander node will prompt you for 'First factor' where you enter your newly set password, and 'Second factor (optional)' which is the six-digit code displayed on your Google Authenticator app. The six-digit code rotates every 30 seconds, and it can only be used once even if it has not expired yet. This means that you can only login to the lander node once every 30 seconds. Also, even though the prompt says (optional), the Google Authenticator code is compulsory. We are working with the software developers to fix the message.
 
-**Note:** You need to be an authorised member of an active project team to log in after you complete this step. If you believe you are an authorised project team member and and you are not able to log in using your credentials, please send us a message at [support@nesi.org.nz](mailto:support@nesi.org.nz?subject="Problems%20logging%20in"). In your message, please tell us your Kupe user name, the project code for the NeSI project you think you belong to, and the name of the NeSI project owner.
+**Note:** You need to be an authorised member of an active project team to log in after you complete this step. If you believe you are an authorised project team member and and you are not able to log in using your credentials, please send us a message at [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Problems%20logging%20in). In your message, please tell us your Kupe user name, the project code for the NeSI project you think you belong to, and the name of the NeSI project owner.
 
 ---
 
