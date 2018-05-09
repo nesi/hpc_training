@@ -20,6 +20,7 @@ You will need a terminal program to login to Kupe:
 - Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [Putty](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
+- A Smartphone with the Google Authenticator app installed
 
 ---
 ## Setting up an account on Kupe
@@ -34,23 +35,23 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
 3. After successful login, you should see a screen similar to the one below
-   ![logging-in](../../assets/img/login_success.png)
+   **Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your account or project has not yet have been approved or activated, or your information on our database did not match your Tuakiri identity. If you have not yet applied for a project you can do so [here](https://web.ceres.auckland.ac.nz/portal/#/portal/welcome.html)
+   ![logging-in](../../assets/img/login_success.png).
 
 4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
-
-   **Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your information on our database did not match your Tuakiri identity, or your account or project has not yet have been approved or activated.. Please see the Troubleshooting section.
 
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
 ![logging-in](../../assets/img/temp_password.png)
 
-6. During your first login with the temporary password you will be asked to change it. This is a **4-step** process, detailed bellow. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`, this is normal until a second factor is set up.
+6. During your first login with the temporary password you will be asked to change it. This is a **6-step** process, detailed below. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`, this is normal until a second factor is set up.
 
-      Resetting the temporary password **4-step** process:
-   1. When you first issue the SSH command to login, a password will be asked (**this is the temporary password**)
-   2. Immediately after entering the temporary password correctly, the system will report that the temporary password is expired and you will be asked to enter it again (_Current Password:_). **Enter the same temporary password again**
-   3. Then, you will be asked for **your NEW password** (_New password:_)
-   4. And finally you will be asked to **confirm your NEW password** (_Retype new password:_)
-   5. Upon sucessfull password change, your session will be either closed or you might be asked to enter a password again (but this will not work just yet). Upon this do Ctrl+C or just press 'Enter' until you get the `...denied (keyboard-interactive).` message.
+      Resetting the temporary password **6-step** process:
+   1. Connect to the lander node using the command:```ssh -Y <myusername>@lander.nesi.org.nz``` where ```<myusername>``` is your account user name.  
+   2. When you first issue the SSH command to login, a password will be asked (**Enter the temporary password you were emailed**)
+   3. Immediately after entering the temporary password correctly, the system will report that the temporary password is expired      and you will be met with the prompt (_Current Password:_). **Enter the same temporary password again**
+   4. Then, you will be asked for **your NEW password** (_New password:_) **NOTE:** You new password must be at least 12 characters long with at least 2 character types.
+   5. And finally you will be asked to **confirm your NEW password** (_Retype new password:_)
+   6. Upon sucessfull password change, your session will be either closed or you might be asked to enter a password again (but this will not work just yet). Upon this do Ctrl+C or just press 'Enter' until you get the `...denied (keyboard-interactive).` message.
    
    Example of the process:
    ```
@@ -76,11 +77,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    [user@host ~]#
    ```
 
-   If it happens that you entered more than 4 passwords, something wrong might have happened (wrong password entered, password minimal requirements not met, accidentally pressed enter or Ctrl+C). If this is the case, close that session and start over again.
-
-   **NOTE:** The NeSI password policy is:
-   - 12 character minimum
-   - minimum of 2 character types
+   **If it happens that you entered more than 4 passwords, something wrong might have happened (wrong password entered, password minimal requirements not met, accidentally pressed enter or Ctrl+C). If this is the case, close that session and start over again.**
 
 
 7. You are now ready to move on to setting up two factor authentication
@@ -122,31 +119,6 @@ Now logging in to the lander node will prompt you for ‘First factor’ where y
 
 ---
 
-## Setting up access for connecting from outside of NIWA computer network (advanced)
-
-On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe. Since we are using SSH ProxyCommand to jump first to the lander node, you will need to enter your ‘First factor’ (password) and then your ‘Second factor’ (from Google Authenticator) on the first jump and then a combination of your ‘First factor’+‘Second factor’ on the second jump when prompted for a password. 
-```
-Host kupe
-   User your_username
-   Hostname login.kupe.niwa.co.nz
-   ProxyCommand ssh -W %h:%p lander
-   ForwardX11 yes
-   ForwardX11Trusted yes
-   ServerAliveInterval 300
-   ServerAliveCountMax 2
-
-Host lander
-   User your_username
-   HostName lander.nesi.org.nz
-   ForwardX11 yes
-   ForwardX11Trusted yes
-   ServerAliveInterval 300
-   ServerAliveCountMax 2
-```
-The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the Data Transfer lesson).
-
----
-
 ## Connecting to kupe
 
 ### Users outside of NIWA
@@ -176,6 +148,31 @@ You can connect directly to kupe's login node
 ssh -Y <myusername>@login.kupe.niwa.co.nz
 ```
 using your password. **Note: if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
+
+---
+
+## Setting up access for connecting from outside of NIWA computer network (advanced)
+
+On most Linux and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to kupe. With the following lines in your `~/.ssh/config` file you can run the command `ssh kupe` on your machine and it will take you straight to kupe. Since we are using SSH ProxyCommand to jump first to the lander node, you will need to enter your ‘First factor’ (password) and then your ‘Second factor’ (from Google Authenticator) on the first jump and then a combination of your ‘First factor’+‘Second factor’ on the second jump when prompted for a password. 
+```
+Host kupe
+   User your_username
+   Hostname login.kupe.niwa.co.nz
+   ProxyCommand ssh -W %h:%p lander
+   ForwardX11 yes
+   ForwardX11Trusted yes
+   ServerAliveInterval 300
+   ServerAliveCountMax 2
+
+Host lander
+   User your_username
+   HostName lander.nesi.org.nz
+   ForwardX11 yes
+   ForwardX11Trusted yes
+   ServerAliveInterval 300
+   ServerAliveCountMax 2
+```
+The `ForwardX11` directives will enable X11 forwarding and are optional. This can be combined with the `Control` directives to make additional SSH logins and transferring data easier (see the Data Transfer lesson).
 
 ---
 
