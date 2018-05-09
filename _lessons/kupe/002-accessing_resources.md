@@ -35,7 +35,9 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    ![logging-in](../../assets/img/tuakiri_credentials.png)
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
-3. Once you have logged in, you should see a screen similar to the one below. Click on the 'Reset Password' button to proceed.
+3. Please wait for us to confirm your account and add you to an appropriate project group. This is a manual step that we aim to complete for every user within two business days of receiving your account request.
+
+4. Once you have logged in, you should see a screen similar to the one below. Click on the 'Reset Password' button to proceed.
 
    ![logging-in](../../assets/img/login_success.png)
    
@@ -43,9 +45,9 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
    **NOTE:** You must wait at least an hour between password reset requests. If you request a password reset before an hour has gone by since your last valid password reset request, our system will ignore the later request.
    
-4. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
+5. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
 
-5. Clicking on the link on your e-mail will open up a web page looking like the following picture that contains your temporary password.
+6. Clicking on the link on your e-mail will open up a web page looking like the following picture that contains your temporary password.
 ![logging-in](../../assets/img/temp_password.png)
 
    **WARNING:** Do **not** close the web page displaying your temporary password until you have completed the password reset process (see below). The temporary password link may only be opened once. If you accidentally close the page (or your browser or computer crashes), you will need to wait an hour before requesting a new password reset.
@@ -53,7 +55,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    **Note:** Closing the password page may make it unretrievable again, so ensure you no longer need it when you close it.
 ![logging-in](../../assets/img/temp_password.png)
 
-6. Once you have logged in with your temporary password, you will be asked to choose a new permanent password. This is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor.
+7. Once you have logged in with your temporary password, you will be asked to choose a new permanent password. This is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor.
 
       You can choose your permanent password by following this **six-step** process:
    1. Connect to the lander node using the command:`ssh -Y <myusername>@lander.nesi.org.nz`, where `<myusername>` should be replaced with your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue. You must type `yes` and press the `Enter` key. Typing `y` as a shorthand for "yes" is not sufficient.
@@ -89,7 +91,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
    If you have to enter more than four passwords, something has probably gone wrong. You may have entered the wrong temporary password at one of the first two prompts, your new password may not satisfy our password criteria, or you may have mistyped your new password when confirming it. Alternatively, you may have accidentally pressed `Enter` or `Ctrl-C` at the wrong time. If any of these situations has happened, you should exit the session and log in again.
 
-7. You are now ready to move on to setting up two-factor authentication.
+8. You are now ready to move on to setting up two-factor authentication.
 
 ### NeSI password policy
 
