@@ -17,7 +17,7 @@ You will learn how to:
 
 You will need a terminal program to log in to Kupe:
 
-- Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [Putty](https://www.putty.org/)
+- Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
@@ -31,7 +31,7 @@ Connecting to kupe is a two-step process. First, connect to kupe's lander node:
 ```
 ssh -Y <myusername>@lander.nesi.org.nz
 ```
-inside your terminal program, where ```<myusername>``` is your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). You will see the following prompt
+inside your terminal program, where `<myusername>` is your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). You will see the following prompt
 ```
 First Factor:
 ```
@@ -69,9 +69,9 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 3. Once you have logged in, you should see a screen similar to the one below
    ![logging-in](../../assets/img/login_success.png)
 
-4. Please click on the ‘Reset Password’ button to proceed. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
+4. Please click on the 'Reset Password' button to proceed. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
 
-   **NOTE:** If you don’t see the ‘Reset Password’ button and instead see error messages, it means your information on our database does not match your Tuakiri identity, your user account has not yet been created, or you are not a member of an active project. Please see the Troubleshooting section.
+   **NOTE:** If you don't see the 'Reset Password' button and instead see error messages, it means your information on our database does not match your Tuakiri identity, your user account has not yet been created, or you are not a member of an active project. Please see the Troubleshooting section.
 
    **NOTE:** You must wait at least an hour between password reset requests. If you request a password reset before an hour has gone by since your last password reset request, our system will ignore the second request.
 
@@ -98,7 +98,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    By using this computer system, you accept and agree to the NeSI Acceptable Use Policy.
    To ensure compliance with legal requirements and to maintain cyber security standards, NeSI HPC systems are subject to ongoing monitoring, activity logging and auditing.
    This monitoring and auditing service may be provided by third parties.
-   Such third parties can access information transmitted to, processed by and stored on NeSI’s HPC systems.
+   Such third parties can access information transmitted to, processed by and stored on NeSI's HPC systems.
 
    Documentation:
    Support:
