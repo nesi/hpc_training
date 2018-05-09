@@ -35,21 +35,22 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
 3. After successful login, you should see a screen similar to the one below
-   **Note** If you don’t see ‘Reset Password’ button and instead see error messages, it means your account or project has not yet have been approved or activated, or your information on our database did not match your Tuakiri identity. If you have not yet applied for a project you can do so [here](https://web.ceres.auckland.ac.nz/portal/#/portal/welcome.html). If you are already a member of an active project on Kupe, then please contact us at support@nesi.org.nz.
+   **Note:** If you don’t see ‘Reset Password’ button and instead see error messages, it means your account or project has not yet have been approved or activated, or your information on our database did not match your Tuakiri identity. If you have not yet applied for a project you can do so [here](https://web.ceres.auckland.ac.nz/portal/#/portal/welcome.html). If you are already a member of an active project on Kupe, then please contact us at support@nesi.org.nz. You will be informed by email when this is done and you can complete the account setup procress, there may be a wait period of up to two working days.
    ![logging-in](../../assets/img/login_success.png).
 
 4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
 
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
+**Note:** Closing the password page may make it unretrievable again, so ensure you no longer need it when you close it.
 ![logging-in](../../assets/img/temp_password.png)
 
 6. During your first login with the temporary password you will be asked to change it. This is a **6-step** process, detailed below. Once your password has changed sucessfully, your connection will be eventually terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`, this is normal until a second factor is set up.
 
       Resetting the temporary password **6-step** process:
-   1. Connect to the lander node using the command:```ssh -Y <myusername>@lander.nesi.org.nz``` where ```<myusername>``` is your account user name. **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue, you must select yes.
+   1. Connect to the lander node using the command:```ssh -Y <myusername>@lander.nesi.org.nz``` where ```<myusername>``` is your Kupe account user name, which can be found on your my.nes.org.nz page. **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue, you must select yes.
    2. When you first issue the SSH command to login, a password will be asked (**Enter the temporary password you were emailed**)
    3. Immediately after entering the temporary password correctly, the system will report that the temporary password is expired      and you will be met with the prompt (_Current Password:_). **Enter the same temporary password again**
-   4. Then, you will be asked for **your NEW password** (_New password:_) **NOTE:** You new password must be at least 12 characters long with at least 2 character types.
+   4. Then, you will be asked for **your NEW password** (_New password:_) **NOTE:** Your new password must be at least 12 characters long with at least 2 character types.
    5. And finally you will be asked to **confirm your NEW password** (_Retype new password:_)
    6. Upon sucessfull password change, your session will be either closed or you might be asked to enter a password again (but this will not work just yet). Upon this do Ctrl+C or just press 'Enter' until you get the `...denied (keyboard-interactive).` message.
    
@@ -136,6 +137,7 @@ Enter your password, followed by
 Second Factor (optional):
 ```
 Enter the 6-digit code from the mobile device. To execute and compile code, you will as a second step connect to the login node
+**Note:** Each 6-digit code is only valid for one minute and one use.
 ```
 ssh -Y login
 ```
