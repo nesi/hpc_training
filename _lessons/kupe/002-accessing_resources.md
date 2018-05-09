@@ -34,13 +34,15 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    ![logging-in](../../assets/img/tuakiri_credentials.png)
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
-3. After successful login, you should see a screen similar to the one below
-   **Note:** If you don’t see ‘Reset Password’ button and instead see error messages, it means your account or project has not yet have been approved or activated, or your information on our database did not match your Tuakiri identity. If you have not yet applied for a project you can do so [here](https://web.ceres.auckland.ac.nz/portal/#/portal/welcome.html). If you are already a member of an active project on Kupe, then please contact us at support@nesi.org.nz. You will be informed by email when this is done and you can complete the account setup procress, there may be a wait period of up to two working days.
-   ![logging-in](../../assets/img/login_success.png).
+3. After successful login, you should see a screen similar to the one below   
+
+**Note:** If you don’t see ‘Reset Password’ button and instead see error messages, it means your account or project has not yet have been approved or activated, or your information on our database did not match your Tuakiri identity. If you have not yet applied for a project you can do so [here](https://web.ceres.auckland.ac.nz/portal/#/portal/welcome.html). If you are already a member of an active project on Kupe, then please contact us at support@nesi.org.nz. You will be informed by email when this is done and you can complete the account setup procress, there may be a wait period of up to two working days.
+   ![logging-in](../../assets/img/login_success.png)
 
 4. Please click on ‘Reset Password’ button to proceed. It will send you an e-mail with temporary URL.
 
 5. Clicking on the link on your e-mail will open up the following page that shows your temp password.
+
 **Note:** Closing the password page may make it unretrievable again, so ensure you no longer need it when you close it.
 ![logging-in](../../assets/img/temp_password.png)
 
@@ -137,6 +139,7 @@ Enter your password, followed by
 Second Factor (optional):
 ```
 Enter the 6-digit code from the mobile device. To execute and compile code, you will as a second step connect to the login node
+
 **Note:** Each 6-digit code is only valid for one minute and one use.
 ```
 ssh -Y login
@@ -149,7 +152,9 @@ You can connect directly to kupe's login node
 ```
 ssh -Y <myusername>@login.kupe.niwa.co.nz
 ```
-using your password. **Note: if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
+using your password. 
+
+**Note:** if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.
 
 ---
 
