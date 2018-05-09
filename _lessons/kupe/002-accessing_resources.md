@@ -50,7 +50,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
    **WARNING:** Do **not** close the web page displaying your temporary password until you have completed the password reset process (see below). The temporary password link may only be opened once. If you accidentally close the page (or your browser or computer crashes), you will need to wait an hour before requesting a new password reset.
 
-**Note:** Closing the password page may make it unretrievable again, so ensure you no longer need it when you close it.
+   **Note:** Closing the password page may make it unretrievable again, so ensure you no longer need it when you close it.
 ![logging-in](../../assets/img/temp_password.png)
 
 6. Once you have logged in with your temporary password, you will be asked to choose a new permanent password. This is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor.
