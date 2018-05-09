@@ -20,38 +20,7 @@ You will need a terminal program to log in to Kupe:
 - Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
-
----
-
-## Connecting to kupe
-
-### Users outside of NIWA
-
-Connecting to kupe is a two-step process. First, connect to kupe's lander node:
-```
-ssh -Y <myusername>@lander.nesi.org.nz
-```
-inside your terminal program, where `<myusername>` is your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). You will see the following prompt
-```
-First Factor:
-```
-Enter your password, followed by
-```
-Second Factor (optional):
-```
-Enter the 6-digit code from the mobile device. To execute and compile code, you will as a second step connect to the login node
-```
-ssh -Y login
-```
-using your password followed immediately by the 2nd factor token. E.g. mypassword345678 where 345678 is your 6-digit code from the mobile.
-
-### Users inside of NIWA's network
-
-You can connect directly to kupe's login node
-```
-ssh -Y <myusername>@login.kupe.niwa.co.nz
-```
-using your password. **Note: if you have two-factor authentication set up then you need to provide mypassword345678 where 345678 is your 6-digit code from the mobile at the password prompt.**
+- A smartphone with the Google Authenticator app installed
 
 ---
 
@@ -66,29 +35,33 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    ![logging-in](../../assets/img/tuakiri_credentials.png)
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
-3. Once you have logged in, you should see a screen similar to the one below
+3. Once you have logged in, you should see a screen similar to the one below. Click on the 'Reset Password' button to proceed.
+
    ![logging-in](../../assets/img/login_success.png)
-
-4. Please click on the 'Reset Password' button to proceed. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
-
+   
    **NOTE:** If you don't see the 'Reset Password' button and instead see error messages, it means your information on our database does not match your Tuakiri identity, your user account has not yet been created, or you are not a member of an active project. Please see the Troubleshooting section.
 
-   **NOTE:** You must wait at least an hour between password reset requests. If you request a password reset before an hour has gone by since your last password reset request, our system will ignore the second request.
+   **NOTE:** You must wait at least an hour between password reset requests. If you request a password reset before an hour has gone by since your last valid password reset request, our system will ignore the later request.
+   
+4. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
 
-5. Clicking on the link on your e-mail will open up the following page that shows your temporary password.
+5. Clicking on the link on your e-mail will open up a web page looking like the following picture that contains your temporary password.
 ![logging-in](../../assets/img/temp_password.png)
 
    **WARNING:** Do **not** close the web page displaying your temporary password until you have completed the password reset process (see below). The temporary password link may only be opened once. If you accidentally close the page (or your browser or computer crashes), you will need to wait an hour before requesting a new password reset.
 
-6. Once you have logged in with your temporary password, you will be asked to enter a new permanent password. This is a **5-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor.
+**Note:** Closing the password page may make it unretrievable again, so ensure you no longer need it when you close it.
+![logging-in](../../assets/img/temp_password.png)
 
+6. Once you have logged in with your temporary password, you will be asked to choose a new permanent password. This is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor.
 
-      Resetting the temporary password **5-step** process:
-   1. When you first issue the SSH command to log in, you will be asked to enter a password - **you should enter your temporary password**.
-   2. Once you have correctly entered your temporary password, the system will report that the temporary password has expired and you will be asked to change it. First, the system will present a `Current Password:` prompt. **Enter your temporary password again.**
-   3. Then, the system will ask you for  **your NEW password** (`New password:`). Our system will only accept a password if it complies with our password policy.
-   4. You will be asked to **confirm your NEW password** (`Retype new password:`).
-   5. Once you have changed your password, either your session will be closed or you will be asked to enter a password again. **Do not try to enter your new password or your temporary password as neither will work.** Instead, press `Ctrl-C`, or press 'Enter' repeatedly until you get the `Access denied (keyboard-interactive).` (or `Permission denied (keyboard-interactive).` message.
+      You can choose your permanent password by following this **six-step** process:
+   1. Connect to the lander node using the command:```ssh -Y <myusername>@lander.nesi.org.nz``` where ```<myusername>``` is your Kupe account user name (not to be confused with your institutional username), which can be found on your my.nes.org.nz page. **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue, you must select yes.
+   2. When you first issue the SSH command to log in, you will be asked to enter a password. **You should enter your temporary password**.
+   3. Once you have correctly entered your temporary password, the system will report that the temporary password has expired and you will be asked to change it. First, the system will present a `Current Password:` prompt. **Enter your temporary password again.**
+   4. Then, the system will ask you for **your NEW password** (`New password:`). Our system will only accept a password if it complies with [our password policy](#nesi-password-policy).
+   5. You will be asked to **confirm your NEW password** (`Retype new password:`).
+   6. Once you have changed your password, either your session will be closed or you will be asked to enter a password again. **Do not try to enter your new password or your temporary password as neither will work.** Instead, press `Ctrl-C`, or press 'Enter' repeatedly until you get the `Access denied (keyboard-interactive).` (or `Permission denied (keyboard-interactive).` message.
    
    Example of the process:
    ```
@@ -116,13 +89,18 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
    If you have to enter more than four passwords, something has probably gone wrong. You may have entered the wrong temporary password at one of the first two prompts, your new password may not satisfy our password criteria, or you may have mistyped your new password when confirming it. Alternatively, you may have accidentally pressed `Enter` or `Ctrl-C` at the wrong time. If any of these situations has happened, you should exit the session and log in again.
 
-   **NOTE:** The NeSI password policy is:
-   - 12 character minimum
-   - minimum of 2 character types (upper case letters, lower case letters, numbers, or allowed special characters).
-
-
 7. You are now ready to move on to setting up two-factor authentication.
 
+### NeSI password policy
+
+The NeSI password policy is as follows:
+  * Your password must be at least 12 characters long
+  * Your password must contain one or more characters from at least two of the following classes:
+    * upper case letters
+    * lower case letters
+    * numbers
+    * allowed special characters
+   
 ---
 
 ## Setting up two-factor authentication
@@ -133,27 +111,68 @@ Connecting to the HPC from outside the NIWA network requires two-factor authenti
 
 Before starting the two-factor authentication setup process, ensure that you have a smartphone with a working camera and install the free Google Authenticator app on your smartphone. The next step can only be done once. 
 
-
 **WARNING:** The QR code shown in later steps is a one-time password and can not be regenerated or displayed again. If you do not capture the QR code, or if you lose the device storing the token, you will be unable to access your account. If this happens, please contact [support@nesi.org.nz](mailto:support@nesi.org.nz?subject="Please reset my 2FA token"). After we validate your request, a member of the NeSI team will delete your authentication token so you can generate another for your account.
 
 Go back to [the My NeSI portal](https://my.nesi.org.nz) and click on Accounts or refresh the page. You should see a new option to 'Link your mobile device'
 ![logging-in](../../assets/img/link_device.png)
 
-
 Clicking on 'Link your mobile device' will prepare your second factor token so that you can log in to our lander node from outside of the NIWA network. After clicking on 'Link your mobile device' you will be instructed to prepare your mobile device before proceeding.
 ![logging-in](../../assets/img/prepare_device.png)
 
-
 Click 'Continue' to display your QR code.
 ![logging-in](../../assets/img/qr_code.png)
-
 
 Open your Google Authenticator app and click on the add button and select 'Scan a barcode'. Point your camera at the QR code displayed on the screen and it will be added to your phone.
 
 Now logging in to the lander node will prompt you for 'First factor' where you enter your newly set password, and 'Second factor (optional)' which is the six-digit code displayed on your Google Authenticator app. The six-digit code rotates every 30 seconds, and it can only be used once even if it has not expired yet. This means that you can only login to the lander node once every 30 seconds. Also, even though the prompt says (optional), the Google Authenticator code is compulsory. We are working with the software developers to fix the message.
 
-
 **Note:** You need to be an authorised member of an active project team to log in after you complete this step. If you believe you are an authorised project team member and and you are not able to log in using your credentials, please send us a message at [support@nesi.org.nz](mailto:support@nesi.org.nz?subject="Problems logging in"). In your message, please tell us your Kupe user name, the project code for the NeSI project you think you belong to, and the name of the NeSI project owner.
+
+---
+
+## Connecting to kupe
+
+### Users outside of NIWA
+
+Connecting to kupe involves two login operations. First, connect to kupe's lander node by entering the following command:
+```
+ssh -Y <myusername>@lander.nesi.org.nz
+```
+inside your terminal program, where `<myusername>` should be replaced with your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). You will see the following prompt
+```
+First Factor:
+```
+Enter your kupe password.
+
+**Note:** If instead of `First Factor:` you see `Password:`, it means your account has not been properly set up. Please [set up your account](#setting-up-an-account-on-kupe) before continuing.
+
+You should then see:
+```
+Second Factor (optional):
+```
+Enter the 6-digit code from your mobile device. If you have several Google Authenticator codes on your device, use the one whose name ends with "@NESI.ORG.NZ".
+
+**Note:** Each 6-digit code is only valid for one minute or until used, whichever happens first.
+
+To execute and compile code, you should now log in to the Kupe login node.
+
+```
+ssh -Y login
+```
+
+When promped for a password, enter your Kupe password followed immediately by your second-factor token. For example, if your password is `mypassword` and your current six-digit token from the Google Authenticator app is `345678`, you should enter `mypassword345678` at the password prompt.
+
+**Note:** If the second-factor token is still the same as you used to log in to the lander node, you will need to wait for the Google Authenticator app to generate a new token before entering your password to access to the login node.
+
+### Users inside of NIWA's network
+
+You can connect directly to kupe's login node:
+```
+ssh -Y <myusername>@login.kupe.niwa.co.nz
+```
+using your Kupe account username and password (not your NIWA username and password).
+
+**Note:** if you have two-factor authentication set up then you need to add your second-factor token to the end of your password, even if you are accessing the Kupe login node from NIWA's network or using the NIWA VPN. For example, if `345678` is your current six-digit token from the Google Authenticator app, you should enter `mypassword345678` at the password prompt.
 
 ---
 
