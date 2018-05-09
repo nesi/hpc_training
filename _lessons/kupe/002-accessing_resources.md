@@ -9,9 +9,9 @@ chapter: kupe
 
 You will learn how to:
 
- 1. setup your account on kupe
- 2. setup two factor authentication (if connecting from outside NIWA's network)
- 3. login to the machine
+ 1. set up your account on kupe
+ 2. set up two factor authentication (if you will need to connect from outside NIWA's network)
+ 3. log in to the machine
 
 ## Requirements
 
