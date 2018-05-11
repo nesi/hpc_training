@@ -60,7 +60,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    3. Once you have correctly entered your temporary password, the system will report that the temporary password has expired and you will be asked to change it. First, the system will present a `Current Password:` prompt. **Enter your temporary password again.**
    4. Then, the system will ask you for **your NEW password** (`New password:`). Our system will only accept a password if it complies with [our password policy](#nesi-password-policy).
    5. You will be asked to **confirm your NEW password** (`Retype new password:`).
-   6. Once you have changed your password, either your session will be closed or you will be asked to enter a password again. **Do not try to enter your new password or your temporary password as neither will work.** Instead, press `Ctrl-C`, or press 'Enter' repeatedly until you get the `Access denied (keyboard-interactive).` (or `Permission denied (keyboard-interactive).` message.
+   6. Once you have changed your password, either your session will be closed or you will be asked to enter a password again. **Do not try to enter your new password or your temporary password as neither will work.** Instead, press `Ctrl-C`, or press 'Enter' repeatedly until you get the `Access denied (keyboard-interactive).` (or `Permission denied (keyboard-interactive).`) message.
    
    Example of the process:
    ```
