@@ -40,8 +40,6 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 4. Once you have logged in, you should see a screen similar to the one below. Click on the 'Reset Password' button to proceed.
 
    ![logging-in](../../assets/img/login_success.png)
-   
- Please see the Troubleshooting section.
 
    **NOTE:** You must wait at least an hour between password reset requests. If you request a password reset before an hour has gone by since your last valid password reset request, our system will ignore the later request.
    
