@@ -25,7 +25,7 @@ Differences from Pan
 
 * Due to two-factor authentication and the "lander" node, ssh and scp are more complicated to set up, see XXX.
 
-* The Pan _/projects_ directory was a symlink to _/gpfs1m/projects_, _/gpfs1m_ being the root of Pan's entire main GPFS filesystem.  There was never a need for you to mention _/gpfs1m_, however it often appeared in output and so found its way into many batch scripts.  On Mahuika _/gpfs1m_ does not exist, so use _/projects_. 
+* The Pan _/projects_ directory was a symlink to _/gpfs1m/projects_, _/gpfs1m_ being the root of Pan's entire main GPFS filesystem.  There was never actually a need to mention _/gpfs1m_, however it often appeared in output and so found its way into many batch scripts.  On Mahuika _/gpfs1m_ does not exist, so use _/projects_. 
 
 * Mahuikia uses the "Broadwell" generation of Intel CPUs, newer than anything on Pan.  This makes Pan's optional Slurm constraints "wm", "sb" and "avx" obsolete.  The build nodes have different names too XXX
 
@@ -39,12 +39,12 @@ Differences from Pan
 
 * Locations of our installed software will be entirely different, though if you have been using environment modules correctly this will not affect you.
 
-* Most Mahuika compute nodes have XXX CPUs and XXX GB of memory, so only 3.5 GB per CPU rather than Pan's 7.5 GB per CPU.
+* Ordinary Mahuika compute nodes have 36 CPU cores and 128 GB of memory, so only 3.5 GB per core rather than Pan's 7.5 GB per core.
 
-* Mahuika has only XXX GPU nodes however the GPUs are XXX.  They are accessed in the same way as on Pan XXX ? XXX with `-gres:gpu`.
+* Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan XXX ? XXX with `-gres:gpu`.
 
-* Mahuika has XXX "bigmem" nodes of XXX GB, and one "hugemem" node with 4 TB of memory, which has too be specifically requested by telling _sbatch_ `--partition=hugemem`. XXX ? XXX
+* Mahuika has XXX "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory, which has to be specifically requested by telling _sbatch_ `--partition=hugemem`.
 
 The other machine - Māui.
 
-Mahuika shares its filesystem with the co-located Cray XC supercomputer Māui, so if your work is suitable for running on Māui (eg: large MPI jobs) and you are granted an allocation of Māui CPU time then you will be able to access your data in the same locations from either machine.
+Mahuika shares its filesystem with the co-located Cray XC supercomputer Māui, so if your work is suitable for running on Māui (ie: large MPI jobs) and you are granted an allocation of Māui CPU time then you will be able to access your data in the same locations from either machine. 
