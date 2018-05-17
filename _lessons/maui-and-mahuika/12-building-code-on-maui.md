@@ -22,8 +22,8 @@ Building Fortran, C, or C++ code on the XC50 platform requires using the Cray pr
 
 **Important:**
 
-* It is essential to use the Cray Programming Environment when you build code, otherwise it is very likely that problems at build time or run time appear
-* Never use ```module purge``` on the XC50 platform, this will render the programming environment unusable, and you will have to log out and log back in
+* It is essential to use a Programming Environment (PrgEnv-cray, PrgEnv-intel or PrgEnv-gnu) when you build code, otherwise it is very likely that problems at build time or run time appear
+* **Never** use ```module purge``` on the XC50 platform, this will render the programming environment unusable, and you will have to log out and log back in
 * Code that was built on the XC50 platform is unlikely to run on Māui's CS500 platform or on Mahuika's CS400 platform; please rebuild your code when you change platform
 
 ### The build node
@@ -32,17 +32,19 @@ Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be 
 
 * The compute nodes only run a thin operating system with very few command line utilities, it is thus likely that your build will fail
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
-* Submitting a job will allocate entire nodes, even if only one core or a few cores are used, which wastes compute resources
+* Submitting a job will allocate entire nodes. Especially if only one core or a few cores are used, this is a wastes compute resources
+
+Furthermore, please keep in mind that the build node is a shared resource. Please limit the amount of processes. Avoid using ```make -j```, instead please use e.g. ```make -j 5```
 
 ### Choosing a programming environment
 
-The following programming environments are provided on Māui, named after the underlying compiler suite:
+The following Programming Environments are provided on Māui, named after the underlying compiler suite:
 
 1. ```PrgEnv-cray```
 2. ```PrgEnv-intel```
 3. ```PrgEnv-gnu```
 
-The ```PrgEnv-cray``` environment is the default. If you want to change programming environment to use the Intel compilers, run
+The ```PrgEnv-cray``` environment is the default. If you want to change programming environment to use the Intel or Gnu compilers, run
 ```
 module swap PrgEnv-cray PrgEnv-intel
 ```
@@ -50,7 +52,6 @@ or
 ```
 module swap PrgEnv-cray PrgEnv-gnu
 ```
-to get the GNU compilers.
 
 Note that several GNU compiler versions are currently installed:
 
@@ -64,6 +65,8 @@ To change GCC version, run
 module swap gcc gcc/7.1.0
 ```
 GCC v6.1.0 or later is required to build code that can make use of the Intel Skylake microarchitecture and its advanced capabilities, such as AVX-512, on the XC50 platform.
+
+Note: There is not the best compiler. Depending on you application/algorithms compiler optimize the code more or less. Keep in mind trying different compilers.                     
 
 ### Targetting a CPU
 
