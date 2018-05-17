@@ -61,13 +61,13 @@ gcc/5.3.0
 gcc/6.1.0
 gcc/7.1.0
 ```
-To change GCC version, run
+To change GCC version, run for example
 ```
 module swap gcc gcc/7.1.0
 ```
 GCC v6.1.0 or later is required to build code that can make use of the Intel Skylake microarchitecture and its advanced capabilities, such as AVX-512, on the XC50 platform.
 
-Note: There is not the best compiler. Depending on you application/algorithms compiler optimize the code more or less. Keep in mind trying different compilers.                     
+Note: There is not **the** best compiler. Depending on you application/algorithms, different compiler optimize the code good or better. Keep in mind trying different compilers.
 
 ### Targetting a CPU
 
@@ -106,7 +106,7 @@ CC  -o simpleMpi simpleMpi.cxx  # compile C++ code
 ```
 The drivers will ensure correct linking of your code with compiler runtime libraries, and with Cray-supported libraries (such as Cray's "libsci" scientific library, or Cray's version of netCDF). It is therefore not recommended to use the compilers directly, there is a good chance that the executable will fail to build or run correctly.
 
-If you are interested in seeing what the compiler driver does, add the ```-craype-verbose``` flag:
+The compiler driver automatically add neccessary compile and link flags to the compile/link line for the selected hardware and Cray-supported libraries. If you are interested in seeing what the compiler driver does, add the ```-craype-verbose``` flag:
 ```
 ftn -craype-verbose -o simpleMpi simpleMpi.f90
 ```
