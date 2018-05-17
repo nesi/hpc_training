@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Advanced training and getting help
+title: Advanced training and getting help
 permalink: /lessons/kupe-help/
 chapter: kupe
 ---
@@ -15,4 +15,4 @@ NIWA operations users:
 NeSI users:
 * Send an [email](mailto:support@nesi.org.nz) to the NeSI Team
 
-If you want to ask about training, please send us an [email](mailto:training@nesi.orb.nz).
+If you want to ask about training, please send us an [email](mailto:training@nesi.org.nz).

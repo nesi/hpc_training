@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Slurm job scheduler
+title: Slurm job scheduler
 permalink: /lessons/kupe-slurm/
 chapter: kupe
 ---
@@ -57,9 +57,9 @@ The Slurm *account* is just your NeSI project's code. If you only have one proje
 
 ### Partitions
 
-At present it is also necessary to specfiy which Slurm *partition* the job will run in.  For any project without the prefix "niwap" the correct partition will be "NeSI". This includes most projects with the prefix "niwa", which are NIWA-as-NeSI-collaborator projects.  We do hope that it will not be necessary to specify the partition in the long term, since it is determined by the account you specify anyway.
+At present it is also necessary to specify which Slurm *partition* the job will run in.  For any project without the prefix "niwap" the correct partition will be "NeSI". This includes most projects with the prefix "niwa", which are NIWA-as-NeSI-collaborator projects.  We do hope that it will not be necessary to specify the partition in the long term, since it is determined by the account you specify anyway.
 
-There is also a "Debug" partition and a "NeSI_Forage" partition available to NeSI projects.  Please check back here for documentation on these later.  Beware that at present jobs longer than 10 minutes submitted to Debug will submit OK but then never start, while jobs submitted to "NeSI_Forage" jobs may be terminated by Slurm so that other jobs can run.  Finally, there are partitions "NIWA_Research", "NIWA_Forage" and "Operations" which are not accessable by jobs which belong to NeSI projects.
+There is also a "Debug" partition and a "NeSI_Forage" partition available to NeSI projects.  Please check back here for documentation on these later.  Beware that at present jobs longer than 10 minutes submitted to Debug will submit OK but then never start, while jobs submitted to "NeSI_Forage" jobs may be terminated by Slurm so that other jobs can run.  Finally, there are partitions "NIWA_Research", "NIWA_Forage" and "Operations" which are not accessible by jobs which belong to NeSI projects.
 
 ## Submitting a batch script with sbatch
 
@@ -89,7 +89,7 @@ sbatch run_simplempi.sl
 
 That would run `simpleMpiProgram` on all the CPUs of 3 different compute nodes, with each MPI task having 1 CPU core.
 
-#SBATCH directives are exactly equivalent to providing the same options on the `sbatch` command line, but have the advantage of repeatablility and self-documentation, which are particularly useful if something goes wrong.  If both are provided then the command line option takes precedence. As a note for LoadLeveler users: Slurm expects directives to come first in a submission script, so don't insert any commands above the directives block.
+#SBATCH directives are exactly equivalent to providing the same options on the `sbatch` command line, but have the advantage of repeatability and self-documentation, which are particularly useful if something goes wrong.  If both are provided then the command line option takes precedence. As a note for LoadLeveler users: Slurm expects directives to come first in a submission script, so don't insert any commands above the directives block.
 
 The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it.
 
@@ -97,7 +97,7 @@ The Slurm "account" is just your NeSI project's code. If you only have one proje
 
 The `srun` command in the script above sets up the MPI runtime environment need to run the parallel program, launching it on multiple CPUs which can be on multiple different nodes. `srun` should be used in place of any other MPI launcher such as *aprun* or *mpirun*.
 
-On Kupe the default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurences of `srun` within the job.
+On Kupe the default the layout of threads will be two per physical core, meaning hyperthreading is enabled. To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurrences of `srun` within the job.
 
 ### Launching OpenMP or Hybrid job steps with srun
 
@@ -115,7 +115,7 @@ srun <your_app>
 
 ### sbatch customisation on Kupe
 
-On Kupe we have set the environment variable `SBATCH_EXPORT=NONE`.  This has the effect of telling `sbatch` to not copy the environment from where you submit the job, but rather start the job with a fresh copy of your login environment. This is required when submitting jobs from one operating system to another as users of the *kupe_mp* may do, but has the consequence that you must load any required environment module from inside the job script, and not just before you submit it.  As with the use of #SBATCH directives this makes the job more self-documenting and so helps us when something goes wrong and needs diagnosing, but if you wish for the convinience of one-line module-using jobs then you can do `export SBATCH_EXPORT=ALL`.
+On Kupe we have set the environment variable `SBATCH_EXPORT=NONE`.  This has the effect of telling `sbatch` to not copy the environment from where you submit the job, but rather start the job with a fresh copy of your login environment. This is required when submitting jobs from one operating system to another as users of the *kupe_mp* may do, but has the consequence that you must load any required environment module from inside the job script, and not just before you submit it.  As with the use of #SBATCH directives this makes the job more self-documenting and so helps us when something goes wrong and needs diagnosing, but if you wish for the convenience of one-line module-using jobs then you can do `export SBATCH_EXPORT=ALL`.
 
 
 ### Commonly used Slurm environment variables
@@ -144,7 +144,7 @@ If you wish to change the default names of the output and error files, you can u
 
 ## Calling srun directly
 
-`srun` is usually only used from within a job script.  In that environment it notices and uses the Slurm allocation created for its enclosing job.  When executed outside of any Slurm allocation `srun` behaves differently, submitting a request to the Slurm queue just like `sbatch` does.  Unlike `sbatch` though the launched process runs with its input and output attched to the terminal where it was launched, so using `srun` this way is not suitable for actual *batch* jobs. Also, `srun` is not affected by the SBATCH_EXPORT variable described above, so by default it *will* copy the current environment from where it is executed over to the process(es) it launches.  In general do not attempt to execute  batch files this way, as any included #SBATCH lines will have no effect.
+`srun` is usually only used from within a job script.  In that environment it notices and uses the Slurm allocation created for its enclosing job.  When executed outside of any Slurm allocation `srun` behaves differently, submitting a request to the Slurm queue just like `sbatch` does.  Unlike `sbatch` though the launched process runs with its input and output attached to the terminal where it was launched, so using `srun` this way is not suitable for actual *batch* jobs. Also, `srun` is not affected by the SBATCH_EXPORT variable described above, so by default it *will* copy the current environment from where it is executed over to the process(es) it launches.  In general do not attempt to execute  batch files this way, as any included #SBATCH lines will have no effect.
 
 ## Checking the queue with squeue
 
@@ -204,7 +204,7 @@ Will show us something like:
 14309.0         yourapp             nesi99999         80  COMPLETED      0:0
 ```
 
-By default `sacct` will list all of your jobs which were (or are) running on the current day.  Each job will show as more than one line (unless `-X` is specified): an initial line for the job as a whole, and then an additional line for each job step, ie: the batch process which is your executing script, and then each of the `srun` commands it executes.
+By default `sacct` will list all of your jobs which were (or are) running on the current day.  Each job will show as more than one line (unless `-X` is specified): an initial line for the job as a whole, and then an additional line for each job step, i.e.: the batch process which is your executing script, and then each of the `srun` commands it executes.
 
 By changing the displayed columns you can gain information about the CPU and memory utilisation of the job, for example
 
@@ -224,7 +224,7 @@ sacct -j 14309 --format=jobid,jobname,elapsed,avecpu,totalcpu,alloccpus,maxrss,s
 
 Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
 
-Slurm does not deliberately delay large jobs in favor of smaller low-priority jobs, but it does employ a backfill algorithm which searches the queue for jobs which are small enough that they can start and run to completion before the resources necessary to start any higher priority jobs are expected to become available. This increases overall utilization but changes the order of job starts from being strictly priority based to being a function of the workload and the job size.  With the backfill scheduler smaller jobs have a higher velocity through the queue than larger jobs, all other things being equal.
+Slurm does not deliberately delay large jobs in favour of smaller low-priority jobs, but it does employ a backfill algorithm which searches the queue for jobs which are small enough that they can start and run to completion before the resources necessary to start any higher priority jobs are expected to become available. This increases overall utilization but changes the order of job starts from being strictly priority based to being a function of the workload and the job size.  With the backfill scheduler smaller jobs have a higher velocity through the queue than larger jobs, all other things being equal.
 
 Job size is multi-dimensional, based on
  - Time: long or short and

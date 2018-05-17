@@ -5,7 +5,7 @@ permalink: /lessons/introduction/getting-help/
 chapter: introduction
 ---
 
-# The material velow is just copied from Pan materials - needs work to adapt to new platforms
+# The material below is just copied from Pan materials - needs work to adapt to new platforms
 
 1. Please send an email to support@nesi.org.nz
 2. This will create a ticket in our support system and help the team follow up with your request.
@@ -15,7 +15,7 @@ chapter: introduction
 
   b) your project code (if you already been assigned one)
 
-  c) descritpion of what you are trying to do and what is the obstacle that you are getting into
+  c) description of what you are trying to do and what is the obstacle that you are getting into
 
   d) paste in any error messages which might have popped up
 

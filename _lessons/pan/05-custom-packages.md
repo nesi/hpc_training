@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - working with custom packages
+title: Working with custom packages
 permalink: /lessons/pan/custom-packages/
 chapter: pan
 ---

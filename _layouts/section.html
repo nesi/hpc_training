@@ -8,18 +8,16 @@ layout: default
 
 {{ content }}
 
- <ul class="post-list">
+ <ol>
     {% for lesson in site.lessons  %}
       {% if lesson.chapter == page.chapter %}
       <li>
-        <h4>
-          <a class="post-link" href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a>
-        </h4>
+          <a href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a>
       </li>
    {% endif %}
     {% endfor %}
 
-  </ul> 
+  </ol> 
 
   <ul class="post-list">
       {% for item in site.code  %}

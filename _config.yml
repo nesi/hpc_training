@@ -28,12 +28,14 @@ twitter_username: nesi_nz
 # this and add the path to the pages in order as they should show up
 header_pages:
  - about.md
- - sections/introduction.md
- - sections/intermediate.md
- - sections/advanced.md
+ #- sections/introduction.md
+ #- sections/intermediate.md
+ #- sections/advanced.md
+ - sections/pan.md
  - sections/kupe.md
+ - sections/maui-and-mahuika.md
  - sections/faq.md
- - sections/code-samples.md
+ #- sections/code-samples.md
  #- sections/maui.md
 
 # Build settings

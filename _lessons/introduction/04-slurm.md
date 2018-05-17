@@ -5,7 +5,7 @@ permalink: /lessons/introduction/job-scheduler/
 chapter: introduction
 ---
 
-# The material velow is just copied from Pan materials - needs work to adapt to new platforms
+# The material below is just copied from Pan materials - needs work to adapt to new platforms
 
 NeSI Documentation for running a job: https://support.nesi.org.nz/hc/en-gb/articles/115000194910-Submitting-Slurm-Jobs-on-Pan
 
@@ -15,7 +15,7 @@ SLURM is the software used on the NeSI supercomputers for managing and allocatin
 
 ## About SLURM
 
-- SLURM was an acronym for Simple Linux Utility for Resrouce Management
+- SLURM was an acronym for Simple Linux Utility for Resource Management
 - Evolved into a capable job scheduler
 - Used on NeSI supercomputers
 

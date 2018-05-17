@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Overview of Kupe architecture
 permalink: /lessons/kupe-architecture/
 chapter: kupe
@@ -13,9 +13,9 @@ NeSI has acquired three new supercomputing platforms:
 
 * Mahuika (HPC1). Capacity High Performance Computer Cray CS400
 
-* Maui (HPC2). Capability Supercomputer Cray XC50
+* Māui (HPC2). Capability Supercomputer Cray XC50
 
-* Kupe (HPC3). Smaller version of Maui. Will serve as transition platform as we migrate users from FitzRoy to Maui and Mahuika.
+* Kupe (HPC3). Smaller version of Māui. Will serve as transition platform as we migrate users from FitzRoy to Māui and Mahuika.
 
 FitzRoy will be decommissioned in December 2017. Users are expected to switch over from FitzRoy to Kupe shortly before. (More information will be provided.)
 
@@ -23,7 +23,7 @@ FitzRoy will be decommissioned in December 2017. Users are expected to switch ov
 
 Kupe is a Massively Parallel Capability Computer (Supercomputer) built on the Cray XC50 and CS500 platforms.
 
-![alt text](https://github.com/nesi/hpc_training/blob/gh-pages/Kupe_Overview.png "Kupe building blocks and network connections")
+![alt text](../../assets/img/Kupe_Overview.png "Kupe building blocks and network connections")
 
 The diagram illustrates major building blocks and network connections on Kupe relevant to users. Note that there are far more XC50 and CS500 nodes on Kupe than shown here. Follow the blue network connections for user-accessible nodes. Native Spectrum Scale access is available on nodes connected by InfiniBand (red lines). Cray Aries interconnect (green lines) is used for communication between XC50 compute nodes, and for Spectrum Scale access via DVS (Data Virtualization Service) nodes.
 

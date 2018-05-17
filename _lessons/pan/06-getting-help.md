@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - effectively getting help
+title: Effectively getting help
 permalink: /lessons/pan/getting-help/
 chapter: pan
 ---
@@ -13,7 +13,7 @@ chapter: pan
 
   b) your project code (if you already been assigned one)
 
-  c) descritpion of what you are trying to do and what is the obstacle that you are getting into
+  c) description of what you are trying to do and what is the obstacle that you are getting into
 
   d) paste in any error messages which might have popped up
 

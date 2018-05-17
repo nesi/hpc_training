@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Available software
+title: Available software
 permalink: /lessons/kupe-software-available/
 ---
 
@@ -70,7 +70,7 @@ module avail
 ```
 will only present you with software that is available on the same system.
 
-Software is generally installed and maintained by the following provideres:
+Software is generally installed and maintained by the following providers:
 
 * Cray: Compilers, some scientific libraries, and developer tools
 * NeSI: General scientific software

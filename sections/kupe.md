@@ -1,6 +1,7 @@
 ---
 layout: section
-title: Kupe cluster
+title: Kupe
 permalink: /sections/kupe
 chapter: kupe
+order: 2
 ---

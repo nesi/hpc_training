@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - working in HPC environment
+title: Working in HPC environment
 permalink: /lessons/pan/hpc-environment/
 chapter: pan
 ---
@@ -33,7 +33,7 @@ fs_my_quota_usage
 
 ### Login vs build vs compute nodes
 
-A typical cluster consists of several "parts". To simplyfy things we will briefly describe the three types of nodes that are usually available.
+A typical cluster consists of several "parts". To simplify things we will briefly describe the three types of nodes that are usually available.
  In order to efficiently use HPC resources for your research, you do not need to know a lot of detail about the HPC architecture but you need to have a basic understanding of what you can use each type of node for.
 
 * **Login Node**
@@ -51,7 +51,7 @@ IMPORTANT:
 
 What does that actually mean?
 
-* When on login node you should only submit jobs (aka run code) using the job scheduler. If you want to work intearactively (for example, running your code directly), you should do that drom the build node (see below).
+* When on login node you should only submit jobs (a.k.a. run code) using the job scheduler. If you want to work interactively (for example, running your code directly), you should do that from the build node (see below).
 * You should not try to edit large (probably more than 1GB) files when on the login node using standard editors (like Vim or Nano). If you need to preview a file, use `less` command.
 * You should not compress a large file with gzip.
 
@@ -100,7 +100,7 @@ fs_my_quota_usage
 
 ### Available software
 
-You can use a variety of software already installed on the cluster. Pan cluster has approimately 400 packages installed so there is a good chance that what you need
+You can use a variety of software already installed on the cluster. Pan cluster has approximately 400 packages installed so there is a good chance that what you need
  to do your research is already available on our machine. If it isn't, we may be able to install it for you (subject to licensing and technical compatibility).
 
 ### User Environment

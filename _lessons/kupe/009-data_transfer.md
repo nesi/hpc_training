@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kupe - Data storage and transfer
+title: Data storage and transfer
 permalink: /lessons/kupe-data-transfer/
 chapter: kupe
 ---
@@ -11,7 +11,7 @@ You will learn how to transfer data to and from Kupe.
 
 For small amounts of data, SSH based utilities such as SecureCopy (`scp`) can be used. `scp` should be readily available on a terminal on Linux and MacOS, or via [WinSCP](https://winscp.net/eng/download.php) and [MobaXterm](https://mobaxterm.mobatek.net) on Windows. Note that two-factor authentication will be required for file transfer sessions.
 
-The lander node filestem is distinct from the Kupe filesystem, and so copying a file from your desktop to Kupe is by default a two-step process.  If you are using an OpenSSH based ssh, which will be the case for most MacOSX and Linux users, then this inconvenience can be avoided by setting up an SSH config file such as:
+The lander node filesystem is distinct from the Kupe filesystem, and so copying a file from your desktop to Kupe is by default a two-step process.  If you are using an OpenSSH based ssh, which will be the case for most MacOSX and Linux users, then this inconvenience can be avoided by setting up an SSH config file such as:
 ```
 Host kupe
    User your_username

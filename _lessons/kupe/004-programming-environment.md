@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Kupe - Programming Environment
+title:  Programming Environment
 permalink: /lessons/kupe-programming-environment/
 chapter: kupe
 ---
@@ -105,12 +105,16 @@ ftn -Wall -O3 -o simpleMpi simpleMpi.f90
 
 #### Adding debug information
 
-To debug code you should add ```-g``` to the compiler options (all programming environments and compilers). This will add debug information to the executables and/or library you are building.  You can mix optimisation with ```-g```, i.e. ```-O2 -g``` although adding ```-O2``` might prevent the debugger from diving into loops.
+```Cray compiler```: basic debug information are added by default. Depending on the applied optimization (inlining, vectorization, etc.) the debug information can vary. You can select specific debugging options using one of ```-G{0,1,2,fast}```. Note, when specifying ```-g``` without any specific optimization option (-O2 is default), oprimizations are disabled. Otherwise -g is ignored. 
+
+```Gnu/Intel compiler```: you should add ```-g``` to the compiler options. This will add debug information to the executables and/or library you are building.  You can mix optimisation with ```-g```, i.e. ```-O2 -g``` although adding ```-O2``` might prevent the debugger from diving into loops. 
+
+Note: there are quite some more specific debugging options you can select. Please have a look into the compiler man pages (e.g. crayftn, gfortran, ifort). 
 
 
 #### Optimisation options
 
-Following are a few options that can potentially improve the speed of your executablei (same options for ftn, CC and cc):
+Following are a few options that can potentially improve the speed of your executable (same options for ftn, CC and cc):
 
  * PrgEnv-gnu: ```-O3 -ffast-math -funroll-loops```
  * PrgEnv-cray: ```-O3 -hfp3```
@@ -134,7 +138,7 @@ for instance - don't forget to to load the corresponding programming environment
 * Intel compilers: [Intel Fortran Compiler v17.0](https://software.intel.com/sites/default/files/managed/93/88/PDF%20Fortran%20Compiler%20UG%2017.0%3D1%3DSSG%202.0%20PDF%3Den-US.pdf), [Intel C and C++ Compiler v17.0](https://software.intel.com/sites/default/files/managed/08/ac/PDF%20C%2B%2B%20Compiler%20UG%2017.0%3D1%3DSSG%202.0%20PDF%3Den-US.pdf)
 * GNU compilers: [GCC C and C++ v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gcc.pdf), [GCC C and C++ v7.2.0](https://gcc.gnu.org/onlinedocs/gcc-7.2.0/gcc.pdf), [GNU Fortran v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gfortran.pdf), [GNU Fortran v7.2](https://gcc.gnu.org/onlinedocs/gcc-7.2.0/gfortran.pdf)
 
-The drivers provide their own options, and a few options that are common accross programming environments. You can look at them using
+The drivers provide their own options, and a few options that are common across programming environments. You can look at them using
 ```
 man ftn
 man cc

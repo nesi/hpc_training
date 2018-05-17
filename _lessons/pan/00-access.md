@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pan - getting access
+title: Getting access
 permalink: /lessons/pan/getting-access/
 chapter: pan
 ---
