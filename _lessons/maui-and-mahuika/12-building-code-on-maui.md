@@ -156,14 +156,12 @@ The following table provides a list of commonly used compiler options:
 | OpenMP | ```-homp``` (default) | ```-openmp``` | ```-fopenmp``` | |
 
 Additional compiler options are documented on the compiler man pages, which are accessible *after* loading the corresponding programming environment:
-| language  | compiler manpage   |
-|-----------|--------------------|
-|           | cray  | intel | gnu|
-|--------|-----------------------|
-| Fortran| man crayftn | man ifort | man gfortran |
-| C  | man craycc | man icc | man gcc |
+
+| language | cray | intel | gnu |
+|--|--|--|--|
+| Fortran | man crayftn | man ifort | man gfortran |
+| C | man craycc | man icc | man gcc |
 | C++ | man crayCC | man icpc | man g++ |
-|-----|------------|----------|---------|
 
 The man pages are often largely incomplete, further documentation can be found online:
 
