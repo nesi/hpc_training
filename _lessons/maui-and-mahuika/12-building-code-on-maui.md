@@ -12,7 +12,7 @@ You will learn:
 * how to compile code (Fortran, C, C++) using the Cray programming environment on the XC50 platform
 * how to build code that depends on external libraries
 
-The example programs used in this lesson can be found in the [_code](https://github.com/nesi/hpc_training/tree/building-code-on-maui-content/_code) directory of the "hpc_training" repository.
+The example programs used in this lesson can be found in the [_code](https://github.com/nesi/hpc_training/tree/gh-pages/_code) directory of the "hpc_training" repository.
 
 ## The Cray programming environment on the XC50 platform
 
@@ -34,7 +34,7 @@ Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be 
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
 * Submitting a job will allocate entire nodes. Especially if only one core or a few cores are used, this is a wastes compute resources
 
-Furthermore, please keep in mind that the build node is a shared resource. Please limit the amount of processes. Avoid using ```make -j```, instead please use e.g. ```make -j 5```
+Furthermore, please keep in mind that the build node is a shared resource. Please limit the amount of processes, avoid using all process like ```make -j```, instead please use ```make -j 5```
 
 ### Choosing a programming environment
 
@@ -53,13 +53,14 @@ or
 module swap PrgEnv-cray PrgEnv-gnu
 ```
 
-Note that several GNU compiler versions are currently installed:
-
-* ```gcc/4.9.3``` (default)
-* ```gcc/5.3.0```
-* ```gcc/6.1.0```
-* ```gcc/7.1.0```
-
+Note that several compiler versions are currently installed, in case of GNU for example:
+```
+> module avail -l gcc
+gcc/4.9.3 (default)
+gcc/5.3.0
+gcc/6.1.0
+gcc/7.1.0
+```
 To change GCC version, run
 ```
 module swap gcc gcc/7.1.0
@@ -100,8 +101,8 @@ and try again.
 The programming environment provides compiler drivers for compiling Fortran, C, and C++ code. This means that you will need to use the following commands instead of the actual compilers:
 ```
 ftn -o simpleMpi simpleMpi.f90 # compile Fortran code
-cc -o simpleMpi simpleMpi.c    # compile C code
-CC -o simpleMpi simpleMpi.cxx  # compile C++ code
+cc  -o simpleMpi simpleMpi.c    # compile C code
+CC  -o simpleMpi simpleMpi.cxx  # compile C++ code
 ```
 The drivers will ensure correct linking of your code with compiler runtime libraries, and with Cray-supported libraries (such as Cray's "libsci" scientific library, or Cray's version of netCDF). It is therefore not recommended to use the compilers directly, there is a good chance that the executable will fail to build or run correctly.
 
