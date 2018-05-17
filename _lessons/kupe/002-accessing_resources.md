@@ -46,11 +46,11 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 5. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
 
 6. Clicking on the link on your e-mail will open up a web page looking like the following picture that contains your temporary password.
-![logging-in](../../assets/img/temp_password.png)
+   ![logging-in](../../assets/img/temp_password.png)
 
    **WARNING:** Do **not** close the web page displaying your temporary password until you have completed the password reset process (see below). The temporary password link may only be opened once. If you accidentally close the page (or your browser or computer crashes), you will need to wait an hour before requesting a new password reset.
 
-![logging-in](../../assets/img/temp_password.png)
+   ![logging-in](../../assets/img/temp_password.png)
 
 7. Once you have logged in with your temporary password, you will be asked to choose a new permanent password. This is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor.
 
