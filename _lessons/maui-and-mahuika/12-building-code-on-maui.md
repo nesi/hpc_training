@@ -31,7 +31,7 @@ Building Fortran, C, or C++ code on the XC50 platform requires using the Cray pr
 Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be used for building code. Please do not build code on the compute nodes by submitting a build job through SLURM:
 
 * The compute nodes only run a thin operating system with very few command line utilities, it is thus likely that your build will fail
-* The file system on XC50 compute nodes is optimized for handling large block IO, small block IO that is typical for a build job is inefficient
+* The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
 * Submitting a job will allocate entire nodes. Especially if only one core or a few cores are used, this is a wastes compute resources
 
 Furthermore, please keep in mind that the build node is a shared resource. Please limit the amount of processes, avoid using all process like ```make -j```, instead please use ```make -j 5```
@@ -67,7 +67,7 @@ module swap gcc gcc/7.1.0
 ```
 GCC v6.1.0 or later is required to build code that can make use of the Intel Skylake microarchitecture and its advanced capabilities, such as AVX-512, on the XC50 platform.
 
-Note: There is not **the** best compiler. Depending on you application/algorithms, different compiler optimize the code good or better. Keep in mind trying different compilers.
+Note: There is not **the** best compiler. Depending on you application/algorithms, different compiler optimise the code good or better. Keep in mind trying different compilers.
 
 ### Targetting a CPU
 
