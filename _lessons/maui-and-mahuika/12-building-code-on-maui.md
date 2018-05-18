@@ -139,7 +139,7 @@ SLURM_PARTITION=Debug mpiexec -n 6 simpleMPI
 
 Although the compiler drivers ```ftn```, ```cc``` and ```CC``` have a few options of their own, such as the ```-craype-verbose``` flag, they will pass through any additional compiler options to the underlying compiler. This means that you will still need to choose compiler flags that are specific to the Cray, Intel, or GNU compilers, and you will need to change them if you decide to switch compilers.
 
-For example, if you wanted to use the gfortran compiler, activate compiler warnings (```-Wall```), and require aggressive compiler optimization (```-O3```), you would use the following commands:
+For example, if you wanted to use the gfortran compiler, activate compiler warnings (```-Wall```), and require aggressive compiler optimisation (```-O3```), you would use the following commands:
 ```
 module swap PrgEnv-cray PrgEnv-gnu
 ftn -Wall -O3 -o simpleMpi simpleMpi.f90
@@ -149,10 +149,10 @@ The following table provides a list of commonly used compiler options:
 
 | Group         | Cray | Intel | GNU | Notes   |
 |---------------|------|-------|-----|---------|
-| Debugging | ```-g``` or ```-G{0,1,2,fast}``` | ```-g``` or ```-debug [keyword]``` | ```-g or -g{0,1,2,3}``` | Set level of debugging information, some levels may disable certain compiler optimizations |
-| Light compiler optimization  | ```-O2``` | ```-O2``` | ```-O2``` | |
-| Aggressive compiler optimization  | ```-O3 -hfp3``` | ```-O3 -ipo``` | ```-O3 -ffast-math -funroll-loops``` | This may affect numerical accuracy |
-| Vectorization reports | ```-hlist=m``` | ```-qopt-report``` | ```-fopt-info-vec``` or ```-fopt-info-missed``` | |
+| Debugging | ```-g``` or ```-G{0,1,2,fast}``` | ```-g``` or ```-debug [keyword]``` | ```-g or -g{0,1,2,3}``` | Set level of debugging information, some levels may disable certain compiler optimisations |
+| Light compiler optimisation  | ```-O2``` | ```-O2``` | ```-O2``` | |
+| Aggressive compiler optimisation  | ```-O3 -hfp3``` | ```-O3 -ipo``` | ```-O3 -ffast-math -funroll-loops``` | This may affect numerical accuracy |
+| Vectorisation reports | ```-hlist=m``` | ```-qopt-report``` | ```-fopt-info-vec``` or ```-fopt-info-missed``` | |
 | OpenMP | ```-homp``` (default) | ```-openmp``` | ```-fopenmp``` | |
 
 Additional compiler options are documented on the compiler man pages, which are accessible *after* loading the corresponding programming environment:
@@ -185,13 +185,13 @@ If a library has been provided by Cray, the compiler drivers will automatically 
 module load cray-netcdf
 ftn -o simple_xy_wr simple_xy_wr.f90
 ```
-Keep in mind that such automatic treatment of dependencies will **only** work if the libraries have been provided by Cray - you can recognize those by their module name, which always starts with ```cray-```, e.g., ```cray-netcdf```, or ```cray-libsci```.
+Keep in mind that such automatic treatment of dependencies will **only** work if the libraries have been provided by Cray - you can recognise those by their module name, which always starts with ```cray-```, e.g., ```cray-netcdf```, or ```cray-libsci```.
 
 Note also that correct versions of the libraries (Cray CCE, Intel, or GNU builds) will automatically be used after swapping programming environment. This is particularly important for libraries that provide Fortran 90 modules, due to their compiler-specific format.
 
 ### Using libraries provided by NeSI/NIWA
 
-The situation is different when you use a library that is provided by NeSI/NIWA. They can be recognized by the ```CrayCCE```, ```CrayIntel```, or ```CrayGNU``` suffix attached to their version number. In this case, you will have to provide search paths using the ```-I``` flag for include files, and ```-L``` for library files, and the library names have to be explicitly added to the linker line. Libraries are not always provided for all compiler suites and versions.
+The situation is different when you use a library that is provided by NeSI/NIWA. They can be recognised by the ```CrayCCE```, ```CrayIntel```, or ```CrayGNU``` suffix attached to their version number. In this case, you will have to provide search paths using the ```-I``` flag for include files, and ```-L``` for library files, and the library names have to be explicitly added to the linker line. Libraries are not always provided for all compiler suites and versions.
 
 Note that library names are specified in a specifically formatted form, ```-l<library name>```. The linker then expects to find a library file named ```lib<library name>.a``` (for a static library) or ```lib<library name>.so``` (for a shared library), e.g., ```libnetcdf.a```. Note that you may need to list several libraries to link successfully, e.g., ```-lA -lB``` for linking against libraries "A" and "B". The order in which you list libraries matters, as the linker will go through the list in order of appearance. If library "A" depends on library "B", specifying ```-lA -lB``` will work. If library "B" depends on "A", use ```-lB -lA```. If they depend on each other, use ```-lA -lB -lA``` (although such cases are quite rare).
 
