@@ -35,7 +35,7 @@ Differences from Pan
 
 * Locations of our installed software will be entirely different, though if you have been using environment modules correctly this will not affect you.
 
-* Ordinary Mahuika compute nodes have 36 CPU cores and 128 GB of memory, so only 3.5 GB per core rather than Pan's 7.5 GB per core, so please review your memory requests and see where they can be reduced.
+* Ordinary Mahuika compute nodes have 36 CPU cores and 128 GB of memory, so, once the operating system is allowed for, only 3 GB per core rather than Pan's 7.5 GB per core. Please review your memory requests to see where they can be reduced.
 
 * Mahuikia uses the "Broadwell" generation of Intel CPUs, newer than anything on Pan.  This makes Pan's optional Slurm constraints "wm", "sb" and "avx" obsolete.  The build nodes have different names too XXX
 
