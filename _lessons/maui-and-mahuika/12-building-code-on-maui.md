@@ -32,9 +32,9 @@ Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be 
 
 * The compute nodes only run a thin operating system with very few command line utilities, it is thus likely that your build will fail
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
-* Submitting a job will allocate entire nodes. Especially if only one core or a few cores are used, this is a wastes compute resources
+* Submitting a job will allocate entire nodes. This is a waste of compute resources, especially if only one core or a few cores are used
 
-Furthermore, please keep in mind that the build node is a shared resource. Please limit the amount of processes, avoid using all process like ```make -j```, instead please use ```make -j 5```
+Furthermore, please keep in mind that the build node is a shared resource. Instead of using all processes (like `make -j`), please limit the amount of processes (`make -j 5` for example).
 
 ### Choosing a programming environment
 
@@ -44,7 +44,7 @@ The following Programming Environments are provided on Māui, named after the un
 2. ```PrgEnv-intel```
 3. ```PrgEnv-gnu```
 
-The ```PrgEnv-cray``` environment is the default. If you want to change programming environment to use the Intel or Gnu compilers, run
+The ```PrgEnv-cray``` environment is the default. If you want to change programming environment to use the Intel or GNU compilers, run
 ```
 module swap PrgEnv-cray PrgEnv-intel
 ```
@@ -67,7 +67,7 @@ module swap gcc gcc/7.1.0
 ```
 GCC v6.1.0 or later is required to build code that can make use of the Intel Skylake microarchitecture and its advanced capabilities, such as AVX-512, on the XC50 platform.
 
-Note: There is not **the** best compiler. Depending on you application/algorithms, different compiler optimise the code good or better. Keep in mind trying different compilers.
+Note: There is not **the** best compiler. Depending on you application/algorithms, different compilers can optimise the code better. Keep in mind trying different compilers.
 
 ### Targetting a CPU
 
@@ -106,7 +106,7 @@ CC  -o simpleMpi simpleMpi.cxx  # compile C++ code
 ```
 The drivers will ensure correct linking of your code with compiler runtime libraries, and with Cray-supported libraries (such as Cray's "libsci" scientific library, or Cray's version of netCDF). It is therefore not recommended to use the compilers directly, there is a good chance that the executable will fail to build or run correctly.
 
-The compiler driver automatically add necessary compile and link flags to the compile/link line for the selected hardware and Cray-supported libraries. If you are interested in seeing what the compiler driver does, add the ```-craype-verbose``` flag:
+The compiler drivers automatically add necessary compile and link flags to the compile/link line for the selected hardware and Cray-supported libraries. If you are interested in seeing what the compiler driver does, add the ```-craype-verbose``` flag:
 ```
 ftn -craype-verbose -o simpleMpi simpleMpi.f90
 ```
@@ -254,7 +254,7 @@ This simply means that the library must be accessible at runtime despite fully s
 Linking can easily go wrong. Most often, you will see linker errors about "missing symbols" when the linker could not find a function used in your program or in one of the libraries that you linked against. To resolve this problem, have a closer look at the function names that the linker reported:
 
 * Are you missing some object code files (these are compiled source files and have suffix ```.o```) that should appear on the linker line? This can happen if the build system was not configured correctly or has a bug. Try running the linking step manually with all source files and debug the build system (which can be a lengthy and cumbersome process, unfortunately).
-* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-openmp``` for Intel) in your linker command. In case of Cray OpenMP is enabled by default, you can control it using ```-h[no]omp```. 
+* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-openmp``` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using ```-h[no]omp```. 
 * Do you see a very long list of complex-looking function names, and does your source code or external library dependency include C++ code? You may need to explicitly link against the C++ standard library (```-lstdc++``` for GNU and Cray compilers, ```-cxxlib``` for Intel compilers); this is a particularly common problem for statically linked code.
 * Do the function names end with an underscore ("_")? You might be missing some Fortran code, either from your own sources or from a library that was written in Fortran, or parts of your Fortran code were built with flags such as ```-assume nounderscore``` (Intel) or ```-fno-underscoring``` (GNU), while others were  using different flags (note that the Cray compiler always uses underscores).
 * Do the function names end with double underscores ("__")? Fortran compilers offer an option to add double underscores to Fortran subroutine names for compatibility reasons (```-h [no]second_underscore```, ```-assume [no]2underscores```, ```-f[no-]second-underscore```) which you may have to add or remove.
