@@ -67,7 +67,7 @@ module swap gcc gcc/7.1.0
 ```
 GCC v6.1.0 or later is required to build code that can make use of the Intel Skylake microarchitecture and its advanced capabilities, such as AVX-512, on the XC50 platform.
 
-Note: There is not **the** best compiler. Depending on you application/algorithms, different compilers can optimise the code better. Keep in mind trying different compilers.
+Note: There is not **the** best compiler. Depending on your application/algorithms, different compilers can optimise the code better. Keep in mind trying different compilers.
 
 ### Targetting a CPU
 
