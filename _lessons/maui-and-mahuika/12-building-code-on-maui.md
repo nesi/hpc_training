@@ -12,7 +12,7 @@ You will learn:
 * how to compile code (Fortran, C, C++) using the Cray programming environment on the XC50 platform
 * how to build code that depends on external libraries
 
-The example programs used in this lesson can be found in the [_code](https://github.com/nesi/hpc_training/tree/building-code-on-maui-content/_code) directory of the "hpc_training" repository.
+The example programs used in this lesson can be found in the [_code](https://github.com/nesi/hpc_training/tree/gh-pages/_code) directory of the "hpc_training" repository.
 
 ## The Cray programming environment on the XC50 platform
 
@@ -22,8 +22,8 @@ Building Fortran, C, or C++ code on the XC50 platform requires using the Cray pr
 
 **Important:**
 
-* It is essential to use the Cray Programming Environment when you build code, otherwise it is very likely that problems at build time or run time appear
-* Never use ```module purge``` on the XC50 platform, this will render the programming environment unusable, and you will have to log out and log back in
+* It is essential to use a Programming Environment (PrgEnv-cray, PrgEnv-intel or PrgEnv-gnu) when you build code, otherwise it is very likely that problems at build time or run time appear
+* **Never** use ```module purge``` on the XC50 platform, this will render the programming environment unusable, and you will have to log out and log back in
 * Code that was built on the XC50 platform is unlikely to run on Māui's CS500 platform or on Mahuika's CS400 platform; please rebuild your code when you change platform
 
 ### The build node
@@ -32,17 +32,19 @@ Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be 
 
 * The compute nodes only run a thin operating system with very few command line utilities, it is thus likely that your build will fail
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
-* Submitting a job will allocate entire nodes, even if only one core or a few cores are used, which wastes compute resources
+* Submitting a job will allocate entire nodes. This is a waste of compute resources, especially if only one core or a few cores are used
+
+Furthermore, please keep in mind that the build node is a shared resource. Instead of using all processes (like `make -j`), please limit the amount of processes (`make -j 5` for example).
 
 ### Choosing a programming environment
 
-The following programming environments are provided on Māui, named after the underlying compiler suite:
+The following Programming Environments are provided on Māui, named after the underlying compiler suite:
 
 1. ```PrgEnv-cray```
 2. ```PrgEnv-intel```
 3. ```PrgEnv-gnu```
 
-The ```PrgEnv-cray``` environment is the default. If you want to change programming environment to use the Intel compilers, run
+The ```PrgEnv-cray``` environment is the default. If you want to change programming environment to use the Intel or GNU compilers, run
 ```
 module swap PrgEnv-cray PrgEnv-intel
 ```
@@ -50,20 +52,22 @@ or
 ```
 module swap PrgEnv-cray PrgEnv-gnu
 ```
-to get the GNU compilers.
 
-Note that several GNU compiler versions are currently installed:
-
-* ```gcc/4.9.3``` (default)
-* ```gcc/5.3.0```
-* ```gcc/6.1.0```
-* ```gcc/7.1.0```
-
-To change GCC version, run
+Note that several compiler versions are currently installed, in case of GNU for example:
+```
+> module avail -l gcc
+gcc/4.9.3 (default)
+gcc/5.3.0
+gcc/6.1.0
+gcc/7.1.0
+```
+To change GCC version, run for example
 ```
 module swap gcc gcc/7.1.0
 ```
 GCC v6.1.0 or later is required to build code that can make use of the Intel Skylake microarchitecture and its advanced capabilities, such as AVX-512, on the XC50 platform.
+
+Note: There is not **the** best compiler. Depending on your application/algorithms, different compilers can optimise the code better. Keep in mind trying different compilers.
 
 ### Targetting a CPU
 
@@ -97,12 +101,12 @@ and try again.
 The programming environment provides compiler drivers for compiling Fortran, C, and C++ code. This means that you will need to use the following commands instead of the actual compilers:
 ```
 ftn -o simpleMpi simpleMpi.f90 # compile Fortran code
-cc -o simpleMpi simpleMpi.c    # compile C code
-CC -o simpleMpi simpleMpi.cxx  # compile C++ code
+cc  -o simpleMpi simpleMpi.c    # compile C code
+CC  -o simpleMpi simpleMpi.cxx  # compile C++ code
 ```
 The drivers will ensure correct linking of your code with compiler runtime libraries, and with Cray-supported libraries (such as Cray's "libsci" scientific library, or Cray's version of netCDF). It is therefore not recommended to use the compilers directly, there is a good chance that the executable will fail to build or run correctly.
 
-If you are interested in seeing what the compiler driver does, add the ```-craype-verbose``` flag:
+The compiler drivers automatically add necessary compile and link flags to the compile/link line for the selected hardware and Cray-supported libraries. If you are interested in seeing what the compiler driver does, add the ```-craype-verbose``` flag:
 ```
 ftn -craype-verbose -o simpleMpi simpleMpi.f90
 ```
@@ -147,19 +151,21 @@ The following table provides a list of commonly used compiler options:
 |---------------|------|-------|-----|---------|
 | Debugging | ```-g``` or ```-G{0,1,2,fast}``` | ```-g``` or ```-debug [keyword]``` | ```-g or -g{0,1,2,3}``` | Set level of debugging information, some levels may disable certain compiler optimisations |
 | Light compiler optimisation  | ```-O2``` | ```-O2``` | ```-O2``` | |
-| Agressive compiler optimisation  | ```-O3 -hfp3``` | ```-O3 -ipo``` | ```-O3 -ffast-math -funroll-loops``` | This may affect numerical accuracy |
+| Aggressive compiler optimisation  | ```-O3 -hfp3``` | ```-O3 -ipo``` | ```-O3 -ffast-math -funroll-loops``` | This may affect numerical accuracy |
 | Vectorisation reports | ```-hlist=m``` | ```-qopt-report``` | ```-fopt-info-vec``` or ```-fopt-info-missed``` | |
 | OpenMP | ```-homp``` (default) | ```-openmp``` | ```-fopenmp``` | |
 
 Additional compiler options are documented on the compiler man pages, which are accessible *after* loading the corresponding programming environment:
-```
-man crayftn
-man icc
-man g++
-```
+
+| language | cray | intel | gnu |
+|--|--|--|--|
+| Fortran | man crayftn | man ifort | man gfortran |
+| C | man craycc | man icc | man gcc |
+| C++ | man crayCC | man icpc | man g++ |
+
 The man pages are often largely incomplete, further documentation can be found online:
 
-* Cray Compiler Environment: [Cray Fortran v8.5](http://docs.cray.com/PDF/Cray_Fortran_Reference_Manual_85.pdf), [Cray C and C++ v8.5](http://docs.cray.com/PDF/Cray_C_and_Cplusplus_Reference_Manual_85.pdf)
+* Cray Compiler Environment: [Cray Fortran v8.7](https://pubs.cray.com/content/S-3901/8.7/cray-fortran-reference-manual/fortran-compiler-introduction), [Cray C and C++ v8.7](https://pubs.cray.com/content/S-2179/8.7/cray-c-and-c++-reference-manual/invoke-the-c-and-c++-compilers)
 * Intel compilers: [Intel Fortran Compiler v17.0](https://software.intel.com/sites/default/files/managed/93/88/PDF%20Fortran%20Compiler%20UG%2017.0%3D1%3DSSG%202.0%20PDF%3Den-US.pdf), [Intel C and C++ Compiler v17.0](https://software.intel.com/sites/default/files/managed/08/ac/PDF%20C%2B%2B%20Compiler%20UG%2017.0%3D1%3DSSG%202.0%20PDF%3Den-US.pdf)
 * GNU compilers: [GCC C and C++ v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gcc.pdf), [GCC C and C++ v7.2.0](https://gcc.gnu.org/onlinedocs/gcc-7.2.0/gcc.pdf), [GNU Fortran v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gfortran.pdf), [GNU Fortran v7.2](https://gcc.gnu.org/onlinedocs/gcc-7.2.0/gfortran.pdf)
 
@@ -248,7 +254,7 @@ This simply means that the library must be accessible at runtime despite fully s
 Linking can easily go wrong. Most often, you will see linker errors about "missing symbols" when the linker could not find a function used in your program or in one of the libraries that you linked against. To resolve this problem, have a closer look at the function names that the linker reported:
 
 * Are you missing some object code files (these are compiled source files and have suffix ```.o```) that should appear on the linker line? This can happen if the build system was not configured correctly or has a bug. Try running the linking step manually with all source files and debug the build system (which can be a lengthy and cumbersome process, unfortunately).
-* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-openmp``` for Intel, and ```-h omp``` for Cray) in your linker command.
+* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-openmp``` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using ```-h[no]omp```. 
 * Do you see a very long list of complex-looking function names, and does your source code or external library dependency include C++ code? You may need to explicitly link against the C++ standard library (```-lstdc++``` for GNU and Cray compilers, ```-cxxlib``` for Intel compilers); this is a particularly common problem for statically linked code.
 * Do the function names end with an underscore ("_")? You might be missing some Fortran code, either from your own sources or from a library that was written in Fortran, or parts of your Fortran code were built with flags such as ```-assume nounderscore``` (Intel) or ```-fno-underscoring``` (GNU), while others were  using different flags (note that the Cray compiler always uses underscores).
 * Do the function names end with double underscores ("__")? Fortran compilers offer an option to add double underscores to Fortran subroutine names for compatibility reasons (```-h [no]second_underscore```, ```-assume [no]2underscores```, ```-f[no-]second-underscore```) which you may have to add or remove.
