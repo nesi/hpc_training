@@ -42,7 +42,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 4. After receiving confirmation from our support team to continue,log in to the [My NeSI Portal](https://my.nesi.org.nz) again. Once you have logged in, you should see a screen similar to the one below. Click on the 'Reset Password' button to proceed.
 wait for us to confirm your account and add you to an appropriate project group. This is currently a manual step that we aim to complete for every user within two business days of receiving the request.
 
-If you don't see the 'Reset Password' button and instead see error messages, it means your information on our database does not match your Tuakiri identity, your user account has not yet been created, or you are not a member of an active project. In this case, please email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and 
+   If you don't see the 'Reset Password' button and instead see error messages, it means your information on our database does not match your Tuakiri identity, your user account has not yet been created, or you are not a member of an active project. In this case, please email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and 
 
    **NOTE:** You must wait at least an hour between password reset requests. If you request a password reset before an hour has gone by since your last valid password reset request, our system will ignore the later request.
    
