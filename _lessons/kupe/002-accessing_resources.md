@@ -20,7 +20,7 @@ You will need a terminal program to log in to Kupe:
 - Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
-- A smartphone with the Google Authenticator app installed
+- A smartphone with the Google Authenticator app or another compatable authenticator app installed
 
 ---
 
@@ -31,19 +31,19 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 1. Access the [My NeSI Portal](https://my.nesi.org.nz) via your browser.
    ![logging-in](../../assets/img/portal_login.png)
 
-2. Log in using your institutional credentials via Tuakiri. If your institution is not a member of the Tuakiri federation, you will have to request a Tuakiri Virtual Home account by emailing [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Tuakiri%20virtual%20home%20account%20request). Once we have approved and created your Tuakiri Virtual Home account, please select the Tuakiri Virtual Home as your Home Organisation. See the example below, which shows the login process using a NIWA staff username and password. When logging in, please select your own home organisation.
+2. Log in using your institutional credentials via Tuakiri. If your institution is not a member of the Tuakiri federation, you will have to follow the 'Apply for a NeSI Account' link below th 'Log in' button to request a Tuakiri Virtual Home account. Once we have approved and created your Tuakiri Virtual Home account, please select the Tuakiri Virtual Home as your Home Organisation. See the example below, which shows the login process using a NIWA staff username and password. Otherwise, when logging in, please select your own home organisation.
    ![logging-in](../../assets/img/tuakiri_credentials.png)
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
-3. If this is the first time you have logged in to the [My NeSI Portal](https://my.nesi.org.nz) you will be prompted to request an account, after filling out some required fields. After submitting your request you must wait for our support team to contact you via email before continuing. 
+3. If this is the first time you have logged in to the [My NeSI Portal](https://my.nesi.org.nz) and you do not have an existing account with NeSI on Pan you will be prompted to request an account, after filling out some required fields. After submitting your request you must wait for our support team to contact you via email before continuing. If you have a Pan account, after logging in you will need to email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and inform us that you are attempting to gain access to Kupe so that we can manually ensure that you have proper group membership needed to gain access.
 
    ![logging-in](../../assets/img/request_an_account.png)
    
 4. After receiving confirmation from our support team to continue,log in to the [My NeSI Portal](https://my.nesi.org.nz) again. Once you have logged in, you should see a screen similar to the one below. Click on the 'Reset Password' button to proceed.If you don't see the 'Reset Password' button and instead see error messages, it means your information on our database does not match your Tuakiri identity, your user account has not yet been created, or you are not a member of an active project. In this case, please email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and wait for us to confirm your account and add you to an appropriate project group. This is currently a manual step that we aim to complete for every user within two business days of receiving the request.
 
-   ![logging-in](../../assets/img/login_success.png)
-
    **NOTE:** You must wait at least an hour between password reset requests. If you request a password reset before an hour has gone by since your last valid password reset request, our system will ignore the later request.
+   
+   ![logging-in](../../assets/img/login_success.png)
    
 5. You will be sent an e-mail with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
 
@@ -54,7 +54,19 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
    ![logging-in](../../assets/img/temp_password.png)
 
-7. Once you have logged in with your temporary password, you will be asked to choose a new permanent password. This is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor.
+### NeSI password policy
+
+The NeSI password policy is as follows:
+  * Your password must be at least 12 characters long
+  * Your password must contain one or more characters from at least two of the following classes:
+    * upper case letters
+    * lower case letters
+    * numbers
+    * allowed special characters
+   
+---
+
+7. Resetting your password is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor. Please ensure you read all six steps before proceeding as the output messages are easilly misleading.
 
       You can choose your permanent password by following this **six-step** process:
    1. For those using a Mac or Linux computer, connect to the lander node using the command:`ssh -Y <myusername>@lander.nesi.org.nz`, where `<myusername>` should be replaced with your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). For those using a Windows computer, start a new session on MobaXterm and set the Remote Host to `lander.nesi.org.nz` and your username as your Kupe username. **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue. You must type `yes` and press the `Enter` key. Typing `y` as a shorthand for "yes" is not sufficient.
@@ -91,18 +103,6 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    If you have to enter more than four passwords, something has probably gone wrong. You may have entered the wrong temporary password at one of the first two prompts, your new password may not satisfy our password criteria, or you may have mistyped your new password when confirming it. Alternatively, you may have accidentally pressed `Enter` or `Ctrl-C` at the wrong time. If any of these situations has happened, you should exit the session and log in again.
 
 8. You are now ready to move on to setting up two-factor authentication.
-
-### NeSI password policy
-
-The NeSI password policy is as follows:
-  * Your password must be at least 12 characters long
-  * Your password must contain one or more characters from at least two of the following classes:
-    * upper case letters
-    * lower case letters
-    * numbers
-    * allowed special characters
-   
----
 
 ## Setting up two-factor authentication
 
