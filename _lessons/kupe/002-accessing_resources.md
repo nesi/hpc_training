@@ -36,12 +36,11 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    ![logging-in](../../assets/img/tuakiri_credentials.png)
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
-1. You will be asked to fill out some fields, such as your role at your institution and a contact telephone number.
-   ![logging-in](../../assets/img/request_an_account.png)
 1. If this is the first time you have logged in to the [My NeSI Portal](https://my.nesi.org.nz):
 
-   * If you do not have an existing account with NeSI on Pan, please click the button to request an account on Kupe. After submitting your request, you must wait for our support team to contact you via email before continuing.
-   * If you have a Pan account, after logging in you will need to email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and inform us that you would like access to Kupe so that we can add you to a group with Kupe access rights.
+   * If you do not have an existing account with NeSI on Pan you will be asked to fill out some fields, such as your role at your institution and a contact telephone number, an example of which can be seen below.
+   * If you have a Pan account, after logging in you will need to email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and and inform us that you would like access to Kupe so that we can add you to a group with Kupe access rights.
+   ![logging-in](../../assets/img/request_an_account.png)
    
 1. Please wait for us to confirm your account and group membership. This is currently a manual step that we aim to complete for every user within two business days of receiving the request.
 
