@@ -18,10 +18,10 @@ You will learn how to:
 You will need:
 
  * A terminal program to log in to Kupe:
-   * Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/)
+   * Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/) (to install these you will need admistrative rights on your machine or you will have to talk to your IT)
    * MacOS X: Terminal app or iTerm2
    * Linux: Terminal app or xterm
- * A smartphone with Google Authenticator (recommended) or another app that implements the TOTP (Time-based One Time Password) algorithm installed
+ * A smartphone with Google Authenticator (recommended) or another app that implements the TOTP (Time-based One Time Password) algorithm installed. Ensure that you use your preferred device as you will need it every time you log in
 
 ---
 
@@ -38,7 +38,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
 1. If this is the first time you have logged in to the [My NeSI Portal](https://my.nesi.org.nz):
 
-   * If you do not have an existing account with NeSI on Pan you will be asked to fill out some fields, such as your role at your institution and a contact telephone number, an example of which can be seen below.
+   * If you do not have an existing account with NeSI on Pan or Fitzroy you will be asked to fill out some fields, such as your role at your institution and a contact telephone number, an example of which can be seen below.
    * If you have a Pan account, after logging in you will need to email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and and inform us that you would like access to Kupe so that we can add you to a group with Kupe access rights.
    ![logging-in](../../assets/img/request_an_account.png)
    
@@ -57,13 +57,13 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    
 1. You will be sent an e-mail from us with a temporary URL. If you do not receive this email within a few minutes, check your spam filter.
 
-1. Click on the link on your e-mail. The link will take you to a web page looking like the following picture and containing your unique temporary password.
-
    **WARNING:** Do **not** close the web page displaying your temporary password until you have completed the password reset process (see below). The temporary password link may only be opened once. If you accidentally close the page (or your browser or computer crashes), you will need to wait an hour before requesting a new password reset.
+   
+1. Click on the link on your e-mail. The link will take you to a web page looking like the following picture and containing your unique temporary password.
 
 1. Logging in and resetting your password is a **six-step** process, detailed below. Once you have changed your password, your connection will eventually be terminated with `Permission denied (keyboard-interactive).` or `Access denied (keyboard-interactive).`. This is normal until you set up your second factor. Please ensure you read **all six steps** before proceeding as the output messages are easily misleading.
 
-      You can choose your permanent password by following this **six-step** process:
+      You can choose your permanent password by following this **six-step** process (**Note:** their is a 2:00 minute idle timeout):
    1. Connect to the lander node:
       * If you are using a Mac or Linux computer, connect to the lander node using the command:`ssh -Y <myusername>@lander.nesi.org.nz`, where `<myusername>` should be replaced with your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). 
       * If you are using a Windows computer, start a new session on MobaXterm and set the Remote Host to `lander.nesi.org.nz` and your username as your Kupe username.
