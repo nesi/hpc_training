@@ -28,7 +28,7 @@ Building Fortran, C, or C++ code on the XC50 platform requires using the Cray pr
 
 ### The build node
 
-Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be used for building code. Please do not build code on the compute nodes by submitting a build job through SLURM:
+Māui has a dedicated build node, ```login.maui.niwa.co.nz```, which should be used for building code. Please do not build code on the compute nodes by submitting a build job through SLURM:
 
 * The compute nodes only run a thin operating system with very few command line utilities, it is thus likely that your build will fail
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
