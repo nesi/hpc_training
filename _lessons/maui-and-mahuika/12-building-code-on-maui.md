@@ -28,7 +28,7 @@ Building Fortran, C, or C++ code on the XC50 platform requires using the Cray pr
 
 ### The build node
 
-Māui has a dedicated build node, ```login.maui.nesi.org.nz```, which should be used for building code. Please do not build code on the compute nodes by submitting a build job through SLURM:
+Māui has a dedicated build node, ```login.maui.niwa.co.nz```, which should be used for building code. Please do not build code on the compute nodes by submitting a build job through SLURM:
 
 * The compute nodes only run a thin operating system with very few command line utilities, it is thus likely that your build will fail
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
@@ -171,12 +171,17 @@ The man pages are often largely incomplete, further documentation can be found o
 
 ## Building code that depends on external libraries
 
-Building a program that depends on external libraries can be a complex process, often requiring some troubleshooting to succeed. The correct compiler and linker setup depends on whether the libraries have been provided by Cray, by NeSI/NIWA, or if you built them yourself.
+While linking external libraries, one need to pay attention to the correct compiler and linker setup. This, depends on the correct library version (working properly with the compiler and the link type) and the used link options. These depend on whether the libraries have been provided by Cray, by NeSI/NIWA, or if you built them yourself.
 
-You can find out which libraries are available by running the command
+Many libraries are provided in modules. You can search them using
 ```
 module avail
 ```
+and look in the module description using:
+```
+module help <module-name>
+```
+Sometimes modules provide multiple libraries, e.g. *cray-libsci*.
 
 ### Using libraries provided by Cray
 
