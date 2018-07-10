@@ -168,7 +168,7 @@ You will learn:
             </td>
             <td width="115" valign="top">
                 <p>
-                    60 days (or earlier if space required)<sup>3</sup>
+                    60 days (or earlier if space required)
                 </p>
             </td>
             <td width="115" valign="top">
