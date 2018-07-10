@@ -272,12 +272,14 @@ Slow. Only accessible via the Librarian Service.
 
 * Critical data (time enduring)
 * Source code, shared data
+* Recommended for building software
 * Backed up
 
 ### /nesi/nobackup
 
 * This is where most data should be read/written and is the highest performance filesystem
 * Actively managed to remove unused data and not backed up
+* Advise to move valuable data to the /nesi/project filesystem as soon as the batch jobs are completed
 
 ### /nesi/nearline
 
