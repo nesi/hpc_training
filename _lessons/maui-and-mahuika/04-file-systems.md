@@ -1,7 +1,7 @@
 ---
 layout: post
-title: File systems, directories and quotas
-permalink: /lessons/maui-and-mahuika/file-systems
+title: Filesystems, directories and quotas
+permalink: /lessons/maui-and-mahuika/filesystems
 chapter: maui-and-mahuika
 ---
 
@@ -9,11 +9,11 @@ chapter: maui-and-mahuika
 
 You will learn:
 
-* what the different file systems are
+* what the different filesystems are
 * what they should be used for
-* what the quotas are on the different file systems
+* what the quotas are on the different filesystems
 
-## File systems
+## Filesystems
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
