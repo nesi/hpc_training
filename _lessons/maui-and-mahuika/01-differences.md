@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Māui and Mahuika - what is the difference?
-permalink: /lessons/maui-and-mahuika/differences
+permalink: /lessons/maui-and-mahuika/introduction
 chapter: maui-and-mahuika
 ---
 
