@@ -18,7 +18,7 @@ You will learn how to:
 You will need:
 
  * A terminal program to log in to Kupe:
-   * Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/) (to install these you will need admistrative rights on your machine or you will have to talk to your IT)
+   * Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/) (to install these you will need administrative rights on your machine or you will have to talk to your IT)
    * MacOS X: Terminal app or iTerm2
    * Linux: Terminal app or xterm
  * A smartphone with Google Authenticator (recommended) or another app that implements the TOTP (Time-based One Time Password) algorithm installed. Ensure that you use your preferred device as you will need it every time you log in
