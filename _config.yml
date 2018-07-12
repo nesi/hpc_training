@@ -43,6 +43,7 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-relative-links
 
 
 # Exclude from processing.
@@ -68,3 +69,7 @@ collections:
    code:
        output: true
        permalink: /:path/
+
+relative_links:
+    enabled: true
+    collections: true

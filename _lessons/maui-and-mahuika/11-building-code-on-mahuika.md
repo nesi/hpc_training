@@ -143,7 +143,7 @@ Linking can easily go wrong. Most often, you will see linker errors about "missi
 Note that the linker requires that function names match exactly, so any variation in function name in your code will lead to a "missing symbols" error (with the exception of character case in Fortran source code).
 
 ## Cray Programming Environment
-The Cray Programming Environment includes the Cray compiler, various libraries and tools. These work nicely together and provide certain user-friendly features by using compiler wrappers. This works very similar as the Cray XC environment, provided on Maui, and is described in detail at page [building Code on Maui](https://github.com/nesi/hpc_training/blob/building-code-on-maui-content/_lessons/maui-and-mahuika/12-building-code-on-maui.md). 
+The Cray Programming Environment includes the Cray compiler, various libraries and tools. These work nicely together and provide certain user-friendly features by using compiler wrappers. This works very similar as the Cray XC environment, provided on Maui, and is described in detail at page [Building Code on Maui](12-building-code-on-maui.md).
 
 **Note**, in contrast to Maui, only the Cray compiler is provided in this environment. This cray compiler on Mahuika provides only dynamic linking support.
 
