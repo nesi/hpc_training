@@ -27,16 +27,16 @@ You will need:
 
 ## Setting up an account on Kupe
 
-If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to log in to [the My NeSI portal](https://my.nesi.org.nz). By logging in, you will populate the NeSI database with certain basic account information (such as your name, institution and email address), which we will use to set up your account.
+If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to log in to [the My NeSI site](https://my.nesi.org.nz). By logging in, you will populate the NeSI database with certain basic account information (such as your name, institution and email address), which we will use to set up your account.
 
-1. Access the [My NeSI Portal](https://my.nesi.org.nz) via your browser.
+1. Access the [My NeSI site](https://my.nesi.org.nz) via your browser.
    ![logging-in](../../assets/img/portal_login.png)
 
 1. Log in using your institutional credentials via Tuakiri. If your institution is not a member of the Tuakiri federation, you will have to follow the 'Apply for a NeSI Account' link (at the bottom of your browser window, below the 'Log in' button) to request a Tuakiri Virtual Home account. Once we have approved and created your Tuakiri Virtual Home account, please select the Tuakiri Virtual Home as your Home Organisation. Otherwise, select your own employer or tertiary institution as your Home Organisation. See the example below, which shows the login process using a NIWA staff username and password. Your login screen will in most cases look different.
    ![logging-in](../../assets/img/tuakiri_credentials.png)
    ![logging-in](../../assets/img/niwa_turakiri.png)
 
-1. If this is the first time you have logged in to the [My NeSI Portal](https://my.nesi.org.nz):
+1. If this is the first time you have logged in to the [My NeSI site](https://my.nesi.org.nz):
 
    * If you do not have an existing account with NeSI on Pan you will be asked to fill out some fields, such as your role at your institution and a contact telephone number, an example of which can be seen below.
    * If you have a Pan account, after logging in you will need to email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and and inform us that you would like access to Kupe so that we can add you to a group with Kupe access rights.
@@ -44,7 +44,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
    
 1. Please wait for us to confirm your account and group membership. This is currently a manual step that we aim to complete for every user within two business days of receiving the request.
 
-1. After receiving confirmation from our support team, log in to the [My NeSI Portal](https://my.nesi.org.nz) again.
+1. After receiving confirmation from our support team, log in to the [My NeSI site](https://my.nesi.org.nz) again.
 
 1. Once you have logged in, you should see a screen similar to the one below. Click the 'Reset Password' button to proceed.
 
@@ -65,7 +65,7 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
       You can choose your permanent password by following this **six-step** process:
    1. Connect to the lander node:
-      * If you are using a Mac or Linux computer, connect to the lander node using the command:`ssh -Y <myusername>@lander.nesi.org.nz`, where `<myusername>` should be replaced with your Kupe Linux username, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). 
+      * If you are using a Mac or Linux computer, connect to the lander node using the command:`ssh -Y <myusername>@lander.nesi.org.nz`, where `<myusername>` should be replaced with your Kupe Linux username, which you can find by logging in to [the My NeSI site](https://my.nesi.org.nz) (not to be confused with your institutional login name). 
       * If you are using a Windows computer, start a new session on MobaXterm and set the Remote Host to `lander.nesi.org.nz` and your username as your Kupe username.
       
       **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue. You must type `yes` and press the `Enter` key. Typing `y` as a shorthand for "yes" is not sufficient.
@@ -128,7 +128,7 @@ Before starting the two-factor authentication setup process, ensure that you hav
 
 **WARNING:** The QR code shown in later steps is a one-time password and can not be regenerated or displayed again. If you do not capture the QR code, or if you lose the device storing the token, you will be unable to access your account. If this happens, please contact [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20reset%20my%202FA%20token). After we validate your request, a member of the NeSI team will delete your authentication token so you can generate another for your account.
 
-1. Go back to [the My NeSI portal](https://my.nesi.org.nz) and click on Accounts (or, alternatively, refresh the page if it is still open). You should see a new option to 'Link your mobile device'.
+1. Go back to [the My NeSI site](https://my.nesi.org.nz) and click on Accounts (or, alternatively, refresh the page if it is still open). You should see a new option to 'Link your mobile device'.
 ![logging-in](../../assets/img/link_device.png)
 
 1. Click the 'Link your mobile device' button. This button will start the process to prepare your second factor token so that you can log in to our lander node from outside of the NIWA network. After clicking on 'Link your mobile device' you will be instructed to prepare your mobile device before proceeding.
@@ -159,7 +159,7 @@ Connecting to kupe involves two login operations. First, connect to kupe's lande
 ```
 ssh -Y <myusername>@lander.nesi.org.nz
 ```
-inside your terminal program, where `<myusername>` should be replaced with your Kupe login name, which you can find by logging in to [the My NeSI portal](https://my.nesi.org.nz) (not to be confused with your institutional login name). You will see the following prompt
+inside your terminal program, where `<myusername>` should be replaced with your Kupe login name, which you can find by logging in to [the My NeSI site](https://my.nesi.org.nz) (not to be confused with your institutional login name). You will see the following prompt
 ```
 First Factor:
 ```
@@ -224,7 +224,7 @@ The `ForwardX11` directives will enable X11 forwarding and are optional. This ca
 
 ## Troubleshooting
 
-Please contact [support@nesi.org.nz](mailto:support@nesi.org.nz) if you have any problems or questions. If you are having trouble logging in to the My NeSI portal, resetting your password, obtaining a second-factor token, or logging in to the cluster, please let us know which of the following screens you see as this will enable us to address your issue more quickly. Thank you.
+Please contact [support@nesi.org.nz](mailto:support@nesi.org.nz) if you have any problems or questions. If you are having trouble logging in to the My NeSI site, resetting your password, obtaining a second-factor token, or logging in to the cluster, please let us know which of the following screens you see as this will enable us to address your issue more quickly. Thank you.
 
 If your account is not ready, you may see:
 ![logging-in](../../assets/img/no_account.png)
