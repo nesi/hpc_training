@@ -8,15 +8,30 @@ layout: default
 
 {{ content }}
 
+ Prerequisites:
  <ol>
     {% for lesson in site.lessons  %}
       {% if lesson.chapter == page.chapter %}
-      <li>
-          <a href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a>
-      </li>
-   {% endif %}
+        {% if lesson.tags contains 'prerequisite' %}
+          <li>
+            <a href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a>
+          </li>
+        {% endif %}
+      {% endif %}
     {% endfor %}
+  </ol>
 
+ Lessons:
+ <ol>
+    {% for lesson in site.lessons  %}
+      {% if lesson.chapter == page.chapter %}
+        {% unless lesson.tags contains 'prerequisite' %}
+          <li>
+            <a href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a>
+          </li>
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
   </ol> 
 
   <ul class="post-list">
@@ -29,8 +44,6 @@ layout: default
         </li>
      {% endif %}
       {% endfor %}
-
     </ul>
-
 
 </div>
