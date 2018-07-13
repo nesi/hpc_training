@@ -10,7 +10,7 @@ tags: prerequisite
 
 You will learn how to:
 
- 1. set up your account on kupe
+ 1. set up your user account on NeSI platforms
  2. set up two factor authentication (if you will need to connect from outside NIWA's network)
  3. log in to the machine
 
@@ -18,7 +18,7 @@ You will learn how to:
 
 You will need:
 
- * A terminal program to log in to Kupe:
+ * A terminal program to log in with:
    * Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 11 bash, or [PuTTY](https://www.putty.org/) (to install these you will need administrative rights on your machine or you will have to talk to your IT)
    * MacOS X: Terminal app or iTerm2
    * Linux: Terminal app or xterm
@@ -28,7 +28,7 @@ You will need:
 
 ## Setting up your NeSI account
 
-If you are logging in for the first time to Kupe, you will need to set up your account. First, you will need to log in to [the My NeSI site](https://my.nesi.org.nz). By logging in, you will populate the NeSI database with certain basic account information (such as your name, institution and email address), which we will use to set up your account.
+If you are logging in for the first time to the new platforms, you will need to set up your account. First, you will need to log in to [the My NeSI site](https://my.nesi.org.nz). By logging in, you will populate the NeSI database with certain basic account information (such as your name, institution and email address), which we will use to set up your account.
 
 1. Access the [My NeSI site](https://my.nesi.org.nz) via your browser.
    ![logging-in](../../assets/img/portal_login.png)
@@ -39,8 +39,9 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
 1. If this is the first time you have logged in to the [My NeSI site](https://my.nesi.org.nz):
 
-   * If you do not have an existing account with NeSI on Pan or Fitzroy you will be asked to fill out some fields, such as your role at your institution and a contact telephone number, an example of which can be seen below.
-   * If you have a Pan account, after logging in you will need to email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and and inform us that you would like access to Kupe so that we can add you to a group with Kupe access rights.
+   * If you do not have an existing account with NeSI you will be asked to fill out some fields, such as your role at your institution and a contact telephone number, an example of which can be seen below.
+   * If you have an existing active project that has been migrated over you can continue on to step 6
+   * If you have an entry in our database (such as an old Pan account) but are not a member of an active project on the platforms, after logging in you will need to email [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Please%20confirm%20my%20My%20NeSI%20account%20and%20add%20me%20to%20a%20project%20team) and and inform us that you would like access to the platforms so that we can prepare you for the next steps.
    ![logging-in](../../assets/img/request_an_account.png)
    
 1. Please wait for us to confirm your account and group membership. This is currently a manual step that we aim to complete for every user within two business days of receiving the request.
@@ -66,8 +67,8 @@ If you are logging in for the first time to Kupe, you will need to set up your a
 
       You can choose your permanent password by following this **six-step** process (**Note:** there is a 2:00 minute idle timeout):
    1. Connect to the lander node:
-      * If you are using a Mac or Linux computer, connect to the lander node using the command:`ssh -Y <myusername>@lander.nesi.org.nz`, where `<myusername>` should be replaced with your Kupe Linux username, which you can find by logging in to [the My NeSI site](https://my.nesi.org.nz) (not to be confused with your institutional login name). 
-      * If you are using a Windows computer, start a new session on MobaXterm and set the Remote Host to `lander.nesi.org.nz` and your username as your Kupe username.
+      * If you are using a Mac or Linux computer, connect to the lander node using the command:`ssh -Y <myusername>@lander.nesi.org.nz`, where `<myusername>` should be replaced with your Linux username, which you can find by logging in to [the My NeSI site](https://my.nesi.org.nz) (not to be confused with your institutional login name). 
+      * If you are using a Windows computer, start a new session on MobaXterm and set the Remote Host to `lander.nesi.org.nz` and your username as your username.
       
       **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue. You must type `yes` and press the `Enter` key. Typing `y` as a shorthand for "yes" is not sufficient.
    
@@ -132,7 +133,7 @@ Before starting the two-factor authentication setup process, ensure that you hav
 1. Go back to [the My NeSI site](https://my.nesi.org.nz) and click on Accounts (or, alternatively, refresh the page if it is still open). You should see a new option to 'Link your mobile device'.
 ![logging-in](../../assets/img/link_device.png)
 
-1. Click the 'Link your mobile device' button. This button will start the process to prepare your second factor token so that you can log in to our lander node from outside of the NIWA network. After clicking on 'Link your mobile device' you will be instructed to prepare your mobile device before proceeding.
+1. Click the 'Link your mobile device' button. This button will start the process to prepare your second factor token so that you can log in to our lander node from outside of the NIWA network. After clicking on 'Link your mobile device' you will be prompted for the password which you have just set and instructed to prepare your mobile device before proceeding.
 ![logging-in](../../assets/img/prepare_device.png)
 
 1. Click 'Continue' to display your QR code.
@@ -146,9 +147,9 @@ Before starting the two-factor authentication setup process, ensure that you hav
    
    If using a different authentication app, follow the instructions that are relevant to that app.
 
-From now on, logging in to the lander node will prompt you for 'First factor' where you enter your previously set password, and 'Second factor (optional)' which is the six-digit code displayed on your Google Authenticator app. The six-digit code rotates every 30 seconds, and it can only be used once even if it has not expired yet. This means that you can only log in to the lander node once every 30 seconds. Also, even though the prompt says (optional), the second factor code is compulsory. We are working with the software developers to fix the message. For more information, please see [Connecting to kupe](#connecting-to-kupe).
+From now on, logging in to the lander node will prompt you for 'First factor' where you enter your previously set password, and 'Second factor (optional)' which is the six-digit code displayed on your Google Authenticator app. The six-digit code rotates every 30 seconds, and it can only be used once even if it has not expired yet. This means that you can only log in to the lander node once every 30 seconds. Also, even though the prompt says (optional), the second factor code is compulsory. We are working with the software developers to fix the message.
 
-**Note:** You need to be an authorised member of an active project team to log in after you complete this step. If you believe you are an authorised project team member and and you are not able to log in using your credentials, please send us a message at [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Problems%20logging%20in). In your message, please tell us your Kupe user name, the project code for the NeSI project you think you belong to, and the name of the NeSI project owner.
+**Note:** You need to be an authorised member of an active project team to log in after you complete this step. If you believe you are an authorised project team member and and you are not able to log in using your credentials, please send us a message at [support@nesi.org.nz](mailto:support@nesi.org.nz?subject=Problems%20logging%20in). In your message, please tell us your user name, the project code for the NeSI project you think you belong to, and the name of the NeSI project owner.
 
 ---
 
