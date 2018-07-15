@@ -19,7 +19,7 @@ You will learn:
 
 ## Data Migration
 
-Home directories from pan have been copied to XXX and project directories to XXX.  We will be synchronising these repeatedly while Pan is still available, so it is best to work in your perminant Mahuika directories: XXX and XXX.
+Home directories from pan have been copied to XXX and project directories to XXX.  We will be synchronising these repeatedly while Pan is still available, so it is best to work in your permanent Mahuika directories: XXX and XXX.
 
 ## Differences from Pan
 
@@ -31,7 +31,7 @@ Home directories from pan have been copied to XXX and project directories to XXX
 
 ### Filesystems
 
-* The Pan _/projects_ directory was a symlink to _/gpfs1m/projects_, _/gpfs1m_ being the root of Pan's entire main GPFS filesystem.  There was never actually a need to mention _/gpfs1m_, however it often appeared in output and so found its way into many batch scripts.  On Mahuika _/gpfs1m_ does not exist, so use _/projects_. 
+* On Pan the project directories were located under _/projects_, which was a symlink to _/gpfs1m/projects_. On Mahuika (and Māui) the project directories are located under _/nesi/project_, so any scripts referencing these directories must be updated.
 
 * The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR are not provided on Mahuika.  Since most of its compute nodes do not have local disks there would not be any point in TMP_DIR.  As a replacement for SCRATCH_DIR you can use XXX.
 
@@ -45,7 +45,7 @@ Home directories from pan have been copied to XXX and project directories to XXX
 
 * Ordinary Mahuika compute nodes have 36 CPU cores and 128 GB of memory, so, once the operating system is allowed for, only 3 GB per core rather than Pan's 7.5 GB per core. Please review your memory requests to see where they can be reduced.
 
-* Mahuikia uses the "Broadwell" generation of Intel CPUs, newer than anything on Pan.  This makes Pan's optional Slurm constraints "wm", "sb" and "avx" obsolete. 
+* Mahuika uses the "Broadwell" generation of Intel CPUs, newer than anything on Pan.  This makes Pan's optional Slurm constraints "wm", "sb" and "avx" obsolete. 
 
 * Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan XXX ? XXX with `-gres:gpu`.
 
