@@ -15,6 +15,10 @@ You will learn:
 
 ## Filesystems
 
+The table below indicates the range of default allocations available in
+_/home_, _/nesi/project_ and _/nesi/nearline_ filesystems (exceptions are
+possible, based on project requirements).
+
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -265,11 +269,13 @@ Slow. Only accessible via the Librarian Service.
 
 ### /home
 
+* Every user has a home directory
 * Private data that you don't need to share with anyone else (e.g. other project members and/or NeSI staff)
 * Backed up
 
 ### /nesi/project
 
+* Every project has a directory on this filesystem: _/nesi/project/<project-id\>_
 * Critical data (time enduring)
 * Source code, shared data
 * Recommended for building software
@@ -277,6 +283,7 @@ Slow. Only accessible via the Librarian Service.
 
 ### /nesi/nobackup
 
+* Every project has a directory on this filesystem: _/nesi/nobackup/<project-id\>_
 * This is where most data should be read/written and is the highest performance filesystem
 * Actively managed to remove unused data and not backed up
 * Advise to move valuable data to the /nesi/project filesystem as soon as the batch jobs are completed
