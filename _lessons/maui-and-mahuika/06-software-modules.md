@@ -36,7 +36,7 @@ Using the `module` command you can:
   ```
 * Switch a loaded module for a different version:
   ```
-  module switch Python/2.7.14-gimkl-2017a Python/3.6.4-gimkl-2017a
+  module switch Python/2.7.14-gimkl-2017a Python/3.6.3-gimkl-2017a
   ```
 
 ### Lmod on Mahuika
@@ -66,7 +66,7 @@ more powerful search capability. The `ml` shortcut can be used in place of
   ```
 * Prefix a module with "-" to unload it, e.g. switch from Python 2 to Python 3:
   ```
-  ml -Python/2.7.14-gimkl-2017a Python/3.6.4-gimkl-2017a
+  ml -Python/2.7.14-gimkl-2017a Python/3.6.3-gimkl-2017a
   ```
 * Clear all loaded modules
   ```
