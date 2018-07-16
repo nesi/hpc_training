@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Migration from Pan
+title: Migration from Pan to Mahuika
 permalink: /lessons/maui-and-mahuika/migration
 chapter: maui-and-mahuika
 ---
@@ -24,12 +24,6 @@ Home directories from Pan have been copied into a subdirectory of your Mahuika h
 ## Differences from Pan
 
 Most Slurm batch scipts will require at least some changes to work on the new Platform, so please review all of the following points.
-
-### Login
-
-* Login is via a "lander" node which does not have the shared filesystem mounted.  You will want to simply transit the lander node and get on to one of the "login" nodes mahuika01 or mahuika02, which you can treat as equivalent to Pan's "build" nodes.
-
-* Due to two-factor authentication and the "lander" node, ssh and scp are more complicated to set up, see XXX.
 
 ### Filesystems
 
