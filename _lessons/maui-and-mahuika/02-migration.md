@@ -19,9 +19,11 @@ You will learn:
 
 ## Data Migration
 
-Home directories from pan have been copied to XXX and project directories to XXX.  We will be synchronising these repeatedly while Pan is still available, so it is best to work in your permanent Mahuika directories: XXX and XXX.
+Home directories from Pan have been copied into a subdirectory of your Mahuika home directory, and project directories copied into _/nesi/project_.  We will be synchronising these repeatedly while Pan is still available.
 
 ## Differences from Pan
+
+Most Slurm batch scipts will require at least some changes to work on the new Platform, so please review all of the following points.
 
 ### Login
 
@@ -33,13 +35,19 @@ Home directories from pan have been copied to XXX and project directories to XXX
 
 * On Pan the project directories were located under _/projects_, which was a symlink to _/gpfs1m/projects_. On Mahuika (and Māui) the project directories are located under _/nesi/project_, so any scripts referencing these directories must be updated.
 
-* The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR are not provided on Mahuika.  Since most of its compute nodes do not have local disks there would not be any point in TMP_DIR.  As a replacement for SCRATCH_DIR you can use XXX.
+* In addition to the project directory, each project has a "nobackup" directory found under _/nesi/nobackup_ which is faster but not backed up, in fact old files there are guarenteed to be deleted by the system when the space is needed for newer files. 
+
+* The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR are not provided on Mahuika.  Since most of its compute nodes do not have local disks there would be no distinction between SHM_DIR and TMP_DIR.  There is still a similar per-job directory, but it is simply TMPDIR - a standard Unix environment variable respected by most programs which would otherwise default to using /tmp.  As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg: 
+
+```
+SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="scratch_${SLURM_JOB_ID}_XXX.tmp")
+```
 
 ### Software
 
 * Many older environment modules which were present on Pan have not been recreated on Mahuika. Use `module spider` to discover if a newer version is present, and if stuck then please contact us. 
 
-* Locations of our installed software will be entirely different, though if you have been using environment modules correctly this will not affect you.
+* Locations of our installed software will be entirely different, though if you have been using environment modules correctly this will not matter.
 
 ### Hardware
 
@@ -47,13 +55,15 @@ Home directories from pan have been copied to XXX and project directories to XXX
 
 * Mahuika uses the "Broadwell" generation of Intel CPUs, newer than anything on Pan.  This makes Pan's optional Slurm constraints "wm", "sb" and "avx" obsolete. 
 
-* Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan XXX ? XXX with `-gres:gpu`.
+* Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres:gpu`.  It may be necessary to also specify `--partition gpu`.
 
-* Mahuika has XXX "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory, which has to be specifically requested by telling _sbatch_ `--partition=hugemem`.
+* Mahuika has XXX "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=bigmem` (for jobs shorter than 24 hours) or `--partition=hugemem`.  
 
-### Slurm
+### Accounts
 
 * On Pan it was always necessary to specify your project account to _sbatch_.  That is still a good idea, but if you only have one project then it isn't strictly necessary on Mahuika as Slurm has a concept of "default account".
+
+### Licenses
 
 * Some of our Slurm virtual licenses are obsolete and so have been removed: "io" because the filesystem bandwidth is considerably better than on Pan, plus "sci_matlab" and "eng_matlab" because their numbers of actual license tokens have been dramatically increased.
 
