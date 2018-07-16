@@ -23,7 +23,7 @@ Home directories from Pan have been copied into a subdirectory of your Mahuika h
 
 ## Differences from Pan
 
-Most Slurm batch scipts will require at least some changes to work on the new Platform, so please review all of the following points.
+Most Slurm batch scipts will require at least some changes to work on the new platform, so please review all of the following points.
 
 ### Filesystems
 
