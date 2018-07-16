@@ -51,7 +51,11 @@ SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="s
 
 * Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres:gpu`.  It may be necessary to also specify `--partition gpu`.
 
-* Mahuika has XXX "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=bigmem` (for jobs shorter than 24 hours) or `--partition=hugemem`.  
+* Mahuika has 5 "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=bigmem` (for jobs shorter than 24 hours) or `--partition=hugemem`.  
+
+### Job limits
+
+Jobs requesting a timelimit of more than 3 days have to be explictly submitted to the "long" partition, eg: `sbatch -p long ...`, while other ordinary jobs can be submitted to the "large" partition.  This kind of partitioning was more automated on Pan.
 
 ### Accounts
 
