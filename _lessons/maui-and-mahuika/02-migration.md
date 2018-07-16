@@ -55,7 +55,7 @@ SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="s
 
 ### Job limits
 
-Jobs requesting a timelimit of more than 3 days have to be explictly submitted to the "long" partition, eg: `sbatch -p long ...`, while other ordinary jobs can be submitted to the "large" partition.  This kind of partitioning was more automated on Pan.
+* Jobs requesting a timelimit of more than 3 days have to be explictly submitted to the "long" partition, eg: `sbatch -p long ...`, while other ordinary jobs can be submitted to the "large" partition.  This kind of partitioning was more automated on Pan.
 
 ### Accounts
 
