@@ -22,243 +22,214 @@ possible, based on project requirements).
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
-            <td width="144" colspan="2" valign="top">
+            <td   valign="top">
                 <p>
                     Filesystem
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     /home
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     /nesi/project
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     /nesi/nobackup
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     /nesi/nearline
                 </p>
             </td>
         </tr>
         <tr>
-            <td width="62" rowspan="2">
+            <td >
                 <p>
-                    Default
-                </p>
-                <p>
-                    Quota
+                    Default Quota
                 </p>
             </td>
-            <td width="82">
+            <td  >
                 <p>
-                    Mahuika
+                    few GB (max. 100,000 files)
                 </p>
             </td>
-            <td width="115">
+            <td  >
                 <p>
-                    10 to 40 GB (and 100,000 files)
+                    up to TB (max 20,000 files / TB)
                 </p>
             </td>
-            <td width="115">
-                <p>
-                    10 GB to 20 TB (max 20,000 files / TB)
-                </p>
-            </td>
-            <td width="115">
+            <td  >
                 <p>
                     No storage Quota (1 Million file limit)
                 </p>
             </td>
-            <td width="115" rowspan="2">
+            <td   >
                 <p>
                     No Size Limit, 500,000 files, each no smaller than 5 MB
                 </p>
             </td>
         </tr>
-        <tr>
-            <td width="82">
+        <td  >
                 <p>
-                    Maui
+                    Usage
                 </p>
             </td>
-            <td width="115">
+            <td   >
                 <p>
-                    10 to 100 GB (and 100,000 files)
+                    private data
                 </p>
             </td>
-            <td width="115">
+            <td   >
                 <p>
-                    100 GB to 50 TB (max 20,000 files / TB)
+                    project related data storage
                 </p>
             </td>
-            <td width="115">
+            <td   >
                 <p>
-                    No storage Quota (1 Million file limit)
+                    job input / output workspace
                 </p>
             </td>
+            <td   >
+                <p>
+                    archive
+                </p>
         </tr>
-        <tr>
-            <td width="62" rowspan="2">
+        <td  >
                 <p>
                     Capacity
                 </p>
             </td>
-            <td width="82" valign="top">
+            <td   >
                 <p>
-                    Mahuika
+                    175 TB
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   >
                 <p>
-                    75TB
+                    1,590 TB
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   >
                 <p>
-                    675TB
+                    4,400 TB
                 </p>
             </td>
-            <td width="115" rowspan="2">
-                <p>
-                    4,400TB
-                </p>
-            </td>
-            <td width="115" rowspan="2">
+            <td   >
                 <p>
                     &gt;100 PB (media funded by each project)
                 </p>
+        </tr>
+        <tr>
+            <td   valign="top">
+                <p>
+                    Access Speed
+                </p>
+            </td>
+            <td   valign="top">
+                <p>
+                    Moderate
+                </p>
+            </td>
+            <td   valign="top">
+                <p>
+                    Moderate
+                </p>
+            </td>
+            <td   valign="top">
+                <p>
+                    Fast
+                </p>
+            </td>
+            <td   valign="top">
+                <p>
+                   Slow. Only accessible via the Librarian Service.
+                </p>
             </td>
         </tr>
         <tr>
-            <td width="82" valign="top">
-                <p>
-                    Maui
-                </p>
-            </td>
-            <td width="115" valign="top">
-                <p>
-                    100TB
-                </p>
-            </td>
-            <td width="115" valign="top">
-                <p>
-                    915TB
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="144" colspan="2" valign="top">
+            <td   valign="top">
                 <p>
                     Expiration
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     End of Project
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     End of Project
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     60 days (or earlier if space required)
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     End of Project
                 </p>
             </td>
         </tr>
         <tr>
-            <td width="144" colspan="2" valign="top">
+            <td   valign="top">
                 <p>
                     Data Backup
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     Daily, last 10 versions retained for 90 days.
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     Daily, last 10 versions retained for 90 days.
                 </p>
             </td>
-            <td width="115">
+            <td  >
                 <p>
                     None
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     Replicated to offsite tape library
                 </p>
             </td>
         </tr>
         <tr>
-            <td width="144" colspan="2" valign="top">
+            <td   valign="top">
                 <p>
                     Snapshots
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     Daily (retention period, 7 days)
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     None
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     None
                 </p>
             </td>
-            <td width="115" valign="top">
+            <td   valign="top">
                 <p>
                     None
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="144" colspan="2" valign="top">
-                <p>
-                    Access Speed
-                </p>
-            </td>
-            <td width="115" valign="top">
-                <p>
-                    Moderate
-                </p>
-            </td>
-            <td width="115" valign="top">
-                <p>
-                    Moderate
-                </p>
-            </td>
-            <td width="115" valign="top">
-                <p>
-                    Fast
-                </p>
-            </td>
-            <td width="115" valign="top">
-                <p>
-Slow. Only accessible via the Librarian Service.
                 </p>
             </td>
         </tr>
