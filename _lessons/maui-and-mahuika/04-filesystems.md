@@ -263,3 +263,4 @@ possible, based on project requirements).
 
 * Data cache for HSM
 * Holds the records of all data written to tape via the librarian service
+* **Note:** The librarian service is not completely setup yet. 
