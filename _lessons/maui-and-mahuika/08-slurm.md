@@ -52,7 +52,6 @@ Reference information about Slurm can be found at:
 | gpu	| 1 day	| 6	| 2	| 2 GPGPUs per node. |
 
 
-
 ## Checking the queue with squeue
 
 To view all jobs in the queue:
