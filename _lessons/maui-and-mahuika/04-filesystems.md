@@ -75,7 +75,8 @@ possible, based on project requirements).
                 </p>
             </td>
         </tr>
-        <td  >
+        <tr>
+            <td  >
                 <p>
                     Usage
                 </p>
@@ -99,8 +100,10 @@ possible, based on project requirements).
                 <p>
                     archive
                 </p>
+            </td>
         </tr>
-        <td  >
+        <tr>
+            <td  >
                 <p>
                     Capacity
                 </p>
@@ -124,6 +127,7 @@ possible, based on project requirements).
                 <p>
                     &gt;100 PB (media funded by each project)
                 </p>
+            </td>
         </tr>
         <tr>
             <td   valign="top">
