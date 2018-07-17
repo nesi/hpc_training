@@ -49,7 +49,7 @@ Reference information about Slurm can be found at:
 | prepost	| 2 hours |	36	| 2	| Short jobs only.  More memory per CPU. |
 | bigmem	| 6 days	| 108	| 108	| Standard partition for all other “large memory” jobs. | 
 | hugemem	| 1 day	| 64	| 64	| The 4TB node – when it is available for batch processing. |
-| gpu	| 1 day	| 6	| 2	| 2 | GPGPUs per node. |
+| gpu	| 1 day	| 6	| 2	| 2 GPGPUs per node. |
 
 
 
