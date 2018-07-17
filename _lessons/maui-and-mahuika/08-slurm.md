@@ -42,8 +42,8 @@ Reference information about Slurm can be found at:
 
 **Important Note:** Slurm configurations is not yet complete on Mahuika and so this page is subject to change, particularly numerical values.
 
-| Name of Partition	| Maximum time limit	| CPU cores	Maximum cores per user	| Brief description / Purpose |
-| ------------------|--------------------|----------------------------------|---------------------------- |
+| Name of Partition	| Maximum time limit	| CPU cores	| Maximum cores per user	| Brief description / Purpose |
+| ------------------|--------------------|-----------|------------------------|---------------------------- |
 | large |	3 days	| 8424	| 1024	| Standard partition, allows large core count jobs. |
 | long |	3 weeks	| 1872	| 720	| Standard partition to corral long-duration jobs. |
 | prepost	| 2 hours |	36	| 2	| Short jobs only.  More memory per CPU. |
