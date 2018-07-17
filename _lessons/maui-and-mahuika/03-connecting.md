@@ -23,7 +23,7 @@ You will need a terminal program to login to Māui or Mahuika:
 
 Connecting to Māui or Mahuika is a two step process. First, connect to NeSI's lander node by typing:
 ```
-ssh -Y <myusername>@lander.nesi.org.nz
+ssh -Y <myusername>@lander01.nesi.org.nz
 ```
 inside your terminal program, where `<myusername>` is your account user name. You will see the following prompt:
 ```
@@ -74,7 +74,7 @@ Host maui
 
 Host lander
    User myusername
-   HostName lander.nesi.org.nz
+   HostName lander01.nesi.org.nz
    ForwardX11 yes
    ForwardX11Trusted yes
    ServerAliveInterval 300
