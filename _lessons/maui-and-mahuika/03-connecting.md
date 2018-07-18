@@ -47,7 +47,7 @@ For Māui:
 ssh -Y login.maui.nesi.org.nz
 ```
 
-At present a password is required for this step (going from the lander node to the Māui or Mahuika login nodes). This password should be a combination of your password (first factor) and a new second factor token; for example "password123456", where "password" is your password and "123456" is the new second factor token. We plan to change this so that a password will not be required for this step in the future.
+Your password and a new second factor may be required for this step (going from the lander node to the Māui or Mahuika login nodes). We plan to change this so that a password will not be required for this step in the future.
 
 ## Jumping across the lander node (advanced)
 
