@@ -37,7 +37,7 @@ Reference information about Slurm can be found at:
 
 ### Partitions on Mahuika
 
-**Important Note:** Slurm configurations is not yet complete on Mahuika and so this page is subject to change, particularly numerical values.
+**Important Note:** Slurm configuration is not yet complete on Mahuika and so this page is subject to change, particularly numerical values.
 
 | Name of Partition	| Maximum time limit	| CPU cores	| Maximum cores per user	| Brief description / Purpose |
 | ------------------|--------------------|-----------|------------------------|---------------------------- |
@@ -69,6 +69,8 @@ To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.
 
 Even though hyperthreading is enabled, the resources will generally be allocated to jobs at the level of a physical core. Two different jobs will not share a physical core. For example, a job requesting resources for three tasks on a hyperthreading node will be allocated two full physical cores.
 
+**Important:** Hyperthreading can be beneficial for some codes, but it can also degrade performance in other cases. We therefore recommend to run a small test job with and without hyperthreading to determine the best choice.
+
 ### Mahuika Infiniband Islands
 
 Mahuika's network consists of a number of Infiniband Islands, each containing 26 nodes or 936 physical cores. Parallel jobs that run entirely within an InfiniBand Island will achieve better application scaling performance than those that cross InfiniBand Island boundaries.
@@ -83,7 +85,7 @@ For example, add the following line after the `#SBATCH` directives and before yo
 ```
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 ```
-
+It may also be necessary to set the `OMP_STACKSIZE` variable in some cases, if your program crashes with segmentation faults due to stack overflow in one or more threads.
 
 ## Submitting a job
 

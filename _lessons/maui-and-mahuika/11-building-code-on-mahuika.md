@@ -46,7 +46,7 @@ module load PrgEnv-cray
 ```
 
 ## Compilers
-Compilers are provided for Fortran, C, and C++. For MPI parallelised code often different compilers need to be used. The different **compilers** are listed:
+Compilers are provided for Fortran, C, and C++; compiler wrappers are needed to build code with MPI parallelisation. The following table lists available compilers and wrappers for each vendor:
 
 | Language      | Cray | Intel    | GNU      |
 | --------------|------|----------|----------|
@@ -57,7 +57,7 @@ Compilers are provided for Fortran, C, and C++. For MPI parallelised code often 
 | C++           | CC   | icpc     | g++      |
 | C++ + MPI     | CC   | mpiicpc  | mpicxx   |
 
-**Note**, Cray uses compiler wrapper which are described [later in more detail](#cray-programming-environment). 
+**Note:** The Cray compilers always use compiler wrappers which will be described [in more detail later](#cray-programming-environment). 
 
 In general you then compile your code using:
 ```
@@ -69,7 +69,7 @@ e.g.
 ```
 
 ## Compiler options
-Compilers are controlled using different options to control optimisations, output, source and library handling. There options vary between the different compiler vendors. That means you will need to change them if you decide to switch compilers.
+Compilers are controlled using different options to control optimisations, output, source and library handling. These options vary between the different compiler vendors. That means you will need to change them if you decide to switch compilers.
 The following table provides a list of commonly used compiler **options** for the different compilers:
 
 | Group         | Cray | Intel | GNU | Notes   |
@@ -126,9 +126,9 @@ to find out.
 
 Note that specifying search paths with `-I` and `-L` is not strictly necessary in case of the GNU and Intel compilers, which will use the contents of `CPATH`, `LIRARY_PATH`, and `LD_LIBRARY_PATH` provided by the NeSI/NIWA module. This will not work with the Cray compiler.
 
-**Important note:** Make sure that you load the correct variant of a library, depending on your choice of compiler. Switching compiler environment will *not* switch NeSI/NIWA modules automatically. Furthermore, loading a NeSI/NIWA module may switch programming environment if it was built with a different compiler. In general, the used library should be build with the same compiler. 
+**Important note:** Make sure that you load the correct variant of a library, depending on your choice of compiler. Switching compiler environment will *not* switch NeSI/NIWA modules automatically. Furthermore, loading a NeSI/NIWA module may switch programming environment if it was built with a different compiler. In general, libraries should be built with the same compiler, and they must be built with the same compiler if Fortran modules are provided.
 
-**Note:** the mentioned MPI compilers are practically compiler wrappers adding the location to the MPI library. This can be observed calling e.g. `mpif90 -showme`
+**Note:** The MPI compiler wrappers add include paths and search paths for the MPI library, as well as further compiler and linker flags depending on the MPI distribution. This can be verified by running `mpif90 -show <...>` for Intel MPI, or `mpif90 --showme <...>` in the case of OpenMPI.
 
 ### Common linker problems
 
@@ -144,9 +144,9 @@ Linking can easily go wrong. Most often, you will see linker errors about "missi
 Note that the linker requires that function names match exactly, so any variation in function name in your code will lead to a "missing symbols" error (with the exception of character case in Fortran source code).
 
 ## Cray Programming Environment
-The Cray Programming Environment includes the Cray compiler, various libraries and tools. These work nicely together and provide certain user-friendly features by using compiler wrappers. This works very similar as the Cray XC environment, provided on Maui, and is described in detail at page [Building Code on Maui](12-building-code-on-maui.md).
+The Cray Programming Environment includes the Cray compiler, various libraries and tools. These work nicely together and provide certain user-friendly features by using compiler wrappers. This works very similar as the Cray XC environment, provided on Maui, and is described in detail on page [Building Code on Maui](12-building-code-on-maui.md).
 
-**Note**, in contrast to Maui, only the Cray compiler is provided in this environment. This Cray compiler on Mahuika provides only dynamic linking support.
+**Note:** On Mahuika, only the Cray compiler uses the Cray Programming Environment while the Intel and GNU compilers are used as on any other Linux system. Moreover, the Cray compiler on Mahuika only supports dynamic linking. This is different on Māui where all compilers use the Cray Programming Environment and static linking is preferred.
 
 <!-- 
 --------------
