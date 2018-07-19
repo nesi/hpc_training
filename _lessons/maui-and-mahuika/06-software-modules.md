@@ -42,7 +42,7 @@ Using the `module` command you can:
 ### Lmod on Mahuika
 
 On Mahuika we are using an enhanced version of modules called Lmod (it was
-there on Pan too).
+there on Pan, too).
 
 Lmod extends the basic environment modules by adding simple shortcuts and a
 more powerful search capability. The `ml` shortcut can be used in place of

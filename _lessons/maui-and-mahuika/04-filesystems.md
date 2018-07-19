@@ -218,7 +218,7 @@ possible, based on project requirements).
             </td>
             <td   valign="top">
                 <p>
-                    Daily (retention period, 7 days)
+                    Daily (retention period 7 days)
                 </p>
             </td>
             <td   valign="top">

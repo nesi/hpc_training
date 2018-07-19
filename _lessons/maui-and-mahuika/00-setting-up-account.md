@@ -19,7 +19,7 @@ You will learn how to:
 You will need:
 
  * A terminal program to log in with:
-   * Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 11 bash, or [PuTTY](https://www.putty.org/) (to install these you will need administrative rights on your machine or you will have to talk to your IT)
+   * Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [PuTTY](https://www.putty.org/) (to install these you may need administrative rights on your machine, or you may have to talk to your IT department)
    * MacOS X: Terminal app or iTerm2
    * Linux: Terminal app or xterm
  * A smartphone with Google Authenticator (recommended) or another app that implements the TOTP (Time-based One Time Password) algorithm installed. Ensure that you use your preferred device as you will need it every time you log in
@@ -68,7 +68,7 @@ If you are logging in for the first time to the new platforms, you will need to 
       You can choose your permanent password by following this **six-step** process (**Note:** there is a 2:00 minute idle timeout):
    1. Connect to the lander node:
       * If you are using a Mac or Linux computer, connect to the lander node using the command:`ssh -Y <myusername>@lander02.nesi.org.nz`, where `<myusername>` should be replaced with your Linux username, which you can find by logging in to [the My NeSI site](https://my.nesi.org.nz) (not to be confused with your institutional login name). 
-      * If you are using a Windows computer, start a new session on MobaXterm and set the Remote Host to `lander02.nesi.org.nz` and your username as your username.
+      * If you are using a Windows computer, start a new session on your terminal (e.g., MobaXterm) and set `lander02.nesi.org.nz` as remote host and your username as your username.
       
       **Note:** When you first attempt to SSH into the lander node you may be met with a message warning you that the authenticity of the host cannot be established and asking if you wish to continue. You must type `yes` and press the `Enter` key. Typing `y` as a shorthand for "yes" is not sufficient.
    
