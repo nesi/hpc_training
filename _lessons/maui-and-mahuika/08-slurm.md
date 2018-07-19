@@ -77,21 +77,11 @@ Users can request that the job run within an InfiniBand Island by adding the `sb
 
 ### OpenMP jobs
 
-For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the `OMP_NUM_THREADS` variable, for example:
+For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the `OMP_NUM_THREADS` variable.
+For example, add the following line after the `#SBATCH` directives and before you run your program with `srun`:
 
 ```
-#!/bin/bash
-#SBATCH --job-name=OpenMP_job
-#SBATCH --account=nesi99999
-#SBATCH --time=01:00:00
-#SBATCH --mem-per-cpu=1024
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --partition=long
-#SBATCH --hint=nomultithread
-
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-srun <your_app>
 ```
 
 
