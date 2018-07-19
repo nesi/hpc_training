@@ -60,7 +60,7 @@ You will need to modify your Slurm scripts to run on the new platforms.
 ### Hyperthreading
 
 [Hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading) is enabled on NeSI's platforms.
-By default, Slurm schedules hyperthreads (logical cores, or "CPUs" in Slurm nomenclature), of which there are 72 and 80 per node on Mahuika and Maui respectively.
+By default, Slurm schedules hyperthreads (logical cores, or "CPUs" in Slurm nomenclature), of which there are 72 and 80 per node on Mahuika and Māui respectively.
 To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurrences of `srun` within the job.
 
 ```
