@@ -21,20 +21,15 @@ The basic toolkit consists of scp and sftp.
 2.  sftp -- secure file transfer protocol
 
 ### Preliminaries ###
+
 --- 
-
-**NOTE**
-
 > Both scp and sftp use `ssh` (secure shell), so it's important that before you proceed, you can successfully ssh into the lander node and directly into mahuika/maui with the command
->```console
-ssh mahuika
-```
->following the instructions at [jumping across the lander node](connecting#ssh_jump_node)
+> ```console
+  ssh mahuika
+  ```
+> following the instructions at [jumping across the lander node](connecting#ssh_jump_node)
 
 --- 
-
-
-
 
 
 ## scp ##
@@ -115,7 +110,7 @@ Get files `a`, `b`, and `c`  from your project directory on the cluster:
 
 ### tar ###
 
-There is overhead with each file transfer. If you are transferring a lot of small files, consider using `tar` to archive and compress the set of files:
+There is overhead with each file transfer. If you are transferring a lot of small files, consider using `tar` to archive and compress the set of files and transfer just one file, the archive.
 
 
 To transfer a directory tree from either end: navigate to that directory and at the shell:
@@ -161,17 +156,17 @@ sftp>
 
 From here you can inspect the state of the remote while transferring, and issue the following:
 
- | command  |  explanation | 
- | -------- | ------------- | 
- | ```cd``` |  navigate on remote | 
- | ```lcd``` |  navigate on local | 
- | ```ls``` |  list files  | 
- | ```mkdir``` |  create directories  | 
- | ```rmdir``` |  remove directories | 
- | ```put``` |  from local to remote | 
- | ```get``` |  from remote to local | 
- | ```help``` |  see all commands | 
- | ---------- | ----------------- |
+ | command  |  explanation |
+ | -------- | ------------- |
+ | ```cd``` |  navigate on remote |
+ | ```lcd``` |  navigate on local |
+ | ```ls``` |  list files  |
+ | ```mkdir``` |  create directories  |
+ | ```rmdir``` |  remove directories |
+ | ```put``` |  from local to remote |
+ | ```get``` |  from remote to local |
+ | ```help``` |  see all commands |
+ |----------|-----------------|
 
 --- 
 
@@ -180,11 +175,11 @@ From here you can inspect the state of the remote while transferring, and issue 
 You can use globbing to put/get a bunch of files all at once:
 
 | command | explanation |
-|----|-----|
-| ```put foo*``` |  put all files in cwd starting with ```foo``` from local to remote | 
- | ```put *.c``` |  put all files in cwd ending with ```.c``` from local to remote | 
- | ```get foo*``` | get all files in cwd starting with ```foo```  from remote to local | 
- | ```get *.py``` | get all files in cwd ending with ```".py"```  from remote to local | 
+|----|----- |
+| ```put foo*``` |  put all files in cwd starting with ```foo``` from local to remote |
+| ```put *.c``` |  put all files in cwd ending with ```.c``` from local to remote |
+| ```get foo*``` | get all files in cwd starting with ```foo```  from remote to local |
+| ```get *.py``` | get all files in cwd ending with ```".py"```  from remote to local |
 |----|----|
 
 where
@@ -192,16 +187,12 @@ where
 
 
 --- 
-**NOTE**
-
->* Use ```man sftp``` to see options on get and put.
->  - the -a option permits resuming a partial transfer
->  - the -r option permits transferring a directory
->  - the -p option permits transferring file permissions and timestamps
-
->* Use ``` ls -lt``` to see long listing of directory on remote host.
+> **NOTE**
+> * Use ```man sftp``` to see options on get and put.
+>   - the -a option permits resuming a partial transfer
+>   - the -r option permits transferring a directory
+>   - the -p option permits transferring file permissions and timestamps
+> * Use ``` ls -lt``` to see long listing of directory on remote host.
 
 --- 
-
-
 
