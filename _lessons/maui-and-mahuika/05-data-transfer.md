@@ -40,17 +40,17 @@ The syntax for the scp command is:
 
 |argument| description|
 |----------|-----------|
-  |source_user| source username |
-  |source_host| url or hostname of host on which the source file resides |
-  | source_path| /path/to/filename of source file |
+  |`source_user`| source username |
+  |`source_host`| url or hostname of host on which the source file resides |
+  |`source_path`| /path/to/filename of source file |
 
 * The destination file is specified by the second argument, ```dest_user@dest_host:dest_path```, where:
 
 |argument| description|
 |----------|-----------|
-  |dest_user|destination username |
-  |dest_host | url or hostname of host to which the source file will be copied |
-  |dest_path| /path/to/filename of destination file|
+  |`dest_user`|destination username |
+  |`dest_host`| url or hostname of host to which the source file will be copied |
+  |`dest_path`| /path/to/filename of destination file|
 
 --- 
 
@@ -64,12 +64,32 @@ The syntax for the scp command is:
 
 Copy a file from the current directory on your local host to your home directory on the cluster with either:
 
-|```  scp filename mahuika:/home/username/```| copy file to home dir |
-|```  scp filename mahuika:~/```| (same as previous) | 
-|```  scp filename mahuika:/path/to/storage/location/``` | copy file to another remote path |
-|```  scp filename mahuika:/path/to/storage/new_filename``` | copy file to renamed remote file|
-|```  scp filename mahuika:/nesi/project/nesi123456``` | copy file to project folder |
-|```  scp -r foldername mahuika:/path/to/storage/``` | copy _folder_ to path |
+<table>
+<tr>
+    <td><code>scp filename mahuika:/home/username/</code></td>
+    <td> copy file to home dir </td>
+</tr>
+<tr>
+    <td><code>scp filename mahuika:~/</code></td>
+    <td> (same as previous) </td>
+</tr> 
+<tr>
+    <td><code>scp filename mahuika:/path/to/storage/location/</code> </td>
+    <td> copy file to another remote path </td>
+</tr>
+<tr>
+    <td><code>scp filename mahuika:/path/to/storage/new_filename</code> </td>
+    <td> copy file to renamed remote file</td>
+</tr>
+<tr>
+    <td><code>scp filename mahuika:/nesi/project/nesi123456</code> </td>
+    <td> copy file to project folder </td>
+</tr>
+<tr>
+    <td><code>scp -r foldername mahuika:/path/to/storage/</code> </td>
+    <td> copy _folder_ to path </td>
+</tr>
+</table>
 
 Note: the `-r` option makes `scp` a _recursive_ copy.  See ```man scp``` for more options.
 
@@ -87,24 +107,33 @@ Examples:
 
 <table>
 <tr>
-    <td>```  scp mahuika:/home/username/filename  .```</td><td> copy file from remote home directory to current local directory</td>
+    <td>
+        <code>scp mahuika:/home/username/filename  .</code>
+    </td>
+    <td> 
+        copy file from remote home directory to current local directory
+    </td>
 </tr>
 <tr>
-    <td>```  scp mahuika:~/filename .```</td><td>(same as previous)</td>
+    <td><code>scp mahuika:~/filename .</code></td>
+    <td>(same as previous)</td>
 </tr>
 <tr>
-    <td>```  scp mahuika:/path/to/storage/filename  /another/path/on/local/```</td><td>copy file from remote path to another local path</td>
+    <td><code>scp mahuika:/path/to/storage/filename  /another/path/on/local/</code></td>
+    <td>copy file from remote path to another local path</td>
 </tr>
 <tr>
-    <td>```  scp mahuika:/nesi/project/nesi123456/filename .```</td><td>copy path from remote project folder to current local directory</td>
+    <td><code>scp mahuika:/nesi/project/nesi123456/filename .</code></td>
+    <td>copy path from remote project folder to current local directory</td>
 </tr>
 <tr>
-    <td>```  scp mahuika:/nesi/project/nesi123456/{a,b,c} .```</td><td> copy multiple remote files to here</td>
+    <td><code>scp mahuika:/nesi/project/nesi123456/{a,b,c} .</code></td>
+    <td> copy multiple remote files to here</td>
 </tr>
 <tr>
-    <td>```  scp -r mahuika:/nesi/project/nesi123456 .```</td><td> copy entire project folder to here</td>
+    <td><code>scp -r mahuika:/nesi/project/nesi123456 .</code></td>
+    <td> copy entire project folder to here</td>
 </tr>
-
 </table>
 
 (No spaces between the commas and filenames!)
@@ -116,13 +145,36 @@ There is overhead with each file transfer. If you are transferring a lot of smal
 To transfer a directory tree from either end: navigate to that directory and at the shell
 
 <table>
-<tr><th> command </th><th> explanation </th><th> where issued </th></tr>
-<tr><td> --- </td><td> --- </td><td> --- </td></tr>
-<tr><td> ```tar cvfz archive.tar.gz ./ ``` </td><td> create and compress archive </td><td> on source </td></tr>
-<tr><td> ``` scp archive.tar.gz mahuika:path``` </td><td> copy to mahuika </td><td> on local </td></tr>
-<tr><td> ``` scp mahuika:path/archive.tar.gz .``` </td><td> copy from mahuika </td><td> on local </td></tr>
-<tr><td> ```see archive.tar.gz``` </td><td> see contents of archive </td><td> on source or target </td></tr>
-<tr><td> ```tar xvfz archive.tar.gz``` </td><td> extract archive after scp </td><td> on target </td></tr>
+<tr>
+    <th> command </th>
+    <th> explanation </th>
+    <th> where issued </th>
+</tr>
+<tr>
+    <td> <code>tar cvfz archive.tar.gz ./ </code> </td>
+    <td> create and compress archive </td>
+    <td> on source </td>
+</tr>
+<tr>
+    <td> <code> scp archive.tar.gz mahuika:path</code> </td>
+    <td> copy to mahuika </td>
+    <td> on local </td>
+</tr>
+<tr>
+    <td> <code> scp mahuika:path/archive.tar.gz .</code> </td>
+    <td> copy from mahuika </td>
+    <td> on local </td>
+</tr>
+<tr>
+    <td> <code>see archive.tar.gz</code> </td>
+    <td> see contents of archive </td>
+    <td> wherever archive exists</td>
+</tr>
+<tr>
+    <td> <code>tar xvfz archive.tar.gz</code> </td> 
+    <td> extract archive after scp </td>
+    <td> on target </td>
+</tr>
 </table>
 
 
@@ -160,6 +212,12 @@ From here you can inspect the state of the remote while transferring, and issue 
 
 --- 
 
+The two operative verbs in sftp are 'get' and 'put', as in:
+
+* _get_ from remote to local
+* _put_ from local to remote
+
+
 **Speeding up**
 
 You can use globbing to put/get a bunch of files all at once:
@@ -170,7 +228,6 @@ You can use globbing to put/get a bunch of files all at once:
 | ```put *.c``` |  put all files in cwd ending with ```.c``` from local to remote |
 | ```get foo*``` | get all files in cwd starting with ```foo```  from remote to local |
 | ```get *.py``` | get all files in cwd ending with ```".py"```  from remote to local |
-|----|----|
 
 where
 ```cwd == "current working directory"```, at either end!
