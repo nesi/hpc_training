@@ -64,12 +64,12 @@ The syntax for the scp command is:
 
 Copy a file from the current directory on your local host to your home directory on the cluster with either:
 
-|```  scp filename mahuika:/home/username/```|copy file to home dir|
-|```  scp filename mahuika:~/```|(same as previous)| 
-|```  scp filename mahuika:/path/to/storage/location/```|copy file to another remote path
-|```  scp filename mahuika:/path/to/storage/new_filename```|copy file to renamed remote file|
-|```  scp filename mahuika:/nesi/project/nesi123456```|copy file to project folder|
-|```  scp -r foldername mahuika:/path/to/storage/```|copy _folder_ to path|
+|```  scp filename mahuika:/home/username/```| copy file to home dir |
+|```  scp filename mahuika:~/```| (same as previous) | 
+|```  scp filename mahuika:/path/to/storage/location/``` | copy file to another remote path |
+|```  scp filename mahuika:/path/to/storage/new_filename``` | copy file to renamed remote file|
+|```  scp filename mahuika:/nesi/project/nesi123456``` | copy file to project folder |
+|```  scp -r foldername mahuika:/path/to/storage/``` | copy _folder_ to path |
 
 Note: the `-r` option makes `scp` a _recursive_ copy.  See ```man scp``` for more options.
 
@@ -85,12 +85,27 @@ Examples:
 --- 
 
 
-|```  scp mahuika:/home/username/filename  .```| copy file from remote home directory to current local directory|
-|```  scp mahuika:~/filename .```|(same as previous)|
-|```  scp mahuika:/path/to/storage/filename  /another/path/on/local/```|copy file from remote path to another local path|
-|```  scp mahuika:/nesi/project/nesi123456/filename .```|copy path from remote project folder to current local directory|
-|```  scp mahuika:/nesi/project/nesi123456/{a,b,c} .```| copy multiple remote files to here|
-|```  scp -r mahuika:/nesi/project/nesi123456 .```| copy entire project folder to here|
+<table>
+<tr>
+    <td>```  scp mahuika:/home/username/filename  .```</td><td> copy file from remote home directory to current local directory</td>
+</tr>
+<tr>
+    <td>```  scp mahuika:~/filename .```</td><td>(same as previous)</td>
+</tr>
+<tr>
+    <td>```  scp mahuika:/path/to/storage/filename  /another/path/on/local/```</td><td>copy file from remote path to another local path</td>
+</tr>
+<tr>
+    <td>```  scp mahuika:/nesi/project/nesi123456/filename .```</td><td>copy path from remote project folder to current local directory</td>
+</tr>
+<tr>
+    <td>```  scp mahuika:/nesi/project/nesi123456/{a,b,c} .```</td><td> copy multiple remote files to here</td>
+</tr>
+<tr>
+    <td>```  scp -r mahuika:/nesi/project/nesi123456 .```</td><td> copy entire project folder to here</td>
+</tr>
+
+</table>
 
 (No spaces between the commas and filenames!)
 
@@ -100,13 +115,15 @@ There is overhead with each file transfer. If you are transferring a lot of smal
 
 To transfer a directory tree from either end: navigate to that directory and at the shell
 
-| command | explanation | where issued |
-| --- | --- | --- |
-| ```tar cvfz archive.tar.gz ./ ``` | create and compress archive | on source |
-| ``` scp archive.tar.gz mahuika:path``` | copy to mahuika | on local |
-| ``` scp mahuika:path/archive.tar.gz .``` | copy from mahuika | on local |
-| ```see archive.tar.gz``` | see contents of archive | on source or target |
-| ```tar xvfz archive.tar.gz``` | extract archive after scp | on target |
+<table>
+<tr><th> command </th><th> explanation </th><th> where issued </th></tr>
+<tr><td> --- </td><td> --- </td><td> --- </td></tr>
+<tr><td> ```tar cvfz archive.tar.gz ./ ``` </td><td> create and compress archive </td><td> on source </td></tr>
+<tr><td> ``` scp archive.tar.gz mahuika:path``` </td><td> copy to mahuika </td><td> on local </td></tr>
+<tr><td> ``` scp mahuika:path/archive.tar.gz .``` </td><td> copy from mahuika </td><td> on local </td></tr>
+<tr><td> ```see archive.tar.gz``` </td><td> see contents of archive </td><td> on source or target </td></tr>
+<tr><td> ```tar xvfz archive.tar.gz``` </td><td> extract archive after scp </td><td> on target </td></tr>
+</table>
 
 
 and everything will be uncompressed and unpacked to the same directory structure as it was before.
