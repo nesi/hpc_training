@@ -64,12 +64,12 @@ The syntax for the scp command is:
 
 Copy a file from the current directory on your local host to your home directory on the cluster with either:
 
-|```  scp filename mahuika:/home/username/```| copy file to home dir |
-|```  scp filename mahuika:~/```| (same as previous) | 
-|```  scp filename mahuika:/path/to/storage/location/``` | copy file to another remote path |
-|```  scp filename mahuika:/path/to/storage/new_filename``` | copy file to renamed remote file|
-|```  scp filename mahuika:/nesi/project/nesi123456``` | copy file to project folder |
-|```  scp -r foldername mahuika:/path/to/storage/``` | copy _folder_ to path |
+|```scp filename mahuika:/home/username/```| copy file to home dir |
+|```scp filename mahuika:~/```| (same as previous) | 
+|```scp filename mahuika:/path/to/storage/location/``` | copy file to another remote path |
+|```scp filename mahuika:/path/to/storage/new_filename``` | copy file to renamed remote file|
+|```scp filename mahuika:/nesi/project/nesi123456``` | copy file to project folder |
+|```scp -r foldername mahuika:/path/to/storage/``` | copy _folder_ to path |
 
 Note: the `-r` option makes `scp` a _recursive_ copy.  See ```man scp``` for more options.
 
@@ -87,24 +87,33 @@ Examples:
 
 <table>
 <tr>
-    <td>```  scp mahuika:/home/username/filename  .```</td><td> copy file from remote home directory to current local directory</td>
+    <td>
+        ```scp mahuika:/home/username/filename  .```
+    </td>
+    <td> 
+        copy file from remote home directory to current local directory
+    </td>
 </tr>
 <tr>
-    <td>```  scp mahuika:~/filename .```</td><td>(same as previous)</td>
+    <td>```scp mahuika:~/filename .```</td>
+    <td>(same as previous)</td>
 </tr>
 <tr>
-    <td>```  scp mahuika:/path/to/storage/filename  /another/path/on/local/```</td><td>copy file from remote path to another local path</td>
+    <td>```scp mahuika:/path/to/storage/filename  /another/path/on/local/```</td>
+    <td>copy file from remote path to another local path</td>
 </tr>
 <tr>
-    <td>```  scp mahuika:/nesi/project/nesi123456/filename .```</td><td>copy path from remote project folder to current local directory</td>
+    <td>```scp mahuika:/nesi/project/nesi123456/filename .```</td>
+    <td>copy path from remote project folder to current local directory</td>
 </tr>
 <tr>
-    <td>```  scp mahuika:/nesi/project/nesi123456/{a,b,c} .```</td><td> copy multiple remote files to here</td>
+    <td>```scp mahuika:/nesi/project/nesi123456/{a,b,c} .```</td>
+    <td> copy multiple remote files to here</td>
 </tr>
 <tr>
-    <td>```  scp -r mahuika:/nesi/project/nesi123456 .```</td><td> copy entire project folder to here</td>
+    <td>```scp -r mahuika:/nesi/project/nesi123456 .```</td>
+    <td> copy entire project folder to here</td>
 </tr>
-
 </table>
 
 (No spaces between the commas and filenames!)
