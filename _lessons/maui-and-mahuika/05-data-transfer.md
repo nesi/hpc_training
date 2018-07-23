@@ -60,7 +60,8 @@ The syntax for the scp command is:
 
 --- 
 
-### copying files to the cluster###
+### copying files to the cluster ###
+
 Copy a file from the current directory on your local host to your home directory on the cluster with either:
 
 |```  scp filename mahuika:/home/username/```|copy file to home dir|
@@ -99,13 +100,13 @@ There is overhead with each file transfer. If you are transferring a lot of smal
 
 To transfer a directory tree from either end: navigate to that directory and at the shell
 
-| command | explanation | where issued|
-|---|---|---|
-| ```tar cvfz archive.tar.gz ./ ```| create and compress archive | on source |
-| ``` scp archive.tar.gz mahuika:path```| copy to mahuika | on local |
+| command | explanation | where issued |
+| --- | --- | --- |
+| ```tar cvfz archive.tar.gz ./ ``` | create and compress archive | on source |
+| ``` scp archive.tar.gz mahuika:path``` | copy to mahuika | on local |
 | ``` scp mahuika:path/archive.tar.gz .``` | copy from mahuika | on local |
-| ```see archive.tar.gz```| see contents of archive | on source or target |
-| ```tar xvfz archive.tar.gz```| extract archive after scp | on target |
+| ```see archive.tar.gz``` | see contents of archive | on source or target |
+| ```tar xvfz archive.tar.gz``` | extract archive after scp | on target |
 
 
 and everything will be uncompressed and unpacked to the same directory structure as it was before.
