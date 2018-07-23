@@ -1,4 +1,4 @@
----
+m---
 layout: post
 title: Finding software (modules)
 permalink: /lessons/maui-and-mahuika/software-modules
@@ -68,13 +68,43 @@ more powerful search capability. The `ml` shortcut can be used in place of
   ```
   ml -Python/2.7.14-gimkl-2017a Python/3.6.3-gimkl-2017a
   ```
-* Clear all loaded modules
-  ```
-  ml purge
-  ```
+* To get a fresh environment, we recommend to log off and log in again.
+  Thus not only the loaded modules are restored to the default ones,
+  but also the environment variables are reset to the default ones.
 
 Further information available in the online
 [User Guide for Lmod](https://lmod.readthedocs.io/en/latest/010_user.html).
+
+## Create your own modules
+You can create your own modules to define often used working environments.
+These modules could define a list of other loaded modules and environment
+variables.
+For example, you can define a module for your debugging work, not only loading
+necessary modules like compilers and debuggers. You could also add PATH to
+your own tools or set specific compiler flags.
+
+Thus you could define a module e.g. `~/modulefiles/MyDebugEnv` as following:
+```
+#%module
+
+conflict MyProductionEvn
+module load gimkl
+module load forge
+module load perftools-base perftools
+
+setenv CFLAGS "-DXYZDEBUG "
+prepand-path PATH ~/tools/bin
+```
+
+To make that directory available to the module environment you need to specify:
+```
+module use ~/modulefiles
+```
+which you can also define in your `~/.bashrc`.
+To load that environment, you simply load your module:
+```
+module load MyProductionEvn
+```
 
 ## Software support
 
@@ -82,5 +112,3 @@ Further information available in the online
 
 
 ### Requesting software installs
-
-
