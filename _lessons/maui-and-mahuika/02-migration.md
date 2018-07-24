@@ -57,6 +57,8 @@ SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="s
 
 * Jobs requesting a timelimit of more than 3 days have to be explictly submitted to the "long" partition, eg: `sbatch -p long ...`, while other ordinary jobs can be submitted to the "large" partition.  This kind of partitioning was more automated on Pan.
 
+* Instead of Pan's little-used _debug_ partition Mahuika has a _debug_ QoS (Quality of Service) used like `sbatch --qos debug ...`.  Jobs which request this QoS can only request a maximum of 15 minutes, and you can only execute one of them at a time.
+
 ### Accounts
 
 * On Pan it was always necessary to specify your project account to _sbatch_.  That is still a good idea, but if you only have one project then it isn't strictly necessary on Mahuika as Slurm has a concept of "default account".
