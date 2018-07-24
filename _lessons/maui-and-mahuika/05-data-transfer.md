@@ -246,7 +246,7 @@ As you `put` and `get`, use `ls -lt` to see the state of your remote and local f
 ## rsync ##
 
 A more powerful tool again for file transfer is `rsync`.  It can be restarted after an 
-incomplete transfer, it can optionally encrypt it,  and much much more.
+incomplete transfer, optionally compress the transfer, ensure that symbolic links, devices, attributes, permissions, ownerships, etc. are preserved, and much more.
 See its man page for options and examples.
 
 <table>
