@@ -260,8 +260,6 @@ See its man page for options and examples.
 </tr>
 <tr>
     <td> <code> rsync -azv /path/to/file host:dest </code> </td>
-</tr>
-<tr>
     <td> push (put) to remote destination</td>
 </tr>
 </table>
