@@ -62,7 +62,8 @@ The syntax for the scp command is:
 
 ### copying files to the cluster ###
 
-Copy a file from the current directory on your local host to your home directory on the cluster with either:
+Here the source is your workstation, the destination is `mahuika`.
+
 
 <table>
 <tr>
@@ -95,7 +96,7 @@ Note: the `-r` option makes `scp` a _recursive_ copy.  See ```man scp``` for mor
 
 ### copying files from the cluster ###
 
-Examples:
+Here the source is `mahuika`, the destination is your workstation.
 
 --- 
 > **Note:**
@@ -142,7 +143,7 @@ Examples:
 
 There is overhead with each file transfer. If you are transferring a lot of small files, consider using `tar` to archive and compress the set of files and transfer just one file, the archive.
 
-To transfer a directory tree from either end: navigate to that directory and at the shell
+To transfer a directory tree from either end, navigate to that directory on the source and destination, and at the shell:
 
 <table>
 <tr>
@@ -178,13 +179,14 @@ To transfer a directory tree from either end: navigate to that directory and at 
 </table>
 
 
-and everything will be uncompressed and unpacked to the same directory structure as it was before.
+and everything will be copied over and finally uncompressed and 
+unpacked to the same directory structure as it was before, with one file-copy.
 
 See ```man tar``` for options on excluding files from the transfer, and other options.
 the ```c``` option means "create", the  "x" option means "extract".
 
 ## sftp ##
-For an interactive file-transfer session, ```sftp``` is a convenient tool.
+For an interactive file-transfer session, `sftp` is a more full-featured tool than `scp`.
 From your local host,
 
 ```console
@@ -208,9 +210,7 @@ From here you can inspect the state of the remote while transferring, and issue 
  | ```put``` |  from local to remote |
  | ```get``` |  from remote to local |
  | ```help``` |  see all commands |
- |----------|-----------------|
 
---- 
 
 The two operative verbs in sftp are 'get' and 'put', as in:
 
@@ -231,7 +231,7 @@ You can use globbing to put/get a bunch of files all at once:
 
 where
 ```cwd == "current working directory"```, at either end!
-
+As you `put` and `get`, use `ls -lt` to see the state of your remote and local filesystems.
 
 --- 
 > **NOTE**
@@ -243,3 +243,21 @@ where
 
 --- 
 
+## rsync ##
+
+A more powerful tool again for file transfer is `rsync`:
+
+<table>
+<tr>
+    <th> command </th>
+    <th> explanation </th>
+</tr>
+<tr>
+    <td> <code> rsync [OPTION...] [USER@]HOST:SRC... [DEST] </code> </td>
+    <td> pull (get from remote source)</td>
+</tr>
+<tr>
+    <td> <code> rsync [OPTION...] SRC... [USER@]HOST:DEST </code> </td>
+    <td> push (put to remote destination)</td>
+</tr>
+</table>
