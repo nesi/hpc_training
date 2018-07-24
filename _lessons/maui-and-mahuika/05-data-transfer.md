@@ -24,7 +24,7 @@ The basic toolkit consists of scp and sftp.
 
 --- 
 **NOTE**
-> Both scp and sftp use `ssh` (secure shell), so it's important that before you proceed, you verify that you can successfully ssh into the lander node and directly into mahuika/maui with the command `ssh mahuika` following the instructions at [jumping across the lander node](connecting#ssh_jump_node)
+> Both scp and sftp use `ssh` (secure shell), so it's important that before you proceed, you verify that you can successfully ssh into the lander node and directly into mahuika/maui with the command `ssh mahuika` following the instructions at [jumping across the lander node](03-connecting.md#jumping-across-the-lander-node)
 
 --- 
 
