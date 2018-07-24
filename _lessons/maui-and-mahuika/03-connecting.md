@@ -49,7 +49,7 @@ ssh -Y login.maui.nesi.org.nz
 
 Your password and a new second factor may be required for this step (going from the lander node to the Māui or Mahuika login nodes). We plan to change this so that a password will not be required for this step in the future.
 
-## Jumping across the lander node (advanced)
+## Jumping across the lander node
 
 On most Linux, Windows and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to either the Māui or Mahuika login nodes.
 
