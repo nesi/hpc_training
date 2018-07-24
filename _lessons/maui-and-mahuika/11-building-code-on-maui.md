@@ -275,4 +275,4 @@ Building code on the CS500 platform is different from the XC50 platform:
 
 Building code on the CS500 platform follows the same process as building code on Mahuika. The only difference is that CS500 nodes use Intel Skylake CPUs, while Mahuika's CS400 nodes use the older Intel Broadwell CPUs. This means that programs that were compiled on the CS500 platform may fail to run on Mahuika, producing either an error message (if built with the Intel compiler), or an "illegal instruction" error (if built with the Cray or GNU compilers).
 
-Please refer to section [Building code on Mahuika](11-building-code-on-mahuika.md) for further instructions.
+Please refer to section [Building code on Mahuika](10-building-code-on-mahuika.md) for further instructions.
