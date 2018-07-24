@@ -245,7 +245,9 @@ As you `put` and `get`, use `ls -lt` to see the state of your remote and local f
 
 ## rsync ##
 
-A more powerful tool again for file transfer is `rsync`:
+A more powerful tool again for file transfer is `rsync`.  It can be restarted after an 
+incomplete transfer, it can optionally encrypt it,  and much much more.
+See its man page for options and examples.
 
 <table>
 <tr>
@@ -253,11 +255,12 @@ A more powerful tool again for file transfer is `rsync`:
     <th> explanation </th>
 </tr>
 <tr>
-    <td> <code> rsync [OPTION...] [USER@]HOST:SRC... [DEST] </code> </td>
-    <td> pull (get from remote source)</td>
+    <td> <code>  rsync -avz host:src/bar /data/tmp </code> </td>
+    <td> pull (get) from remote source</td>
 </tr>
 <tr>
-    <td> <code> rsync [OPTION...] SRC... [USER@]HOST:DEST </code> </td>
-    <td> push (put to remote destination)</td>
+    <td> <code> rsync -azv /path/to/file host:dest </code> </td>
+
+    <td> push (put) to remote destination</td>
 </tr>
 </table>
