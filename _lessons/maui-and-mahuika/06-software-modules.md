@@ -103,7 +103,7 @@ module use ~/modulefiles
 which you can also define in your `~/.bashrc`.
 To load that environment, you simply load your module:
 ```
-module load MyProductionEvn
+module load MyDebugEnv
 ```
 
 ## Software support
