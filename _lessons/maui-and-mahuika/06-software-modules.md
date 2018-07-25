@@ -93,7 +93,7 @@ module load forge
 module load perftools-base perftools
 
 setenv CFLAGS "-DXYZDEBUG "
-prepand-path PATH ~/tools/bin
+prepend-path PATH ~/tools/bin
 ```
 
 To make that directory available to the module environment you need to specify:
