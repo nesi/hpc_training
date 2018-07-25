@@ -69,11 +69,11 @@ Building Fortran, C and C++ packages typically involves a four step process.
 
     The most common format for distributing a package is as a "tarball". Get the tarball,
     ```
-    wget ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-cxx-4.2.tar.gz
+    wget https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz
     ```
     and unpack it
     ```
-    tar xf netcdf-cxx4-4.3.0.tar.gz
+    tar xzf v4.3.0.tar.gz
     ```
     This will uncompress the file into a directory called `netcdf-cxx4-4.3.0`. Enter the
     just created directory:
@@ -87,8 +87,15 @@ Building Fortran, C and C++ packages typically involves a four step process.
     ```
     module load gimkl/2017a
     ```
+ 
+ 3. Load any dependencies that are required (load them using the same toolchain you used
+    above). EasyBuild modules set environment variables so that the `configure` script used
+    below will know where to look for the dependencies.
+    ```
+    module load netCDF/4.4.1-gimkl-2017a
+    ```
 
- 3. Configure the package
+ 4. Configure the package
 
     Most packages need to be configured before being built. Read the accompagnying README or INSTALL file as it will detail
     this step. This package uses autotools,
@@ -100,10 +107,11 @@ Building Fortran, C and C++ packages typically involves a four step process.
     ```
 
 
- 4. Build the package and install
+ 5. Build the package and install
 
     Then do
     ```
-    make && make install
+    make -j4
+    make install
     ```
     to build and install.
