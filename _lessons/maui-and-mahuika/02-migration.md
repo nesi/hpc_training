@@ -29,9 +29,18 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * On Pan the project directories were located under _/projects_, which was a symlink to _/gpfs1m/projects_. On Mahuika (and Māui) the project directories are located under _/nesi/project_, so any scripts referencing these directories must be updated.
 
-* In addition to the project directory, each project has a "nobackup" directory found under _/nesi/nobackup_ which is faster but not backed up, in fact old files there are guarenteed to be deleted by the system when the space is needed for newer files. 
+* In addition to the project directory, each project has a "nobackup" directory found under _/nesi/nobackup_ which is faster but not backed up.
+Old files on _/nesi/nobackup_ are guarenteed to be deleted by the system when space is needed. 
 
-* The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR are not provided on Mahuika.  Since most of its compute nodes do not have local disks there would be no distinction between SHM_DIR and TMP_DIR.  There is still a similar per-job directory, but it is simply TMPDIR - a standard Unix environment variable respected by most programs which would otherwise default to using /tmp.  As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg: 
+* The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR on Pan are not provided on Mahuika.
+
+| Pan         | Mahuika/Maui                 | Comments                                                   |
+|-------------|:----------------------------:|:----------------------------------------------------------:|
+| SCRATCH_DIR | _/nesi/nobackup/projectcode_ | Use your project directory                                 |
+| TMP_DIR     | TMPDIR                       | Defaults to _/tmp_                                         |
+| SHM_DIR     | TMPDIR                       | No shared memory directory on Mahuika                      |
+
+As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg: 
 
 ```
 SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="scratch_${SLURM_JOB_ID}_XXX.tmp")
@@ -39,17 +48,18 @@ SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="s
 
 ### Software
 
-* Many older environment modules which were present on Pan have not been recreated on Mahuika. Use `module spider` to discover if a newer version is present, and if stuck then please contact us. 
+* Many older environment modules which were present on Pan have not been recreated on Mahuika. [See section software modules.](https://nesi.github.io/hpc_training/lessons/maui-and-mahuika/software-modules) 
 
-* Locations of our installed software will be entirely different, though if you have been using environment modules correctly this will not matter.
+
+* Locations of our installed software is different. This should not matter if you have been using environment modules.
 
 ### Hardware
 
-* Ordinary Mahuika compute nodes have 36 CPU cores and 128 GB of memory, so, once the operating system is allowed for, only 3 GB per core rather than Pan's 7.5 GB per core. Please review your memory requests to see where they can be reduced.
+* Ordinary Mahuika compute nodes have 36 CPU cores and 128 GB of memory, yielding only 3 GB per core rather than Pan's 7.5 GB per core. Please review your memory requests when submitting jobs.
 
-* Mahuika uses the "Broadwell" generation of Intel CPUs, newer than anything on Pan.  This makes Pan's optional Slurm constraints "wm", "sb" and "avx" obsolete. 
+* Mahuika uses the newer "Broadwell" and Maui the "Skylake" generation of Intel CPUs.  Pan's optional Slurm constraints "wm", "sb" and "avx" are obsolete on Mahuika/Maui. 
 
-* Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres:gpu`.  It may be necessary to also specify `--partition gpu`.
+* Mahuika has only 8 GPU nodes. However, the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres:gpu`.  It may be necessary to also specify `--partition gpu`.
 
 * Mahuika has 5 "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=bigmem` (for jobs shorter than 24 hours) or `--partition=hugemem`.  
 
@@ -57,15 +67,15 @@ SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="s
 
 * Jobs requesting a timelimit of more than 3 days have to be explictly submitted to the "long" partition, eg: `sbatch -p long ...`, while other ordinary jobs can be submitted to the "large" partition.  This kind of partitioning was more automated on Pan.
 
-* Instead of Pan's little-used _debug_ partition Mahuika has a _debug_ QoS (Quality of Service) used like `sbatch --qos debug ...`.  Jobs which request this QoS can only request a maximum of 15 minutes, and you can only execute one of them at a time.
+* Instead of Pan's little-used _debug_ partition Mahuika has a _debug_ QoS (Quality of Service) used like `sbatch --qos debug ...`.  QoS jobs can only request a maximum of 15 minutes you can only execute one of them at a time.
 
 ### Accounts
 
-* On Pan it was always necessary to specify your project account to _sbatch_.  That is still a good idea, but if you only have one project then it isn't strictly necessary on Mahuika as Slurm has a concept of "default account".
+* On Pan it was always necessary to specify your project account to _sbatch_.  This is no longer necessary on Mahuika if you have only one project.
 
 ### Licenses
 
-* Some of our Slurm virtual licenses are obsolete and so have been removed: "io" because the filesystem bandwidth is considerably better than on Pan, plus "sci_matlab" and "eng_matlab" because their numbers of actual license tokens have been dramatically increased.
+* Some of our Slurm virtual licenses are obsolete and so have been removed: "io" because the filesystem bandwidth is considerably better than on Pan, "sci_matlab" and "eng_matlab" because their numbers of actual license tokens have been dramatically increased.
 
 ## The other machine - Māui.
 
