@@ -13,7 +13,7 @@ You will learn:
 
 ## Requirements
 
-You will need a terminal program to login to Māui or Mahuika:
+You will need a terminal program to log in to Māui or Mahuika:
 
 - Windows: [MobaXterm](https://mobaxterm.mobatek.net/), Windows 10 bash, or [Putty](https://www.putty.org/)
 - MacOS X: Terminal app, iTerm2
