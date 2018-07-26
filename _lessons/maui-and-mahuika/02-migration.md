@@ -33,11 +33,11 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR on Pan are not provided on Mahuika.
 
-  | Pan         | Mahuika/Maui                 | Comments                                                   |
-  |-------------|:----------------------------:|:----------------------------------------------------------:|
-  | SCRATCH_DIR | _/nesi/nobackup/projectcode_ | Use your project directory                                 |
-  | TMP_DIR     | TMPDIR                       | Defaults to _/tmp_                                         |
-  | SHM_DIR     | TMPDIR                       | No shared memory directory on Mahuika                      |
+  | Pan         | Mahuika/Maui                 | Comments                                                      |
+  |-------------|:----------------------------:|:-------------------------------------------------------------:|
+  | SCRATCH_DIR | _/nesi/nobackup/projectcode_ | Use your project's nobackup directory                         |
+  | TMP_DIR     | TMPDIR                       | Temporary, per-job directory under /tmp                       |
+  | SHM_DIR     | TMPDIR                       | TMPDIR (and /tmp) is located in memory, as SHM_DIR was on Pan |
 
   As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg: 
 
