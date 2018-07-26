@@ -29,22 +29,21 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * On Pan the project directories were located under _/projects_, which was a symlink to _/gpfs1m/projects_. On Mahuika (and Māui) the project directories are located under _/nesi/project_, so any scripts referencing these directories must be updated.
 
-* In addition to the project directory, each project has a "nobackup" directory found under _/nesi/nobackup_ which is faster but not backed up.
-Old files on _/nesi/nobackup_ are guarenteed to be deleted by the system when space is needed. 
+* In addition to the project directory, each project has a "nobackup" directory found under _/nesi/nobackup_ which is faster but not backed up. Old files on _/nesi/nobackup_ are guarenteed to be deleted by the system when space is needed. 
 
 * The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR on Pan are not provided on Mahuika.
 
-| Pan         | Mahuika/Maui                 | Comments                                                   |
-|-------------|:----------------------------:|:----------------------------------------------------------:|
-| SCRATCH_DIR | _/nesi/nobackup/projectcode_ | Use your project directory                                 |
-| TMP_DIR     | TMPDIR                       | Defaults to _/tmp_                                         |
-| SHM_DIR     | TMPDIR                       | No shared memory directory on Mahuika                      |
+  | Pan         | Mahuika/Maui                 | Comments                                                   |
+  |-------------|:----------------------------:|:----------------------------------------------------------:|
+  | SCRATCH_DIR | _/nesi/nobackup/projectcode_ | Use your project directory                                 |
+  | TMP_DIR     | TMPDIR                       | Defaults to _/tmp_                                         |
+  | SHM_DIR     | TMPDIR                       | No shared memory directory on Mahuika                      |
 
-As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg: 
+  As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg: 
 
-```
-SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="scratch_${SLURM_JOB_ID}_XXX.tmp")
-```
+  ```
+  SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="scratch_${SLURM_JOB_ID}_XXX.tmp")
+  ```
 
 ### Software
 
