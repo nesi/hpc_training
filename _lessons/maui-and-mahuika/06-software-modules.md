@@ -11,6 +11,7 @@ You will learn:
 
 * how NeSI supports software (software tiers)
 * how to search for and load installed software
+* how to create a personalised module environment
 * how to request help installing software
 
 
@@ -76,23 +77,15 @@ Further information available in the online
 [User Guide for Lmod](https://lmod.readthedocs.io/en/latest/010_user.html).
 
 ## Create your own modules
-You can create your own modules to define often used working environments.
-These modules could define a list of other loaded modules and environment
-variables.
-For example, you can define a module for your debugging work, not only loading
-necessary modules like compilers and debuggers. You could also add PATH to
-your own tools or set specific compiler flags.
-
-Thus you could define a module e.g. `~/modulefiles/MyDebugEnv` as following:
+You can create personalised modules environments, which can load modules and set up environment variables. Thus you could define module `~/modulefiles/MyEnv` as following:
 ```
 #%module
 
-conflict MyProductionEvn
-module load gimkl
-module load forge
-module load perftools-base perftools
+conflict MyOtherEnv
+module load CMake
+module load netCDF/4.4.1-gimkl-2017a
 
-setenv CFLAGS "-DXYZDEBUG "
+setenv CFLAGS "-DNDEBUG"
 prepend-path PATH ~/tools/bin
 ```
 
@@ -103,7 +96,7 @@ module use ~/modulefiles
 which you can also define in your `~/.bashrc`.
 To load that environment, you simply load your module:
 ```
-module load MyDebugEnv
+module load MyEnv
 ```
 
 ## Software support

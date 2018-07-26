@@ -174,7 +174,7 @@ To transfer a directory tree from either end, navigate to that directory on the 
 <tr>
     <td> <code>tar xvfz archive.tar.gz</code> </td> 
     <td> extract archive after scp </td>
-    <td> on target </td>
+    <td> on destination </td>
 </tr>
 </table>
 
