@@ -66,7 +66,7 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * Jobs requesting a timelimit of more than 3 days have to be explictly submitted to the "long" partition, eg: `sbatch -p long ...`, while other ordinary jobs can be submitted to the "large" partition.  This kind of partitioning was more automated on Pan.
 
-* Instead of Pan's little-used _debug_ partition Mahuika has a _debug_ QoS (Quality of Service) used like `sbatch --qos debug ...`.  QoS jobs can only request a maximum of 15 minutes you can only execute one of them at a time.
+* Instead of Pan's little-used _debug_ partition Mahuika has a _debug_ QoS (Quality of Service) used like `sbatch --qos debug ...`.  Jobs requesting the _debug_ QoS can only request a maximum of 15 minutes and you can only execute one of them at a time.
 
 ### Accounts
 
