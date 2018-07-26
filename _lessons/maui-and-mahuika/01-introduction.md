@@ -23,7 +23,7 @@ NeSI has acquired two new supercomputing platforms:
 * [Capacity class](https://en.wikipedia.org/wiki/Supercomputer#Capability_versus_capacity) High Performance Computer
 * Suitable for small workloads that use a single CPU core in a node, or multiple CPU cores across a small number of nodes for a given task
 * Compute nodes can be shared with other jobs.
-* Includes high memory, huge memory, and GPU nodes
+* Includes high memory, huge memory, and GPGPU nodes
 
 #### Māui (HPC2)
 * Cray XC50
@@ -31,13 +31,13 @@ NeSI has acquired two new supercomputing platforms:
 * Suitable for large workloads that use many CPU cores on many nodes for a given task
 * Compute nodes are allocated exclusively to a job
 * Includes a number of Cray CS500 nodes that can be used for tasks that are IO-bound but need only a modest amount of CPU cores; these are typically pre- and post-processing tasks, such as data processing or visualisation
-* Some CS500 nodes have GPUs
+* Some CS500 nodes have GPGPUs
 
 ## System Architecture
 
 Mahuika and Māui are colocated at NIWA's Greta Point campus in Wellington. They can both be accessed from the internet via the same lander nodes or NIWA's VPN service, please refer to section [Connecting](03-connecting.md) for details.
 
-Both systems also share the same Spectrum Scale (formerly GPFS) file system - all files and directories can be accessed by all relevent nodes without any need for copying. However, note that CSx00 nodes and XC50 nodes run on different operating systems (CentOS and SLES, respectively). It is therefore generally **not** possible to use the same executables on both systems, so you will need to rebuild your codes. Rebuilding has added benefit that you can ask the compiler to optimise your build for the different processors used on the system (Intel Xeon Broadwell in case of CS400 nodes, and Intel Xeon Skylake in case of CS500 and XC50 nodes). Please refer to sections [Building Code on Mahuika](90-building-code-on-mahuika.md) and [Building Code on Maui](10-building-code-on-maui.md) for details.
+Both systems also share the same Spectrum Scale (formerly GPFS) file system - all files and directories can be accessed by all relevent nodes without any need for copying. However, note that CSx00 nodes and XC50 nodes run on different operating systems (CentOS and SLES, respectively). It is therefore generally **not** possible to use the same executables on both systems, so you will need to rebuild your codes. Rebuilding has added benefit that you can ask the compiler to optimise your build for the different processors used on the system (Intel Xeon Broadwell in case of CS400 nodes, and Intel Xeon Skylake in case of CS500 and XC50 nodes). Please refer to sections [Building Code on Mahuika](09-building-code-on-mahuika.md) and [Building Code on Maui](10-building-code-on-maui.md) for details.
 
 ### Mahuika
 ![](../../assets/img/Mahuika_Overview.png "Mahuika building blocks and network connections")
@@ -57,7 +57,8 @@ Follow the blue network connections for user-accessible nodes. All Mahuika CS400
 ##### 16 CS400 large memory nodes
 * Same Intel Xeon E5-2600 v4 processor as compute nodes
 * 512 GB of RAM per node
-* 4 nodes with 2x Nvidia Tesla P100 GPUs
+* 4 nodes with 2x Nvidia Tesla P100 GPGPUs
+* Some nodes are virtualised (several virtual machines share resources on each node)
 
 ##### 1 CS400 huge memory node
 * Same Intel Xeon E5-2600 v4 processor as compute nodes
@@ -66,13 +67,13 @@ Follow the blue network connections for user-accessible nodes. All Mahuika CS400
 #### Māui Compute Hardware:
 ##### 464 XC50 compute nodes
 * 2x Intel Xeon Gold 6148 2.4 GHz processor with 20 physical cores each (40 physical cores per node)
-* 96/192 GB of RAM per node (50% of nodes are low memory, 50% are high memory)
+* 50% of nodes with 96 GB, 50% with 192 GB of RAM per node
 
 ##### 28 CS500 nodes
 * Same Intel Xeon Gold 6148 SKL processor as compute nodes
 * 768 GB of RAM per node
-* 8 nodes with 1x Nvidia Tesla P100 GPGPUs
-* Some are virtualised (several virtual machines share resources on each node)
+* 8 nodes with 1x Nvidia Tesla P100 GPGPU
+* Some nodes are virtualised (several virtual machines share resources on each node)
 
 #### More hardware details:
 ##### CS400/CS500 nodes
@@ -80,7 +81,6 @@ Follow the blue network connections for user-accessible nodes. All Mahuika CS400
 * Native access to Spectrum Scale filesystems (ideal for IO-intensive jobs)
 * Non-interactive nodes for running batch jobs, e.g., preprocessing or postprocessing of HPC jobs
 * Virtual lab nodes for interactive work with remote desktop capability
-* Some non-interactive nodes and virtual lab nodes have up to 2 Nvidia Tesla P100 GPGPUs
 * Run a full version of CentOS 7
 
 ##### XC50 compute nodes
