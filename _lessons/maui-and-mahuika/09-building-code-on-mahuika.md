@@ -26,25 +26,25 @@ Compilers of three different vendors are provided on Mahuika: Cray, GNU and Inte
 
 The GNU and Intel compilers can be accessed by loading one of the toolchains:
 
-* `module load gimkl/2017a` - the default toolchain, providing GNU compilers (version 5.4.0), Intel MPI and Intel MKL
-* `module load intel/2017a` - Intel compilers (version 17.0.6), Intel MPI and Intel MKL
+* `ml gimkl/2017a` - the default toolchain, providing GNU compilers (version 5.4.0), Intel MPI and Intel MKL
+* `ml intel/2017a` - Intel compilers (version 17.0.6), Intel MPI and Intel MKL
 
 A large number of dependencies are built against these toolchains, so they are usually a good place to start when building your own software. However, if a different version of the compilers is required for some reason, then a compiler module can be loaded directly, instead of a toolchain. For example, the installed versions of the GNU compilers can be listed with the following command:
 
 ```
-module spider GCC
+ml spider GCC
 ```
 
 and version 7.1.0 loaded with the following command:
 
 ```
-module load GCC/7.1.0
+ml GCC/7.1.0
 ```
 
 The Cray compilers behave differently to the GNU and Intel compilers, since they are installed as a Cray Programming Environment, and have some special features (see section [Cray Programming Environment](#cray-programming-environment)). The Cray compilers are loaded with:
 
 ```
-module load PrgEnv-cray
+ml PrgEnv-cray
 ```
 The Cray Programming Environment includes the Cray compiler, various libraries and tools. These work nicely together and provide certain user-friendly features by using compiler wrappers. This works very similar as the Cray XC environment, provided on Maui, and is described in detail on page [Building Code on Maui](10-building-code-on-maui.md).
 
@@ -84,7 +84,7 @@ The following table provides a list of commonly used compiler **options** for th
 | Debugging | `-g` or `-G{0,1,2,fast}` | `-g` or `-debug [keyword]` | `-g or -g{0,1,2,3}` | Set level of debugging information, some levels may disable certain compiler optimisations |
 | Light compiler optimisation  | `-O2` | `-O2` | `-O2` | |
 | Aggressive compiler optimisation  | `-O3 -hfp3` | `-O3 -ipo` | `-O3 -ffast-math -funroll-loops` | This may affect numerical accuracy |
-| Architecture specific optimisation | Load this module first: `module load craype-broadwell`  | `-xHost` | `-march=native -mtune=native` | Build and compute nodes have the same architecture (Broadwell) |
+| Architecture specific optimisation | Load this module first: `ml craype-broadwell`  | `-xHost` | `-march=native -mtune=native` | Build and compute nodes have the same architecture (Broadwell) |
 | Vectorisation reports | `-hlist=m` | `-qopt-report` | `-fopt-info-vec` or `-fopt-info-missed` | |
 | OpenMP | `-homp` (default) | `-qopenmp` | `-fopenmp` | |
 
@@ -99,7 +99,7 @@ Additional compiler options are documented in the compiler man pages, e.g. `man 
 
 For example, the following commands would be used to compile [simpleMpi.f90](https://github.com/nesi/hpc_training/blob/gh-pages/_code/Fortran/simpleMpi.f90) with the gfortran compiler, activate compiler warnings (`-Wall`), and requiring aggressive compiler optimisation (`-O3`):
 ```
-module load gimkl/2017a
+ml gimkl/2017a
 mpif90 -Wall -O3 -o simpleMpi simpleMpi.f90
 ```
 
