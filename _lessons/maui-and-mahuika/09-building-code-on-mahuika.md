@@ -14,9 +14,7 @@ You will learn:
 * how to compile code (Fortran, C, C++) 
 * how to link against libraries
 
-The example programs used in this lesson can be found in the [\_code](https://github.com/nesi/hpc_training/tree/gh-pages/_code) directory of the "hpc_training" repository.
-
-**Content is still under development. Check back soon.**
+Example programs used can be found [here](https://github.com/nesi/hpc_training/tree/gh-pages/_code).
 
 ## Where to build
 Build processes can be performed on the Mahuika login nodes, `login.mahuika.nesi.org.nz`. Please be aware, that these login nodes are limited and shared resources. Please limit the amount of processes on these nodes (avoid `make -j`, instead use `make -j 5`). Larger build processes should be performed from a compute node, where you can also ask for a larger amount of compute resources to build your code.
