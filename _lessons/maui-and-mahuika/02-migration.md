@@ -47,7 +47,7 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 ### Software
 
-* Many older environment modules which were present on Pan have not been recreated on Mahuika. [See section software modules.](https://nesi.github.io/hpc_training/lessons/maui-and-mahuika/software-modules) 
+* Many older environment modules which were present on Pan have not been recreated on Mahuika. [See section software modules.](06-software-modules.md) 
 
 
 * Locations of our installed software is different. This should not matter if you have been using environment modules.
