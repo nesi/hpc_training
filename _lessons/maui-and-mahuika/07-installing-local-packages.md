@@ -20,29 +20,22 @@ Make sure to load one of the Python versions installed on Mahuika, e.g.
 ```
 module load Python/2.7.14-gimkl-2017a
 ```
-as this will provide you with many Python modules. You can check if a module is 
-already installed by typing, for instance,
+as this will provide you with many Python modules. Our Python distributions come with many modules already installed. You can check if a Python module is installed by typing, for instance, 
 ```
-python -c "import pnumpy"
+python -c "import numpy"
 ```
-where `pnumpy` is the name of the Python module. Beware that Python modules and 
-package names may be different.
+where `numpy` is the name of the Python module. Beware that Python modules and package names may be different.
 
-If you see an error such as `ImportError: No module named pnumpy` then the Python module is
-not available at which point you may want to proceed and install the package locally in 
-your home directory. 
+If you see an error such as `ImportError: No module named <python_module>` and you cannot find the package with `ml spider <python_package>` then the Python module is
+not available at which point you may want to proceed and install the package locally in your home directory. 
 
-Be sure you have everything you need to build the package - you may need to load
-some extra modules as dependencies if the software you are installing requires
-them. Note that when you loaded the Python module earlier, it loaded many such
-dependencies already (for example MPI and BLAS/LAPACK libraries) - run `ml` to
-view all loaded modules.
+Be sure you have everything you need to build the package - you may need to load some extra modules as dependencies if the software you are installing requires them. Note that when you loaded the Python module earlier, it loaded many such dependencies already (for example MPI and BLAS/LAPACK libraries) - run `ml` to view all loaded modules.
 
-To install `pnumpy` locally, type
+To install Python package `pnumpy` locally, type
 ```
 pip install pnumpy --user
 ```
-The package will then be downloaded, built, including dependencies and installed under `$HOME/.local`. 
+The package will then be downloaded, built, including dependencies, and installed under `$HOME/.local`. 
 
 
 ## How to install an R package locally
@@ -51,19 +44,19 @@ Make sure to have R loaded, e.g.,
 ```
 module load R/3.5.0-gimkl-2017a
 ```
-Then in R, type
+Then in `R`, type
 ```
 > install.packages('abc')
 ```
 to install package "abc". Answer the questions about the FTP mirror and confirm that you want to install locally. 
 You can check that the package built correctly in R with
 ```
-> library('abc')
+> library(abc)
 ```
 
 ## How to build generic packages in your home directory
 
-Building Fortran, C and C++ packages typically involves a four step process.
+Building Fortran, C and C++ packages typically involves the following steps.
 
  1. Get the package and unpack 
 
@@ -73,7 +66,7 @@ Building Fortran, C and C++ packages typically involves a four step process.
     ```
     and unpack it
     ```
-    tar xzf v4.3.0.tar.gz
+    tar xf v4.3.0.tar.gz
     ```
     This will uncompress the file into a directory called `netcdf-cxx4-4.3.0`. Enter the
     just created directory:
