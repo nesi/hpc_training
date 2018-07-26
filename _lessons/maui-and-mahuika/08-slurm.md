@@ -9,24 +9,24 @@ chapter: maui-and-mahuika
 
 You will learn:
 
-* how to modify your Slurm scripts to run on Mahuika
+* what partitions are and which partitions are available on Mahuika
+* how to write Slurm scripts
+* how to submit jobs
 * how to check the status of running and completed jobs
 
-
-**Content is currently under development. Check back soon.**
 
 ## Slurm basics
 
 All NeSI systems use the Slurm batch scheduler for the submission, control and management of user jobs.
 
-Slurm provides a rich set of features for organizing your workload and an extensive array of tools for managing your resource usage, however in normal interaction with the batch system you only need to know four basic commands:
+Slurm provides a rich set of features for organising your workload and an extensive array of tools for managing your resource usage. In most cases you need to know the commands:
 
  - `sbatch` - submit a batch script
  - `squeue` - check the status of jobs on the system
  - `scancel` - delete one of your jobs from the queue
  - `srun` - launch a process across multiple CPUs
-
-Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
+ - `sinfo` - view information about Slurm nodes and partitions
+ - `sacct` - display accounting data for all jobs and job steps in the Slurm job accounting log or Slurm 
 
 Reference information about Slurm can be found at:
  - `man slurm`
@@ -34,6 +34,8 @@ Reference information about Slurm can be found at:
 
 
 ## Partitions
+
+Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
 
 ### Partitions on Mahuika
 
@@ -48,19 +50,67 @@ Reference information about Slurm can be found at:
 | hugemem	| 1 day	| 64	| 64	| The 4TB node – when it is available for batch processing. |
 | gpu	| 1 day	| 6	| 2	| 2 GPGPUs per node. |
 
+
+
 ### Quality of Service
 
-Orthogonal to the partitions, each job has a "QoS", with the default QoS for a job being determined by the allocation class of its project. Specifying `--qos=debug` will override that and give the job very high priority, but is subject to strict limits: 15 minutes per job, and only 1 job at a time per user.
+In addition to the partitions, each job has a "QoS", with the default QoS for a job being determined by the allocation class of its project. Specifying `--qos=debug` will override that and give the job very high priority, but is subject to strict limits: 15 minutes per job, and only 1 job at a time per user.
 
 
-## Modifying your Slurm scripts
+## Slurm scripts
 
-You will need to modify your Slurm scripts to run on the new platforms.
+Slurm scripts are text files you will need to create in order to submit a job to the scheduler. Slurm scripts start with `#!/bin/bash` and contain set of directives (start with `#SBATCH `, followed by commands (`srun`): 
+
+```
+#!/bin/bash
+#SBATCH --job-name=JobName      # job name (shows up in the queue)
+#SBATCH --account=nesi99999     # Project Account
+#SBATCH --time=08:00:00         # Walltime (HH:MM:SS)
+#SBATCH --mem-per-cpu=4096      # memory/cpu (in MB)
+#SBATCH --ntasks=2              # number of tasks (e.g. MPI)
+#SBATCH --cpus-per-task=4       # number of cores per task (e.g. OpenMP)
+#SBATCH --nodes=1               # number of nodes
+#SBATCH --exclusive             # node should not be shared with other jobs
+#SBATCH --partition=long        # specify a partition
+#SBATCH --qos=debug             # debug jobs have increased priority but tighter restrictions
+#SBATCH --hint=nomultithread    # don't use hyperthreading
+
+srun [options] <executable> [options]
+```
+Not all directives need to be specified, just the ones you need. 
+
+### Launching job steps with srun
+
+The `srun` command runs the executable along with its options, within the resources allocated to the job.
+
+For MPI jobs, `srun` sets up the MPI runtime environment needed to run the parallel program, launching it on multiple CPUs, which can be on different nodes. `srun` should be used in place of any other MPI launcher, such as `aprun` or `mpirun`.
+
+### Commonly used Slurm environment variables
+
+These can be useful within Slurm scripts:
+
+- `$SLURM_JOB_ID` (job id)
+- `$SLURM_NNODES` (number of nodes)
+- `$SLURM_NTASKS` (number of MPI tasks)
+- `$SLURM_CPUS_PER_TASK` (CPUs per MPI task)
+- `$SLURM_SUBMIT_DIR` (directory job was submitted from)
+- `$SLURM_ARRAY_JOB_ID` (job id for the array)
+- `$SLURM_ARRAY_TASK_ID` (job array index value)
+
+### OpenMP jobs
+
+For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the `OMP_NUM_THREADS` variable.
+For example, add the following line after the `#SBATCH` directives and before you run your program with `srun`:
+
+```
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+```
+It may also be necessary to set the `OMP_STACKSIZE` variable in some cases, if your program crashes with segmentation faults due to stack overflow in one or more threads.
 
 ### Hyperthreading
 
 [Hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading) is enabled on NeSI's platforms.
-By default, Slurm schedules hyperthreads (logical cores, or "CPUs" in Slurm nomenclature), of which there are 72 and 80 per node on Mahuika and Māui respectively.
+By default, Slurm schedules hyperthreads (logical cores, or "CPUs" in Slurm nomenclature), of which there are 72 and 80 per node on Mahuika and Māui, respectively.
 To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurrences of `srun` within the job.
 
 ```
@@ -77,77 +127,24 @@ Mahuika's network consists of a number of Infiniband Islands, each containing 26
 
 Users can request that the job run within an InfiniBand Island by adding the `sbatch` flag `#SBATCH --switches=1` to their batch script. We advise that you manually set a maximum waiting time for the selected number of switches, e.g. `#SBATCH --switches=1@00:01:00` will make the scheduler wait for maximum one hour before ignoring the switches request.
 
-### OpenMP jobs
-
-For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the `OMP_NUM_THREADS` variable.
-For example, add the following line after the `#SBATCH` directives and before you run your program with `srun`:
-
-```
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-```
-It may also be necessary to set the `OMP_STACKSIZE` variable in some cases, if your program crashes with segmentation faults due to stack overflow in one or more threads.
 
 ## Submitting a job
 
-### Common job script directives
-
-Some standard Slurm directives (not all need to be specified, just the ones you need):
-
-```
-#SBATCH --job-name=JobName      # job name (shows up in the queue)
-#SBATCH --account=nesi99999     # Project Account
-#SBATCH --time=08:00:00         # Walltime (HH:MM:SS)
-#SBATCH --mem-per-cpu=4096      # memory/cpu (in MB)
-#SBATCH --ntasks=2              # number of tasks (e.g. MPI)
-#SBATCH --cpus-per-task=4       # number of cores per task (e.g. OpenMP)
-#SBATCH --nodes=1               # number of nodes
-#SBATCH --exclusive             # node should not be shared with other jobs
-#SBATCH --partition=long        # specify a partition
-#SBATCH --qos=debug             # debug jobs have increased priority but tighter restrictions
-#SBATCH --hint=nomultithread    # don't use hyperthreading
-```
-
-### Commonly used Slurm environment variables
-
-These can be useful within Slurm job scripts:
-
-- `$SLURM_JOB_ID` (job id)
-- `$SLURM_NNODES` (number of nodes)
-- `$SLURM_NTASKS` (number of MPI tasks)
-- `$SLURM_CPUS_PER_TASK` (CPUs per MPI task)
-- `$SLURM_SUBMIT_DIR` (directory job was submitted from)
-- `$SLURM_ARRAY_JOB_ID` (job id for the array)
-- `$SLURM_ARRAY_TASK_ID` (job array index value)
-
-
-### Launching job steps with srun
-
-The `srun` command runs the executable you pass to it within the resources allocated to your job.
-
-For MPI jobs, `srun` sets up the MPI runtime environment needed to run the parallel program, launching it on multiple CPUs, which can be on multiple different nodes. `srun` should be used in place of any other MPI launcher, such as `aprun` or `mpirun`.
+Use `sbatch <script>` to submit the job. All Slurm directives can alternatively be specified at the command line, e.g. `sbatch --account=nesi12345 <script>`.
 
 ### Try submitting a simple job
 
-Submit a simple job to make sure everything is working. Consider a Slurm batch script named `run_helloworld.sl`:
+Submit job `helloworld.sl`:
 ```
 #!/bin/bash
 #SBATCH --job-name=hello
-#SBATCH --account=nesi12345
 #SBATCH --time=00:02:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 
 srun echo "Hello, World!"
 ```
-
-The Slurm "account" is just your NeSI project's code. If you only have one project then you don't need to specify it.
-
-Submit the job to the Slurm queue with:
-```
-sbatch run_helloworld.sl
-```
-It will simply print out a string to the Slurm output file and exit.
-
+with `sbatch --account=nesi12345 helloworld.sl` where nesi12345 is your NeSI project's code. If you only have one project then you don't need to specify it.
 
 ## Checking completed jobs with sacct
 
@@ -156,8 +153,7 @@ Another useful Slurm command is `sacct` which retrieves information about comple
 ```
 sacct -j 14309
 ```
-
-Will show us something like:
+where the argument passed to `-j` is the job ID, will show us something like:
 
 ```
        JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
