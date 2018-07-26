@@ -37,7 +37,7 @@ NeSI has acquired two new supercomputing platforms:
 
 Mahuika and Māui are colocated at NIWA's Greta Point campus in Wellington. They can both be accessed from the internet via the same lander nodes or NIWA's VPN service, please refer to section [Connecting](03-connecting.md) for details.
 
-Both systems also share the same Spectrum Scale (formerly GPFS) file system - all files and directories can be accessed by all relevent nodes without any need for copying. However, note that CSx00 nodes and XC50 nodes run on different operating systems (CentOS and SLES, respectively). It is therefore generally **not** possible to use the same executables on both systems, so you will need to rebuild your codes. Rebuilding has the added benefit that you can ask the compiler to optimise your build for the different processors used on the system (Intel Xeon Broadwell in case of CS400 nodes, and Intel Xeon Skylake in case of CS500 and XC50 nodes). Please refer to sections [Building Code on Mahuika](09-building-code-on-mahuika.md) and [Building Code on Maui](10-building-code-on-maui.md) for details.
+Both systems also share the same Spectrum Scale (formerly GPFS) file system - all files and directories can be accessed by all relevant nodes without any need for copying. However, note that CSx00 nodes and XC50 nodes run on different operating systems (CentOS and SLES, respectively). It is therefore generally **not** possible to use the same executables on both systems, so you will need to rebuild your codes. Rebuilding has the added benefit that you can ask the compiler to optimise your build for the different processors used on the system (Intel Xeon Broadwell in case of CS400 nodes, and Intel Xeon Skylake in case of CS500 and XC50 nodes). Please refer to sections [Building Code on Mahuika](09-building-code-on-mahuika.md) and [Building Code on Maui](10-building-code-on-maui.md) for details.
 
 ### Mahuika
 ![](../../assets/img/Mahuika_Overview.png "Mahuika building blocks and network connections")
@@ -103,8 +103,8 @@ Follow the blue network connections for user-accessible nodes. All Mahuika CS400
 
 #### Main improvements
 * Faster processors compared to those on FitzRoy or Pan
-* GPGPU (General Purpose Graphical Processing Unit) nodes to support science codes and visualisation
-* A Linux user environment that will make it easier to manage work, develop and run research workloads/jobs, and apply data analytics tools
+* GPGPU (General Purpose Graphical Processing Unit) nodes to support science codes and visualisation; the Nvidia Tesla P100 GPGPUs are much more powerful compared to Pan
+* A Linux user environment that will make it easier to manage work, develop and run research workloads/jobs, and apply data analytics tools (compared to FitzRoy)
 * Increased storage capacity and hierarchical storage management to minimise the need to move data between the HPC storage and a user's home institution, and underpin the new interactive data analysis services
 * Vastly increased file system performance, reducing the time spent reading and writing data to the filesystems
 * More advanced feature sets (such as AVX-2 on Broadwell processors, and AVX-512 on Skylake processors) which provide more opportunities to develop faster codes
