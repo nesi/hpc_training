@@ -16,7 +16,20 @@ You will learn:
 
 ## Data Migration
 
-Home directories from Pan have been copied into a subdirectory of your Mahuika home directory named _pan_home_, and project directories similarly copied into a  subdirectory of you new project directory _/nesi/project/projectcode_.  We will be synchronising these repeatedly while Pan is still available.
+Home directories from Pan have been copied into a subdirectory of your Mahuika home directory named _pan_home_, and project directories similarly copied into a  subdirectory of you new project directory _/nesi/project/projectcode_.  We will be synchronising these repeatedly while Pan is still available, so please don't attempt to change their contents on Mahuika.
+
+You can copy your Pan files out into your Mahuika home directory with the command
+
+```
+cp -Tprn $HOME/pan_home $HOME
+```
+
+Similarly for your project directory or directories:
+
+```
+cd /nesi/project/projectcode
+cp -HTprn ./pan_project ./
+```
 
 ## Differences from Pan
 
