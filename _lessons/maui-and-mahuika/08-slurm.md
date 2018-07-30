@@ -41,15 +41,14 @@ Jobs in the Slurm queue have a priority which depends on several factors includi
 
 **Important Note:** Slurm configuration is not yet complete on Mahuika and so this page is subject to change, particularly numerical values.
 
-| Name of Partition	| Maximum time limit	| CPU cores	| Maximum cores per user	| Brief description / Purpose |
+| Partition	| Time limit	| CPU cores	| Max cores per user	| RAM / core | Brief description / Purpose |
 | ------------------|--------------------|-----------|------------------------|---------------------------- |
-| large |	3 days	| 8424	| 1024	| Standard partition, allows large core count jobs. |
-| long |	3 weeks	| 1872	| 720	| Standard partition to corral long-duration jobs. |
-| prepost	| 2 hours |	36	| 2	| Short jobs only.  More memory per CPU. |
-| bigmem	| 6 days	| 108	| 108	| Standard partition for all other “large memory” jobs. | 
-| hugemem	| 1 day	| 64	| 64	| The 4TB node – when it is available for batch processing. |
-| gpu	| 1 day	| 6	| 2	| 2 GPGPUs per node. |
-
+| large |	3 days	| 8424	| 1024	| 3 GB | Default partition, allows large core count jobs. |
+| long |	3 weeks	| 1872	| 720	| 3 GB | Corrals long-duration jobs into a subset of the compute nodes. |
+| prepost	| 3 hours |	36	| 4	| 15 GB | Short jobs only.  More memory per CPU. |
+| bigmem	| 3 days	| 108	| 72	| 15 GB | Standard partition for all other “large memory” jobs. | 
+| hugemem	| 3 days	| 64	| 64	| 62 GB | The 4TB node – when it is available for batch processing. |
+| gpu	| 3 days	| 6	| 2	| 3 GB | 2 GPGPUs per node. |
 
 
 ### Quality of Service
@@ -69,8 +68,6 @@ Slurm scripts are text files you will need to create in order to submit a job to
 #SBATCH --mem-per-cpu=4096      # memory/cpu (in MB)
 #SBATCH --ntasks=2              # number of tasks (e.g. MPI)
 #SBATCH --cpus-per-task=4       # number of cores per task (e.g. OpenMP)
-#SBATCH --nodes=1               # number of nodes
-#SBATCH --exclusive             # node should not be shared with other jobs
 #SBATCH --partition=long        # specify a partition
 #SBATCH --qos=debug             # debug jobs have increased priority but tighter restrictions
 #SBATCH --hint=nomultithread    # don't use hyperthreading
@@ -99,13 +96,8 @@ These can be useful within Slurm scripts:
 
 ### OpenMP jobs
 
-For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1 and explicitly set the `OMP_NUM_THREADS` variable.
-For example, add the following line after the `#SBATCH` directives and before you run your program with `srun`:
+For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1.  Our Slurm prolog will then set OMP_NUM_THREADS equal to that number.
 
-```
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-```
-It may also be necessary to set the `OMP_STACKSIZE` variable in some cases, if your program crashes with segmentation faults due to stack overflow in one or more threads.
 
 ### Hyperthreading
 
