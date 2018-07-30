@@ -142,7 +142,7 @@ ml show <module-name>
 ```
 to find out.
 
-Note that specifying search paths with `-I` and `-L` is not strictly necessary in case of the GNU and Intel compilers, which will use the contents of `CPATH`, `LIRARY_PATH`, and `LD_LIBRARY_PATH` provided by the NeSI/NIWA module. This will not work with the Cray compiler.
+Note that specifying search paths with `-I` and `-L` is not strictly necessary in case of the GNU and Intel compilers, which will use the contents of `CPATH`, `LIBRARY_PATH`, and `LD_LIBRARY_PATH` provided by the NeSI/NIWA module. This will not work with the Cray compiler.
 
 **Important note:** Make sure that you load the correct variant of a library, depending on your choice of compiler. Switching compiler environment will *not* switch NeSI/NIWA modules automatically. Furthermore, loading a NeSI/NIWA module may switch programming environment if it was built with a different compiler. In general, Fortran libraries should be built with the same compiler.
 
