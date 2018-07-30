@@ -61,7 +61,7 @@ Compilers are provided for Fortran, C, and C++; compiler wrappers are needed to 
 | C++           | CC   | icpc     | g++      |
 | C++ + MPI     | CC   | mpiicpc  | mpicxx   |
 
-**Note:** The Cray compilers always use compiler wrappers which will be described [in more detail later](#cray-programming-environment). 
+**Note:** The Cray compilers always use compiler wrappers which are described in more detail [here](10-building-code-on-maui.md).
 
 In general you then compile your code using:
 ```
