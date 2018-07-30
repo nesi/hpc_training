@@ -14,9 +14,6 @@ You will learn:
 * how Mahuika and Māui are different from Pan
 
 
-**Content is currently under development. Check back soon.**
-
-
 ## Data Migration
 
 Home directories from Pan have been copied into a subdirectory of your Mahuika home directory named _pan_home_, and project directories similarly copied into a  subdirectory of you new project directory _/nesi/project/projectcode_.  We will be synchronising these repeatedly while Pan is still available.
