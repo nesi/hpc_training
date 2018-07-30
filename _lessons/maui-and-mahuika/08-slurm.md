@@ -41,14 +41,14 @@ Jobs in the Slurm queue have a priority which depends on several factors includi
 
 **Important Note:** Slurm configuration is not yet complete on Mahuika and so this page is subject to change, particularly numerical values.
 
-| Partition	| Time limit	| CPU cores	| Max cores per user	| RAM / core | Brief description / Purpose |
-| ------------------|--------------------|-----------|------------------------|---------------------------- |
+| Partition	Name | Time limit	| CPU cores	| Max cores per user	| RAM / core | Purpose |
+| ----------|------------|-----------|--------------------|------------|---------------- |
 | large |	3 days	| 8424	| 1024	| 3 GB | Default partition, allows large core count jobs. |
 | long |	3 weeks	| 1872	| 720	| 3 GB | Corrals long-duration jobs into a subset of the compute nodes. |
 | prepost	| 3 hours |	36	| 4	| 15 GB | Short jobs only.  More memory per CPU. |
 | bigmem	| 3 days	| 108	| 72	| 15 GB | Standard partition for all other “large memory” jobs. | 
 | hugemem	| 3 days	| 64	| 64	| 62 GB | The 4TB node – when it is available for batch processing. |
-| gpu	| 3 days	| 6	| 2	| 3 GB | 2 GPGPUs per node. |
+| gpu	| 3 days	| 12	| 4 + 2 GPUs	| 3 GB | 2 GPGPUs per node. |
 
 
 ### Quality of Service
