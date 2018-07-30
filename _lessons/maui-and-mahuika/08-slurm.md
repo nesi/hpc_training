@@ -94,10 +94,13 @@ These can be useful within Slurm scripts:
 - `$SLURM_ARRAY_JOB_ID` (job id for the array)
 - `$SLURM_ARRAY_TASK_ID` (job array index value)
 
+### MPI jobs
+
+For MPI jobs you need to set `--ntasks` to a value larger than 1, or if you want more control of task layout set `--ntasks-per-node` and `--node` instead.
+
 ### OpenMP jobs
 
-For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1.  Our Slurm prolog will then set OMP_NUM_THREADS equal to that number.  
-
+For OpenMP jobs you need to set `--cpus-per-task` to a value larger than 1.  Our Slurm prolog will then set OMP_NUM_THREADS equal to that number.  
 
 ### Hyperthreading
 
@@ -109,7 +112,7 @@ To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.
 #SBATCH --hint=nomultithread
 ```
 
-Even though hyperthreading is enabled, the resources will generally be allocated to jobs and their tasks at the level of a physical core. Two different jobs will not share a physical core. For example, a job requesting resources for three hyperthreads will be allocated two full physical cores.
+Even though hyperthreading is enabled, resources will by default be allocated to jobs and their tasks at the level of a physical core, so two different jobs or job tasks will not share a physical core. For example, a job requesting resources for three threads will be allocated two full physical cores.
 
 **Important:** Hyperthreading can be beneficial for some codes, but it can also degrade performance in other cases. We therefore recommend to run a small test job with and without hyperthreading to determine the best choice.
 
