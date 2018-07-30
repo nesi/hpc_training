@@ -151,8 +151,10 @@ Note that specifying search paths with `-I` and `-L` is not strictly necessary i
 Compile the example program that depends on the netCDF library [simple_xy_wr.c](https://github.com/nesi/hpc_training/blob/gh-pages/_code/C/simple_xy_wr.c):
 ```
 ml netCDF/4.4.1-gimkl-2017a
-gcc -o simple_xy_wr.exe simple_xy_wr.c -lnetcdf
+gcc -o simple_xy_wr simple_xy_wr.c -lnetcdf
+./simple_xy_wr
 ```
+You have to specify `-lnetcdf` so that it links against the netCDF library, but do not have to specify the location of the library or include files, as the module sets environment variables to take care of that.
 
 
 ### Common linker problems
