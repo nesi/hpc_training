@@ -96,22 +96,24 @@ These can be useful within Slurm scripts:
 
 ### OpenMP jobs
 
-For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1.  Our Slurm prolog will then set OMP_NUM_THREADS equal to that number.
+For OpenMP jobs you will need to set `--cpus-per-task` to a value larger than 1.  Our Slurm prolog will then set OMP_NUM_THREADS equal to that number.  
 
 
 ### Hyperthreading
 
 [Hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading) is enabled on NeSI's platforms.
-By default, Slurm schedules hyperthreads (logical cores, or "CPUs" in Slurm nomenclature), of which there are 72 and 80 per node on Mahuika and Māui, respectively.
+By default, Slurm schedules multithreaded jobs using hyperthreads (logical cores, or "CPUs" in Slurm nomenclature), of which there are two for each physical core, so 72 and 80 per node on Mahuika and Māui, respectively.
 To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`.  Like most `srun` options this can also be given to `sbatch` as a directive or command line option, and it will then be inherited (via the environment) by any occurrences of `srun` within the job.
 
 ```
 #SBATCH --hint=nomultithread
 ```
 
-Even though hyperthreading is enabled, the resources will generally be allocated to jobs at the level of a physical core. Two different jobs will not share a physical core. For example, a job requesting resources for three tasks on a hyperthreading node will be allocated two full physical cores.
+Even though hyperthreading is enabled, the resources will generally be allocated to jobs and their tasks at the level of a physical core. Two different jobs will not share a physical core. For example, a job requesting resources for three hyperthreads will be allocated two full physical cores.
 
 **Important:** Hyperthreading can be beneficial for some codes, but it can also degrade performance in other cases. We therefore recommend to run a small test job with and without hyperthreading to determine the best choice.
+
+Because Slurm is configured to allow the use logical cores you will notice that even a serial job reports using 2 CPUs.  These numbers will be halved before being used in our project accounting, which is still based on physical core hours.
 
 ### Mahuika Infiniband Islands
 
