@@ -19,7 +19,7 @@ You will learn:
 
 ## Data Migration
 
-Home directories from Pan have been copied into a subdirectory of your Mahuika home directory, and project directories copied into _/nesi/project_.  We will be synchronising these repeatedly while Pan is still available.
+Home directories from Pan have been copied into a subdirectory of your Mahuika home directory named _pan_home_, and project directories similarly copied into a  subdirectory of you new project directory _/nesi/project/projectcode_.  We will be synchronising these repeatedly while Pan is still available.
 
 ## Differences from Pan
 
@@ -49,18 +49,19 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * Many older environment modules which were present on Pan have not been recreated on Mahuika. [See section software modules.](06-software-modules.md) 
 
-
 * Locations of our installed software is different. This should not matter if you have been using environment modules.
 
 ### Hardware
 
 * Ordinary Mahuika compute nodes have 36 CPU cores and 128 GB of memory, yielding only 3 GB per core rather than Pan's 7.5 GB per core. Please review your memory requests when submitting jobs.
 
+* Hyperthreading is enabled, and so multithreaded jobs will by default be allocated only half as many physical cores per task as they would get on Pan.  This can however be avoided with `--hint=nomultithread`.
+
 * Mahuika uses the newer "Broadwell" and Maui the "Skylake" generation of Intel CPUs.  Pan's optional Slurm constraints "wm", "sb" and "avx" are obsolete on Mahuika/Maui. 
 
 * Mahuika has only 8 GPU nodes. However, the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres:gpu`.  It may be necessary to also specify `--partition gpu`.
 
-* Mahuika has 5 "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=bigmem` (for jobs shorter than 24 hours) or `--partition=hugemem`.  
+* Mahuika has 5 "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=prepost` (for jobs shorter than 3 hours) or `--partition=hugemem`.  
 
 ### Job limits
 
