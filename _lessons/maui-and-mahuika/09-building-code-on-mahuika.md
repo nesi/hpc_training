@@ -14,7 +14,14 @@ You will learn:
 * how to compile code (Fortran, C, C++) 
 * how to link against libraries
 
+## Example programs
+
 Example programs used can be found [here](https://github.com/nesi/hpc_training/tree/gh-pages/_code).
+You can get the example programs by cloning the repository:
+```
+git clone https://github.com/nesi/hpc_training.git
+```
+Example programs are located in the `_code` directory.
 
 ## Where to build
 Build processes can be performed on the Mahuika login nodes, `login.mahuika.nesi.org.nz`. Please be aware, that these login nodes are limited and shared resources. Please limit the amount of processes on these nodes (avoid `make -j`, instead use `make -j 5`). Larger build processes should be performed from a compute node, where you can also ask for a larger amount of compute resources to build your code.
@@ -67,11 +74,15 @@ In general you then compile your code using:
 ```
   <compiler> <arguments> <source-file>
 ```
-For instance, to compile [hello.f90](https://github.com/nesi/hpc_training/blob/gh-pages/_code/Fortran/hello.f90)
-``` 
-  ftn -O3 hello.f90
+For instance, to compile [hello.c](https://github.com/nesi/hpc_training/blob/gh-pages/_code/C/hello.c)
 ```
-
+# make sure a toolchain or compiler is loaded
+ml gimkl/2017a
+# compile
+gcc hello.c
+# run the executable
+./a.out
+```
 
 ### Compiler options
 Compilers are controlled using different options to control optimisations, output, source and library handling. These options vary between the different compiler vendors. That means you will need to change them if you decide to switch compilers.
@@ -95,10 +106,11 @@ Additional compiler options are documented in the compiler man pages, e.g. `man 
 <!-- so far no intel man pages available, need to be fixed [https://nznesi.atlassian.net/browse/POPS-247] -->
 **Note**: Cray uses compiler wrappers, to list the compiler options, you need to view man pages of the actual compiler.
 
-For example, the following commands would be used to compile [simpleMpi.f90](https://github.com/nesi/hpc_training/blob/gh-pages/_code/Fortran/simpleMpi.f90) with the gfortran compiler, activate compiler warnings (`-Wall`), and requiring aggressive compiler optimisation (`-O3`):
+For example, the following commands would be used to compile [simpleMpi.c](https://github.com/nesi/hpc_training/blob/gh-pages/_code/C/simpleMpi.c) with the gcc compiler, activate compiler warnings (`-Wall`), and requiring aggressive compiler optimisation (`-O3`):
 ```
 ml gimkl/2017a
-mpif90 -Wall -O3 -o simpleMpi simpleMpi.f90
+mpicc -Wall -O3 -o simpleMpi simpleMpi.c
+srun --ntasks=2 ./simpleMpi
 ```
 
 
@@ -130,11 +142,20 @@ ml show <module-name>
 ```
 to find out.
 
-Note that specifying search paths with `-I` and `-L` is not strictly necessary in case of the GNU and Intel compilers, which will use the contents of `CPATH`, `LIRARY_PATH`, and `LD_LIBRARY_PATH` provided by the NeSI/NIWA module. This will not work with the Cray compiler.
+Note that specifying search paths with `-I` and `-L` is not strictly necessary in case of the GNU and Intel compilers, which will use the contents of `CPATH`, `LIBRARY_PATH`, and `LD_LIBRARY_PATH` provided by the NeSI/NIWA module. This will not work with the Cray compiler.
 
 **Important note:** Make sure that you load the correct variant of a library, depending on your choice of compiler. Switching compiler environment will *not* switch NeSI/NIWA modules automatically. Furthermore, loading a NeSI/NIWA module may switch programming environment if it was built with a different compiler. In general, Fortran libraries should be built with the same compiler.
 
 **Note:** The MPI compiler wrappers add include paths and search paths for the MPI library, as well as further compiler and linker flags depending on the MPI distribution. This can be verified by running `mpif90 -show <...>` for Intel MPI, or `mpif90 --showme <...>` in the case of OpenMPI.
+
+Compile the example program that depends on the netCDF library [simple_xy_wr.c](https://github.com/nesi/hpc_training/blob/gh-pages/_code/C/simple_xy_wr.c):
+```
+ml netCDF/4.4.1-gimkl-2017a
+gcc -o simple_xy_wr simple_xy_wr.c -lnetcdf
+./simple_xy_wr
+```
+You have to specify `-lnetcdf` so that it links against the netCDF library, but do not have to specify the location of the library or include files, as the module sets environment variables to take care of that.
+
 
 ### Common linker problems
 
