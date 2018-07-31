@@ -59,7 +59,7 @@ On most Linux, Windows and MacOS machines the login process can be simplified to
 If you use MobaXterm on Windows, activate the "Connect through SSH gateway (jump host)" section in the "Advanced SSH settings" tab and enter `lander02.nesi.org.nz` in the "Gateway SSH server" field, as well as your username in the "User" field.
 
 ### Linux and MacOS users
-Add the following lines to the `~/.ssh/config` file on you machine (replacing `<myusername>` with your username),
+Run `mkdir -p ~/.ssh/sockets` and add the following lines to `~/.ssh/config` your machine (replacing `<myusername>` with your username),
 ```
 Host *
     ControlMaster auto
@@ -93,5 +93,3 @@ Host lander
    ServerAliveCountMax 2
 ```
 This will allow you to run the command `ssh mahuika` (`ssh maui`) and bring you straight to Mahuika (Māui). With the `Control` directives, you will no longer have to type again your password with subsequent `ssh` or `scp` commands (recommended for [data transfer](https://nesi.github.io/hpc_training/lessons/maui-and-mahuika/data-transfer)). The `ForwardX11` directives will enable X11 forwarding. The `ServerAlive` directives will stop the connection from hanging when you don't type anything for some time.
-
-Also be sure to run: `mkdir -p ~/.ssh/sockets`.
