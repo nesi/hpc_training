@@ -49,7 +49,7 @@ SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="s
 
 * Mahuika uses the "Broadwell" generation of Intel CPUs, newer than anything on Pan.  This makes Pan's optional Slurm constraints "wm", "sb" and "avx" obsolete. 
 
-* Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres:gpu`.  It may be necessary to also specify `--partition gpu`.
+* Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres=gpu`.  It may be necessary to also specify `--partition gpu`.
 
 * Mahuika has 5 "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=bigmem` (for jobs shorter than 24 hours) or `--partition=hugemem`.  
 
