@@ -19,6 +19,8 @@ You will need a terminal program to log in to Māui or Mahuika:
 - MacOS X: Terminal app, iTerm2
 - Linux: Terminal app, xterm
 
+You will need to have an [account](00-setting-up-account.md#setting-up-your-nesi-account) and [two-factor authentication](00-setting-up-account.md#setting-up-two-factor-authentication) set up.
+
 ## Connecting to Māui and Mahuika
 
 Connecting to Māui or Mahuika is a two step process. First, connect to NeSI's lander node by typing:
