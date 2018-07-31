@@ -69,7 +69,11 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * Mahuika uses the newer "Broadwell" and Maui the "Skylake" generation of Intel CPUs.  Pan's optional Slurm constraints "wm", "sb" and "avx" are obsolete on Mahuika/Maui. 
 
+<<<<<<< HEAD
 * Mahuika has only 8 GPU nodes. However, the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres=gpu`.  It may be necessary to also specify `--partition gpu`.
+=======
+* Mahuika has only 8 GPU nodes however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres=gpu`.  It may be necessary to also specify `--partition gpu`.
+>>>>>>> gh-pages
 
 * Mahuika has 5 "bigmem" nodes of 512 GB, and one "hugemem" node with 4 TB of memory.  These have to be specifically requested by telling _sbatch_ `--partition=bigmem`,  `--partition=prepost` (for jobs shorter than 3 hours) or `--partition=hugemem`.  
 
