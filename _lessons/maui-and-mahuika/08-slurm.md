@@ -35,11 +35,11 @@ Reference information about Slurm can be found at:
 
 ## Partitions
 
-Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.
+Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.  
 
 ### Partitions on Mahuika
 
-**Important Note:** Slurm configuration is not yet complete on Mahuika and so this page is subject to change, particularly numerical values.
+**Important Note:** This page is subject to change, particularly numerical values.
 
 | Partition	Name | Time limit	| CPU cores	| Max cores per user	| RAM / core | Purpose |
 | ----------|------------|-----------|--------------------|------------|---------------- |
@@ -50,11 +50,19 @@ Jobs in the Slurm queue have a priority which depends on several factors includi
 | hugemem	| 3 days	| 64	| 64	| 62 GB | The 4TB node – when it is available for batch processing. |
 | gpu	| 3 days	| 12	| 4 + 2 GPUs	| 3 GB | 2 GPGPUs per node. |
 
+### Accounting for CPUs, Memory, and GPUs
+
+For the purposes of project accounting, jobs which use more memory per CPU than is indicated in the table above will be counted as having occupied the equivalent number of CPUs. "bigmem" CPUs count as 2 ordinary CPUs and "hugemem" CPUs as 4.  GPUs count as 56 CPUs.
+
+### Other limits
+
+No individual job can request more than 20,000 CPU hours.
+
+By default no user can put more than 1000 jobs in the queue at a time.  This limit will be relaxed for those who need to submit large numbers of jobs, provided that they undertake to do it with job arrays.
 
 ### Quality of Service
 
 In addition to the partitions, each job has a "QoS", with the default QoS for a job being determined by the allocation class of its project. Specifying `--qos=debug` will override that and give the job very high priority, but is subject to strict limits: 15 minutes per job, and only 1 job at a time per user.
-
 
 ## Slurm scripts
 
@@ -136,8 +144,6 @@ Submit job `helloworld.sl`:
 #!/bin/bash
 #SBATCH --job-name=hello
 #SBATCH --time=00:02:00
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
 
 srun echo "Hello, World!"
 ```
