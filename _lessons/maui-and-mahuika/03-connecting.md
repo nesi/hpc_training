@@ -53,17 +53,21 @@ Your password and a new second factor may be required for this step (going from 
 
 ## Jumping across the lander node
 
-On most Linux, Windows and MacOS machines the login process can be simplified to just a single SSH command, jumping across the lander node on the way to either the Māui or Mahuika login nodes.
+On most Linux, Windows and MacOS machines the login process can be simplified to just a single `ssh` command, jumping across the lander node on the way to either the Māui or Mahuika login nodes.
 
 ### Windows
 If you use MobaXterm on Windows, activate the "Connect through SSH gateway (jump host)" section in the "Advanced SSH settings" tab and enter `lander02.nesi.org.nz` in the "Gateway SSH server" field, as well as your username in the "User" field.
 
-### Linux and MacOS
-On Linux and MacOS machines, with the following lines in your `~/.ssh/config` file (replacing `myusername` with your username) you can run the command `ssh mahuika` on your machine and it will take you straight to Mahuika (`ssh maui` for Māui). 
-
+### Linux and MacOS users
+Add the following lines to the `~/.ssh/config` file on you machine (replacing `<myusername>` with your username),
 ```
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/ssh_mux_%h_%p_%r
+    ControlPersist 1
+
 Host mahuika
-   User myusername
+   User <myusername>
    Hostname login.mahuika.nesi.org.nz
    ProxyCommand ssh -W %h:%p lander
    ForwardX11 yes
@@ -72,7 +76,7 @@ Host mahuika
    ServerAliveCountMax 2
 
 Host maui
-   User myusername
+   User <myusername>
    Hostname login.maui.nesi.org.nz
    ProxyCommand ssh -W %h:%p lander
    ForwardX11 yes
@@ -81,21 +85,13 @@ Host maui
    ServerAliveCountMax 2
 
 Host lander
-   User myusername
+   User <myusername>
    HostName lander02.nesi.org.nz
    ForwardX11 yes
    ForwardX11Trusted yes
    ServerAliveInterval 300
    ServerAliveCountMax 2
 ```
+This will allow you to run the command `ssh mahuika` (`ssh maui`) and bring you straight to Mahuika (Māui). With the `Control` directives, you will no longer have to type again your password with subsequent `ssh` or `scp` commands (recommended for [data transfer](https://nesi.github.io/hpc_training/lessons/maui-and-mahuika/data-transfer)). The `ForwardX11` directives will enable X11 forwarding. The `ServerAlive` directives will stop the connection from hanging when you don't type anything for some time.
 
-The `ForwardX11` directives will enable X11 forwarding and are optional. The `ServerAlive` directives will stop the connection from hanging when you don't type anything in for some time.
-
-This can be combined with the `Control` directives to make subsequent SSH logins and SCP commands use the same connection (i.e. without needing to type a password in again). For example, to enable this for all connections add the following section to your `~/.ssh/config` file:
-```
-Host *
-    ControlMaster auto
-    ControlPath ~/.ssh/sockets/ssh_mux_%h_%p_%r
-    ControlPersist 1
-```
-and be sure to run: `mkdir -p ~/.ssh/sockets`.
+Also be sure to run: `mkdir -p ~/.ssh/sockets`.
