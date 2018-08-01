@@ -92,4 +92,4 @@ Host lander
    ServerAliveInterval 300
    ServerAliveCountMax 2
 ```
-This will allow you to run the command `ssh mahuika` (`ssh maui`) and bring you straight to Mahuika (Māui). With the `Control` directives, you will no longer have to type again your password with subsequent `ssh` or `scp` commands (recommended for [data transfer](https://nesi.github.io/hpc_training/lessons/maui-and-mahuika/data-transfer)). The `ForwardX11` directives will enable X11 forwarding. The `ServerAlive` directives will stop the connection from hanging when you don't type anything for some time.
+This will allow you to run the command `ssh mahuika` (`ssh maui`) and bring you straight to Mahuika (Māui). With the `Control` directives, you will no longer have to type again your password with subsequent `ssh` or `scp` commands (recommended for [data transfer](05-data-transfer.md)). The `ForwardX11` directives will enable X11 forwarding. The `ServerAlive` directives will stop the connection from hanging when you don't type anything for some time.
