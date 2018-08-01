@@ -91,6 +91,8 @@ Host lander
 
 The `ForwardX11` directives will enable X11 forwarding and are optional. The `ServerAlive` directives will stop the connection from hanging when you don't type anything in for some time.
 
+**Note:** after creating the file ~/.ssh/config you need to change permissions on that using ```chmod 600 ~/.ssh/config```
+
 This can be combined with the `Control` directives to make subsequent SSH logins and SCP commands use the same connection (i.e. without needing to type a password in again). For example, to enable this for all connections add the following section to your `~/.ssh/config` file:
 ```
 Host *
