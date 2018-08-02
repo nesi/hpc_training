@@ -14,11 +14,17 @@ You will learn:
 * how to bypass the lander node when copying data
 
 
-**Content is currently under development. Check back soon.**
 # transfer tools #
+
 The basic toolkit consists of scp and sftp.
+
 1.  scp  --  secure copy
 2.  sftp -- secure file transfer protocol
+
+These tools are available in Linux and MacOS terminals, as well as on Windows via MobaXterm, Git Bash, or Windows 10 Bash.
+
+**Note for MobaXterm users on Windows:**
+MobaXterm automatically starts an `sftp` session alongside your `ssh` session that you can use to easily transfer data from your laptop or desktop computer to the HPC and back. Make sure that you activate "Display SFTP browser" in the "Advanced SSH settings" tab of the session settings window. Even though multiple files can be transfered in a single step by selecting a set of files in the browser, it may still be worthwhile [creating a compressed `tar` archive](05-data-transfer.md#tar) (e.g., using the 7-Zip program) to reduce transfer time, or to handle a very large number of files. Using command line versions of `scp`, `sftp`, and `tar` is of course also possible on Windows, as noted above.
 
 ### Preliminaries ###
 
