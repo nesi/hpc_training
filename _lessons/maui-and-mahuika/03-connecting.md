@@ -9,7 +9,9 @@ chapter: maui-and-mahuika
 
 You will learn:
 
-* how to login to Māui and Mahuika
+* how to log in to Māui and Mahuika
+* how to configure your machine to connect directly to the login node
+* how to minimise the number of times you have to enter your password
 
 ## Requirements
 
@@ -59,7 +61,7 @@ On most Linux, Windows and MacOS machines the login process can be simplified to
 If you use MobaXterm on Windows, activate the "Connect through SSH gateway (jump host)" section in the "Advanced SSH settings" tab and enter `lander02.nesi.org.nz` in the "Gateway SSH server" field, as well as your username in the "User" field.
 
 ### Linux and MacOS users
-Run `mkdir -p ~/.ssh/sockets` and add the following lines to `~/.ssh/config` your machine (replacing `<myusername>` with your username),
+Run `mkdir -p ~/.ssh/sockets` and add the following lines to `~/.ssh/config` on your machine (replacing `<myusername>` with your username),
 ```
 Host *
     ControlMaster auto
