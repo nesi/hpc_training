@@ -34,17 +34,18 @@ Using the `module` command you can:
   ```
 * Switch out a loaded module for a different version:
   ```
-  module switch Python/2.7.14-gimkl-2017a Python/3.6.3-gimkl-2017a
+  module swap Python/2.7.14-gimkl-2017a Python/3.6.3-gimkl-2017a
   ```
+For more details run `module help`.
 
-### Lmod on Mahuika
+### Lmod shortcuts
 
 On Mahuika we are using an enhanced version of modules called Lmod (it was
 there on Pan, too).
 
 Lmod extends the basic environment modules by adding simple shortcuts and a
 more powerful search capability. The `ml` shortcut can be used in place of
-`module`. With Lmod you can:
+`module`. With `ml` you can:
 
 * View loaded modules:
   ```
@@ -66,12 +67,36 @@ more powerful search capability. The `ml` shortcut can be used in place of
   ```
   ml -Python/2.7.14-gimkl-2017a Python/3.6.3-gimkl-2017a
   ```
-* To get a fresh environment, we recommend to log out and log in again.
-  By logging out and logging in again you will revert to not only the default
-  set of modules, but also the default set of environment variables.
 
-Further information can be found in the online
+Further information about Lmod can be found in the online
 [User Guide for Lmod](https://lmod.readthedocs.io/en/latest/010_user.html).
+
+
+### Modules available on Mahuika
+
+Most software installed on Pan and still in recent use has also been installed on 
+Mahuika, though not many old versions of each one.  Let us know if something you 
+need is missing.
+
+There is also some software provided by Cray.  If necessary you can tell which is 
+which via `module avail`. 
+
+### Default Modules on Mahuika
+
+Currently there are a few modules loaded by default when you log in, and one of these
+is Slurm, which is essential for submitting jobs.  So, if you use `module purge` also
+follow it up with `module load slurm`.
+
+There is also currently a warning on login "The system default contains no modules" 
+which can be ignored.
+
+### Planned changes
+
+We will soon tidy up the modules so that Slurm can not be so easily unloaded.  It is 
+likely that _slurm_ will be made into a "Sticky" module which will not be unloaded by 
+a simple `module purge`, and it will be joined by a sticky _nesi_ module which will
+make only our software available, with `module load cray` being necessary to access the 
+Cray environment modules.
 
 ## Create your own modules
 You can create personalised module environments, which can load modules and set
