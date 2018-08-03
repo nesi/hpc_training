@@ -158,25 +158,18 @@ sacct -j 14309
 where the argument passed to `-j` is the job ID, will show us something like:
 
 ```
-       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
------------- ---------- ---------- ---------- ---------- ---------- --------
-14309        problem.sh       NeSI  nesi99999         80  COMPLETED      0:0
-14309.batch       batch             nesi99999         80  COMPLETED      0:0
-14309.0         yourapp             nesi99999         80  COMPLETED      0:0
+       JobID    JobName    Elapsed    TotalCPU  AllocCPUS     MaxRSS      State
+------------ ---------- ----------  ---------- ---------- ---------- ----------
+14309        problem.sh   00:12:42   00:00.012         80             COMPLETED
+14309.batch       batch   00:12:42   00:00.012         80      1488K  COMPLETED
+14309.0         yourapp   00:12:41    16:00:03         80    478356K  COMPLETED
 ```
 
 By default `sacct` will list all of your jobs which were (or are) running on the current day.  Each job will show as more than one line (unless `-X` is specified): an initial line for the job as a whole, and then an additional line for each job step, i.e.: the batch process which is your executing script, and then each of the `srun` commands it executes.
 
-By changing the displayed columns you can gain information about the CPU and memory utilisation of the job, for example
+By changing the displayed columns you can gain different information about the job, for example
 
 ```
-sacct -j 14309 --format=jobid,jobname,elapsed,avecpu,totalcpu,alloccpus,maxrss,state
+sacct -j 14309 --format=jobid,jobname,partition,alloctres,exitcode
 ```
 
-```
-      JobID    JobName    Elapsed     AveCPU   TotalCPU  AllocCPUS     MaxRSS      State
------------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
-14309        problem.sh   00:12:42             00:00.012         80             COMPLETED
-14309.batch       batch   00:12:42   00:00:00  00:00.012         80      1488K  COMPLETED
-14309.0         yourapp   00:12:41   00:12:03   16:00:03         80    478356K  COMPLETED
-```
