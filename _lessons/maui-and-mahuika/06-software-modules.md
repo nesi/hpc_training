@@ -74,12 +74,12 @@ Further information about Lmod can be found in the online
 
 ### Modules available on Mahuika
 
-Most software installed on Pan and still in recent use has also been installed on 
-Mahuika, though not many old versions of each one.  Let us know if something you 
+Most software installed on Pan and still in recent use has also been installed on
+Mahuika, though not many old versions of each one.  Let us know if something you
 need is missing.
 
-There is also some software provided by Cray.  If necessary you can tell which is 
-which via `module avail`. 
+There is also some software provided by Cray.  If necessary you can tell which is
+which via `module avail`.
 
 ### Default Modules on Mahuika
 
@@ -87,15 +87,15 @@ Currently there are a few modules loaded by default when you log in, and one of 
 is Slurm, which is essential for submitting jobs.  So, if you use `module purge` also
 follow it up with `module load slurm`.
 
-There is also currently a warning on login "The system default contains no modules" 
+There is also currently a warning on login "The system default contains no modules"
 which can be ignored.
 
 ### Planned changes
 
-We will soon tidy up the modules so that Slurm can not be so easily unloaded.  It is 
-likely that _slurm_ will be made into a "Sticky" module which will not be unloaded by 
+We will soon tidy up the modules so that Slurm can not be so easily unloaded.  It is
+likely that _slurm_ will be made into a "Sticky" module which will not be unloaded by
 a simple `module purge`, and it will be joined by a sticky _nesi_ module which will
-make only our software available, with `module load cray` being necessary to access the 
+make only our software available, with `module load cray` being necessary to access the
 Cray environment modules.
 
 ## Create your own modules
@@ -168,9 +168,8 @@ will continue to update our software catalogue over time.
 ### Requesting software installs
 
 To request that we install a scientific application (either a new application,
-or a new version of an already installed application), please [email our support
-team](mailto:support@nesi.org.nz?subject=New software request). In your message,
-please provide the following information:
+or a new version of an already installed application), please [file a ticket](https://support.nesi.org.nz/hc/en-gb/requests/new) with the subject
+*"New software request"*. In your message, please provide the following information:
 
 * Why would you like us to install this software package?
 * What is the name and version number of the software you would like installed?

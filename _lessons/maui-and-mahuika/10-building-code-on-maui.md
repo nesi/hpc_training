@@ -117,7 +117,7 @@ man cc
 man CC
 ```
 
-The compiler drivers will also automatically build MPI codes correctly, there is no need to use special compilers or add additional compiler or linker flags. 
+The compiler drivers will also automatically build MPI codes correctly, there is no need to use special compilers or add additional compiler or linker flags.
 
 Note that running an MPI code on the build node (```login.maui.nesi.org.nz```) using
 ```
@@ -259,7 +259,7 @@ This simply means that the library must be accessible at runtime despite fully s
 Linking can easily go wrong. Most often, you will see linker errors about "missing symbols" when the linker could not find a function used in your program or in one of the libraries that you linked against. To resolve this problem, have a closer look at the function names that the linker reported:
 
 * Are you missing some object code files (these are compiled source files and have suffix ```.o```) that should appear on the linker line? This can happen if the build system was not configured correctly or has a bug. Try running the linking step manually with all source files and debug the build system (which can be a lengthy and cumbersome process, unfortunately).
-* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-openmp``` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using ```-h[no]omp```. 
+* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-openmp``` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using ```-h[no]omp```.
 * Do you see a very long list of complex-looking function names, and does your source code or external library dependency include C++ code? You may need to explicitly link against the C++ standard library (```-lstdc++``` for GNU and Cray compilers, ```-cxxlib``` for Intel compilers); this is a particularly common problem for statically linked code.
 * Do the function names end with an underscore ("_")? You might be missing some Fortran code, either from your own sources or from a library that was written in Fortran, or parts of your Fortran code were built with flags such as ```-assume nounderscore``` (Intel) or ```-fno-underscoring``` (GNU), while others were  using different flags (note that the Cray compiler always uses underscores).
 * Do the function names end with double underscores ("__")? Fortran compilers offer an option to add double underscores to Fortran subroutine names for compatibility reasons (```-h [no]second_underscore```, ```-assume [no]2underscores```, ```-f[no-]second-underscore```) which you may have to add or remove.
@@ -275,4 +275,4 @@ Building code on the CS500 platform is different from the XC50 platform:
 
 Building code on the CS500 platform follows the same process as building code on Mahuika. The only difference is that CS500 nodes use Intel Skylake CPUs, while Mahuika's CS400 nodes use the older Intel Broadwell CPUs. This means that programs that were compiled on the CS500 platform may fail to run on Mahuika, producing either an error message (if built with the Intel compiler), or an "illegal instruction" error (if built with the Cray or GNU compilers).
 
-Please refer to section [Building code on Mahuika](09-building-code-on-mahuika.md) for further instructions.
+Please refer to section [Building code on Mahuika](https://support.nesi.org.nz/hc/en-gb/articles/360000329015) for further instructions.

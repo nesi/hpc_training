@@ -11,7 +11,7 @@ You will learn:
 
 * where to build
 * how to select a compiler environment (toolchain)
-* how to compile code (Fortran, C, C++) 
+* how to compile code (Fortran, C, C++)
 * how to link against libraries
 
 ## Example programs
@@ -51,7 +51,7 @@ The Cray compilers behave differently to the GNU and Intel compilers, since they
 ```
 ml PrgEnv-cray
 ```
-The Cray Programming Environment includes the Cray compiler, various libraries and tools. These work nicely together and provide certain user-friendly features by using compiler wrappers. This works very similar as the Cray XC environment, provided on Maui, and is described in detail on page [Building Code on Maui](10-building-code-on-maui.md).
+The Cray Programming Environment includes the Cray compiler, various libraries and tools. These work nicely together and provide certain user-friendly features by using compiler wrappers. This works very similar as the Cray XC environment, provided on Maui, and is described in detail on page [Building Code on Maui](https://support.nesi.org.nz/hc/en-gb/articles/360000336076).
 
 **Note:** On Mahuika, only the Cray compiler uses the Cray Programming Environment while the Intel and GNU compilers are used as on any other Linux system. Moreover, the Cray compiler on Mahuika only supports dynamic linking. This is different on Māui where all compilers use the Cray Programming Environment and static linking is preferred.
 
@@ -68,7 +68,7 @@ Compilers are provided for Fortran, C, and C++; compiler wrappers are needed to 
 | C++           | CC   | icpc     | g++      |
 | C++ + MPI     | CC   | mpiicpc  | mpicxx   |
 
-**Note:** The Cray compilers always use compiler wrappers which are described in more detail [here](10-building-code-on-maui.md).
+**Note:** The Cray compilers always use compiler wrappers which are described in more detail [here](https://support.nesi.org.nz/hc/en-gb/articles/360000336076).
 
 In general you then compile your code using:
 ```
@@ -115,17 +115,17 @@ srun --ntasks=2 ./simpleMpi
 
 
 ## Linking
-Beside of some basic libraries like glibc and MPI, additional libraries need to be specified manually. In general one needs to specify: 
+Beside of some basic libraries like glibc and MPI, additional libraries need to be specified manually. In general one needs to specify:
 
  - header file location, using the option `-I /path/to/headers`
  - library location, using `-L /path/to/lib/`
  - library name, usually formatted as, `-l<library name>`
- 
+
 Thus the linker expects to find the include headers in the */path/to/headers* directory and the library at */path/to/lib/`lib<library name>.so`* (we assume dynamic linking).
 
 Note that you may need to list several libraries to link successfully, e.g., `-lA -lB` for linking against libraries "A" and "B". The order in which you list libraries matters, as the linker will go through the list in order of appearance. If library "A" depends on library "B", specifying `-lA -lB` will work. If library "B" depends on "A", use `-lB -lA`. If they depend on each other, use `-lA -lB -lA` (although such cases are quite rare).
 
-### External libraries 
+### External libraries
 There are already a long list of libraries provided on the Mahuika platform. Most of them are provided in modules. You can search them using
 ```
 ml spider
@@ -162,7 +162,7 @@ You have to specify `-lnetcdf` so that it links against the netCDF library, but 
 Linking can easily go wrong. Most often, you will see linker errors about "missing symbols" when the linker could not find a function used in your program or in one of the libraries that you linked against. To resolve this problem, have a closer look at the function names that the linker reported:
 
 * Are you missing some object code files (these are compiled source files and have suffix `.o`) that should appear on the linker line? This can happen if the build system was not configured correctly or has a bug. Try running the linking step manually with all source files and debug the build system (which can be a lengthy and cumbersome process, unfortunately).
-* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (`-fopenmp` for GNU compilers, `-qopenmp` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using `-h[no]omp`. 
+* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (`-fopenmp` for GNU compilers, `-qopenmp` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using `-h[no]omp`.
 * Do you see a very long list of complex-looking function names, and does your source code or external library dependency include C++ code? You may need to explicitly link against the C++ standard library (`-lstdc++` for GNU and Cray compilers, `-cxxlib` for Intel compilers); this is a particularly common problem for statically linked code.
 * Do the function names end with an underscore ("_")? You might be missing some Fortran code, either from your own sources or from a library that was written in Fortran, or parts of your Fortran code were built with flags such as `-assume nounderscore` (Intel) or `-fno-underscoring` (GNU), while others were  using different flags (note that the Cray compiler always uses underscores).
 * Do the function names end with double underscores ("__")? Fortran compilers offer an option to add double underscores to Fortran subroutine names for compatibility reasons (`-h [no]second_underscore`, `-assume [no]2underscores`, `-f[no-]second-underscore`) which you may have to add or remove.
@@ -170,7 +170,7 @@ Linking can easily go wrong. Most often, you will see linker errors about "missi
 
 Note that the linker requires that function names match exactly, so any variation in function name in your code will lead to a "missing symbols" error (with the exception of character case in Fortran source code).
 
-<!-- 
+<!--
 --------------
 - static linking (with gnu or intel?) (OpenMPI has no static libmpi...)
 

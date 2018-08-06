@@ -39,7 +39,7 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * On Pan the project directories were located under _/projects_, which was a symlink to _/gpfs1m/projects_. On Mahuika (and Māui) the project directories are located under _/nesi/project_, so any scripts referencing these directories must be updated.
 
-* In addition to the project directory, each project has a "nobackup" directory found under _/nesi/nobackup_ which is faster but not backed up. Old files on _/nesi/nobackup_ are guarenteed to be deleted by the system when space is needed. 
+* In addition to the project directory, each project has a "nobackup" directory found under _/nesi/nobackup_ which is faster but not backed up. Old files on _/nesi/nobackup_ are guarenteed to be deleted by the system when space is needed.
 
 * The per-job temporary directories SCRATCH_DIR, TMP_DIR and SHM_DIR on Pan are not provided on Mahuika.
 
@@ -49,7 +49,7 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
   | TMP_DIR     | TMPDIR                       | Temporary, per-job directory under /tmp                       |
   | SHM_DIR     | TMPDIR                       | TMPDIR (and /tmp) is located in memory, as SHM_DIR was on Pan |
 
-  As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg: 
+  As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg:
 
   ```
   SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="scratch_${SLURM_JOB_ID}_XXX.tmp")
@@ -57,7 +57,7 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 ### Software
 
-* Many older environment modules which were present on Pan have not been recreated on Mahuika. [See section software modules.](06-software-modules.md) 
+* Many older environment modules which were present on Pan have not been recreated on Mahuika. [Supported Applications](https://support.nesi.org.nz/hc/en-gb/sections/360000040076).
 
 * Locations of our installed software is different. This should not matter if you have been using environment modules.
 
@@ -67,7 +67,7 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 * Hyperthreading is enabled, and so multithreaded jobs will by default be allocated only half as many physical cores per task as they would get on Pan.  This can however be avoided with `--hint=nomultithread`.
 
-* Mahuika uses the newer "Broadwell" and Maui the "Skylake" generation of Intel CPUs.  Pan's optional Slurm constraints "wm", "sb" and "avx" are obsolete on Mahuika/Maui. 
+* Mahuika uses the newer "Broadwell" and Maui the "Skylake" generation of Intel CPUs.  Pan's optional Slurm constraints "wm", "sb" and "avx" are obsolete on Mahuika/Maui.
 
 * Mahuika has only 8 GPU nodes, however the GPUs are the more powerful Tesla P100.  They are accessed in the same way as on Pan with `--gres=gpu`.  It may be necessary to also specify `--partition gpu`.
 
@@ -89,4 +89,4 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
 
 ## The other machine - Māui.
 
-Mahuika shares its filesystem with the co-located Cray XC supercomputer Māui, so if your work is suitable for running on Māui (ie: large MPI jobs) and you are granted an allocation of Māui CPU time then you will be able to access your data in the same locations from either machine. 
+Mahuika shares its filesystem with the co-located Cray XC supercomputer Māui, so if your work is suitable for running on Māui (ie: large MPI jobs) and you are granted an allocation of Māui CPU time then you will be able to access your data in the same locations from either machine.
