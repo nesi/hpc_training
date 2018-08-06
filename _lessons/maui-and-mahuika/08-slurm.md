@@ -26,7 +26,7 @@ Slurm provides a rich set of features for organising your workload and an extens
  - `scancel` - delete one of your jobs from the queue
  - `srun` - launch a process across multiple CPUs
  - `sinfo` - view information about Slurm nodes and partitions
- - `sacct` - display accounting data for all jobs and job steps in the Slurm job accounting log or Slurm 
+ - `sacct` - display accounting data for all jobs and job steps in the Slurm job accounting log or Slurm
 
 Reference information about Slurm can be found at:
  - `man slurm`
@@ -37,7 +37,7 @@ Reference information about Slurm can be found at:
 
 Jobs in the Slurm queue have a priority which depends on several factors including size, age, owner, and the "partition" to which they belong. Each partition can be considered as an independent queue, with the slight complications that a job can be submitted to multiple partitions (though it will only *run* in one of them) and a compute node may belong to multiple partitions.  
 
-### Partitions on Mahuika
+### [Partitions on Mahuika](https://support.nesi.org.nz/hc/en-gb/articles/360000204076)
 
 **Important Note:** This page is subject to change, particularly numerical values.
 
@@ -62,7 +62,7 @@ In addition to the partitions, each job has a "QoS", with the default QoS for a 
 
 ## Slurm scripts
 
-Slurm scripts are text files you will need to create in order to submit a job to the scheduler. Slurm scripts start with `#!/bin/bash` and contain set of directives (start with `#SBATCH `, followed by commands (`srun`): 
+Slurm scripts are text files you will need to create in order to submit a job to the scheduler. Slurm scripts start with `#!/bin/bash` and contain set of directives (start with `#SBATCH `, followed by commands (`srun`):
 
 ```
 #!/bin/bash
@@ -77,7 +77,7 @@ Slurm scripts are text files you will need to create in order to submit a job to
 
 srun [options] <executable> [options]
 ```
-Not all directives need to be specified, just the ones you need. 
+Not all directives need to be specified, just the ones you need.
 
 ### Launching job steps with srun
 
@@ -172,4 +172,3 @@ By changing the displayed columns you can gain different information about the j
 ```
 sacct -j 14309 --format=jobid,jobname,partition,alloctres,exitcode
 ```
-

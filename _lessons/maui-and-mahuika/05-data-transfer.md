@@ -28,11 +28,11 @@ MobaXterm automatically starts an `sftp` session alongside your `ssh` session th
 
 ### Preliminaries ###
 
---- 
+---
 **NOTE**
 > Both scp and sftp use `ssh` (secure shell), so it's important that before you proceed, you verify that you can successfully ssh into the lander node and directly into mahuika/maui with the command `ssh mahuika` following the instructions at [jumping across the lander node](03-connecting.md#jumping-across-the-lander-node)
 
---- 
+---
 
 
 ## scp ##
@@ -58,13 +58,13 @@ The syntax for the scp command is:
   |`dest_host`| url or hostname of host to which the source file will be copied |
   |`dest_path`| /path/to/filename of destination file|
 
---- 
+---
 
 **NOTE**
 >    * The hostname of the local host can be omitted
 >    * The directory of the file on the local host can be omitted if it is your current working directory
 
---- 
+---
 
 ### copying files to the cluster ###
 
@@ -79,7 +79,7 @@ Here the source is your workstation, the destination is `mahuika`.
 <tr>
     <td><code>scp filename mahuika:~/</code></td>
     <td> (same as previous) </td>
-</tr> 
+</tr>
 <tr>
     <td><code>scp filename mahuika:/path/to/storage/location/</code> </td>
     <td> copy file to another remote path </td>
@@ -104,12 +104,12 @@ Note: the `-r` option makes `scp` a _recursive_ copy.  See ```man scp``` for mor
 
 Here the source is `mahuika`, the destination is your workstation.
 
---- 
+---
 > **Note:**
 > *  location `.` stands for current local directory
 > * `man scp` for more options
 
---- 
+---
 
 
 <table>
@@ -117,7 +117,7 @@ Here the source is `mahuika`, the destination is your workstation.
     <td>
         <code>scp mahuika:/home/username/filename  .</code>
     </td>
-    <td> 
+    <td>
         copy file from remote home directory to current local directory
     </td>
 </tr>
@@ -178,14 +178,14 @@ To transfer a directory tree from either end, navigate to that directory on the 
     <td> wherever archive exists</td>
 </tr>
 <tr>
-    <td> <code>tar xvfz archive.tar.gz</code> </td> 
+    <td> <code>tar xvfz archive.tar.gz</code> </td>
     <td> extract archive after scp </td>
     <td> on destination </td>
 </tr>
 </table>
 
 
-and everything will be copied over and finally uncompressed and 
+and everything will be copied over and finally uncompressed and
 unpacked to the same directory structure as it was before, with one file-copy.
 
 See ```man tar``` for options on excluding files from the transfer, and other options.
@@ -239,7 +239,7 @@ where
 ```cwd == "current working directory"```, at either end!
 As you `put` and `get`, use `ls -lt` to see the state of your remote and local filesystems.
 
---- 
+---
 > **NOTE**
 > * Use ```man sftp``` to see options on get and put.
 >   - the -a option permits resuming a partial transfer
@@ -251,7 +251,7 @@ As you `put` and `get`, use `ls -lt` to see the state of your remote and local f
 
 ## rsync ##
 
-A more powerful tool again for file transfer is `rsync`.  It can be restarted after an 
+A more powerful tool again for file transfer is `rsync`.  It can be restarted after an
 incomplete transfer, optionally compress the transfer, ensure that symbolic links, devices, attributes, permissions, ownerships, etc. are preserved, and much more.
 See its man page for options and examples.
 

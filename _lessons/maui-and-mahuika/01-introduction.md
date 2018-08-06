@@ -35,9 +35,9 @@ NeSI has acquired two new supercomputing platforms:
 
 ## System Architecture
 
-Mahuika and Māui are colocated at NIWA's Greta Point campus in Wellington. They can both be accessed from the internet via the same lander nodes or NIWA's VPN service, please refer to section [Connecting](03-connecting.md) for details.
+Mahuika and Māui are colocated at NIWA's Greta Point campus in Wellington. They can both be accessed from the internet via the same lander nodes or NIWA's VPN service, please refer to [Logging in to the HPCs ](https://support.nesi.org.nz/hc/en-gb/articles/360000161315) for details.
 
-Both systems also share the same Spectrum Scale (formerly GPFS) file system - all files and directories can be accessed by all relevant nodes without any need for copying. However, note that CSx00 nodes and XC50 nodes run on different operating systems (CentOS and SLES, respectively). It is therefore generally **not** possible to use the same executables on both systems, so you will need to rebuild your codes. Rebuilding has the added benefit that you can ask the compiler to optimise your build for the different processors used on the system (Intel Xeon Broadwell in case of CS400 nodes, and Intel Xeon Skylake in case of CS500 and XC50 nodes). Please refer to sections [Building Code on Mahuika](09-building-code-on-mahuika.md) and [Building Code on Maui](10-building-code-on-maui.md) for details.
+Both systems also share the same Spectrum Scale (formerly GPFS) file system - all files and directories can be accessed by all relevant nodes without any need for copying. However, note that CSx00 nodes and XC50 nodes run on different operating systems (CentOS and SLES, respectively). It is therefore generally **not** possible to use the same executables on both systems, so you will need to rebuild your codes. Rebuilding has the added benefit that you can ask the compiler to optimise your build for the different processors used on the system (Intel Xeon Broadwell in case of CS400 nodes, and Intel Xeon Skylake in case of CS500 and XC50 nodes). Please refer to sections [Compiling software on Mahuika ](https://support.nesi.org.nz/hc/en-gb/articles/360000329015) and [Compiling software on Māui ](https://support.nesi.org.nz/hc/en-gb/articles/360000336076) for details.
 
 ### Mahuika
 ![](../../assets/img/Mahuika_Overview.png "Mahuika building blocks and network connections")
@@ -49,7 +49,7 @@ The above diagrams illustrate major building blocks and network connections on M
 
 Follow the blue network connections for user-accessible nodes. All Mahuika CS400 nodes and Māui CS500 nodes can access Spectrum Scale storage natively via InfiniBand for fast IO (red lines). Cray Aries interconnect (green lines) is used for low-latency communication between XC50 compute nodes on Māui, and for Spectrum Scale access via DVS (Data Virtualization Service) nodes.
 
-#### Mahuika Compute Hardware:
+#### [Mahuika](https://support.nesi.org.nz/hc/en-gb/articles/360000163575) and [Mahuika Ancilary](https://support.nesi.org.nz/hc/en-gb/articles/360000163595) Compute Hardware:
 ##### 234 CS400 compute nodes
 * 2x Intel Xeon E5-2600 v4 Broadwell 2.1 GHz processors with 18 physical cores each (36 physical cores per node)
 * 128 GB of RAM per node
@@ -64,7 +64,7 @@ Follow the blue network connections for user-accessible nodes. All Mahuika CS400
 * Same Intel Xeon E5-2600 v4 processor as compute nodes
 * 4 TB of RAM per node
 
-#### Māui Compute Hardware:
+#### [Māui](https://support.nesi.org.nz/hc/en-gb/articles/360000163695) and [Māui Ancilary](https://support.nesi.org.nz/hc/en-gb/articles/360000203776) Compute Hardware:
 ##### 464 XC50 compute nodes
 * 2x Intel Xeon Gold 6148 2.4 GHz processor with 20 physical cores each (40 physical cores per node)
 * 50% of nodes with 96 GB, 50% with 192 GB of RAM per node
