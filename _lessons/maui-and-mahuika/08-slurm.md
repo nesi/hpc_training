@@ -77,7 +77,7 @@ Slurm scripts are text files you will need to create in order to submit a job to
 
 srun [options] <executable> [options]
 ```
-Not all directives need to be specified, just the ones you need.
+Not all directives need to be specified, just the ones the job requires.
 
 ### Launching job steps with srun
 
@@ -118,6 +118,10 @@ To turn hyperthreading off you can use the `srun` option `--hint=nomultithread`,
 Even though hyperthreading is enabled, resources will by default be allocated to jobs and their tasks at the level of a physical core, so two different jobs or job tasks will not share a physical core. For example, a job requesting resources for three threads will be allocated two full physical cores.
 
 **Important:** Hyperthreading can be beneficial for some codes, but it can also degrade performance in other cases. We therefore recommend to run a small test job with and without hyperthreading to determine the best choice.
+
+### Requesting memory
+
+Due to hyperthreading being enabled, a non-hyperthreaded job will use twice as many _logical_ CPUs as it has threads, and so the value given to `--mem-per-cpu` should be half of what it would have been on Pan. On an ordinary Mahuika compute node there is 3 GB available per physical core, so 1.5 GB per logical core.  
 
 ### Accounting for CPUs, Memory, and GPUs
 
