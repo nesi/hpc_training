@@ -69,7 +69,7 @@ Slurm scripts are text files you will need to create in order to submit a job to
 #SBATCH --job-name=JobName      # job name (shows up in the queue)
 #SBATCH --account=nesi99999     # Project Account
 #SBATCH --time=08:00:00         # Walltime (HH:MM:SS)
-#SBATCH --mem-per-cpu=4096      # memory/cpu (in MB)
+#SBATCH --mem-per-cpu=1500      # memory/cpu (in MB)
 #SBATCH --ntasks=2              # number of tasks (e.g. MPI)
 #SBATCH --cpus-per-task=4       # number of cores per task (e.g. OpenMP)
 #SBATCH --partition=long        # specify a partition
