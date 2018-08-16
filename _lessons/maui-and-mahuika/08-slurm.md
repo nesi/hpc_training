@@ -133,7 +133,7 @@ Jobs which use more memory per CPU than is indicated in the table above will be 
 
 Mahuika's network consists of a number of Infiniband Islands, each containing 26 nodes or 936 physical cores. Parallel jobs that run entirely within an InfiniBand Island will achieve better application scaling performance than those that cross InfiniBand Island boundaries.
 
-Users can request that the job run within an InfiniBand Island by adding the `sbatch` flag `#SBATCH --switches=1` to their batch script. We advise that you manually set a maximum waiting time for the selected number of switches, e.g. `#SBATCH --switches=1@00:01:00` will make the scheduler wait for maximum one hour before ignoring the switches request.
+Users can request that the job run within an InfiniBand Island by adding the `sbatch` flag `#SBATCH --switches=1` to their batch script. We advise that you manually set a maximum waiting time for the selected number of switches, e.g. `#SBATCH --switches=1@01:00:00` will make the scheduler wait for maximum one hour before ignoring the switches request.
 
 
 ## Submitting a job
