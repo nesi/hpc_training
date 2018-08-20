@@ -52,7 +52,7 @@ Most Slurm batch scipts will require at least some changes to work on the new pl
   As a substitute for SCRATCH_DIR you can use any location within your project's nobackup directory _/nesi/nobackup/projectcode_, eg:
 
   ```
-  SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT --template="scratch_${SLURM_JOB_ID}_XXX.tmp")
+  SCRATCH_DIR=$(mktemp -d --tmpdir=/nesi/nobackup/$SLURM_JOB_ACCOUNT "scratch_${SLURM_JOB_ID}_XXX.tmp")
   ```
 
 ### Software
