@@ -58,7 +58,7 @@ Your password and a new second factor may be required for this step (going from 
 On most Linux, Windows and MacOS machines the login process can be simplified to just a single `ssh` command, jumping across the lander node on the way to either the Māui or Mahuika login nodes.
 
 ### Windows
-If you use MobaXterm on Windows, activate the "Connect through SSH gateway (jump host)" section in the "Advanced SSH settings" tab and enter `lander02.nesi.org.nz` in the "Gateway SSH server" field, as well as your username in the "User" field.
+If you use MobaXterm on Windows, activate the "Connect through SSH gateway (jump host)" section in the "Network settings" tab and enter `lander02.nesi.org.nz` in the "Gateway SSH server" field, as well as your username in the "User" field. (In an older version of MobaXterm the section was called "Advanced SSH settings".)
 
 ### Linux and MacOS users
 Run 
