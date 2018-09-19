@@ -18,7 +18,7 @@ The example programs used in this lesson can be found in the [_code](https://git
 
 ### Overview
 
-Building Fortran, C, or C++ code on the XC50 platform requires using the Cray programming environment. From a user perspective, the programming environment consists of a set of environment modules that select a compiler, essential libraries such as the MPI library, a CPU target, and more. The build process on the XC50 thus differs slightly from a standard Linux system. Non-compiled code, such as Python or R programs, do not use the programming environment. Note, however, that loading a module provided by NeSI/NIWA to get access to, e.g., Anaconda Python, may change the Cray programming environment in that Cray environment modules may be swapped.
+Building Fortran, C, or C++ code on the XC50 platform requires using the Cray programming environment. From a user perspective, the programming environment consists of a set of environment modules that select a compiler, essential libraries such as the MPI library, a CPU target, and more. The build process on the XC50 thus differs slightly from a standard Linux system. Non-compiled code, such as Python or R programs, do not use the programming environment. Note, however, that loading a module provided by NeSI/NIWA to get access to, e.g., the "RegCM" code, may change the Cray programming environment in that Cray environment modules may be swapped.
 
 **Important:**
 
@@ -34,7 +34,7 @@ Māui has a dedicated build node, ```login.maui.niwa.co.nz```, which should be u
 * The file system on XC50 compute nodes is optimised for handling large block IO, small block IO that is typical for a build job is inefficient
 * Submitting a job will allocate entire nodes. This is a waste of compute resources, especially if only one core or a few cores are used
 
-Furthermore, please keep in mind that the build node is a shared resource. Instead of using all processes (like `make -j`), please limit the amount of processes (`make -j 5` for example).
+Furthermore, please keep in mind that the build node is a shared resource. Instead of using as many parallel build processes as possible (with `make -j`), please limit the amount of processes (`make -j 5` for example).
 
 ### Choosing a programming environment
 
@@ -55,11 +55,9 @@ module swap PrgEnv-cray PrgEnv-gnu
 
 Note that several compiler versions are currently installed, in case of GNU for example:
 ```
-> module avail -l gcc
-gcc/4.9.3 (default)
-gcc/5.3.0
-gcc/6.1.0
-gcc/7.1.0
+> module avail gcc
+-------------------------------------- /opt/modulefiles --------------------------------------
+gcc/4.9.3          gcc/5.3.0          gcc/6.1.0          gcc/7.1.0          gcc/7.3.0(default)
 ```
 To change GCC version, run for example
 ```
@@ -73,28 +71,29 @@ Note: There is not **the** best compiler. Depending on your application/algorith
 
 Compiling a program translates source code into machine instructions. It is important to let the compiler know for which CPU ("target") the executable shall be build, to make best use of that CPU's capabilities. Māui uses Intel Skylake microprocessors on all XC50 build and compute nodes, which come with AVX-512 vector instructions, enabling better performance for some codes.
 
-CPU targets can be set by loading a module. By default, no target is set and the compilers will produce generic code that runs on many processors of the "x86-64" family. The program will thus not be able to benefit from capabilities such as AVX-512, and you will see the following warning message when you run a compiler:
+CPU targets can be set by loading a module. By default, module ```craype-x86-skylake``` is loaded. In the rare case that you encounter problems with the Skylake target at build time or run time, try target for "Broadwell" processors instead:
 ```
-No supported cpu target is set, CRAY_CPU_TARGET=x86-64 will be used.
-Load a valid targeting module or set CRAY_CPU_TARGET
-```
-So be sure to load
-```
-module load craype-x86-skylake
-```
-In the rare case that you encounter problems with the Skylake target at build time or run time, try target for "Broadwell" processors instead:
-```
-module load craype-broadwell
+module swap craype-x86-skylake craype-broadwell
 ```
 Choosing the "Broadwell" target is also necessary if you want to build code using the older GCC compilers prior to GCC v6.1.0, which were released before Skylake became available. If you see the error message
 ```
 craype-x86-skylake requires cce/8.6 or later, intel/15.1 or later, or gcc/6.1 or later
 ```
-when trying to swap to the ```PrgEnv-gnu``` environment, run
+when trying to swap to the ```PrgEnv-gnu``` environment, or an error message of the kind
+```
+f951: error: bad value (skylake-avx512) for -march= switch
+```
+when you compile a program with a GNU compiler, run
 ```
 module swap craype-x86-skylake craype-broadwell
 ```
 and try again.
+
+Make sure that a target is always set - otherwise the compilers will produce generic code that runs on many processors of the "x86-64" family, and the program will thus not be able to benefit from capabilities such as AVX-512. You will see the following warning message when you run a compiler:
+```
+No supported cpu target is set, CRAY_CPU_TARGET=x86-64 will be used.
+Load a valid targeting module or set CRAY_CPU_TARGET
+```
 
 ### Using the compiler drivers
 
@@ -132,8 +131,9 @@ MPID_Init(636).......:  PMI2 init failed: 1
 ```
 If you want to run a short test of your build, use SLURM's ```mpiexec``` command that submits your program to a compute node on the fly, e.g.,
 ```
-SLURM_PARTITION=Debug mpiexec -n 6 simpleMPI
+SLURM_PARTITION=nesi_research mpiexec -n 6 simpleMPI
 ```
+
 
 ### Common compiler options
 
@@ -167,7 +167,7 @@ The man pages are often largely incomplete, further documentation can be found o
 
 * Cray Compiler Environment: [Cray Fortran v8.7](https://pubs.cray.com/content/S-3901/8.7/cray-fortran-reference-manual/fortran-compiler-introduction), [Cray C and C++ v8.7](https://pubs.cray.com/content/S-2179/8.7/cray-c-and-c++-reference-manual/invoke-the-c-and-c++-compilers)
 * Intel compilers: [Intel Fortran Compiler v17.0](https://software.intel.com/sites/default/files/managed/93/88/PDF%20Fortran%20Compiler%20UG%2017.0%3D1%3DSSG%202.0%20PDF%3Den-US.pdf), [Intel C and C++ Compiler v17.0](https://software.intel.com/sites/default/files/managed/08/ac/PDF%20C%2B%2B%20Compiler%20UG%2017.0%3D1%3DSSG%202.0%20PDF%3Den-US.pdf)
-* GNU compilers: [GCC C and C++ v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gcc.pdf), [GCC C and C++ v7.2.0](https://gcc.gnu.org/onlinedocs/gcc-7.2.0/gcc.pdf), [GNU Fortran v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gfortran.pdf), [GNU Fortran v7.2](https://gcc.gnu.org/onlinedocs/gcc-7.2.0/gfortran.pdf)
+* GNU compilers: [GCC C and C++ v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gcc.pdf), [GCC C and C++ v7.1.0](https://gcc.gnu.org/onlinedocs/gcc-7.1.0/gcc.pdf), [GNU Fortran v4.9.4](https://gcc.gnu.org/onlinedocs/gcc-4.9.4/gfortran.pdf), [GNU Fortran v7.1](https://gcc.gnu.org/onlinedocs/gcc-7.1.0/gfortran.pdf)
 
 ## Building code that depends on external libraries
 
@@ -202,12 +202,12 @@ Note that library names are specified in a specifically formatted form, ```-l<li
 
 Consider the following example where the GSL library is used:
 ```
-module load GSL/2.4-CrayGNU-2017.06
-cc -I$EBROOTGSL/include -o gsl_statistics_example gsl_statistics_example.c -L$EBROOTGSL/lib -lgsl
+module load grib_api/1.23.1-CrayGNU-18.08
+cc -I$EBROOTGRIB_API/include -o mygribprogram mygribprogram.c -L$EBROOTGRIB_API/lib -lgrib_api
 ```
 The EasyBuild software management system that NeSI/NIWA use to provide modules automatically defines environment variables ```$EBROOT<library name in upper case>``` when a module is loaded, which help pointing the compiler and linker to include files and libraries as in the example above. If you are unsure which ```$EBROOT<...>``` variables are available, use
 ```
-module show GSL/2.4-CrayGNU-2017.06
+module show grib_api/1.23.1-CrayGNU-18.08
 ```
 to find out.
 
@@ -232,8 +232,8 @@ The XC50 compilers drivers default to static linking where possible for maximum 
 Here is an example that shows how to find out how your code was linked:
 ```
 module load GSL/2.4-CrayGNU-2017.06
-cc -o gsl_statistics_example gsl_statistics_example.c -lgsl
-ldd gsl_statistics_example
+cc -I$EBROOTGRIB_API/include -o mygribprogram mygribprogram.c -L$EBROOTGRIB_API/lib -lgrib_api
+ldd mygribprogram
 ```
 If you see the message ```not a dynamic executable```, your program was statically linked. Otherwise you will see a list of shared library dependencies that are needed at runtime.
 
@@ -243,7 +243,7 @@ export CRAYPE_LINK_TYPE=dynamic
 ```
 in your build environment (useful when using complex build systems), or add the ```-dynamic``` flag to the compiler driver commands, e.g.,
 ```
-cc -o gsl_statistics_example gsl_statistics_example.c -lgsl -dynamic
+cc -I$EBROOTGRIB_API/include -o mygribprogram mygribprogram.c -L$EBROOTGRIB_API/lib -lgrib_api -dynamic
 ```
 Using the ```ldd``` tool, you should now see a number of libraries that are dynamically linked.
 
@@ -259,7 +259,7 @@ This simply means that the library must be accessible at runtime despite fully s
 Linking can easily go wrong. Most often, you will see linker errors about "missing symbols" when the linker could not find a function used in your program or in one of the libraries that you linked against. To resolve this problem, have a closer look at the function names that the linker reported:
 
 * Are you missing some object code files (these are compiled source files and have suffix ```.o```) that should appear on the linker line? This can happen if the build system was not configured correctly or has a bug. Try running the linking step manually with all source files and debug the build system (which can be a lengthy and cumbersome process, unfortunately).
-* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-openmp``` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using ```-h[no]omp```.
+* Do the missing functions have names that contain "mp" or "omp"? This could mean that some of your source files or external libraries were built with OpenMP support, which requires you to set an OpenMP flag (```-fopenmp``` for GNU compilers, ```-qopenmp``` for Intel) in your linker command. For the Cray compilers, OpenMP is enabled by default and can be controlled using ```-h[no]omp```.
 * Do you see a very long list of complex-looking function names, and does your source code or external library dependency include C++ code? You may need to explicitly link against the C++ standard library (```-lstdc++``` for GNU and Cray compilers, ```-cxxlib``` for Intel compilers); this is a particularly common problem for statically linked code.
 * Do the function names end with an underscore ("_")? You might be missing some Fortran code, either from your own sources or from a library that was written in Fortran, or parts of your Fortran code were built with flags such as ```-assume nounderscore``` (Intel) or ```-fno-underscoring``` (GNU), while others were  using different flags (note that the Cray compiler always uses underscores).
 * Do the function names end with double underscores ("__")? Fortran compilers offer an option to add double underscores to Fortran subroutine names for compatibility reasons (```-h [no]second_underscore```, ```-assume [no]2underscores```, ```-f[no-]second-underscore```) which you may have to add or remove.
@@ -270,8 +270,8 @@ Note that the linker requires that function names match exactly, so any variatio
 
 Building code on the CS500 platform is different from the XC50 platform:
 
-* The CS500 platform does not use compiler drivers
-* The CS500 module environment can be reset using ```module purge``` without problems
+* The CS500 platform does not currently use compiler drivers (these will be made available by Cray in the near future)
+* The CS500 module environment can be reset using ```module purge``` without problems - you will need to run ```module load NeSI``` afterwards to make the NeSI modules available again
 
 Building code on the CS500 platform follows the same process as building code on Mahuika. The only difference is that CS500 nodes use Intel Skylake CPUs, while Mahuika's CS400 nodes use the older Intel Broadwell CPUs. This means that programs that were compiled on the CS500 platform may fail to run on Mahuika, producing either an error message (if built with the Intel compiler), or an "illegal instruction" error (if built with the Cray or GNU compilers).
 
