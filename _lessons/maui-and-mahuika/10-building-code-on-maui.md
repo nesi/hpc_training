@@ -200,7 +200,7 @@ The situation is different when you use a library that is provided by NeSI/NIWA.
 
 Note that library names are specified in a specifically formatted form, ```-l<library name>```. The linker then expects to find a library file named ```lib<library name>.a``` (for a static library) or ```lib<library name>.so``` (for a shared library), e.g., ```libnetcdf.a```. Note that you may need to list several libraries to link successfully, e.g., ```-lA -lB``` for linking against libraries "A" and "B". The order in which you list libraries matters, as the linker will go through the list in order of appearance. If library "A" depends on library "B", specifying ```-lA -lB``` will work. If library "B" depends on "A", use ```-lB -lA```. If they depend on each other, use ```-lA -lB -lA``` (although such cases are quite rare).
 
-Consider the following example where the GSL library is used:
+Consider the following example where the ```grib_api``` library is used:
 ```
 module load grib_api/1.23.1-CrayGNU-18.08
 cc -I$EBROOTGRIB_API/include -o mygribprogram mygribprogram.c -L$EBROOTGRIB_API/lib -lgrib_api
@@ -271,7 +271,7 @@ Note that the linker requires that function names match exactly, so any variatio
 Building code on the CS500 platform is different from the XC50 platform:
 
 * The CS500 platform does not currently use compiler drivers (these will be made available by Cray in the near future)
-* The CS500 module environment can be reset using ```module purge``` without problems - you will need to run ```module load NeSI``` afterwards to make the NeSI modules available again
+* The CS500 module environment can be reset using ```module purge``` without problems - you will need to run ```module load NeSI``` afterwards to make the NeSI software stack available again.
 
 Building code on the CS500 platform follows the same process as building code on Mahuika. The only difference is that CS500 nodes use Intel Skylake CPUs, while Mahuika's CS400 nodes use the older Intel Broadwell CPUs. This means that programs that were compiled on the CS500 platform may fail to run on Mahuika, producing either an error message (if built with the Intel compiler), or an "illegal instruction" error (if built with the Cray or GNU compilers).
 
