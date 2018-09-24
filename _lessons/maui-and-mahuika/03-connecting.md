@@ -39,23 +39,38 @@ Second Factor (optional):
 ```
 Enter the 6-digit code from the mobile device.
 
-To compile code, submit jobs to the scheduler and access your data, you will need to connect to one of the Māui or Mahuika login nodes.
+To compile code, submit jobs to the scheduler and access your data, you will need to connect to a Māui or Mahuika login node, see intructions below.
 
-For Mahuika:
+### From lander node to Mahuika login node
+
 ```
 ssh -Y login.mahuika.nesi.org.nz
 ```
+You will be prompted again to enter your password 
+```
+First Factor:
+```
+and 
+```
+Second Factor (optional):
+```
+Type `<return>` for the second factor.
 
-For Māui:
+### From lander node to Māui login node
+
 ```
 ssh -Y login.maui.nesi.org.nz
 ```
+You will be prompted again to enter your password:
+```
+Password: 
+```
+Type your password followed by the second factor, 6-digit code from the mobile device (e.g. `mypassword123456`).
 
-Your password and a new second factor may be required for this step (going from the lander node to the Māui or Mahuika login nodes). We plan to change this so that a password will not be required for this step in the future.
 
 ## Jumping across the lander node
 
-On most Linux, Windows and MacOS machines the login process can be simplified to just a single `ssh` command, jumping across the lander node on the way to either the Māui or Mahuika login nodes.
+On most Linux, Windows and MacOS machines the login process can be simplified to just a single `ssh` command, jumping across the lander node on the way to either a Māui or Mahuika login node.
 
 ### Windows
 If you use MobaXterm on Windows, activate the "Connect through SSH gateway (jump host)" section in the "Network settings" tab and enter `lander02.nesi.org.nz` in the "Gateway SSH server" field, as well as your username in the "User" field. (In an older version of MobaXterm the section was called "Advanced SSH settings".)
