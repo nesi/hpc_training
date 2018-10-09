@@ -46,15 +46,6 @@ To compile code, submit jobs to the scheduler and access your data, you will nee
 ```
 ssh -Y login.mahuika.nesi.org.nz
 ```
-You will be prompted again to enter your password 
-```
-First Factor:
-```
-and 
-```
-Second Factor (optional):
-```
-Type `<return>` for the second factor.
 
 ### From lander node to Māui login node
 
